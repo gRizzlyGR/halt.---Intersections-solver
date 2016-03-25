@@ -35,6 +35,11 @@
 :- discontiguous da_destra/2.
 :- discontiguous procede/2.
 
+
+%Normally, vehicle facts are pointless. Here they are placed just as a remainder the crossroad components
+
+%Vehicle atoms are identified with the same letter in exercises glued together with the exercise number
+
 %es1
 veicolo(b1).
 veicolo(r1).
@@ -49,6 +54,7 @@ procede(veicolo(r1), dritto).
 procede(veicolo(n1), dritto).
 procede(veicolo(d1), sinistra).
 
+
 %es2
 veicolo(b2).
 veicolo(c2).
@@ -61,6 +67,7 @@ procede(veicolo(b2), dritto).
 procede(veicolo(c2), dritto).
 procede(veicolo(h2), sinistra).
 
+
 %es3
 veicolo(r3).
 veicolo(b3).
@@ -71,13 +78,40 @@ da_destra(veicolo(r3), veicolo(b3)).
 da_destra(veicolo(b3), veicolo(d3)).
 da_destra(veicolo(d3), veicolo(t3)).
 
+
+%es4
+veicolo(a4).
+veicolo(f4).
+veicolo(l4).
+veicolo(h4).
+
+da_destra(veicolo(h4), veicolo(a4)).
+da_destra(veicolo(a4), veicolo(f4)).
+da_destra(veicolo(f4), veicolo(l4)).
+
+procede(veicolo(h4), destra).
+procede(veicolo(a4), sinistra).
+procede(veicolo(f4), destra).
+procede(veicolo(l4), sinistra).
+
+
+%es12
+veicolo(b12).
+veicolo(tram).
+veicolo(g12).
+veicolo(p12).
+
+%%-----TO-DO: Implement signals
+
+rispetta(veicolo(b12), segnale(dare_precedenza)).
+rispetta(veicolo(p12), segnale(dare_precedenza)).
+
 %Rules
 veicolo(in_soccorso) :-
+	veicolo(tram);
 	veicolo(ambulanza);
+	veicolo(antincendio);
 	veicolo(polizia).
-
-precedenza(veicolo(in_soccorso), _).
-precedenza(veicolo(tram), _).
 
 precedenza(veicolo(X), veicolo(Y)) :-
 	da_destra(veicolo(X), veicolo(Y)).
@@ -85,6 +119,9 @@ precedenza(veicolo(X), veicolo(Y)) :-
 precedenza(veicolo(X), veicolo(Y)) :-
 	da_destra(veicolo(X), veicolo(Z)),
 	precedenza(veicolo(Z), veicolo(Y)).
+
+precedenza(veicolo(in_soccorso), _).
+precedenza(veicolo(tram), _).
 
 sinistro(veicolo(X), veicolo(Y)) :-
 	scontro(veicolo(X), veicolo(Y)).
@@ -105,6 +142,5 @@ scontro(veicolo(X), veicolo(Y)) :-
 scontro(veicolo(X), veicolo(Y)) :-
 	procede(veicolo(X), dritto),
 	procede(veicolo(Y), dritto).
-
 
 
