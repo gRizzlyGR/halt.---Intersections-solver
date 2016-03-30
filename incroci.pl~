@@ -61,7 +61,7 @@ da_destra(veicolo(d3), veicolo(t3)).
 procede(veicolo(r3), destra, braccio(sud_ovest)).
 procede(veicolo(b3), sinistra, braccio(sud_ovest)).
 procede(veicolo(d3), sinistra, braccio(sud_ovest)).
-procede(veicolo(t3), destra, braccio(est)).
+procede(veicolo(t3), sinistra, braccio(ovest)).
 
 proviene(veicolo(r3), braccio(nord)).
 proviene(veicolo(b3), braccio(est)).
