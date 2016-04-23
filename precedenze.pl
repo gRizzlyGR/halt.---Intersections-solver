@@ -1,6 +1,8 @@
 %--TO-DO: Precedenza frontale è un tipo di precedenza a destra, tipo
 %-- da_destra(x, Y) :- precedenza_frontale(X,Y).
 
+:- use_module(destra).
+
 %Rules
 nessun_obbligo(veicolo(X)) :-
 	\+ deve_rispettare(veicolo(X), segnale(_)).
@@ -21,6 +23,11 @@ segnale(precedenza) :-
 	segnale(stop).
 
 %Precedenza a destra
+
+
+precede(veicolo(X), veicolo(Y)) :-
+	precedenza(veicolo(X), veicolo(Y)),
+	X \= Y.
 
 destra_libera(veicolo(X)) :-
 	\+ da_destra(veicolo(_), veicolo(X)).
@@ -47,6 +54,9 @@ precedenza(veicolo(X), veicolo(Y)) :-
 
 %precedenza(veicolo(_), veicolo(Y)) :-
 %	deve_rispettare(veicolo(Y), segnale(precedenza)).
+
+%da_destra(veicolo(X), veicolo(Y)) :-
+%	precedenza_frontale(veicolo(X), veicolo(Y)).
 
 %Precedenza_frontale
 precedenza_frontale(veicolo(X), veicolo(Y)) :-

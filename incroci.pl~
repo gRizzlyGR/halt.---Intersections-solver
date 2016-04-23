@@ -1,5 +1,5 @@
 :- ['precedenze.pl'].
-
+:- use_module(destra).
 %Exercises available at
 %http://www.patentati.it/quiz-patente-b/argomento/precedenza-incroci-1.html
 
@@ -7,10 +7,10 @@
 %http://www.patentati.it/quiz-patente-b/lista-domande/precedenza-incroci.html
 
 %These predicates are not grouped together for readability
-:- discontiguous veicolo/1.
-:- discontiguous da_destra/2.
+%:- discontiguous veicolo/1.
+%:- discontiguous da_destra/2.
 :- discontiguous procede/2.
-:- discontiguous nessun_obbligo/1.
+%:- discontiguous nessun_obbligo/1.
 
 %Vehicle atoms are identified with the same letter labels in exercise glued together with the exercise number
 
@@ -54,30 +54,33 @@
 
 
 %%es3 sol: r-b-d-t
-da_destra(veicolo(r3), veicolo(b3)).
-da_destra(veicolo(b3), veicolo(d3)).
-da_destra(veicolo(d3), veicolo(t3)).
+%da_destra(veicolo(r3), veicolo(b3)).
+%da_destra(veicolo(b3), veicolo(d3)).
+%da_destra(veicolo(d3), veicolo(t3)).
 
-procede(veicolo(r3), destra, braccio(sud_ovest)).
-procede(veicolo(b3), sinistra, braccio(sud_ovest)).
-procede(veicolo(d3), sinistra, braccio(sud_ovest)).
-procede(veicolo(t3), sinistra, braccio(ovest)).
+%es3
+%procede(veicolo(r3), destra, braccio(sud_ovest)).
+%procede(veicolo(b3), sinistra, braccio(sud_ovest)).
+%procede(veicolo(d3), sinistra, braccio(sud_ovest)).
+%procede(veicolo(t3), destra, braccio(est)).
 
-proviene(veicolo(r3), braccio(nord)).
-proviene(veicolo(b3), braccio(est)).
-proviene(veicolo(d3), braccio(sud_est)).
-proviene(veicolo(t3), braccio(sud_ovest)).
+%proviene(veicolo(r3), braccio(nord)).
+%proviene(veicolo(b3), braccio(est)).
+%proviene(veicolo(d3), braccio(sud_est)).
+%proviene(veicolo(t3), braccio(sud_ovest)).
 
 
 %%es4
-%da_destra(veicolo(h4), veicolo(a4)).
-%da_destra(veicolo(a4), veicolo(f4)).
-%da_destra(veicolo(f4), veicolo(l4)).
 
-%procede(veicolo(h4), destra).
-%procede(veicolo(a4), sinistra).
-%procede(veicolo(f4), destra).
-%procede(veicolo(l4), sinistra).
+proviene(veicolo(h4), braccio(sud_ovest)).
+proviene(veicolo(a4), braccio(nord_ovest)).
+proviene(veicolo(f4), braccio(nord_est)).
+proviene(veicolo(l4), braccio(sud_est)).
+
+procede(veicolo(h4), destra, braccio(sud_est)).
+procede(veicolo(a4), sinistra, braccio(sud_est)).
+procede(veicolo(f4), destra, braccio(sud_ovest)).
+procede(veicolo(l4), sinistra, braccio(sud_ovest)).
 
 
 %es12
