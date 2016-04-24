@@ -1,5 +1,4 @@
 :- ['precedenze.pl'].
-:- use_module(destra).
 %Exercises available at
 %http://www.patentati.it/quiz-patente-b/argomento/precedenza-incroci-1.html
 

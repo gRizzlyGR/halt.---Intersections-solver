@@ -8,7 +8,7 @@
 %These predicates are not grouped together for readability
 %:- discontiguous veicolo/1.
 %:- discontiguous da_destra/2.
-:- discontiguous procede/2.
+%:- discontiguous procede/2.
 %:- discontiguous nessun_obbligo/1.
 
 %Vehicle atoms are identified with the same letter labels in exercise glued together with the exercise number

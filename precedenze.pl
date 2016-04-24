@@ -2,13 +2,14 @@
 %-- da_destra(x, Y) :- precedenza_frontale(X,Y).
 
 :- use_module(destra).
+:- use_module(adiacenza).
 
 %Rules
-nessun_obbligo(veicolo(X)) :-
-	\+ deve_rispettare(veicolo(X), segnale(_)).
+%%%nessun_obbligo(veicolo(X)) :-
+%%%	\+ deve_rispettare(veicolo(X), segnale(_)).
 
-nessun_obbligo(veicolo(X)) :-
-	destra_libera(veicolo(X)).
+%%%nessun_obbligo(veicolo(X)) :-
+%%%	destra_libera(veicolo(X)).
 
 %Segnali di precedenza
 
@@ -25,12 +26,17 @@ segnale(precedenza) :-
 %Precedenza a destra
 
 
+precede(veicolo(X), veicolo(_)) :-
+	proviene(veicolo(X), braccio(BraccioProv)),
+	procede(veicolo(X), destra, braccio(BraccioArr)),
+	adiacente(braccio(BraccioProv), braccio(BraccioArr)). 
+
 precede(veicolo(X), veicolo(Y)) :-
 	precedenza(veicolo(X), veicolo(Y)),
 	X \= Y.
 
-destra_libera(veicolo(X)) :-
-	\+ da_destra(veicolo(_), veicolo(X)).
+%destra_libera(veicolo(X)) :-
+%	\+ da_destra(veicolo(_), veicolo(X)).
 
 precedenza(veicolo(X), veicolo(Y)) :-
 	da_destra(veicolo(X), veicolo(Y)).
@@ -66,4 +72,4 @@ precedenza_frontale(veicolo(X), veicolo(Y)) :-
 precedenza_frontale(veicolo(X), veicolo(Y)) :-
 	proviene(veicolo(Y), braccio(BraccioY)),
 	procede(veicolo(X), dritto, braccio(BraccioY)),
-	procede(veicolo(Y), sinistra, _).
+	procede(veicolo(Y), sinistra, _).	

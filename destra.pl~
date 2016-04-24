@@ -22,23 +22,18 @@ da_ovest(veicolo(X)) :-
 	proviene(veicolo(X), braccio(nord_ovest)).
 
 %Determino la posizione dei veicoli in base ai punti cardinali
-
 da_destra(veicolo(X), veicolo(Y)) :-
-	viene_da_destra(veicolo(X), veicolo(Y)),
-	X \= Y.
-
-viene_da_destra(veicolo(X), veicolo(Y)) :-
 	da_nord(veicolo(X)),
 	da_est(veicolo(Y)).
 
-viene_da_destra(veicolo(X), veicolo(Y)) :-
+da_destra(veicolo(X), veicolo(Y)) :-
 	da_est(veicolo(X)),
 	da_sud(veicolo(Y)).
 
-viene_da_destra(veicolo(X), veicolo(Y)) :-
+da_destra(veicolo(X), veicolo(Y)) :-
 	da_sud(veicolo(X)),
 	da_ovest(veicolo(Y)).
 
-viene_da_destra(veicolo(X), veicolo(Y)) :-
+da_destra(veicolo(X), veicolo(Y)) :-
 	da_ovest(veicolo(X)),
 	da_nord(veicolo(Y)).
