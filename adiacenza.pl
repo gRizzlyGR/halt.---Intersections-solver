@@ -17,5 +17,8 @@ adiacente(braccio(X), braccio(Y)) :-
 
 adiacente(braccio(X), braccio(Y)) :-
 	collegato(braccio(X), braccio(Z)),
-	collegato(braccio(Z), braccio(Y)),
-	\+ procede(_, _, braccio(Z)).
+	collegato(braccio(Z), braccio(Y)).
+
+adiacente(braccio(X), braccio(Y)) :-
+	collegato(braccio(Y), braccio(Z)),
+	collegato(braccio(Z), braccio(X)).

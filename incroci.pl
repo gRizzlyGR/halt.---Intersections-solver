@@ -18,10 +18,10 @@
 %da_destra(veicolo(r1), veicolo(n1)).
 %da_destra(veicolo(r1), veicolo(d1)).
 
-%procede(veicolo(b1), sinistra, braccio_est).
-%procede(veicolo(r1), dritto, braccio_ovest).
-%procede(veicolo(n1), dritto, braccio_nord).
-%procede(veicolo(d1), sinistra, braccio_ovest).
+%transita(veicolo(b1), sinistra, braccio_est).
+%transita(veicolo(r1), dritto, braccio_ovest).
+%transita(veicolo(n1), dritto, braccio_nord).
+%transita(veicolo(d1), sinistra, braccio_ovest).
 
 %proviene(veicolo(b1), braccio_nord).
 %proviene(veicolo(r1), braccio_est).
@@ -31,9 +31,9 @@
 %%%%%%da_destra(veicolo(b), veicolo(a)).
 %%%%%%da_destra(veicolo(a), veicolo(c)).
 
-%%%%%%procede(veicolo(b), destra, braccio_ovest).
-%%%%%%procede(veicolo(a), dritto, braccio_ovest).
-%%%%%%procede(veicolo(c), sinistra, braccio_ovest).
+%%%%%%transita(veicolo(b), destra, braccio_ovest).
+%%%%%%transita(veicolo(a), dritto, braccio_ovest).
+%%%%%%transita(veicolo(c), sinistra, braccio_ovest).
 
 %%%%%%proviene(veicolo(b), braccio_nord).
 %%%%%%proviene(veicolo(a), braccio_est).
@@ -43,9 +43,9 @@
 %da_destra(veicolo(b2), veicolo(h2)).
 %da_destra(veicolo(h2), veicolo(c2)).
 
-%procede(veicolo(b2), dritto, braccio_ovest).
-%procede(veicolo(c2), dritto, braccio_est).
-%procede(veicolo(h2), sinistra, braccio_ovest).
+%transita(veicolo(b2), dritto, braccio_ovest).
+%transita(veicolo(c2), dritto, braccio_est).
+%transita(veicolo(h2), sinistra, braccio_ovest).
 
 %proviene(veicolo(b2), braccio_est).
 %proviene(veicolo(h2), braccio_sud).
@@ -58,10 +58,10 @@
 %da_destra(veicolo(d3), veicolo(t3)).
 
 %es3
-%procede(veicolo(r3), destra, braccio(sud_ovest)).
-%procede(veicolo(b3), sinistra, braccio(sud_ovest)).
-%procede(veicolo(d3), sinistra, braccio(sud_ovest)).
-%procede(veicolo(t3), destra, braccio(est)).
+%transita(veicolo(r3), destra, braccio(sud_ovest)).
+%transita(veicolo(b3), sinistra, braccio(sud_ovest)).
+%transita(veicolo(d3), sinistra, braccio(sud_ovest)).
+%transita(veicolo(t3), destra, braccio(est)).
 
 %proviene(veicolo(r3), braccio(nord)).
 %proviene(veicolo(b3), braccio(est)).
@@ -71,15 +71,29 @@
 
 %%es4
 
-proviene(veicolo(h4), braccio(sud_ovest)).
-proviene(veicolo(a4), braccio(nord_ovest)).
-proviene(veicolo(f4), braccio(nord_est)).
-proviene(veicolo(l4), braccio(sud_est)).
+%proviene(veicolo(test), braccio(nord)).
 
-procede(veicolo(h4), destra, braccio(sud_est)).
-procede(veicolo(a4), sinistra, braccio(sud_est)).
-procede(veicolo(f4), destra, braccio(sud_ovest)).
-procede(veicolo(l4), sinistra, braccio(sud_ovest)).
+%proviene(veicolo(h4), braccio(sud_ovest)).
+%proviene(veicolo(a4), braccio(nord_ovest)).
+%proviene(veicolo(f4), braccio(nord_est)).
+%proviene(veicolo(l4), braccio(sud_est)).
+
+%transita(veicolo(test), destra, braccio(est)).
+
+%transita(veicolo(h4), destra, braccio(sud_est)).
+%transita(veicolo(a4), sinistra, braccio(sud_est)).
+%transita(veicolo(f4), destra, braccio(sud_ovest)).
+%transita(veicolo(l4), sinistra, braccio(sud_ovest)).
+
+
+%fig.606
+proviene(veicolo(e), braccio(ovest)).
+proviene(veicolo(c), braccio(est)).
+proviene(veicolo(m), braccio(sud)).
+
+transita(veicolo(e), destra, braccio(sud)).
+transita(veicolo(c), sinistra, braccio(sud)).
+transita(veicolo(m), sinistra, braccio(ovest)).
 
 
 %es12
@@ -88,10 +102,10 @@ procede(veicolo(l4), sinistra, braccio(sud_ovest)).
 %proviene(veicolo(g12), braccio_ovest).
 %proviene(veicolo(p12), braccio_sud).
 
-%procede(veicolo(b12), sinistra, braccio_est).
-%procede(veicolo(p12), dritto, braccio_nord).
-%procede(veicolo(g12), dritto, braccio_est).
-%procede(veicolo(tram)).
+%transita(veicolo(b12), sinistra, braccio_est).
+%transita(veicolo(p12), dritto, braccio_nord).
+%transita(veicolo(g12), dritto, braccio_est).
+%transita(veicolo(tram)).
 
 %deve_rispettare(veicolo(b12), segnale(dare_precedenza)).
 %deve_rispettare(veicolo(p12), segnale(dare_precedenza)).

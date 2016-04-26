@@ -25,51 +25,39 @@ segnale(precedenza) :-
 
 %Precedenza a destra
 
-
-precede(veicolo(X), veicolo(_)) :-
-	proviene(veicolo(X), braccio(BraccioProv)),
-	procede(veicolo(X), destra, braccio(BraccioArr)),
-	adiacente(braccio(BraccioProv), braccio(BraccioArr)). 
-
+primo(veicolo(X)) :-
+	\+ precede(_, veicolo(X)),
+	proviene(veicolo(X), Da),
+	transita(veicolo(X), destra, A),
+	adiacente(Da, A).
+%	transita(veicolo(Y), _, A),
+%	\+ precede(veicolo(Y), veicolo(X)).
+	
 precede(veicolo(X), veicolo(Y)) :-
+	\+ bracci_opposti(veicolo(X), veicolo(Y)),
 	precedenza(veicolo(X), veicolo(Y)),
 	X \= Y.
 
-destra_libera(veicolo(X)) :-
-	\+ da_destra(veicolo(_), veicolo(X)).
-
 precedenza(veicolo(X), veicolo(Y)) :-
 	da_destra(veicolo(X), veicolo(Y)).
-
-%da_destra(veicolo(X), veicolo(Y)) :-
-%	precedenza_frontale(veicolo(X), veicolo(Y)).
-
-%precedenza(veicolo(X), veicolo(Y)) :-
-%	da_destra(veicolo(X), veicolo(Z)),
-%	precedenza(veicolo(Z), veicolo(Y)).
-
-
-%precedenza(veicolo(X), veicolo(Y)) :-
-%	nessun_obbligo(veicolo(X)),
-%	procede(veicolo(X), _, _),
-%	X \== Y.
 
 %Precedenza regolata da segnali
 precedenza(veicolo(X), veicolo(Y)) :-
 	precedenza_frontale(veicolo(X), veicolo(Y)).
 
-%precedenza(veicolo(_), veicolo(Y)) :-
-%	deve_rispettare(veicolo(Y), segnale(precedenza)).
-
-%da_destra(veicolo(X), veicolo(Y)) :-
-%	precedenza_frontale(veicolo(X), veicolo(Y)).
-
 %Precedenza_frontale
 precedenza_frontale(veicolo(X), veicolo(Y)) :-
-	procede(veicolo(X), destra, braccio(Braccio)),
-	procede(veicolo(Y), sinistra, braccio(Braccio)).
+	transita(veicolo(X), destra, braccio(Braccio)),
+	transita(veicolo(Y), sinistra, braccio(Braccio)).
 
 precedenza_frontale(veicolo(X), veicolo(Y)) :-
 	proviene(veicolo(Y), braccio(BraccioY)),
-	procede(veicolo(X), dritto, braccio(BraccioY)),
-	procede(veicolo(Y), sinistra, _).	
+	transita(veicolo(X), dritto, braccio(BraccioY)),
+	transita(veicolo(Y), sinistra, _).
+
+%Tratta il caso in cui i due veicoli transitino l'uno nel braccio di provenienza dell'altro
+bracci_opposti(veicolo(X), veicolo(Y)) :-
+	proviene(veicolo(X), BraccioX),
+	proviene(veicolo(Y), BraccioY),
+	transita(veicolo(X), _, BraccioY),
+	transita(veicolo(Y), _, BraccioX).
