@@ -3,6 +3,9 @@
 
 :- use_module(destra).
 :- use_module(adiacenza).
+:- use_module(opposti).
+
+%:- dynamic controlla/2.
 
 %Rules
 %%%nessun_obbligo(veicolo(X)) :-
@@ -26,20 +29,34 @@ segnale(precedenza) :-
 %Precedenza a destra
 
 primo(veicolo(X)) :-
-	\+ precede(_, veicolo(X)),
-	proviene(veicolo(X), Da),
-	transita(veicolo(X), destra, A),
-	adiacente(Da, A).
+	\+ precede(_, veicolo(X)).
+%	proviene(veicolo(X), Da),
+%	transita(veicolo(X), destra, A),
+%	adiacente(Da, A).
 %	transita(veicolo(Y), _, A),
 %	\+ precede(veicolo(Y), veicolo(X)).
-	
+
+
+
+%Controlla se i veicoli sono già stati processati
+%precede(veicolo(X), veicolo(Y)) :-
+%	controlla(veicolo(X), veicolo(Y)),
+%	!.
+
 precede(veicolo(X), veicolo(Y)) :-
-%	\+ bracci_opposti(veicolo(X), veicolo(Y)),
+%	\+ mia_dest_tua_prov(veicolo(X), veicolo(Y)),
 	precedenza(veicolo(X), veicolo(Y)),
 	X \= Y.
+%	asserta(controlla(veicolo(X), veicolo(Y))).
 
+%precedenza(veicolo(X), veicolo(Y)) :-
+%	da_destra(veicolo(X), veicolo(Y)),
+%	\+ mia_dest_tua_prov(veicolo(X), veicolo(Y)).
+	
 precedenza(veicolo(X), veicolo(Y)) :-
-	da_destra(veicolo(X), veicolo(Y)).
+	da_destra(veicolo(X), veicolo(Y)),
+%	\+ mia_dest_tua_prov(veicolo(X), veicolo(Y)).
+	si_incrociano(veicolo(X), veicolo(Y)).
 
 %Precedenza regolata da segnali
 precedenza(veicolo(X), veicolo(Y)) :-
@@ -56,8 +73,31 @@ precedenza_frontale(veicolo(X), veicolo(Y)) :-
 	transita(veicolo(Y), sinistra, _).
 
 %Tratta il caso in cui i due veicoli transitino l'uno nel braccio di provenienza dell'altro
-bracci_opposti(veicolo(X), veicolo(Y)) :-
+mia_dest_tua_prov(veicolo(X), veicolo(Y)) :-
 	proviene(veicolo(X), BraccioX),
 	proviene(veicolo(Y), BraccioY),
 	transita(veicolo(X), _, BraccioY),
 	transita(veicolo(Y), _, BraccioX).
+
+transitano_stesso_braccio(veicolo(X), veicolo(Y)) :-
+	transita(veicolo(X), _, StessoBraccio),
+	transita(veicolo(Y), _, StessoBraccio).
+
+si_incrociano(veicolo(X), veicolo(Y)) :-
+	transitano_stesso_braccio(veicolo(X), veicolo(Y)).
+
+si_incrociano(veicolo(X), veicolo(Y)) :-
+	proviene(veicolo(X), DaX),
+	proviene(veicolo(Y), DaY),
+	adiacente(DaX, DaY),
+	transita(veicolo(X), sinistra, VersoX),
+	transita(veicolo(Y), _, VersoY),
+	opposto(VersoX, VersoY).
+
+si_incrociano(veicolo(X), veicolo(Y)) :-
+	proviene(veicolo(X), DaX),
+	proviene(veicolo(Y), DaY),
+	adiacente(DaX, DaY),
+	transita(veicolo(X), _, VersoX),
+	transita(veicolo(Y), sinistra, VersoY),
+	opposto(VersoX, VersoY).

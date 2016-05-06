@@ -1,4 +1,4 @@
-:-module(destra, [da_destra/2]).
+:- module(destra, [da_destra/2]).
 
 %Raccolgo le tratte coperte dai veicoli sotto i vari punti cardinali
 da_nord(veicolo(X)) :-
