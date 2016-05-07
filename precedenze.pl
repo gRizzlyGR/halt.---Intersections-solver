@@ -26,8 +26,7 @@ segnale(precedenza) :-
 segnale(precedenza) :-
 	segnale(stop).
 
-%Precedenza a destra
-
+%Non funziona
 primo(veicolo(X)) :-
 	\+ precede(_, veicolo(X)).
 %	proviene(veicolo(X), Da),
@@ -36,31 +35,14 @@ primo(veicolo(X)) :-
 %	transita(veicolo(Y), _, A),
 %	\+ precede(veicolo(Y), veicolo(X)).
 
-
-
-%Controlla se i veicoli sono già stati processati
-%precede(veicolo(X), veicolo(Y)) :-
-%	controlla(veicolo(X), veicolo(Y)),
-%	!.
+precede(veicolo(X), veicolo(Y)) :-
+	da_destra(veicolo(X), veicolo(Y)),
+	incrocia(veicolo(X), veicolo(Y)),
+	X \= Y.
 
 precede(veicolo(X), veicolo(Y)) :-
-%	\+ mia_dest_tua_prov(veicolo(X), veicolo(Y)),
-	precedenza(veicolo(X), veicolo(Y)),
+	precedenza_frontale(veicolo(X), veicolo(Y)),
 	X \= Y.
-%	asserta(controlla(veicolo(X), veicolo(Y))).
-
-%precedenza(veicolo(X), veicolo(Y)) :-
-%	da_destra(veicolo(X), veicolo(Y)),
-%	\+ mia_dest_tua_prov(veicolo(X), veicolo(Y)).
-	
-precedenza(veicolo(X), veicolo(Y)) :-
-	da_destra(veicolo(X), veicolo(Y)),
-%	\+ mia_dest_tua_prov(veicolo(X), veicolo(Y)).
-	si_incrociano(veicolo(X), veicolo(Y)).
-
-%Precedenza regolata da segnali
-precedenza(veicolo(X), veicolo(Y)) :-
-	precedenza_frontale(veicolo(X), veicolo(Y)).
 
 %Precedenza_frontale
 precedenza_frontale(veicolo(X), veicolo(Y)) :-
@@ -83,21 +65,49 @@ transitano_stesso_braccio(veicolo(X), veicolo(Y)) :-
 	transita(veicolo(X), _, StessoBraccio),
 	transita(veicolo(Y), _, StessoBraccio).
 
-si_incrociano(veicolo(X), veicolo(Y)) :-
+incrocia(veicolo(X), veicolo(Y)) :-
 	transitano_stesso_braccio(veicolo(X), veicolo(Y)).
 
-si_incrociano(veicolo(X), veicolo(Y)) :-
+incrocia(veicolo(X), veicolo(Y)) :-
+	proviene(veicolo(X), _),
+	proviene(veicolo(Y), _),
+	entrambi_dritto(veicolo(X), veicolo(Y)).
+
+incrocia(veicolo(X), veicolo(Y)) :-
 	proviene(veicolo(X), DaX),
 	proviene(veicolo(Y), DaY),
 	adiacente(DaX, DaY),
-	transita(veicolo(X), sinistra, VersoX),
-	transita(veicolo(Y), _, VersoY),
+	entrambi_a_sinistra(veicolo(X), veicolo(Y), braccio(VersoX), braccio(VersoY)),
+	adiacente(VersoX, VersoY).
+
+incrocia(veicolo(X), veicolo(Y)) :-
+	proviene(veicolo(X), DaX),
+	proviene(veicolo(Y), DaY),
+	adiacente(DaX, DaY),
+	uno_a_sinistra(veicolo(X), veicolo(Y), braccio(VersoX), braccio(VersoY)),
 	opposto(VersoX, VersoY).
 
-si_incrociano(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), DaX),
-	proviene(veicolo(Y), DaY),
-	adiacente(DaX, DaY),
-	transita(veicolo(X), _, VersoX),
-	transita(veicolo(Y), sinistra, VersoY),
-	opposto(VersoX, VersoY).
+%Entrambi i veicoli vanno dritto
+entrambi_dritto(veicolo(X), veicolo(Y)) :-
+	transita(veicolo(X), dritto, _),
+	transita(veicolo(Y), dritto, _).
+
+%Entrambi i veicoli vanno a sinistra. Va scritto prima di 'uno_a_sinitra' per via della variabile anonima che accetta tutto
+entrambi_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
+	transita(veicolo(X), sinistra, BraccioX),
+	transita(veicolo(Y), sinistra, BraccioY).
+
+%Un veicolo va a sinistra.
+uno_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
+	transita(veicolo(X), sinistra, BraccioX),
+	transita(veicolo(Y), _, BraccioY).
+	
+uno_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
+	transita(veicolo(X), _, BraccioX),
+	transita(veicolo(Y), sinistra, BraccioY).
+
+
+va_al_centro(veicolo(X)) :-
+	precede(veicolo(X), veicolo(Y)),
+	precede(veicolo(Y), veicolo(Z)),
+	precede(veicolo(Z), veicolo(X)).

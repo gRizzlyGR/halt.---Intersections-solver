@@ -21,7 +21,8 @@ di_fronte(braccio(ovest), braccio(sud_est)).
 di_fronte(braccio(ovest), braccio(nord_est)).
 
 opposto(braccio(X), braccio(Y)) :-
-	di_fronte(braccio(X), braccio(Y)).
+	di_fronte(braccio(X), braccio(Y)),
+	!.
 
 opposto(braccio(X), braccio(Y)) :-
 	di_fronte(braccio(Y), braccio(X)).
