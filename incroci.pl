@@ -1,15 +1,10 @@
 :- ['precedenze.pl'].
+
 %Exercises available at
 %http://www.patentati.it/quiz-patente-b/argomento/precedenza-incroci-1.html
 
 %Solutions:
 %http://www.patentati.it/quiz-patente-b/lista-domande/precedenza-incroci.html
-
-%These predicates are not grouped together for readability
-%:- discontiguous veicolo/1.
-%:- discontiguous da_destra/2.
-%:- discontiguous procede/2.
-%:- discontiguous nessun_obbligo/1.
 
 %Vehicle atoms are identified with the same letter labels in exercise glued together with the exercise number
 
@@ -95,6 +90,27 @@
 %transita(veicolo(c), sinistra, braccio(sud)).
 %transita(veicolo(m), sinistra, braccio(ovest)).
 
+%---fig.617. N si sposta al centro.
+%proviene(veicolo(n), braccio(nord)).
+%proviene(veicolo(r), braccio(est)).
+%proviene(veicolo(a), braccio(sud)).
+
+%transita(veicolo(n), sinistra, braccio(est)).
+%transita(veicolo(r), dritto, braccio(ovest)).
+%transita(veicolo(a), dritto, braccio(nord)).
+
+%Modificato con l'aggiunta di B
+%proviene(veicolo(n), braccio(nord)).
+%proviene(veicolo(r), braccio(est)).
+%proviene(veicolo(a), braccio(sud)).
+%proviene(veicolo(b), braccio(ovest)).
+
+%transita(veicolo(n), sinistra, braccio(est)).
+%transita(veicolo(r), sinistra, braccio(sud)).
+%transita(veicolo(a), dritto, braccio(nord)).
+%transita(veicolo(b), dritto, braccio(est)).
+
+
 %---fig.632
 %proviene(veicolo(b), braccio(nord_ovest)).
 %proviene(veicolo(n), braccio(est)).
@@ -105,6 +121,20 @@
 %transita(veicolo(n), dritto, braccio(ovest)).
 %transita(veicolo(d), destra, braccio(est)).
 %transita(veicolo(p), dritto, braccio(est)).
+
+
+%---fig.638. B si sposta al centro
+%proviene(veicolo(b), braccio(nord)).
+%proviene(veicolo(r), braccio(est)).
+%proviene(veicolo(n), braccio(sud)).
+%proviene(veicolo(d), braccio(sud)).
+
+%transita(veicolo(b), sinistra, braccio(est)).
+%transita(veicolo(r), dritto, braccio(ovest)).
+%transita(veicolo(n), dritto, braccio(nord)).
+%transita(veicolo(d), sinistra, braccio(ovest)).
+
+
 
 %---fig.640
 %proviene(veicolo(b), braccio(ovest)).
@@ -117,6 +147,7 @@
 %transita(veicolo(l), dritto, braccio(est)).
 %transita(veicolo(d), dritto, braccio(nord)).
 
+
 %---fig.643
 %proviene(veicolo(b), braccio(sud)).
 %proviene(veicolo(l), braccio(ovest)).
@@ -128,18 +159,22 @@
 %transita(veicolo(h), destra, braccio(ovest)).
 %transita(veicolo(d), dritto, braccio(ovest)).
 
-%---fig.638. B si sposta al centro
+%si_trova(niente, niente).
+
+
+%---fig.647
 proviene(veicolo(b), braccio(nord)).
-proviene(veicolo(r), braccio(est)).
-proviene(veicolo(n), braccio(sud)).
-proviene(veicolo(d), braccio(sud)).
+proviene(veicolo(l), braccio(est)).
+proviene(veicolo(o), braccio(sud)).
+proviene(veicolo(h), braccio(ovest)).
 
-transita(veicolo(b), sinistra, braccio(est)).
-transita(veicolo(r), dritto, braccio(ovest)).
-transita(veicolo(n), dritto, braccio(nord)).
-transita(veicolo(d), sinistra, braccio(ovest)).
+transita(veicolo(b), destra, braccio(ovest)).
+transita(veicolo(l), dritto, braccio(ovest)).
+transita(veicolo(o), sinistra, braccio(ovest)).
+transita(veicolo(h), dritto, braccio(est)).
 
-
+si_trova(segnale(dare_precedenza), braccio(nord)).
+si_trova(segnale(dare_precedenza), braccio(sud)).
 
 %---fig.665
 %proviene(veicolo(a), braccio(ovest)).
