@@ -2,6 +2,7 @@
 :- use_module(adiacenza).
 :- use_module(opposti).
 :- use_module(segnali).
+:- use_module(library(lists)).
 
 %Rules
 %%%nessun_obbligo(veicolo(X)) :-
@@ -22,6 +23,15 @@ primo(veicolo(X)) :-
 %	adiacente(Da, A).
 %	transita(veicolo(Y), _, A),
 %	\+ precede(veicolo(Y), veicolo(X)).
+
+% Il primo veicolo a passare è il veicolo che ha la destra libera
+primo(veicolo(X)) :-
+	destra_libera(veicolo(X)).
+
+% Destra libera
+destra_libera(veicolo(X)) :-
+	transita(veicolo(X), destra, _),
+	\+ precede(_, veicolo(X)).
 
 precede(_, veicolo(Y)) :-
 	proviene(veicolo(Y), braccio(B)),
@@ -114,3 +124,4 @@ precedenza_circolare(veicolo(A), veicolo(C)) :-
 	precedenza_circolare(veicolo(C), veicolo(Z)),
 	precede(veicolo(Z), veicolo(A)),
 	!.
+	

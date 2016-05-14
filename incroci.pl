@@ -1,4 +1,6 @@
-:- ['precedenze.pl'].
+:- dynamic si_trova/2.
+
+%:- ['precedenze.pl'].
 
 %Exercises available at
 %http://www.patentati.it/quiz-patente-b/argomento/precedenza-incroci-1.html
@@ -90,6 +92,8 @@
 %transita(veicolo(c), sinistra, braccio(sud)).
 %transita(veicolo(m), sinistra, braccio(ovest)).
 
+%si_trova(niente, niente).
+
 %---fig.617. N si sposta al centro.
 %proviene(veicolo(n), braccio(nord)).
 %proviene(veicolo(r), braccio(est)).
@@ -100,16 +104,15 @@
 %transita(veicolo(a), dritto, braccio(nord)).
 
 %Modificato con l'aggiunta di B
-%proviene(veicolo(n), braccio(nord)).
-%proviene(veicolo(r), braccio(est)).
-%proviene(veicolo(a), braccio(sud)).
-%proviene(veicolo(b), braccio(ovest)).
+proviene(veicolo(n), braccio(nord)).
+proviene(veicolo(r), braccio(est)).
+proviene(veicolo(a), braccio(sud)).
+proviene(veicolo(b), braccio(ovest)).
 
-%transita(veicolo(n), sinistra, braccio(est)).
-%transita(veicolo(r), sinistra, braccio(sud)).
-%transita(veicolo(a), dritto, braccio(nord)).
-%transita(veicolo(b), dritto, braccio(est)).
-
+transita(veicolo(n), sinistra, braccio(est)).
+transita(veicolo(r), sinistra, braccio(sud)).
+transita(veicolo(a), dritto, braccio(nord)).
+transita(veicolo(b), dritto, braccio(est)).
 
 %---fig.632
 %proviene(veicolo(b), braccio(nord_ovest)).
@@ -163,18 +166,18 @@
 
 
 %---fig.647
-proviene(veicolo(b), braccio(nord)).
-proviene(veicolo(l), braccio(est)).
-proviene(veicolo(o), braccio(sud)).
-proviene(veicolo(h), braccio(ovest)).
+%proviene(veicolo(b), braccio(nord)).
+%proviene(veicolo(l), braccio(est)).
+%proviene(veicolo(o), braccio(sud)).
+%proviene(veicolo(h), braccio(ovest)).
 
-transita(veicolo(b), destra, braccio(ovest)).
-transita(veicolo(l), dritto, braccio(ovest)).
-transita(veicolo(o), sinistra, braccio(ovest)).
-transita(veicolo(h), dritto, braccio(est)).
+%transita(veicolo(b), destra, braccio(ovest)).
+%transita(veicolo(l), dritto, braccio(ovest)).
+%transita(veicolo(o), sinistra, braccio(ovest)).
+%transita(veicolo(h), dritto, braccio(est)).
 
-si_trova(segnale(dare_precedenza), braccio(nord)).
-si_trova(segnale(dare_precedenza), braccio(sud)).
+%si_trova(segnale(dare_precedenza), braccio(nord)).
+%si_trova(segnale(dare_precedenza), braccio(sud)).
 
 %---fig.665
 %proviene(veicolo(a), braccio(ovest)).
