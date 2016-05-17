@@ -1,4 +1,4 @@
-:- dynamic si_trova/2
+:- dynamic si_trova/2.
 
 %:- ['precedenze.pl'].
 
@@ -104,15 +104,15 @@
 %transita(veicolo(a), dritto, braccio(nord)).
 
 %Modificato con l'aggiunta di B
-proviene(veicolo(n), braccio(nord)).
-proviene(veicolo(r), braccio(est)).
-proviene(veicolo(a), braccio(sud)).
-proviene(veicolo(b), braccio(ovest)).
+%proviene(veicolo(n), braccio(nord)).
+%proviene(veicolo(r), braccio(est)).
+%proviene(veicolo(a), braccio(sud)).
+%proviene(veicolo(b), braccio(ovest)).
 
-transita(veicolo(n), sinistra, braccio(est)).
-transita(veicolo(r), sinistra, braccio(sud)).
-transita(veicolo(a), dritto, braccio(nord)).
-transita(veicolo(b), dritto, braccio(est)).
+%transita(veicolo(n), sinistra, braccio(est)).
+%transita(veicolo(r), sinistra, braccio(sud)).
+%transita(veicolo(a), dritto, braccio(nord)).
+%transita(veicolo(b), dritto, braccio(est)).
 
 %---fig.632
 %proviene(veicolo(b), braccio(nord_ovest)).
@@ -152,15 +152,15 @@ transita(veicolo(b), dritto, braccio(est)).
 
 
 %---fig.643
-%proviene(veicolo(b), braccio(sud)).
-%proviene(veicolo(l), braccio(ovest)).
-%proviene(veicolo(h), braccio(nord)).
-%proviene(veicolo(d), braccio(est)).
+proviene(veicolo(b), braccio(sud)).
+proviene(veicolo(l), braccio(ovest)).
+proviene(veicolo(h), braccio(nord)).
+proviene(veicolo(d), braccio(est)).
 
-%transita(veicolo(b), sinistra, braccio(ovest)).
-%transita(veicolo(l), dritto, braccio(est)).
-%transita(veicolo(h), destra, braccio(ovest)).
-%transita(veicolo(d), dritto, braccio(ovest)).
+transita(veicolo(b), sinistra, braccio(ovest)).
+transita(veicolo(l), dritto, braccio(est)).
+transita(veicolo(h), destra, braccio(ovest)).
+transita(veicolo(d), dritto, braccio(ovest)).
 
 %si_trova(niente, niente).
 

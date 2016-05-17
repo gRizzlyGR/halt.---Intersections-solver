@@ -3,7 +3,7 @@
 :- use_module(opposti).
 :- use_module(segnali).
 :- use_module(library(lists)).
-
+:- use_module(msg).
 %Rules
 %%%nessun_obbligo(veicolo(X)) :-
 %%%	\+ deve_rispettare(veicolo(X), segnale(_)).
@@ -15,18 +15,16 @@
 
 %--TO-DO: Add other road signs
 
-%Non funziona
-primo(veicolo(X)) :-
-	\+ precede(_, veicolo(X)).
-%	proviene(veicolo(X), Da),
-%	transita(veicolo(X), destra, A),
-%	adiacente(Da, A).
-%	transita(veicolo(Y), _, A),
-%	\+ precede(veicolo(Y), veicolo(X)).
-
 % Il primo veicolo a passare è il veicolo che ha la destra libera
 primo(veicolo(X)) :-
-	destra_libera(veicolo(X)).
+	destra_libera(veicolo(X)),
+	msg:primo_a_passare(X).
+
+% Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le normali regole.
+% Il veicolo al centro passerò per ultimo
+primo(veicolo(X)) :-
+	attesa_cicolare([veicolo(X) | _]),	
+	msg:va_al_centro(X). 
 
 % Destra libera
 destra_libera(veicolo(X)) :-
@@ -112,23 +110,33 @@ uno_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
 % Può capitare che i veicoli nell'incrocio debbano dare la precedenza ad un veicolo e averla da un altro, in modo circolare;
 % si viene così a creare una situazione di stallo che viene risolta quando un veicolo si porta al centro dell'incrocio
 % così da permettere agli altri di transitare, secondo le regole standard. Il veicolo al centro passerà per ultimo.
-va_al_centro(veicolo(X)) :-
-	precedenza_circolare(veicolo(X), _).
-
-precedenza_circolare(veicolo(A), veicolo(C)) :-
-	precede(veicolo(A), veicolo(B)),
-	precede(veicolo(B), veicolo(C)),
-	precede(veicolo(C), veicolo(A)).
-
-precedenza_circolare(veicolo(A), veicolo(C)) :-
-	precedenza_circolare(veicolo(C), veicolo(Z)),
-	precede(veicolo(Z), veicolo(A)),
-	!.
-
-pc(List) :-
-	setof(precede(A,B), precede(A,B), List1),
-	setof(precede(B,C), precede(B,C), List2),
-	setof(precede(C,A), precede(C,A), List3),
-	merge(List1, List2, Tmp),
-	merge(Tmp, List3, List).
+attesa_cicolare(Veicoli) :-
+	findall(X, proviene(X, _), Veicoli),
+	stallo(Veicoli, []).
 	
+
+stallo([H|T], Acc) :-
+	precede(H, Preceduto),
+	\+ member(Preceduto, Acc),
+	stallo(T, [Preceduto | Acc]).
+
+stallo([], _).
+	
+
+%sameElem([prec(veicolo(A), _)|T]) :-
+%	reverse(T, [prec(_, veicolo(A))|_]).
+
+
+% Helper per l'inverso di una lista	
+%rev(L,R):-
+%	accRev(L, [], R).
+
+%accRev([H|T], A, R):-
+%	accRev(T, [H|A], R).
+
+%accRev([], A, A).
+
+% Member
+%member(H, [H|_]).
+%member(Elem, [_|T]):-
+%	member(Elem, T).
