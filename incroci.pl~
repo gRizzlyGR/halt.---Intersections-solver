@@ -115,15 +115,15 @@
 %transita(veicolo(b), dritto, braccio(est)).
 
 %---fig.632
-%proviene(veicolo(b), braccio(nord_ovest)).
-%proviene(veicolo(n), braccio(est)).
-%proviene(veicolo(d), braccio(sud_ovest)).
-%proviene(veicolo(p), braccio(ovest)).
+proviene(veicolo(b), braccio(nord_ovest)).
+proviene(veicolo(n), braccio(est)).
+proviene(veicolo(d), braccio(sud_ovest)).
+proviene(veicolo(p), braccio(ovest)).
 
-%transita(veicolo(b), dritto, braccio(sud_ovest)).
-%transita(veicolo(n), dritto, braccio(ovest)).
-%transita(veicolo(d), destra, braccio(est)).
-%transita(veicolo(p), dritto, braccio(est)).
+transita(veicolo(b), dritto, braccio(sud_ovest)).
+transita(veicolo(n), dritto, braccio(ovest)).
+transita(veicolo(d), destra, braccio(est)).
+transita(veicolo(p), dritto, braccio(est)).
 
 
 %---fig.638. B si sposta al centro
@@ -152,15 +152,15 @@
 
 
 %---fig.643
-proviene(veicolo(b), braccio(sud)).
-proviene(veicolo(l), braccio(ovest)).
-proviene(veicolo(h), braccio(nord)).
-proviene(veicolo(d), braccio(est)).
+%proviene(veicolo(b), braccio(sud)).
+%proviene(veicolo(l), braccio(ovest)).
+%proviene(veicolo(h), braccio(nord)).
+%proviene(veicolo(d), braccio(est)).
 
-transita(veicolo(b), sinistra, braccio(ovest)).
-transita(veicolo(l), dritto, braccio(est)).
-transita(veicolo(h), destra, braccio(ovest)).
-transita(veicolo(d), dritto, braccio(ovest)).
+%transita(veicolo(b), sinistra, braccio(ovest)).
+%transita(veicolo(l), dritto, braccio(est)).
+%transita(veicolo(h), destra, braccio(ovest)).
+%transita(veicolo(d), dritto, braccio(ovest)).
 
 %si_trova(niente, niente).
 

@@ -15,16 +15,37 @@
 
 %--TO-DO: Add other road signs
 
-% Il primo veicolo a passare è il veicolo che ha la destra libera
+% Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
 primo(veicolo(X)) :-
 	destra_libera(veicolo(X)),
 	msg:primo_a_passare(X).
 
-% Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le normali regole.
+% Altrimenti è il veicolo che non è preceduto da nessuno
+primo(veicolo(X)) :-
+	transita(veicolo(X), _, _),
+	\+ precede(_, veicolo(X)),
+	msg:primo_a_passare(X).
+
+% Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
 % Il veicolo al centro passerò per ultimo.
 primo(veicolo(X)) :-
-	attesa_cicolare([veicolo(X) | _]),	
+	attesa_cicolare([veicolo(X) | _]),
 	msg:va_al_centro(X). 
+
+prossimo(veicolo(X)) :-
+	precede(veicolo(X), _),
+	\+ primo(veicolo(X)),
+	\+ ultimo(veicolo(X)),
+	msg:prossimo_a_passare(X),
+	fail.
+
+prossimo(_).
+
+
+ultimo(veicolo(X)) :-
+	precede(_, veicolo(X)),
+	\+ precede(veicolo(X), _),
+	msg:ultimo_a_passare(X).
 
 % Destra libera
 destra_libera(veicolo(X)) :-
@@ -38,12 +59,12 @@ precede(_, veicolo(Y)) :-
 
 precede(veicolo(X), veicolo(Y)) :-
 	da_destra(veicolo(X), veicolo(Y)),
-	incrocia(veicolo(X), veicolo(Y)).
-%	X \= Y.
+	incrocia(veicolo(X), veicolo(Y)),
+	X \= Y.
 
 precede(veicolo(X), veicolo(Y)) :-
-	precedenza_frontale(veicolo(X), veicolo(Y)).
-%	X \= Y.
+	precedenza_frontale(veicolo(X), veicolo(Y)),
+	X \= Y.
 
 % Precedenza_frontale
 precedenza_frontale(veicolo(X), veicolo(Y)) :-
@@ -68,7 +89,7 @@ incrocia(veicolo(X), veicolo(Y)) :-
 incrocia(veicolo(X), veicolo(Y)) :-
 	entrambi_dritto(veicolo(X), veicolo(Y)).
 
-% Va scritto prima dell'altro che contiene "uno a sinistra" per via della variabile anonima che accetta tutto
+% Va scritto prima dell'altro che contiene "uno_a_sinistra" per via della variabile anonima
 incrocia(veicolo(X), veicolo(Y)) :-
 	entrambi_a_sinistra(veicolo(X), veicolo(Y), braccio(VersoX), braccio(VersoY)),
 	proviene(veicolo(X), DaX),

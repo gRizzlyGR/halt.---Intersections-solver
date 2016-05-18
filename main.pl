@@ -1,9 +1,14 @@
 :- ['incroci.pl'].
 :- ['precedenze.pl'].
+%:- use_module(msg).
 
-start :-
-	primo(veicolo(_)),
+solve :-
+	primo(_),
+%	msg:primo_a_passare(A),
+	prossimo(_),
+	ultimo(_),
+%	msg:prossimo_a_passare(B),
 	fail.
 
 %Fail driven loop
-start.
+solve.

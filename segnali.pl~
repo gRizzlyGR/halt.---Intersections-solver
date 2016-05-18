@@ -1,4 +1,4 @@
-:- module(segnali, segnale_precedenza/1).
+:- module(segnali).
 
 segnale_precedenza(dare_precedenza).
 segnale_precedenza(stop).
