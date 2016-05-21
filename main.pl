@@ -5,7 +5,7 @@
 solve :-
 	primo(_),
 %	msg:primo_a_passare(A),
-	prossimo(_),
+	next(_),
 	ultimo(_),
 %	msg:prossimo_a_passare(B),
 	fail.

@@ -4,135 +4,155 @@
 :- use_module(segnali).
 :- use_module(library(lists)).
 :- use_module(msg).
-%Rules
-%%%nessun_obbligo(veicolo(X)) :-
-%%%	\+ deve_rispettare(veicolo(X), segnale(_)).
 
-%%%nessun_obbligo(veicolo(X)) :-
-%%%	destra_libera(veicolo(X)).
 
-%Segnali di precedenza
 
-%--TO-DO: Add other road signs
+prim(V) :-
+	findall(V, primo(V), L),
+	devono_andare(L).
+
+
+devono_andare(L) :-
+	length(L, N),
+	N > 1,
+	msg:primi_a_passare(L).
+
+devono_andare([Primo]) :-
+	msg:primo_a_passare(Primo).
+	
+
+
 
 % Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
-primo(veicolo(X)) :-
-	destra_libera(veicolo(X)),
-	msg:primo_a_passare(X).
+primo(V) :-
+	destra_libera(V),
+	msg:primo_a_passare(V).
 
 % Altrimenti è il veicolo che non è preceduto da nessuno
-primo(veicolo(X)) :-
-	transita(veicolo(X), _, _),
-	\+ precede(_, veicolo(X)),
-	msg:primo_a_passare(X).
+primo(V) :-
+	transita(V, _, _),
+	\+ precede(_, V),
+	msg:primo_a_passare(V).
 
 % Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
 % Il veicolo al centro passerò per ultimo.
-primo(veicolo(X)) :-
-	attesa_cicolare([veicolo(X) | _]),
-	msg:va_al_centro(X). 
+primo(V) :-
+	attesa_cicolare([V | _]),
+	msg:va_al_centro(V). 
 
-prossimo(veicolo(X)) :-
-	precede(veicolo(X), _),
-	\+ primo(veicolo(X)),
-	\+ ultimo(veicolo(X)),
-	msg:prossimo_a_passare(X),
+
+% Trova la sequenza di veicoli che passeranno. Alcuni veicoli possono avere la precedenza su più veicoli, quindi viene fatto un
+% controllo per evitare duplicati.
+next(_) :-
+	prossimo(_, []).
+
+prossimo(V1, GiaPassati) :-
+	precede(V1, _),
+	\+ primo(V1),
+	\+ ultimo(V1),
+%	((\+ member(V1, GiaPassati)) ->
+%		msg:prossimo_a_passare(X),
+%		append(V1, GiaPassati, 
+%	),
+%	append(V1, GiaPassati, New),
+%	write(New),nl,	
+	msg:prossimo_a_passare(V1),
 	fail.
 
-prossimo(_).
+prossimo(_, _).		
 
 
-ultimo(veicolo(X)) :-
-	precede(_, veicolo(X)),
-	\+ precede(veicolo(X), _),
-	msg:ultimo_a_passare(X).
+ultimo(V) :-
+	precede(_, V),
+	\+ precede(V, _),
+	msg:ultimo_a_passare(V).
 
 % Destra libera
-destra_libera(veicolo(X)) :-
-	transita(veicolo(X), destra, _),
-	\+ precede(_, veicolo(X)).
+destra_libera(V) :-
+	transita(V, destra, _),
+	\+ precede(_, V).
 
-precede(_, veicolo(Y)) :-
-	proviene(veicolo(Y), braccio(B)),
-	si_trova(segnale(S), braccio(B)),
-	segnale_precedenza(S).
+precede(_, V2) :-
+	proviene(V2, Braccio),
+	si_trova(Segnale, Braccio),
+	segnale_precedenza(Segnale).
 
-precede(veicolo(X), veicolo(Y)) :-
-	da_destra(veicolo(X), veicolo(Y)),
-	incrocia(veicolo(X), veicolo(Y)),
-	X \= Y.
+precede(V1, V2) :-
+	da_destra(V1, V2),
+	incrocia(V1, V2),
+	V1 \= V2.
 
-precede(veicolo(X), veicolo(Y)) :-
-	precedenza_frontale(veicolo(X), veicolo(Y)),
-	X \= Y.
+precede(V1, V2) :-
+	precedenza_frontale(V1, V2),
+	V1 \= V2.
 
 % Precedenza_frontale
-precedenza_frontale(veicolo(X), veicolo(Y)) :-
-	transita(veicolo(X), destra, braccio(StessoBraccio)),
-	transita(veicolo(Y), sinistra, braccio(StessoBraccio)).
+precedenza_frontale(V1, V2) :-
+	transita(V1, destra, StessoBraccio),
+	transita(V2, sinistra, StessoBraccio).
 
-precedenza_frontale(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(Y), braccio(BraccioY)),
-	transita(veicolo(X), dritto, braccio(BraccioY)),
-	transita(veicolo(Y), sinistra, _).
+precedenza_frontale(V1, V2) :-
+	proviene(V2, BraccioV2),
+	transita(V1, dritto, BraccioV2),
+	transita(V2, sinistra, _).
 
 % Due veicoli transitano l'uno nel braccio di provenienza dell'altro
-mia_dest_tua_prov(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), BraccioX),
-	proviene(veicolo(Y), BraccioY),
-	transita(veicolo(X), _, BraccioY),
-	transita(veicolo(Y), _, BraccioX).
+mia_dest_tua_prov(V1, V2) :-
+	proviene(V1, BraccioV1),
+	proviene(V2, BraccioV2),
+	transita(V1, _, BraccioV2),
+	transita(V2, _, BraccioV1).
 
-incrocia(veicolo(X), veicolo(Y)) :-
-	transitano_stesso_braccio(veicolo(X), veicolo(Y)).
+incrocia(V1, V2) :-
+	transitano_stesso_braccio(V1, V2).
 
-incrocia(veicolo(X), veicolo(Y)) :-
-	entrambi_dritto(veicolo(X), veicolo(Y)).
+incrocia(V1, V2) :-
+	entrambi_dritto(V1, V2).
 
 % Va scritto prima dell'altro che contiene "uno_a_sinistra" per via della variabile anonima
-incrocia(veicolo(X), veicolo(Y)) :-
-	entrambi_a_sinistra(veicolo(X), veicolo(Y), braccio(VersoX), braccio(VersoY)),
-	proviene(veicolo(X), DaX),
-	proviene(veicolo(Y), DaY),
-	adiacente(DaX, DaY),
-	adiacente(VersoX, VersoY).
+incrocia(V1, V2) :-
+	entrambi_a_sinistra(V1, V2, VersoV1, VersoV2),
+	proviene(V1, DaV1),
+	proviene(V2, DaV2),
+	adiacente(DaV1, DaV2),
+	adiacente(VersoV1, VersoV2).
 
-incrocia(veicolo(X), veicolo(Y)) :-
-	uno_a_sinistra(veicolo(X), veicolo(Y), braccio(VersoX), braccio(VersoY)),
-	proviene(veicolo(X), DaX),
-	proviene(veicolo(Y), DaY),
-	adiacente(DaX, DaY),
-	opposto(VersoX, VersoY).
+incrocia(V1, V2) :-
+	uno_a_sinistra(V1, V2, VersoV1, VersoV2),
+	proviene(V1, DaV1),
+	proviene(V2, DaV2),
+	adiacente(DaV1, DaV2),
+	opposto(VersoV1, VersoV2).
 
 
-transitano_stesso_braccio(veicolo(X), veicolo(Y)) :-
-	transita(veicolo(X), _, StessoBraccio),
-	transita(veicolo(Y), _, StessoBraccio).
+transitano_stesso_braccio(V1, V2) :-
+	transita(V1, _, StessoBraccio),
+	transita(V2, _, StessoBraccio).
 
 % Entrambi i veicoli vanno dritto
-entrambi_dritto(veicolo(X), veicolo(Y)) :-
-	transita(veicolo(X), dritto, _),
-	transita(veicolo(Y), dritto, _).
+entrambi_dritto(V1, V2) :-
+	transita(V1, dritto, _),
+	transita(V2, dritto, _).
 
 % Entrambi i veicoli vanno a sinistra.
-entrambi_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
-	transita(veicolo(X), sinistra, BraccioX),
-	transita(veicolo(Y), sinistra, BraccioY).
+entrambi_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
+	transita(V1, sinistra, BraccioV1),
+	transita(V2, sinistra, BraccioV2).
 
 % Un veicolo va a sinistra.
-uno_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
-	transita(veicolo(X), sinistra, BraccioX),
-	transita(veicolo(Y), _, BraccioY).
+uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
+	transita(V1, sinistra, BraccioV1),
+	transita(V2, _, BraccioV2).
 	
-uno_a_sinistra(veicolo(X), veicolo(Y), braccio(BraccioX), braccio(BraccioY)) :-
-	transita(veicolo(X), _, BraccioX),
-	transita(veicolo(Y), sinistra, BraccioY).
+uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
+	transita(V1, _, BraccioV1),
+	transita(V2, sinistra, BraccioV2).
 
 % Può capitare che i veicoli nell'incrocio debbano dare la precedenza ad un veicolo e averla da un altro, in modo circolare;
 % si viene così a creare una situazione di stallo che viene risolta quando un veicolo si porta al centro dell'incrocio
 % così da permettere agli altri di transitare, secondo le regole standard. Il veicolo al centro passerà per ultimo.
 attesa_cicolare(Veicoli) :-
-	findall(X, proviene(X, _), Veicoli),
+	findall(V, proviene(V, _), Veicoli),
 	stallo(Veicoli, []).
 	
 

@@ -3,10 +3,10 @@
 %:- use_module(msg).
 
 solve :-
-	primo,
+	primo(_),
 %	msg:primo_a_passare(A),
-	prossimo,
-	ultimo,
+	prossimo(_),
+	ultimo(_),
 %	msg:prossimo_a_passare(B),
 	fail.
 
