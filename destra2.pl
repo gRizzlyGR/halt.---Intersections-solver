@@ -1,40 +1,25 @@
 :- module(destra2, [da_destra/2]).
 
-:- use_module(adiacenza).
+subito_a_destra(braccio(nord), braccio(nord_est)).
+subito_a_destra(braccio(nord_est), braccio(est)).
+subito_a_destra(braccio(est), braccio(sud_est)).
+subito_a_destra(braccio(sud_est), braccio(sud)).
+subito_a_destra(braccio(sud), braccio(sud_ovest)).
+subito_a_destra(braccio(sud_ovest), braccio(ovest)).
+subito_a_destra(braccio(ovest), braccio(nord_ovest)).
+subito_a_destra(braccio(nord_ovest), braccio(nord)).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(nord)),
-	proviene(veicolo(Y), braccio(nord_est)).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(nord_est)),
-	proviene(veicolo(Y), braccio(est)).
+destra(Braccio1, Braccio2) :-
+	subito_a_destra(Braccio1, Braccio2).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(est)),
-	proviene(veicolo(Y), braccio(sud_est)).
+destra(Braccio1, Braccio2) :-
+	subito_a_destra(Braccio1, BraccioIntermedio),
+	subito_a_destra(BraccioIntermedio, Braccio2).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(sud_est)),
-	proviene(veicolo(Y), braccio(sud)).
+da_destra(V1, V2) :-
+	proviene(V1, BraccioV1),
+	proviene(V2, BraccioV2),
+	destra(BraccioV1, BraccioV2).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(sud)),
-	proviene(veicolo(Y), braccio(sud_ovest)).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(sud_ovest)),
-	proviene(veicolo(Y), braccio(ovest)).
-
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(ovest)),
-	proviene(veicolo(Y), braccio(nord_ovest)).
-
-da_destra(veicolo(X), veicolo(Y)) :-
-	proviene(veicolo(X), braccio(nord_ovest)),
-	proviene(veicolo(Y), braccio(nord)).
-
-%da_destra(veicolo(X), veicolo(Y)) :-
-%	proviene(veicolo(X), BraccioX),
-%	proviene(veicolo(Y), BraccioY),
-	

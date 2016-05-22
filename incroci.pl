@@ -193,6 +193,20 @@ transita(veicolo(h), sinistra, braccio(sud_ovest)).
 transita(veicolo(c), destra, braccio(est)).
 
 
+%---fig.669
+%proviene(veicolo(l), braccio(nord_ovest)).
+%proviene(veicolo(r), braccio(nord_est)).
+%proviene(veicolo(e), braccio(est)).
+%proviene(veicolo(c), braccio(sud_est)).
+%proviene(veicolo(a), braccio(sud_ovest)).
+
+%transita(veicolo(l), sinistra, braccio(est)).
+%transita(veicolo(r), destra, braccio(ovest)).
+%transita(veicolo(e), dritto, braccio(ovest)).
+%transita(veicolo(c), sinistra, braccio(sud_ovest)).
+%transita(veicolo(a), destra, braccio(est)).
+
+
 %es12
 
 %proviene(veicolo(b12), braccio_nord).

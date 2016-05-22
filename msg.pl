@@ -9,6 +9,12 @@ primo_a_passare(V) :-
 prossimo_a_passare(V) :-
 	format('Il veicolo ~w è il prossimo a passare;~n', [V]).
 
+prossimi_a_passare([V|T]) :-
+	prossimo_a_passare(V),
+	prossimi_a_passare(T).
+
+prossimi_a_passare([]).
+
 ultimo_a_passare(V) :-
 	format('Il veicolo ~w è l\'ultimo a passare;~n', [V]).
 

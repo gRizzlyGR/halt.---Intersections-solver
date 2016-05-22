@@ -1,38 +1,49 @@
-:- use_module(destra).
+:- use_module(destra2).
 :- use_module(adiacenza).
 :- use_module(opposti).
 :- use_module(segnali).
 :- use_module(library(lists)).
 :- use_module(msg).
+:- use_module(utils).
 
 
+%prim(V) :-
+%	findall(V, primo(V), L),
+%	devono_andare(L).
 
-prim(V) :-
-	findall(V, primo(V), L),
-	devono_andare(L).
 
+%devono_andare(L) :-
+%	length(L, N),
+%	N > 1,
+%	msg:primi_a_passare(L).
 
-devono_andare(L) :-
-	length(L, N),
-	N > 1,
-	msg:primi_a_passare(L).
-
-devono_andare([Primo]) :-
-	msg:primo_a_passare(Primo).
+%devono_andare([Primo]) :-
+%	msg:primo_a_passare(Primo).
 	
 
 
 
+circolazione :-
+	primo(Primo),
+	msg:primo_a_passare(Primo),
+	
+	findall(Prossimo, prossimo(Prossimo), Tmp),
+	utils:set(Tmp, Prossimi),
+	msg:prossimi_a_passare(Prossimi),	
+		
+	ultimo(Ultimo),
+	msg:ultimo_a_passare(Ultimo).
+
 % Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
 primo(V) :-
 	destra_libera(V),
-	msg:primo_a_passare(X).
+	!.
 
-% Altrimenti è il veicolo che non è preceduto da nessuno
+% Altrimenti è il veicolo che non è preceduto da nessuno. Cut per evitare duplicati
 primo(V) :-
 	transita(V, _, _),
 	\+ precede(_, V),
-	msg:primo_a_passare(X).
+	!.
 
 % Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
 % Il veicolo al centro passerò per ultimo.
@@ -43,29 +54,16 @@ primo(V) :-
 
 % Trova la sequenza di veicoli che passeranno. Alcuni veicoli possono avere la precedenza su più veicoli, quindi viene fatto un
 % controllo per evitare duplicati.
-next(_) :-
-	prossimo(_, []).
+prossimo(V) :-
+	precede(V, _),
+	\+ primo(V),
+	\+ ultimo(V).
 
-prossimo(V1, GiaPassati) :-
-	precede(V1, _),
-	\+ primo(V1),
-	\+ ultimo(V1),
-%	((\+ member(V1, GiaPassati)) ->
-%		msg:prossimo_a_passare(X),
-%		append(V1, GiaPassati, 
-%	),
-%	append(V1, GiaPassati, New),
-%	write(New),nl,	
-	msg:prossimo_a_passare(V1),
-	fail.
-
-prossimo(_, _).		
-
-
+% Cut per eviare duplicati
 ultimo(V) :-
 	precede(_, V),
 	\+ precede(V, _),
-	msg:ultimo_a_passare(V).
+	!.
 
 % Destra libera
 destra_libera(V) :-
