@@ -4,7 +4,6 @@
 
 solve :-
 	circolazione.
-%	fail.
 
 %Fail driven loop
-solve.
+%solve.

@@ -1,4 +1,4 @@
-:- use_module(destra).
+:- use_module(destra2).
 :- use_module(adiacenza).
 :- use_module(opposti).
 :- use_module(segnali).
@@ -19,37 +19,51 @@
 
 %devono_andare([Primo]) :-
 %	msg:primo_a_passare(Primo).
-	
+
 
 
 
 circolazione :-
 	primo(Primo),
 	msg:primo_a_passare(Primo),
-	
-	findall(Prossimo, prossimo(Prossimo), Tmp),
-	utils:set(Tmp, Prossimi),
-	msg:prossimi_a_passare(Prossimi),	
-		
+
+	setof(Prossimo, prossimo(Prossimo), Tmp),
+	prim(Tmp),
+%	utils:set(Tmp, Prossimi),
+%	msg:prossimi_a_passare(Prossimi),
+
 	ultimo(Ultimo),
 	msg:ultimo_a_passare(Ultimo).
 
+prim([V]) :-
+	msg:prossimo_a_passare(V).
+
+prim([H|T]) :-
+
+	member(Preceduto, T),
+	precede(H, Preceduto),
+
+	msg:prossimo_a_passare(H),
+	prim(T).
+
+prim([H|T]) :-
+	append(T, [H], NewT),
+	prim(NewT).
+
 % Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
 primo(V) :-
-	destra_libera(V),
-	!.
+	destra_libera(V).
 
 % Altrimenti è il veicolo che non è preceduto da nessuno. Cut per evitare duplicati
 primo(V) :-
 	transita(V, _, _),
-	\+ precede(_, V),
-	!.
+	\+ precede(_, V).
 
 % Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
 % Il veicolo al centro passerò per ultimo.
 primo(V) :-
 	attesa_cicolare([V | _]),
-	msg:va_al_centro(V). 
+	msg:va_al_centro(V).
 
 
 % Trova la sequenza di veicoli che passeranno. Alcuni veicoli possono avere la precedenza su più veicoli, quindi viene fatto un
@@ -62,8 +76,7 @@ prossimo(V) :-
 % Cut per eviare duplicati
 ultimo(V) :-
 	precede(_, V),
-	\+ precede(V, _),
-	!.
+	\+ precede(V, _).
 
 % Destra libera
 destra_libera(V) :-
@@ -141,7 +154,7 @@ entrambi_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
 uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
 	transita(V1, sinistra, BraccioV1),
 	transita(V2, _, BraccioV2).
-	
+
 uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
 	transita(V1, _, BraccioV1),
 	transita(V2, sinistra, BraccioV2).
@@ -152,7 +165,7 @@ uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
 attesa_cicolare(Veicoli) :-
 	findall(V, proviene(V, _), Veicoli),
 	stallo(Veicoli, []).
-	
+
 
 stallo([H|T], Acc) :-
 	precede(H, Preceduto),
@@ -160,13 +173,13 @@ stallo([H|T], Acc) :-
 	stallo(T, [Preceduto | Acc]).
 
 stallo([], _).
-	
+
 
 %sameElem([prec(veicolo(A), _)|T]) :-
 %	reverse(T, [prec(_, veicolo(A))|_]).
 
 
-% Helper per l'inverso di una lista	
+% Helper per l'inverso di una lista
 %rev(L,R):-
 %	accRev(L, [], R).
 

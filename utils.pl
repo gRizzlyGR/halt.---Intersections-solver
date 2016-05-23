@@ -19,4 +19,3 @@ del(H, [H|T], T1) :-
 del(X, [H|T], [H|T1]) :-
     X \= H,
     del(X, T, T1).
-

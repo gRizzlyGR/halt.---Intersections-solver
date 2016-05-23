@@ -20,6 +20,6 @@ destra(Braccio1, Braccio2) :-
 da_destra(V1, V2) :-
 	proviene(V1, BraccioV1),
 	proviene(V2, BraccioV2),
-	destra(BraccioV1. BraccioV2).
+	destra(BraccioV1, BraccioV2).
 
 
