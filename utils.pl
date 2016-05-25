@@ -19,3 +19,11 @@ del(H, [H|T], T1) :-
 del(X, [H|T], [H|T1]) :-
     X \= H,
     del(X, T, T1).
+
+% Permutazione di elementi
+perm([], []).
+
+perm(L, [H|T]) :-
+	append(V, [H|U], L),
+	append(V, U, W),
+	perm(W, T).

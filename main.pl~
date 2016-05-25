@@ -1,9 +1,11 @@
 :- ['incroci.pl'].
+%:- ['prontuario.pl'].
 :- ['precedenze.pl'].
 %:- use_module(msg).
 
 solve :-
-	circolazione.
+	circolazione,
+	fail.
 
 %Fail driven loop
-%solve.
+solve.

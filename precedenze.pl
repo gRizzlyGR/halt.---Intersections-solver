@@ -7,54 +7,43 @@
 :- use_module(utils).
 
 
-%prim(V) :-
-%	findall(V, primo(V), L),
-%	devono_andare(L).
-
-
-%devono_andare(L) :-
-%	length(L, N),
-%	N > 1,
-%	msg:primi_a_passare(L).
-
-%devono_andare([Primo]) :-
-%	msg:primo_a_passare(Primo).
-
-
-
-
 circolazione :-
 	primo(Primo),
 	msg:primo_a_passare(Primo),
 
-	setof(Prossimo, prossimo(Prossimo), Tmp),
-	prim(Tmp),
-%	utils:set(Tmp, Prossimi),
-%	msg:prossimi_a_passare(Prossimi),
-
+	setof(Prossimo, prossimo(Prossimo), P),
+	ordine(P, Prossimi),
+	msg:prossimi_a_passare(Prossimi),
 	ultimo(Ultimo),
 	msg:ultimo_a_passare(Ultimo).
 
-prim([V]) :-
-	msg:prossimo_a_passare(V).
+% Ottiene una lista ordinata di veicoli, secondo chi passa per prima rispetto ad un altro
+%ordine([E], [E]).
 
-prim([H|T]) :-
+ordine(Lista, Ordinata) :-
+	utils:perm(Lista, Ordinata),
+	ordinato(Ordinata).
 
-	member(Preceduto, T),
-	precede(H, Preceduto),
+ordinato([]).
+ordinato([_]).
+ordinato([X,Y|T]) :-
+%	precede(X,Y),
+	passa_prima(X, Y),
+	ordinato([Y|T]).
 
-	msg:prossimo_a_passare(H),
-	prim(T).
+% Definisce una relazione di ordine totale tra i veicoli. Usato nel 
+passa_prima(V1, V2) :-
+	precede(V1, V2).
 
-prim([H|T]) :-
-	append(T, [H], NewT),
-	prim(NewT).
+passa_prima(V1, V2) :-
+	precede(V1, AltroVeicolo),
+	passa_prima(AltroVeicolo, V2).
 
 % Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
-primo(V) :-
-	destra_libera(V).
+%primo(V) :-
+%	destra_libera(V).
 
-% Altrimenti è il veicolo che non è preceduto da nessuno. Cut per evitare duplicati
+% Altrimenti è il veicolo che non è preceduto da nessuno.
 primo(V) :-
 	transita(V, _, _),
 	\+ precede(_, V).
@@ -66,14 +55,12 @@ primo(V) :-
 	msg:va_al_centro(V).
 
 
-% Trova la sequenza di veicoli che passeranno. Alcuni veicoli possono avere la precedenza su più veicoli, quindi viene fatto un
-% controllo per evitare duplicati.
+% Trova la sequenza di veicoli che passeranno.
 prossimo(V) :-
 	precede(V, _),
 	\+ primo(V),
 	\+ ultimo(V).
 
-% Cut per eviare duplicati
 ultimo(V) :-
 	precede(_, V),
 	\+ precede(V, _).
@@ -173,22 +160,3 @@ stallo([H|T], Acc) :-
 	stallo(T, [Preceduto | Acc]).
 
 stallo([], _).
-
-
-%sameElem([prec(veicolo(A), _)|T]) :-
-%	reverse(T, [prec(_, veicolo(A))|_]).
-
-
-% Helper per l'inverso di una lista
-%rev(L,R):-
-%	accRev(L, [], R).
-
-%accRev([H|T], A, R):-
-%	accRev(T, [H|A], R).
-
-%accRev([], A, A).
-
-% Member
-%member(H, [H|_]).
-%member(Elem, [_|T]):-
-%	member(Elem, T).
