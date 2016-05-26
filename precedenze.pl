@@ -5,6 +5,7 @@
 :- use_module(library(lists)).
 :- use_module(msg).
 :- use_module(utils).
+:- use_module(grafo).
 
 
 circolazione :-
@@ -17,8 +18,18 @@ circolazione :-
 	ultimo(Ultimo),
 	msg:ultimo_a_passare(Ultimo).
 
+gen_subgrafo(Veicolo, SubGrafo) :-
+	findall(Preceduto, precede(Veicolo, Preceduto), L), grafo:crea_grafo(Veicolo, L, SubGrafo).
+
+gen_grafo(Veicolo, Grafo) :-
+	proviene(Veicolo, _),
+	findall(SubGrafo, gen_subgrafo(Veicolo, SubGrafo), Grafo).
+
+tutti(G) :-
+	findall(A, gen_grafo(_, A), L),
+	grafo:unisci_grafi(L, G).
+
 % Ottiene una lista ordinata di veicoli, secondo chi passa per prima rispetto ad un altro
-%ordine([E], [E]).
 
 ordine(Lista, Ordinata) :-
 	utils:perm(Lista, Ordinata),
@@ -31,7 +42,7 @@ ordinato([X,Y|T]) :-
 	passa_prima(X, Y),
 	ordinato([Y|T]).
 
-% Definisce una relazione di ordine totale tra i veicoli. Usato nel 
+% Definisce una relazione di ordine totale tra i veicoli.
 passa_prima(V1, V2) :-
 	precede(V1, V2).
 
