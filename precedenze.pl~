@@ -8,7 +8,8 @@
 :- use_module(grafo).
 
 
-circolazione :-
+circolazione1 :-
+	write("-----Metodo classico"),nl,
 	primo(Primo),
 	msg:primo_a_passare(Primo),
 
@@ -18,19 +19,32 @@ circolazione :-
 	ultimo(Ultimo),
 	msg:ultimo_a_passare(Ultimo).
 
+
+circolazione2 :-
+	write("-----Metodo con grafi"),nl,
+	gen_grafo(Grafo),
+	grafo:ordina(Grafo, Ordine),
+%	write(Ordine),nl.
+
+	utils:primo_elem(Ordine, Primo),
+	msg:primo_a_passare(Primo),
+
+	utils:spuntata(Ordine, Prossimi),
+	msg:prossimi_a_passare(Prossimi),
+
+	utils:ultimo_elem(Ordine, Ultimo),
+	msg:ultimo_a_passare(Ultimo).
+	
+
 gen_subgrafo(Veicolo, SubGrafo) :-
+	proviene(Veicolo, _),
 	findall(Preceduto, precede(Veicolo, Preceduto), L), grafo:crea_grafo(Veicolo, L, SubGrafo).
 
-gen_grafo(Veicolo, Grafo) :-
-	proviene(Veicolo, _),
-	findall(SubGrafo, gen_subgrafo(Veicolo, SubGrafo), Grafo).
-
-tutti(G) :-
-	findall(A, gen_grafo(_, A), L),
-	unisci_grafi(L, G).
+gen_grafo(Grafo) :-
+	findall(SubGrafo, gen_subgrafo(_, SubGrafo), L),
+	grafo:unisci_grafi(L, Grafo).
 
 % Ottiene una lista ordinata di veicoli, secondo chi passa per prima rispetto ad un altro
-
 ordine(Lista, Ordinata) :-
 	utils:perm(Lista, Ordinata),
 	ordinato(Ordinata).
@@ -68,12 +82,13 @@ primo(V) :-
 
 % Trova la sequenza di veicoli che passeranno.
 prossimo(V) :-
-	precede(V, _),
+%	precede(V, _),
+	proviene(V, _),
 	\+ primo(V),
 	\+ ultimo(V).
 
 ultimo(V) :-
-	precede(_, V),
+	transita(V, _, _),
 	\+ precede(V, _).
 
 % Destra libera
@@ -171,3 +186,9 @@ stallo([H|T], Acc) :-
 	stallo(T, [Preceduto | Acc]).
 
 stallo([], _).
+
+graph(Fact2) :-
+    format('digraph ~w {~n', [Fact2]),
+    forall(call(Fact2, G), format(' ~s;~n', [G])),
+    format('}\n').
+

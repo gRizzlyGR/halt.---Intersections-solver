@@ -19,3 +19,40 @@ del(H, [H|T], T1) :-
 del(X, [H|T], [H|T1]) :-
     X \= H,
     del(X, T, T1).
+
+% Permutazione di elementi
+perm([], []).
+
+perm(L, [H|T]) :-
+	append(V, [H|U], L),
+	append(V, U, W),
+	perm(W, T).
+
+
+% Primo elemento
+primo_elem([Primo|_], Primo).
+
+% Ultimo elemento
+ultimo_elem(Lista, Ultimo) :-
+	rev(Lista, [Ultimo|_]).
+
+spuntata([_|T], Spuntata) :-
+	rev(T, [_|Tmp]),
+	rev(Tmp, Spuntata).
+
+ultimo_escluso(Lista, NoUltimo) :-
+	rev(Lista, [_|T]),
+	rev(T, NoUltimo).
+	
+
+% Inverso di una lista
+rev(Lista, Inversa) :-
+	acc_rev(Lista, [], Inversa).
+
+acc_rev([H|T], Acc, R) :-
+	acc_rev(T, [H|Acc], R).
+
+acc_rev([], A, A).
+
+
+	

@@ -4,7 +4,11 @@
 %:- use_module(msg).
 
 solve :-
-	circolazione,
+%	circolazione1,
+%	circolazione2,
+	time(circolazione1),
+	sleep(1),
+	time(circolazione2),
 	fail.
 
 %Fail driven loop

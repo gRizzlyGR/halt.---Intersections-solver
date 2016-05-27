@@ -27,3 +27,28 @@ perm(L, [H|T]) :-
 	append(V, [H|U], L),
 	append(V, U, W),
 	perm(W, T).
+
+
+% Primo elemento
+primo_elem([Primo|_], Primo).
+
+% Ultimo elemento
+ultimo_elem(Lista, Ultimo) :-
+	rev(Lista, [Ultimo|_]).
+
+spuntata([_|T], Spuntata) :-
+	rev(T, [_|Tmp]),
+	rev(Tmp, Spuntata).
+	
+
+% Inverso di una lista
+rev(Lista, Inversa) :-
+	acc_rev(Lista, [], Inversa).
+
+acc_rev([H|T], Acc, R) :-
+	acc_rev(T, [H|Acc], R).
+
+acc_rev([], A, A).
+
+
+	

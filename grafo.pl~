@@ -3,15 +3,15 @@
 :- use_module(library(lists)).
 :- use_module(library(ugraphs)).
 
-
 unisci_grafi(Lista, Grafo) :-
-	unisci_grafi_acc(Lista, _, Grafo).
+	acc_unisci_grafi(Lista, [], Grafo).
 
-unisci_grafi_acc([], Grafo, Grafo).
-	
-unisci_grafi_acc([H|T], Acc, Grafo) :-
+acc_unisci_grafi([H|T], Acc, Grafo) :-
 	ugraph_union(H, Acc, NGrafo),
-	unisci_grafi(T, NGrafo, Grafo).
+	acc_unisci_grafi(T, NGrafo, Grafo).
+
+acc_unisci_grafi([], G, G).
+
 
 crea_grafo(Nodo, Lista, Grafo) :-
 	trova_archi(Nodo, Lista, [], Archi),
@@ -24,8 +24,8 @@ trova_archi(Nodo, [H|T], Acc, Archi) :-
 	trova_archi(Nodo, T, [Arco|Acc], Archi).
 
 crea_grafo(Nodo, [H|T], Archi, Grafo) :-
-	crea_arco(Nodo, H, Arco),
-	crea_grafo(Nodo, T, [Arco|Archi], Grafo).
+%	crea_arco(Nodo, H, Arco),
+	crea_grafo(Nodo, T, [Nodo-H|Archi], Grafo).
 
 crea_arco(Nodo1, Nodo2, Arco) :-
 	term_to_atom(Nodo1, Atomo1),
