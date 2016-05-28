@@ -1,62 +1,16 @@
+:- module(precedenze, [
+			primo/1,
+			ultimo/1,
+			prossimo/1,
+			precede/2,
+			passa_prima/2]).
+
 :- use_module(destra2).
 :- use_module(adiacenza).
 :- use_module(opposti).
 :- use_module(segnali).
 :- use_module(library(lists)).
-:- use_module(msg).
-:- use_module(utils).
-:- use_module(grafo).
 
-
-circolazione1 :-
-	write("-----Metodo classico"),nl,
-	primo(Primo),
-	msg:primo_a_passare(Primo),
-
-	setof(Prossimo, prossimo(Prossimo), P),
-	ordine(P, Prossimi),
-	msg:prossimi_a_passare(Prossimi),
-	ultimo(Ultimo),
-	msg:ultimo_a_passare(Ultimo).
-
-
-circolazione2 :-
-	write("-----Metodo con grafi"),nl,
-	gen_grafo(Grafo),
-	grafo:ordina(Grafo, Ordine),
-%	write(Ordine),nl.
-
-	utils:primo_elem(Ordine, Primo),
-	msg:primo_a_passare(Primo),
-
-	utils:spuntata(Ordine, Prossimi),
-	msg:prossimi_a_passare(Prossimi),
-
-	utils:ultimo_elem(Ordine, Ultimo),
-	msg:ultimo_a_passare(Ultimo).
-	
-
-gen_subgrafo(Veicolo, SubGrafo) :-
-	proviene(Veicolo, _),
-	findall(Preceduto, precede(Veicolo, Preceduto), L), grafo:crea_grafo(Veicolo, L, SubGrafo).
-
-gen_grafo(Grafo) :-
-	findall(SubGrafo, gen_subgrafo(_, SubGrafo), L),
-	grafo:unisci_grafi(L, Grafo).
-
-% Ottiene una lista ordinata di veicoli, secondo chi passa per prima rispetto ad un altro
-ordine(Lista, Ordinata) :-
-	utils:perm(Lista, Ordinata),
-	ordinato(Ordinata).
-
-ordinato([]).
-ordinato([_]).
-ordinato([X,Y|T]) :-
-%	precede(X,Y),
-	passa_prima(X, Y),
-	ordinato([Y|T]).
-
-% Definisce una relazione di ordine totale tra i veicoli.
 passa_prima(V1, V2) :-
 	precede(V1, V2).
 
@@ -76,8 +30,7 @@ primo(V) :-
 % Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
 % Il veicolo al centro passerò per ultimo.
 primo(V) :-
-	attesa_cicolare([V | _]),
-	msg:va_al_centro(V).
+	attesa_cicolare([V | _]).
 
 
 % Trova la sequenza di veicoli che passeranno.
@@ -110,6 +63,14 @@ precede(V1, V2) :-
 	precedenza_frontale(V1, V2),
 	V1 \= V2.
 
+
+%deve_dare_precedenza(V) :-
+%	proviene(V, Braccio),
+%	segnaletica(Braccio, _).
+
+%deve_avere_precedenza(V) :-
+	
+	
 % Precedenza_frontale
 precedenza_frontale(V1, V2) :-
 	transita(V1, destra, StessoBraccio),

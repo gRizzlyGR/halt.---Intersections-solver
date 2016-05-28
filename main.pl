@@ -1,13 +1,14 @@
-:- ['incroci.pl'].
-%:- ['prontuario.pl'].
-:- ['precedenze.pl'].
-%:- use_module(msg).
+
+%:- ['incroci.pl'].
+:- ['prontuario.pl'].
+:- ['precedenze.pl']. %Carico per test, onde evitare di scrivere il nome del modulo ogni volta
+:- use_module(circolazione).
 
 solve :-
-	circolazione1,
-	circolazione2,
-%	time(circolazione1),
-%	time(circolazione2),
+	circolano1,
+	circolano2,
+%	time(circolano1),
+%	time(circolano2),
 	fail.
 
 %Fail driven loop

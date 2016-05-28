@@ -1,5 +1,26 @@
 :- dynamic si_trova/2.
 
+%--fig.5
+%proviene(veicolo(giallo), braccio(sud)).
+%proviene(veicolo(blu), braccio(est)).
+%proviene(veicolo(verde), braccio(nord)).
+%proviene(veicolo(rosso), braccio(est)).
+
+%transita(veicolo(verde), dritto, braccio(sud)).
+%transita(veicolo(rosso), sinistra, braccio(sud)).
+%transita(veicolo(blu), dritto, braccio(ovest)).
+%transita(veicolo(giallo), sinistra, braccio(ovest)).
+
+%--fig.6
+proviene(veicolo(giallo), braccio(nord_ovest)).
+proviene(veicolo(rosso), braccio(est)).
+proviene(veicolo(blu), braccio(ovest)).
+
+transita(veicolo(blu), dritto, braccio(est)).
+transita(veicolo(rosso), sinistra, braccio(sud_ovest)).
+transita(veicolo(giallo), dritto, braccio(sud_ovest)).
+
+
 %--fig.18
 %proviene(veicolo(c), braccio(sud_est)).
 %proviene(veicolo(g), braccio(sud_ovest)).
@@ -36,14 +57,14 @@
 %transita(veicolo(giallo), destra, braccio(sud_est)).
 
 %fig.53
-proviene(veicolo(rosso), braccio(nord)).
-proviene(veicolo(nero), braccio(sud_ovest)).
-proviene(veicolo(verde), braccio(sud_est)).
-proviene(veicolo(giallo), braccio(ovest)).
-proviene(veicolo(blu), braccio(est)).
+%proviene(veicolo(rosso), braccio(nord)).
+%proviene(veicolo(nero), braccio(sud_ovest)).
+%proviene(veicolo(verde), braccio(sud_est)).
+%proviene(veicolo(giallo), braccio(ovest)).
+%proviene(veicolo(blu), braccio(est)).
 
-transita(veicolo(rosso), dritto, braccio(sud_ovest)).
-transita(veicolo(verde), sinistra, braccio(sud_ovest)).
-transita(veicolo(blu), sinistra, braccio(sud_ovest)).
-transita(veicolo(nero), destra, braccio(est)).
-transita(veicolo(giallo), sinistra, braccio(nord)).
+%transita(veicolo(rosso), dritto, braccio(sud_ovest)).
+%transita(veicolo(verde), sinistra, braccio(sud_ovest)).
+%transita(veicolo(blu), sinistra, braccio(sud_ovest)).
+%transita(veicolo(nero), destra, braccio(est)).
+%transita(veicolo(giallo), sinistra, braccio(nord)).
