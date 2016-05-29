@@ -46,12 +46,13 @@ ordinato([X,Y|T]) :-
 
 % Metodo con grafi
 
-% Genera il sottografo del veicolo che rappresenta le relazioni di precedenza
+% La precedenza è un arco che parte dal veicolo che precede al preceduto. Il tutto può essere rappresentato da un grafo
 subgrafo_di_precedenza(Veicolo, SubGrafo) :-
 	proviene(Veicolo, _),
 	findall(Preceduto, precede(Veicolo, Preceduto), L), grafo:crea_grafo(Veicolo, L, SubGrafo).
 
-% Genera il grafo completo dell'incrocio
+% Quando tutti i grafi di precedenza di ogni singolo veicolo vengono generati, si possono unire per formare il grafo che
+% rappresenta l'incrocio
 grafo_direzionato(Grafo) :-
 	findall(SubGrafo, subgrafo_di_precedenza(_, SubGrafo), L),
 	grafo:unisci_grafi(L, Grafo).

@@ -11,27 +11,25 @@
 :- use_module(segnali).
 :- use_module(library(lists)).
 
-% Definisce una relazione di ordine totale tra i veicoli.
-passa_prima(V1, V2) :-
-	precede(V1, V2).
 
-passa_prima(V1, V2) :-
-	precede(V1, AltroVeicolo),
-	passa_prima(AltroVeicolo, V2).
 
 % Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
 %primo(V) :-
 %	destra_libera(V).
 
+
+
 % Altrimenti è il veicolo che non è preceduto da nessuno.
 primo(V) :-
 	transita(V, _, _),
+	\+ con_segnale_precedenza(V),
 	\+ precede(_, V).
 
 % Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
 % Il veicolo al centro passerò per ultimo.
-primo(V) :-
-	attesa_cicolare([V | _]).
+
+%primo(V) :-
+%	attesa_cicolare([V | _]).
 
 
 % Trova la sequenza di veicoli che passeranno.
@@ -50,29 +48,32 @@ destra_libera(V) :-
 	transita(V, destra, _),
 	\+ precede(_, V).
 
-precede(_, V2) :-
-	proviene(V2, Braccio),
-	si_trova(Segnale, Braccio),
+con_segnale_precedenza(V) :-
+	proviene(V, Braccio),
+	segnaletica(Braccio, Segnale),
 	segnale_precedenza(Segnale).
+	
 
 precede(V1, V2) :-
-	da_destra(V1, V2),
-	incrocia(V1, V2),
-	V1 \= V2.
+	con_segnale_precedenza(V2),
+	proviene(V1, _),
+	\+ ultimo(V1).
+
 
 precede(V1, V2) :-
+	\+ con_segnale_precedenza(V1),
+
+	precede_da_destra(V1, V2);
 	precedenza_frontale(V1, V2),
+
 	V1 \= V2.
 
 
-%deve_dare_precedenza(V) :-
-%	proviene(V, Braccio),
-%	segnaletica(Braccio, _).
-
-%deve_avere_precedenza(V) :-
+precede_da_destra(V1, V2) :-
+	da_destra(V1, V2),
+	incrocia(V1, V2).
 	
 	
-% Precedenza_frontale
 precedenza_frontale(V1, V2) :-
 	transita(V1, destra, StessoBraccio),
 	transita(V2, sinistra, StessoBraccio).
@@ -81,13 +82,6 @@ precedenza_frontale(V1, V2) :-
 	proviene(V2, BraccioV2),
 	transita(V1, dritto, BraccioV2),
 	transita(V2, sinistra, _).
-
-% Due veicoli transitano l'uno nel braccio di provenienza dell'altro
-mia_dest_tua_prov(V1, V2) :-
-	proviene(V1, BraccioV1),
-	proviene(V2, BraccioV2),
-	transita(V1, _, BraccioV2),
-	transita(V2, _, BraccioV1).
 
 incrocia(V1, V2) :-
 	transitano_stesso_braccio(V1, V2).
@@ -133,6 +127,15 @@ uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
 uno_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
 	transita(V1, _, BraccioV1),
 	transita(V2, sinistra, BraccioV2).
+
+
+% Permette di stabilire un ordine di circolazione
+passa_prima(V1, V2) :-
+	precede(V1, V2).
+
+passa_prima(V1, V2) :-
+	precede(V1, AltroVeicolo),
+	passa_prima(AltroVeicolo, V2).
 
 % Può capitare che i veicoli nell'incrocio debbano dare la precedenza ad un veicolo e averla da un altro, in modo circolare;
 % si viene così a creare una situazione di stallo che viene risolta quando un veicolo si porta al centro dell'incrocio

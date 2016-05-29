@@ -6,8 +6,8 @@
 unisci_grafi(Lista, Grafo) :-
 	acc_unisci_grafi(Lista, [], Grafo).
 
-acc_unisci_grafi([H|T], Acc, Grafo) :-
-	ugraph_union(H, Acc, NGrafo),
+acc_unisci_grafi([SubGrafo|T], Acc, Grafo) :-
+	ugraph_union(SubGrafo, Acc, NGrafo),
 	acc_unisci_grafi(T, NGrafo, Grafo).
 
 acc_unisci_grafi([], G, G).
@@ -25,6 +25,9 @@ trova_archi(Nodo, [Vicino|T], Acc, Archi) :-
 
 ordina(Grafo, Ordine) :-
 	top_sort(Grafo, Ordine).
+
+ordina2(Grafo, Diff) :-
+	top_sort(Grafo, Diff, _).
 
 %crea_arco(Nodo1, Nodo2, Arco) :-
 %	term_to_atom(Nodo1, Atomo1),

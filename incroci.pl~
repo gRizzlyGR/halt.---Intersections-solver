@@ -198,18 +198,18 @@
 
 %---fig.655
 
-proviene(veicolo(r), braccio(est)).
-proviene(veicolo(s), braccio(sud)).
-proviene(veicolo(a), braccio(nord)).
-proviene(veicolo(e), braccio(ovest)).
+%proviene(veicolo(r), braccio(est)).
+%proviene(veicolo(s), braccio(sud)).
+%proviene(veicolo(a), braccio(nord)).
+%proviene(veicolo(e), braccio(ovest)).
 
-transita(veicolo(e), dritto, braccio(est)).
-transita(veicolo(s), dritto, braccio(nord)).
-transita(veicolo(a), sinistra, braccio(est)).
-transita(veicolo(r), sinistra, braccio(sud)).
+%transita(veicolo(e), dritto, braccio(est)).
+%transita(veicolo(s), dritto, braccio(nord)).
+%transita(veicolo(a), sinistra, braccio(est)).
+%transita(veicolo(r), sinistra, braccio(sud)).
 
-segnaletica(braccio(est), segnale(dare_precedenza).
-segnaletica(braccio(ovest), segnale(dare_precedenza).
+%segnaletica(braccio(est), segnale(dare_precedenza)).
+%segnaletica(braccio(ovest), segnale(dare_precedenza)).
 
 
 %---fig.665
