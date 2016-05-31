@@ -7,19 +7,23 @@
 
 circolano1 :-
 	write("-----Metodo classico"),nl,
-	primo(Primo),
-	msg:primo_a_passare(Primo),
+%	primo(Primo),
+%	msg:primo_a_passare(Primo),
+
+	primo_o_primi,
 
 	setof(Prossimo, prossimo(Prossimo), P),
 	ordine(P, Prossimi),
 	msg:prossimi_a_passare(Prossimi),
-	ultimo(Ultimo),
-	msg:ultimo_a_passare(Ultimo).
+
+%	ultimo(Ultimo),
+%	msg:ultimo_a_passare(Ultimo).
+	ultimo_o_ultimi.
 
 
 circolano2 :-
 	write("-----Metodo con grafi"),nl,
-	grafo_direzionato(Grafo),
+	grafo_incrocio(Grafo),
 	grafo:ordina(Grafo, Ordine),
 %	write(Ordine),nl.
 
@@ -41,8 +45,8 @@ ordinato([]).
 ordinato([_]).
 ordinato([X,Y|T]) :-
 %	precede(X,Y),
-%	passa_prima(X, Y),
-	X < Y,
+	\+ contemporanei(X, Y),
+	passa_prima(X, Y),
 	ordinato([Y|T]).
 
 % Metodo con grafi
@@ -54,6 +58,24 @@ subgrafo_di_precedenza(Veicolo, SubGrafo) :-
 
 % Quando tutti i grafi di precedenza di ogni singolo veicolo vengono generati, si possono unire per formare il grafo che
 % rappresenta l'incrocio
-grafo_direzionato(Grafo) :-
+grafo_incrocio(Grafo) :-
 	findall(SubGrafo, subgrafo_di_precedenza(_, SubGrafo), L),
 	grafo:unisci_grafi(L, Grafo).
+
+
+% Ci possono essere più veicoli che passano nello stesso momento
+primo_o_primi :-
+	primi_insieme(Primi),
+	msg:primi_a_passare(Primi),
+	!;
+
+	primo(Primo),
+	msg:primo_a_passare(Primo).
+
+ultimo_o_ultimi :-
+	ultimi_insieme(Ultimi),
+	msg:ultimi_a_passare(Ultimi);
+
+	ultimo(Ultimo),
+	msg:ultimo_a_passare(Ultimo).
+

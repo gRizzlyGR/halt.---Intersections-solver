@@ -26,6 +26,10 @@ trova_archi(Nodo, [Vicino|T], Acc, Archi) :-
 ordina(Grafo, Ordine) :-
 	top_sort(Grafo, Ordine).
 
+disegna(Funtore) :-
+	format('digraph ~s {~n', [Funtore]),
+	forall(call(Funtore, Da, A), format(' "~w" -> "~w";~n', [Da, A])),
+	format('}~n').
 %crea_arco(Nodo1, Nodo2, Arco) :-
 %	term_to_atom(Nodo1, Atomo1),
 %	term_to_atom(Nodo2, Atomo2),

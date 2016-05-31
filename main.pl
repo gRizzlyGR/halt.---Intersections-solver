@@ -5,8 +5,8 @@
 :- use_module(circolazione).
 
 solve :-
-%	circolano1,
-	circolano2,
+	circolano1,
+%	circolano2,
 %	time(circolano1),
 %	time(circolano2),
 	fail.

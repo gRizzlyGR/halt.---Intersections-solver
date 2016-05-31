@@ -45,14 +45,25 @@
 %transita(veicolo(verde), dritto, braccio(ovest)).
 %transita(veicolo(giallo), dritto, braccio(est)).
 
-%---fig.38
-proviene(veicolo(giallo), braccio(nord)).
-proviene(veicolo(rosso), braccio(nord)).
-proviene(veicolo(blu), braccio(ovest)).
+%---fig.24
+proviene(veicolo(verde), braccio(nord_ovest)).
+proviene(veicolo(giallo), braccio(sud_est)).
+proviene(veicolo(autocarro), braccio(sud_ovest)).
+proviene(veicolo(blu), braccio(nord)).
 
-transita(veicolo(blu), sinistra, braccio(nord)).
-transita(veicolo(rosso), sinistra, braccio(est)).
-transita(veicolo(giallo), dritto, braccio(sud)).
+transita(veicolo(autocarro), destra, braccio(sud_est)).
+transita(veicolo(blu), dritto, braccio(sud_ovest)).
+transita(veicolo(verde), dritto, braccio(sud_est)).
+transita(veicolo(giallo), dritto, braccio(nord)).
+
+%---fig.38
+%proviene(veicolo(giallo), braccio(nord)).
+%proviene(veicolo(rosso), braccio(nord)).
+%proviene(veicolo(blu), braccio(ovest)).
+
+%transita(veicolo(blu), sinistra, braccio(nord)).
+%transita(veicolo(rosso), sinistra, braccio(est)).
+%transita(veicolo(giallo), dritto, braccio(sud)).
 
 %---fig.41
 %proviene(veicolo(nero), braccio(ovest)).

@@ -18,8 +18,12 @@ prossimi_a_passare([]).
 ultimo_a_passare(V) :-
 	format('Il veicolo ~w è l\'ultimo a passare;~n', [V]).
 
+% Più veicoli contemporaneamente
 primi_a_passare(Primi) :-
 	format('I veicoli ~w sono i primi a passare;~n', [Primi]).
 
 passano_insieme(Veicoli) :-
 	format('I veicoli ~w passano insieme;~n', [Veicoli]).
+
+ultimi_a_passare(Ultimi) :-
+	format('I veicoli ~w sono gli ultimi a passare;~n', [Ultimi]).

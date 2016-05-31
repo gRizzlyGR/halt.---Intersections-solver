@@ -3,7 +3,11 @@
 			ultimo/1,
 			prossimo/1,
 			precede/2,
-			passa_prima/2]).
+			passa_prima/2,
+			primi_insieme/1,
+			prossimi_insieme/1,
+			stesso_ordine/2,
+			ultimi_insieme/1]).
 
 :- use_module(destra2).
 :- use_module(adiacenza).
@@ -21,7 +25,8 @@
 
 % Altrimenti è il veicolo che non è preceduto da nessuno.
 primo(V) :-
-	transita(V, _, _),
+%	transita(V, _, _),
+	proviene(V, _),
 	\+ con_segnale_precedenza(V),
 	\+ precede(_, V).
 
@@ -40,10 +45,12 @@ prossimo(V) :-
 	\+ ultimo(V).
 
 ultimo(V) :-
-	transita(V, _, _),
-	\+ precede(V, _).
+%	transita(V, _, _),
+	proviene(V, _),
+	\+ precede(V, _),
+	precede(_, V).
 
-% Destra libera
+% Destra libera ---FORSE INUTILE
 destra_libera(V) :-
 	transita(V, destra, _),
 	\+ precede(_, V).
@@ -56,8 +63,7 @@ con_segnale_precedenza(V) :-
 
 precede(V1, V2) :-
 	con_segnale_precedenza(V2),
-	proviene(V1, _),
-	\+ ultimo(V1).
+	\+ con_segnale_precedenza(V1).
 
 
 precede(V1, V2) :-
@@ -109,10 +115,12 @@ transitano_stesso_braccio(V1, V2) :-
 	transita(V1, _, StessoBraccio),
 	transita(V2, _, StessoBraccio).
 
-% Entrambi i veicoli vanno dritto
+% Entrambi i veicoli vanno dritto in bracci non opposti. Copre il caso in cui i veicoli vanno uno nel braccio 
+% di provienenza dell'altro o in bracci adiacenti ai medesimi.
 entrambi_dritto(V1, V2) :-
-	transita(V1, dritto, _),
-	transita(V2, dritto, _).
+	transita(V1, dritto, BraccioV1),
+	transita(V2, dritto, BraccioV2),
+	\+ opposto(BraccioV1, BraccioV2).
 
 % Entrambi i veicoli vanno a sinistra.
 entrambi_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
@@ -151,3 +159,27 @@ stallo([H|T], Acc) :-
 	stallo(T, [Preceduto | Acc]).
 
 stallo([], _).
+
+% Caso in cui più veicoli passano nello stesso momento
+primi_insieme(Veicoli) :-
+	findall(V, primo(V), Veicoli),
+	piu_di_uno(Veicoli).
+
+prossimi_insieme(Veicoli) :-
+	findall(V, stesso_ordine(V, _), Veicoli),
+	piu_di_uno(Veicoli).
+	
+stesso_ordine(V1, V2) :-
+	precede(StessoVeicolo, V1),
+	precede(StessoVeicolo, V2),
+	V1 \= V2,
+	\+ precede(V1, V2),
+	\+ precede(V2, V1).
+
+ultimi_insieme(Veicoli) :-
+	findall(V, ultimo(V), Veicoli),
+	piu_di_uno(Veicoli).
+
+piu_di_uno(Lista) :-
+	length(Lista, N),
+	N > 1.
