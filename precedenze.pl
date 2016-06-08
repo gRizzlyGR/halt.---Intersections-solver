@@ -4,10 +4,11 @@
 			prossimo/1,
 			precede/2,
 			passa_prima/2,
-			primi_insieme/1,
+			tutti_i_primi/1,
+			tutti_i_prossimi/1,
 			prossimi_insieme/1,
-			contemporanei/2,
-			ultimi_insieme/1]).
+			simultanei/2,
+			tutti_gli_ultimi/1]).
 
 :- use_module(destra2).
 :- use_module(adiacenza).
@@ -115,12 +116,21 @@ transitano_stesso_braccio(V1, V2) :-
 	transita(V1, _, StessoBraccio),
 	transita(V2, _, StessoBraccio).
 
-% Entrambi i veicoli vanno dritto in bracci non opposti. Copre il caso in cui i veicoli vanno uno nel braccio 
-% di provienenza dell'altro o in bracci adiacenti ai medesimi.
+% Copre il caso in cui almeno uno dei due veicoli va nel braccio 
+% di provienenza dell'altro, quando proseguono dritto.
 entrambi_dritto(V1, V2) :-
-	transita(V1, dritto, BraccioV1),
-	transita(V2, dritto, BraccioV2),
-	\+ opposto(BraccioV1, BraccioV2).
+	transita(V1, dritto, _),
+	transita(V2, dritto, _),
+	\+ nel_braccio_dell_altro(V1, V2).
+%	\+ opposto(BraccioV1, BraccioV2).
+
+nel_braccio_dell_altro(V1, V2) :-
+	proviene(V1, BraccioV1),
+	transita(V2, _, BraccioV1).
+
+nel_braccio_dell_altro(V1, V2) :-
+	proviene(V2, BraccioV2),
+	transita(V1, _, BraccioV2).
 
 % Entrambi i veicoli vanno a sinistra.
 entrambi_a_sinistra(V1, V2, BraccioV1, BraccioV2) :-
@@ -160,26 +170,24 @@ stallo([H|T], Acc) :-
 
 stallo([], _).
 
-% Caso in cui più veicoli passano nello stesso momento
-primi_insieme(Veicoli) :-
-	findall(V, primo(V), Veicoli),
-	piu_di_uno(Veicoli).
+% Uno o più veicoli passano nello stesso momento
+
+tutti_i_primi(Veicoli) :-
+	setof(V, primo(V), Veicoli).
+
+tutti_i_prossimi(Veicoli) :-
+	setof(Prossimo, prossimo(Prossimo), Veicoli).
 
 prossimi_insieme(Veicoli) :-
-	findall(V, contemporanei(V, _), Veicoli),
-	piu_di_uno(Veicoli).
+	setof(V1, V2^simultanei(V1, V2), Veicoli).
 	
-contemporanei(V1, V2) :-
+simultanei(V1, V2) :-
 	precede(StessoVeicolo, V1),
 	precede(StessoVeicolo, V2),
 	V1 \= V2,
 	\+ precede(V1, V2),
 	\+ precede(V2, V1).
 
-ultimi_insieme(Veicoli) :-
-	findall(V, ultimo(V), Veicoli),
-	piu_di_uno(Veicoli).
+tutti_gli_ultimi(Veicoli) :-
+	setof(V, ultimo(V), Veicoli).
 
-piu_di_uno(Lista) :-
-	length(Lista, N),
-	N > 1.
