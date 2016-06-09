@@ -51,9 +51,7 @@ acc_rev([H|T], Acc, R) :-
 acc_rev([], A, A).
 
 % Sostituisci un elemento nella lista
-
-
-sostituisci(_, _, [], []).
+sostituisci([], [], L, L).
 
 sostituisci(Nuovo, DaSostituire, [DaSostituire | T], [Nuovo | T]).
 

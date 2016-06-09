@@ -8,7 +8,8 @@
 			tutti_i_prossimi/1,
 			prossimi_insieme/1,
 			simultanei/2,
-			tutti_gli_ultimi/1]).
+			tutti_gli_ultimi/1,
+			attesa_circolare/1]).
 
 :- use_module(destra2).
 :- use_module(adiacenza).
@@ -158,7 +159,7 @@ passa_prima(V1, V2) :-
 % Può capitare che i veicoli nell'incrocio debbano dare la precedenza ad un veicolo e averla da un altro, in modo circolare;
 % si viene così a creare una situazione di stallo che viene risolta quando un veicolo si porta al centro dell'incrocio
 % così da permettere agli altri di transitare, secondo le regole standard. Il veicolo al centro passerà per ultimo.
-attesa_cicolare(Veicoli) :-
+attesa_circolare(Veicoli) :-
 	findall(V, proviene(V, _), Veicoli),
 	stallo(Veicoli, []).
 
@@ -171,7 +172,6 @@ stallo([H|T], Acc) :-
 stallo([], _).
 
 % Uno o più veicoli passano nello stesso momento
-
 tutti_i_primi(Veicoli) :-
 	setof(V, primo(V), Veicoli).
 
@@ -180,6 +180,8 @@ tutti_i_prossimi(Veicoli) :-
 
 prossimi_insieme(Veicoli) :-
 	setof(V1, V2^simultanei(V1, V2), Veicoli).
+
+%prossimi_insieme([]).
 	
 simultanei(V1, V2) :-
 	precede(StessoVeicolo, V1),

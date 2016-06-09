@@ -1,7 +1,7 @@
 :- module(msg, []).
 
 va_al_centro(V) :-
-	format('Il veicolo ~w va al centro;~n', [V]).
+	format('Il veicolo ~w si sposta al centro;~n', [V]).
 
 primo_a_passare(V) :-
 	format('Il veicolo ~w è il primo a passare;~n', [V]).
@@ -25,28 +25,28 @@ ultimo_a_passare(V) :-
 	format('Il veicolo ~w è l\'ultimo a passare.~n', [V]).
 
 % Più veicoli contemporaneamente
-primi_a_passare(Primi) :-
-	format('I veicoli ~w sono i primi a passare;~n', [Primi]).
+%primi_a_passare(Primi) :-
+%	format('I veicoli ~w sono i primi a passare;~n', [Primi]).
 
 passano_insieme(Veicoli) :-
 	format('I veicoli ~w passano insieme;~n', [Veicoli]).
 
-ultimi_a_passare(Ultimi) :-
-	format('I veicoli ~w sono gli ultimi a passare.~n', [Ultimi]).
+%ultimi_a_passare(Ultimi) :-
+%	format('I veicoli ~w sono gli ultimi a passare.~n', [Ultimi]).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-prim([V]) :-
+primi_a_passare([V]) :-
 	format('Il veicolo ~w è il primo a passare;~n', [V]).
 
-prim(Primi) :-
+primi_a_passare(Primi) :-
 	piu_di_uno(Primi),
 	format('I veicoli ~w sono i primi a passare;~n', [Primi]).
 
-ultim([V]) :-
+ultimi_a_passare([V]) :-
 	format('Il veicolo ~w è l\'ultimo a passare;~n', [V]).
 
-ultim(Ultimi) :-
+ultimi_a_passare(Ultimi) :-
 	piu_di_uno(Ultimi),
 	format('I veicoli ~w sono gli ultimi a passare;~n', [Ultimi]).
 
@@ -56,3 +56,7 @@ prossimi_insieme(Veicoli) :-
 piu_di_uno(Lista) :-
 	length(Lista, N),
 	N > 1.
+
+%%%%%%%%%%%%%%%%%%%%%%%5
+ultimo_dal_centro(V) :-
+	format('Il veicolo ~w prosegue per ultimo.~n', [V]).
