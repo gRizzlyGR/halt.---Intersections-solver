@@ -1,1 +1,5 @@
-veicolo_prioritario(tram).
+:- module(prioritari, [prioritario/1, alta_priorita/1]).
+
+prioritario(veicolo(tram)).
+alta_priorita(veicolo(ambulanza)).
+alta_priorita(veicolo(autopompa)).

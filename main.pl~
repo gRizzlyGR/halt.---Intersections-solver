@@ -6,10 +6,8 @@
 :- ['circolazione.pl'].
 
 solve :-
-	circolano1,
-%	circolano2,
-%	time(circolano1),
-%	time(circolano2),
+	circolano,
+%	time(circolano),
 	fail.
 
 %Fail driven loop

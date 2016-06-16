@@ -1,4 +1,4 @@
-:- module(destra2, [da_destra/2]).
+:- module(destra2, [da_destra/2, destra/2]).
 
 subito_a_destra(braccio(nord), braccio(nord_est)).
 subito_a_destra(braccio(nord_est), braccio(est)).

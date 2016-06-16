@@ -5,9 +5,16 @@
 :- use_module(utils).
 :- use_module(grafo).
 
-circolano :-
 
-%	\+ attesa_circolare(_),
+circolano :-
+	nessun_prossimo,
+
+	prima,
+	infine.
+
+circolano :-
+	almeno_un_prossimo,	
+
 	prima,
 	dopo,
 	infine.
@@ -55,6 +62,17 @@ dopo :-
 	ordine(Prossimi, Ordinata),
 	msg:prossimi_a_passare(Ordinata).
 
+% Nel caso ci siano soltanto due veicoli (o gruppi di veicoli) che passano come primo e ultimo
+nessun_prossimo :-
+	\+ prossimo(_).
+
+
+almeno_un_prossimo :-
+%	prossimo(_).
+	\+ nessun_prossimo.
+
+
+
 % Se non ho veicoli simultanei, la lista è vuota, altrimenti recupero la testa.
 recupera_veicolo_simultaneo([], []).
 recupera_veicolo_simultaneo([H|_], H).
@@ -81,9 +99,7 @@ ordinato([]).
 ordinato([_]).
 ordinato([X,Y|T]) :-
 	precede(X,Y),
-	\+ simultanei(X, Y),
+%	\+ simultaneo(X, Y),
 %	passa_prima(X, Y),
-	ordinato([Y|T]).
-
-	
+	ordinato([Y|T]).	
 
