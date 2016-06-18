@@ -30,7 +30,7 @@
 %---fig.4
 %proviene(veicolo(giallo), braccio(sud)).
 %proviene(veicolo(blu), braccio(nord_est)).
-%proviene(veicolo(marrone), braccio(sud_ovest)).
+%proviene(veicolo(nero), braccio(sud_ovest)).
 %proviene(veicolo(camion), braccio(nord_ovest)).
 %proviene(veicolo(verde), braccio(nord)).
 %proviene(veicolo(rosso), braccio(sud_est)).
@@ -38,7 +38,7 @@
 %transita(veicolo(verde), dritto, braccio(sud)).
 %transita(veicolo(rosso), destra, braccio(nord)).
 %transita(veicolo(blu), sinistra, braccio(sud_est)).
-%transita(veicolo(marrone), dritto, braccio(nord)).
+%transita(veicolo(nero), dritto, braccio(nord)).
 %transita(veicolo(camion), dritto, braccio(sud)).
 %transita(veicolo(giallo), destra, braccio(sud_est)).
 
@@ -360,13 +360,23 @@
 %segnaletica(braccio(ovest), segnale(dare_precedenza)).
 
 %---fig.43
-proviene(veicolo(rosso), braccio(nord_ovest)).
-proviene(veicolo(giallo), braccio(sud_ovest)).
-proviene(veicolo(blu), braccio(sud_est)).
+%proviene(veicolo(rosso), braccio(nord_ovest)).
+%proviene(veicolo(giallo), braccio(sud_ovest)).
+%proviene(veicolo(blu), braccio(sud_est)).
 
-transita(veicolo(rosso), dritto, braccio(sud_est)).
-transita(veicolo(blu), sinistra, braccio(sud_ovest)).
-transita(veicolo(giallo), destra, braccio(sud_est)).
+%transita(veicolo(rosso), dritto, braccio(sud_est)).
+%transita(veicolo(blu), sinistra, braccio(sud_ovest)).
+%transita(veicolo(giallo), destra, braccio(sud_est)).
+
+
+%---fig.49
+proviene(veicolo(rosso), braccio(nord_est)).
+proviene(veicolo(giallo), braccio(est)).
+proviene(veicolo(blu), braccio(nord_ovest)).
+
+transita(veicolo(rosso), sinistra, braccio(est)).
+transita(veicolo(blu), dritto, braccio(sud)).
+transita(veicolo(giallo), dritto, braccio(sud_ovest)).
 
 %---fig.53
 %proviene(veicolo(rosso), braccio(nord)).
@@ -380,3 +390,17 @@ transita(veicolo(giallo), destra, braccio(sud_est)).
 %transita(veicolo(blu), sinistra, braccio(sud_ovest)).
 %transita(veicolo(nero), destra, braccio(est)).
 %transita(veicolo(giallo), sinistra, braccio(nord)).
+
+%---fig.57
+%proviene(veicolo(tram), braccio(est)).
+%proviene(veicolo(rosso), braccio(ovest)).
+%proviene(veicolo(nero), braccio(sud)).
+%proviene(veicolo(blu), braccio(nord)).
+
+%transita(veicolo(rosso), dritto, braccio(est)).
+%transita(veicolo(blu), sinistra, braccio(est)).
+%transita(veicolo(nero), dritto, braccio(nord)).
+%transita(veicolo(tram), sinistra, braccio(sud)).
+
+%segnaletica(braccio(nord), segnale(dare_precedenza)).
+%segnaletica(braccio(sud), segnale(dare_precedenza)).

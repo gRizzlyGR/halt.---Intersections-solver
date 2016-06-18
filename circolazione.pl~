@@ -99,7 +99,7 @@ ordinato([]).
 ordinato([_]).
 ordinato([X,Y|T]) :-
 	precede(X,Y),
-%	\+ simultanei(X, Y),
+%	\+ simultaneo(X, Y),
 %	passa_prima(X, Y),
 	ordinato([Y|T]).	
 

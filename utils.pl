@@ -57,3 +57,8 @@ sostituisci(Nuovo, DaSostituire, [DaSostituire | T], [Nuovo | T]).
 
 sostituisci(Nuovo, DaSostituire, [H|T], [H|T2]) :-
 	sostituisci(Nuovo, DaSostituire, T, T2).
+
+payload(V, L) :-
+%	nonvar(V),
+	term_to_atom(V, A),
+	atomic_list_concat(L, ';', A).

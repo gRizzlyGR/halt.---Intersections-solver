@@ -6,12 +6,14 @@
 :- use_module(grafo).
 
 
+% Due veicoli (o gruppi di veicoli)
 circolano :-
 	nessun_prossimo,
 
 	prima,
 	infine.
 
+% Almeno tre veicoli (o gruppi di veicoli)
 circolano :-
 	almeno_un_prossimo,	
 
@@ -19,6 +21,8 @@ circolano :-
 	dopo,
 	infine.
 
+% Tutti i veicoli hanno la destra occupata e spetta ad uno impegnare per primo l'incrocio
+% per consentire agli altri di passare (precedenza di fatto)
 circolano :-
 	attesa_circolare([AlCentro | Altri]),
 	msg:va_al_centro(AlCentro),
