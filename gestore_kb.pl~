@@ -1,20 +1,22 @@
 :- module(gestore_kb, [
 			inserisci_incrocio/1,
 			cancella_incrocio/0,
-			test/1,
+			test/2,
 			proviene/2,
 			transita/3,
 			segnaletica/2
 			]).
 
-:- use_module(db).
+:- use_module(precedenze).
+
+:- ensure_loaded(['db']).
 
 :- dynamic proviene/2.
 :- dynamic transita/3.
 :- dynamic segnaletica/2.
 
 % Solo per l'utilizzo del dataset già a disposizione
-:- dynamic incrocio/2.
+%:- dynamic incrocio/2.
 
 inserisci_incrocio([Fatto | AltriFatti]) :-	
 	assert_fatto(Fatto),
@@ -32,8 +34,14 @@ cancella_incrocio :-
 	retractall(segnaletica(_, _)).
 
 % Test del dataset già a disposizione
-test(ID) :-
-%	use_module(db),
+test(ID, Incrocio) :-
+	write('------------------Test'), nl,
 	incrocio(ID, Incrocio),
-	inserisci_incrocio(Incrocio).
+	inserisci_incrocio_test(Incrocio).
 
+% I casi nel db sono formati da strutture (compound), quindi atom_to_term/2 non serve
+inserisci_incrocio_test([Fatto | AltriFatti]) :-	
+	assert(Fatto),
+	inserisci_incrocio_test(AltriFatti).
+
+inserisci_incrocio_test([]).

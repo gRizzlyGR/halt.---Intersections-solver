@@ -1,39 +1,33 @@
-:- module(destra, [da_destra/2]).
+:- module(destra, [da_destra/2, destra/2]).
 
-%Raccolgo le tratte coperte dai veicoli sotto i vari punti cardinali
-da_nord(veicolo(X)) :-
-	proviene(veicolo(X), braccio(nord));
-	proviene(veicolo(X), braccio(nord_ovest));
-	proviene(veicolo(X), braccio(nord_est)).
+:- use_module(gestore_kb).
 
-da_sud(veicolo(X)) :-
-	proviene(veicolo(X), braccio(sud));
-	proviene(veicolo(X), braccio(sud_est));
-	proviene(veicolo(X), braccio(sud_ovest)).
+subito_a_destra(braccio(nord), braccio(nord_est)).
+subito_a_destra(braccio(nord_est), braccio(est)).
+subito_a_destra(braccio(est), braccio(sud_est)).
+subito_a_destra(braccio(sud_est), braccio(sud)).
+subito_a_destra(braccio(sud), braccio(sud_ovest)).
+subito_a_destra(braccio(sud_ovest), braccio(ovest)).
+subito_a_destra(braccio(ovest), braccio(nord_ovest)).
+subito_a_destra(braccio(nord_ovest), braccio(nord)).
 
-da_est(veicolo(X)) :-
-	proviene(veicolo(X), braccio(est));
-	proviene(veicolo(X), braccio(sud_est));
-	proviene(veicolo(X), braccio(nord_est)).
 
-da_ovest(veicolo(X)) :-
-	proviene(veicolo(X), braccio(ovest));
-	proviene(veicolo(X), braccio(sud_ovest));
-	proviene(veicolo(X), braccio(nord_ovest)).
+destra(Braccio1, Braccio2) :-
+	subito_a_destra(Braccio1, Braccio2).
 
-%Determino la posizione dei veicoli in base ai punti cardinali
-da_destra(veicolo(X), veicolo(Y)) :-
-	da_nord(veicolo(X)),
-	da_est(veicolo(Y)).
+destra(Braccio1, Braccio2) :-
+	subito_a_destra(Braccio1, BraccioIntermedio),
+	subito_a_destra(BraccioIntermedio, Braccio2).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	da_est(veicolo(X)),
-	da_sud(veicolo(Y)).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	da_sud(veicolo(X)),
-	da_ovest(veicolo(Y)).
+destra(Braccio1, Braccio2) :-
+	subito_a_destra(Braccio1, BraccioIntermedio1),
+	subito_a_destra(BraccioIntermedio1, BraccioIntermedio2),
+	subito_a_destra(BraccioIntermedio2, Braccio2).
 
-da_destra(veicolo(X), veicolo(Y)) :-
-	da_ovest(veicolo(X)),
-	da_nord(veicolo(Y)).
+da_destra(V1, V2) :-
+	proviene(V1, BraccioV1),
+	proviene(V2, BraccioV2),
+	destra(BraccioV1, BraccioV2).
+
+

@@ -12,11 +12,12 @@
 			tutti_gli_ultimi/1,
 			attesa_circolare/1]).
 
-:- use_module(destra2).
+:- use_module(destra).
 :- use_module(adiacenza).
 :- use_module(opposti).
 :- use_module(segnali).
 :- use_module(prioritari).
+:- use_module(gestore_kb).
 :- use_module(library(lists)).
 
 

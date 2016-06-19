@@ -3,7 +3,7 @@
 :- use_module(precedenze).
 :- use_module(msg).
 :- use_module(utils).
-:- use_module(grafo).
+:- use_module(gestore_kb).
 
 
 % Due veicoli (o gruppi di veicoli)

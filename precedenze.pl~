@@ -17,6 +17,7 @@
 :- use_module(opposti).
 :- use_module(segnali).
 :- use_module(prioritari).
+:- use_module(gestore_kb).
 :- use_module(library(lists)).
 
 
@@ -86,12 +87,12 @@ precede(V1, V2) :-
 
 
 % Entrambi i veicoli sono soggetti a segnali di precedenza
-precede(V1. V2) :-
+precede(V1, V2) :-
 	con_segnale_precedenza(V1),
 	con_segnale_precedenza(V2),
 	precede_da_destra(V1, V2).
 
-precede(V1. V2) :-
+precede(V1, V2) :-
 	con_segnale_precedenza(V1),
 	con_segnale_precedenza(V2),
 	precedenza_frontale(V1, V2).

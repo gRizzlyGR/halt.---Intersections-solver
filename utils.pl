@@ -1,5 +1,7 @@
 :- module(utils, []).
 
+:- use_module(library(unix)).
+
 % Una lista vuota è un insieme
 set([], []).
 
@@ -51,14 +53,26 @@ acc_rev([H|T], Acc, R) :-
 acc_rev([], A, A).
 
 % Sostituisci un elemento nella lista
-%sostituisci([], [], L, L).
-
 sostituisci(Nuovo, DaSostituire, [DaSostituire | T], [Nuovo | T]).
 
 sostituisci(Nuovo, DaSostituire, [H|T], [H|T2]) :-
 	sostituisci(Nuovo, DaSostituire, T, T2).
 
+% Converte il contenuto ottenuto da uno stream in un lista di atomi.
 payload(V, L) :-
 %	nonvar(V),
 	term_to_atom(V, A),
 	atomic_list_concat(L, ';', A).
+
+% Permette di ottenere un grafo come file di testo nel formalismo di Graphviz, un tool per rappresentare grafi.
+disegna_grafo(Funtore) :-
+	format('digraph ~s {~n', [Funtore]),
+	forall(call(Funtore, Da, A), format(' "~w" -> "~w";~n', [Da, A])),
+	format('}~n').
+
+% Comando da terminale: dot -Tjpg [percorso] | display
+salva_grafo(Percorso, Funtore) :-
+	tell(Percorso),
+	disegna_grafo(Funtore),
+	told,
+	exec('dot'('-Tjpg', Percorso)).

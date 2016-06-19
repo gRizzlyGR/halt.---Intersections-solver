@@ -1,10 +1,10 @@
 :- module(interfaccia, [init/0]).
 
-:- use_module(gestore_kb).
+%:- use_module(precedenze).
+:- use_module(circolazione).
 :- use_module(utils).
-:- use_module(db).
+:- use_module(gestore_kb).
 
-:- dynamic incrocio/2.
 
 menu :-
 %	writef('%50c', ['-------Menu-------']).
@@ -12,6 +12,8 @@ menu :-
 	write('[1] Inserisci incrocio'), nl,
 	write('[2] Risolvi incrocio'), nl,
 	write('[3] Cancella incrocio'), nl,
+	write('[4] Visualizza incrocio'), nl,
+	write('[5] Genera grafo di precedenze'), nl,
 	write('[0] Esci'), nl, nl,
 	write('--Fai la tua scelta (seguita dal punto): '), read(Scelta), nl,
 	call(scelta-Scelta).
@@ -25,11 +27,21 @@ scelta-1 :-
 
 scelta-2 :-
 	write('--Soluzione:'), nl,
-	solve, nl,
+	circolano, nl,
 	menu.
 
 scelta-3 :-
 	cancella_incrocio, nl,
+	menu.
+
+
+scelta-4 :-
+	write('--WORK IN PROGRESS'), nl,
+	menu.
+
+scelta-5 :-
+%	working_directory(CWD, CWD),
+	utils:salva_grafo('/home/giuseppe/', 'precede'),
 	menu.
 	
 %scelta-0 :-
@@ -39,17 +51,17 @@ scelta-0.
 
 % Per il dataset già a disposizione
 scelta-test :-
-	write('Test'), nl,
-	read(ID),
-%	test(ID).
-incrocio(ID, Incrocio),
-	inserisci_incrocio(Incrocio).
+	write('--Inserisci l\'ID del caso da caricare :'), read(ID),
+	test(ID, Incrocio),
+	write('--Caso caricato!'), nl,
+	write(Incrocio), nl,
+	menu.
 
 init :-
 	menu.
 
-init :-
-	write('--Opzione non riconosciuta!'), nl, nl,
-	menu.
+%init :-
+%	write('--Opzione non riconosciuta!'), nl, nl,
+%	menu.
 
 
