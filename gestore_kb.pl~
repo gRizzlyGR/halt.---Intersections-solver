@@ -7,9 +7,8 @@
 			segnaletica/2
 			]).
 
-:- use_module(precedenze).
-
-:- ensure_loaded(['db']).
+%:- ensure_loaded(['db']).
+:- consult(['db']).
 
 :- dynamic proviene/2.
 :- dynamic transita/3.

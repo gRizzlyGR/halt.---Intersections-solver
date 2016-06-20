@@ -8,6 +8,7 @@
 			]).
 
 :- ensure_loaded(['db']).
+%:- consult(['db']).
 
 :- dynamic proviene/2.
 :- dynamic transita/3.

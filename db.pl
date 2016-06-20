@@ -143,9 +143,9 @@ incrocio(fig14, [
 		proviene(veicolo(tram), braccio(sud)),
 		proviene(veicolo(camion), braccio(nord)),
 		proviene(veicolo(moto), braccio(ovest)),
-		proviene(veicolo(blu), braccio(est)),
+		proviene(veicolo(autobus), braccio(est)),
 		transita(veicolo(camion), dritto, braccio(sud)),
-		transita(veicolo(blu), dritto, braccio(ovest)),
+		transita(veicolo(autobus), dritto, braccio(ovest)),
 		transita(veicolo(tram), dritto, braccio(nord)),
 		transita(veicolo(moto), dritto, braccio(est))
 		]).
@@ -210,14 +210,14 @@ incrocio(fig19, [
 		]).
 
 incrocio(fig20, [
-		proviene(veicolo(celeste), braccio(nord_est)),
-		proviene(veicolo(giallo), braccio(sud_est)),
-		proviene(veicolo(rosso), braccio(nord_ovest)),
-		proviene(veicolo(moto), braccio(sud_ovest)),
-		transita(veicolo(rosso), dritto, braccio(sud_est)),
-		transita(veicolo(moto), destra, braccio(sud_ovest)),
-		transita(veicolo(celeste), dritto, braccio(sud_ovest)),
-		transita(veicolo(giallo), sinistra, braccio(sud_ovest))
+		proviene(veicolo(autobus), braccio(nord_est)),
+		proviene(veicolo(giallo), braccio(sud)),
+		proviene(veicolo(rosso), braccio(ovest)),
+		proviene(veicolo(moto), braccio(sud)),
+		transita(veicolo(rosso), dritto, braccio(est)),
+		transita(veicolo(moto), destra, braccio(est)),
+		transita(veicolo(autobus), dritto, braccio(sud)),
+		transita(veicolo(giallo), sinistra, braccio(sud))
 		]).
 
 

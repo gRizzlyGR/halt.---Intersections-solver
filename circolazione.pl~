@@ -3,7 +3,13 @@
 :- use_module(precedenze).
 :- use_module(msg).
 :- use_module(utils).
-:- use_module(grafo).
+:- use_module(gestore_kb).
+
+
+init :-
+	test('fig58', Incrocio),
+	circolano.
+	
 
 
 % Due veicoli (o gruppi di veicoli)

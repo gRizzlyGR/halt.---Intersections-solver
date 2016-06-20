@@ -6,6 +6,12 @@
 :- use_module(gestore_kb).
 
 
+init :-
+	test('fig58', _),
+	circolano.
+	
+
+
 % Due veicoli (o gruppi di veicoli)
 circolano :-
 	nessun_prossimo,
