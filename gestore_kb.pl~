@@ -1,14 +1,14 @@
 :- module(gestore_kb, [
 			inserisci_incrocio/1,
-			cancella_incrocio/0,
+			pulisci/0,
 			test/2,
 			proviene/2,
 			transita/3,
 			segnaletica/2
 			]).
 
-%:- ensure_loaded(['db']).
-:- consult(['db']).
+:- ensure_loaded(['db']).
+%:- consult(['db']).
 
 :- dynamic proviene/2.
 :- dynamic transita/3.
@@ -27,7 +27,7 @@ assert_fatto(Fatto) :-
 	atom_to_term(Fatto, T, _),
 	assert(T).
 
-cancella_incrocio :-
+pulisci :-
 	retractall(proviene(_, _)),
 	retractall(transita(_, _, _)),
 	retractall(segnaletica(_, _)).

@@ -1,6 +1,6 @@
 :- module(gestore_kb, [
 			inserisci_incrocio/1,
-			cancella_incrocio/0,
+			pulisci/0,
 			test/2,
 			proviene/2,
 			transita/3,
@@ -27,7 +27,8 @@ assert_fatto(Fatto) :-
 	atom_to_term(Fatto, T, _),
 	assert(T).
 
-cancella_incrocio :-
+% Rimuove l'eventaule incrocio inserito precedentemente
+pulisci :-
 	retractall(proviene(_, _)),
 	retractall(transita(_, _, _)),
 	retractall(segnaletica(_, _)).
