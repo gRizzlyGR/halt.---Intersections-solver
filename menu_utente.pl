@@ -7,6 +7,7 @@
 
 menu_utente :-
 %	writef('%50c', ['-------Menu-------']).
+	pulisci,
 	write('---------Menu---------'), nl,
 	write('[1] Inserisci e risolvi incrocio'), nl,
 	write('[2] Carica e risolvi un incrocio preesistente'), nl,
@@ -19,10 +20,11 @@ menu_utente :-
 
 
 scelta_1 :-
-	pulisci,
+	write('Inserisci i fatti separati da ";"'), nl,
 	read(Incrocio),
 	utils:payload(Incrocio, Fatti),
 	inserisci_incrocio(Fatti), nl,
+	da_stampare(Fatti),
 	risolvi,
 	pausa,
 	menu_utente.
@@ -32,21 +34,15 @@ scelta_2 :-
 	write('--Inserisci l\'ID del caso da caricare :'), read(ID),
 	test(ID, Incrocio),
 	write('--Caso caricato!'), nl,
-	write(Incrocio), nl,
+	da_stampare(Incrocio),
+	stampa_incrocio(Incrocio),
 	risolvi,
 	pausa,
 	menu_utente.
 
-
-
-%scelta_3 :-
-%	write('--Incrocio in memoria cancellato'),
-%	pulisci, nl,
-%	menu.
-
-
 scelta_3 :-
-	write('--WORK IN PROGRESS'), nl,
+	recupera(Incrocio),
+	stampa_incrocio(Incrocio),
 	menu_utente.
 
 %scelta_4 :-
@@ -57,8 +53,7 @@ scelta_3 :-
 %scelta-0 :-
 %	halt.
 
-scelta_0 :-
-	pulisci.
+scelta_0.
 
 % Mette in pausa per consentire all'utente di visualizzare i risultati
 pausa :-

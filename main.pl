@@ -74,7 +74,18 @@ start :-
 start :-
 	call(menu_utente).
 
+test :-
+	findall(ID, gestore_kb:incrocio(ID, _), IDs),
+	solve(IDs).
+	
+solve([ID | T]) :-
+	writeln(ID),
+	pulisci,
+	test(ID, _),
+	menu_utente:risolvi,
+	solve(T).
 
+solve([]).
 
 %start :-
 %	write('--Opzione non riconosciuta!'), nl, nl,

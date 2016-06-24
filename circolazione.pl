@@ -4,6 +4,7 @@
 :- use_module(msg).
 :- use_module(utils).
 :- use_module(gestore_kb).
+:- use_module(attesa_circolare).
 
 
 init :-
@@ -27,10 +28,11 @@ circolano :-
 	dopo,
 	infine.
 
-% Tutti i veicoli hanno la destra occupata e spetta ad uno impegnare per primo l'incrocio
-% per consentire agli altri di passare (precedenza di fatto)
+% Tutti i veicoli hanno la destra occupata e spetta a colui che va a sinistra impegnare
+% per primo l'incrocio per consentire agli altri di passare (precedenza di fatto)
 circolano :-
-	attesa_circolare([AlCentro | Altri]),
+	attesa_circolare(Veicoli),
+	va_a_sinistra(AlCentro, Altri, Veicoli),
 	msg:va_al_centro(AlCentro),
 
 	ordine(Altri, Ordinata),
