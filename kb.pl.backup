@@ -45,11 +45,15 @@ incrocio(fig4, [
 incrocio(fig5, [
 		proviene(veicolo(giallo), braccio(sud)),
 		proviene(veicolo(blu), braccio(est)),
+		proviene(veicolo(blu2), braccio(est)),
+		proviene(veicolo(blu3), braccio(est)),
 		proviene(veicolo(verde), braccio(nord)),
 		proviene(veicolo(rosso), braccio(est)),
 		transita(veicolo(verde), dritto, braccio(sud)),
 		transita(veicolo(rosso), sinistra, braccio(sud)),
 		transita(veicolo(blu), dritto, braccio(ovest)),
+		transita(veicolo(blu2), dritto, braccio(ovest)),
+		transita(veicolo(blu3), dritto, braccio(ovest)),
 		transita(veicolo(giallo), sinistra, braccio(ovest))
 		]).
 

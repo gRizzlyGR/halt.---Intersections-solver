@@ -6,13 +6,6 @@
 :- use_module(gestore_kb).
 :- use_module(attesa_circolare).
 
-
-init :-
-	test('fig58', _),
-	circolano.
-	
-
-
 % Due veicoli (o gruppi di veicoli)
 circolano :-
 	nessun_prossimo,

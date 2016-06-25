@@ -76,3 +76,10 @@ salva_grafo(Percorso, Funtore) :-
 	disegna_grafo(Funtore),
 	told,
 	exec('dot'('-Tjpg', Percorso)).
+
+visualizza_grafo :-
+%	source_file(disegna_grafo(_), Percorso),
+	working_directory(CWD, CWD),
+	atom_concat(CWD, 'graph.gv', Percorso),
+	salva_grafo(Percorso, precede),
+	exec('display'('precede.jpg')).

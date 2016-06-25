@@ -1,13 +1,18 @@
 :- module(gestore_kb, [
 			inserisci_incrocio/1,
 			pulisci/0,
-			test/2,
+%			carica/2,
+			carica_in_memoria/1,
+			recupera_incrocio/2,
 			proviene/2,
 			transita/3,
 			segnaletica/2,
+			incrocio/2,
 			da_stampare/1,
-			recupera/1,
-			stampa_incrocio/1
+%			recupera/1,
+			stampa_incrocio/1,
+			registra_incrocio/1,
+			elimina_incrocio/1
 			]).
 
 :- ensure_loaded(['kb']).
@@ -18,43 +23,42 @@
 :- dynamic segnaletica/2.
 
 % Solo per la stampa
-:- dynamic output/1.
+%:- dynamic output/1.
 
-% Solo per l'utilizzo del dataset già a disposizione
-%:- dynamic incrocio/2.
 
-inserisci_incrocio([Fatto | AltriFatti]) :-	
-	assert_fatto(Fatto),
-	inserisci_incrocio(AltriFatti).
+% Inserimento solo in memoria
+%inserisci_incrocio([Fatto | AltriFatti]) :-	
+%	assert_fatto(Fatto),
+%	inserisci_incrocio(AltriFatti).
 
-inserisci_incrocio([]).
-	
-assert_fatto(Fatto) :-
-	atom_to_term(Fatto, T, _),
-	assert(T).
+%inserisci_incrocio([]).
+%	
+%assert_fatto(Fatto) :-
+%	atom_to_term(Fatto, T, _),
+%	assert(T).
 
 % Rimuove l'eventaule incrocio inserito precedentemente
 pulisci :-
 	retractall(proviene(_, _)),
 	retractall(transita(_, _, _)),
-	retractall(segnaletica(_, _)),
-	retractall(output(_, _)).
+	retractall(segnaletica(_, _)).
+%	retractall(output(_)).
 
 % Test del dataset già a disposizione
-test(ID, Incrocio) :-
+recupera_incrocio(ID, Incrocio) :-
 	incrocio(ID, Incrocio),
-	inserisci_incrocio_test(Incrocio).
+	carica_in_memoria(Incrocio).
 
 % I casi nella kb sono formati da strutture (compound), quindi atom_to_term/2 non serve
-inserisci_incrocio_test([Fatto | AltriFatti]) :-	
+carica_in_memoria([Fatto | AltriFatti]) :-	
 	assert(Fatto),
-	inserisci_incrocio_test(AltriFatti).
+	carica_in_memoria(AltriFatti).
 
-inserisci_incrocio_test([]).
+carica_in_memoria([]).
 
-% Utilizzato solo per la stampa in caso di inserimento interattivo dell'utente
-recupera(Incrocio) :-
-	output(Incrocio).
+% Utilizzato solo per la stampa a video
+%recupera(Incrocio) :-
+%	output(Incrocio).
 
 da_stampare(Incrocio) :-
 	assert(output(Incrocio)).
@@ -78,3 +82,24 @@ stampa_incrocio([segnaletica(Braccio, Segnale) | T]) :-
 	stampa_incrocio(T).
 
 stampa_incrocio([]) :- nl.
+
+
+% Clausole per l'IO
+registra_incrocio(Incrocio) :-
+	percorso(File),
+	tell(File),
+	assert(Incrocio),
+	listing(incrocio),
+	told.
+
+
+elimina_incrocio(ID) :-
+	percorso(File),
+	tell(File),
+	retract(incrocio(ID, _)),
+	listing(incrocio),
+	told.
+
+
+percorso(File) :-
+	source_file(incrocio(_, _), File).

@@ -1,20 +1,28 @@
 :- module(menu_admin, [menu_admin/0]).
 
+:- use_module(gestore_kb).
+
 menu_admin :-
+	pulisci,
 	write('---------Admin Menu---------'), nl,	
 	write('[1] Registra un incrocio'), nl,
-	write('[2] Modifica un incrocio'), nl,
-	write('[3] Elimina un incrocio'), nl,
+	write('[2] Elimina un incrocio'), nl,
 	write('[0] Esci'), nl, nl,
 	write('--Fai la tua scelta (seguita dal punto): '), read(S), nl,
 	atom_concat('scelta_', S, Scelta),
 	call(Scelta).
 
 scelta_1 :-
-	write('Inserisci i fatti separati da ";"'), nl.
+	write('--Inserisci l\'ID del nuovo caso: '), read(ID), nl,
+	write('--Inserisci la lista dei fatti:'), nl, read(Lista),
+	registra_incrocio(incrocio(ID, Lista)), nl,
+	write('--Incrocio registrato con successo!'), nl,
+	menu_admin.
 
-scelta_2.
-
-scelta_3.
+scelta_2 :-
+	write('--Inserisci l\'ID del caso che vuoi cancellare:'), read(ID),
+	elimina_incrocio(ID), nl,
+	write('--Incrocio eliminato con successo!'), nl,
+	menu_admin.
 
 scelta_0.

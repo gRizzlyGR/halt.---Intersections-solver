@@ -34,13 +34,6 @@ primo(V) :-
 	\+ con_segnale_precedenza(V),
 	\+ precede(_, V).
 
-% Se nell'incrocio c'è uno stallo, un veicolo prende l'iniziativa andando al centro e gli altri passano secondo le regole.
-% Il veicolo al centro passerò per ultimo.
-
-%primo(V) :-
-%	attesa_cicolare([V | _]).
-
-
 % Trova la sequenza di veicoli che passeranno.
 prossimo(V) :-
 %	precede(V, _),
@@ -215,4 +208,3 @@ almeno_uno_precede(V1, V2) :-
 
 tutti_gli_ultimi(Veicoli) :-
 	setof(V, ultimo(V), Veicoli).
-
