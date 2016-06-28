@@ -16,7 +16,7 @@ start :-
 	call(Menu).
 
 start :-
-	call(menu_utente).
+	menu_utente.
 
 %test :-
 %	findall(ID, gestore_kb:incrocio(ID, _), IDs),

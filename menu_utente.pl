@@ -6,13 +6,12 @@
 :- use_module(gestore_kb).
 
 menu_utente :-
-%	writef('%50c', ['-------Menu-------']).
 	pulisci,
 	write('---------Menu---------'), nl,
 	write('[1] Inserisci e risolvi incrocio.'), nl,
 	write('[2] Carica e risolvi un incrocio preesistente.'), nl,
 	write('[3] Visualizza un incrocio.'), nl,
-	write('[4] Genera grafo di precedenze di un incrocio.'), nl,
+%	write('[4] Genera grafo di precedenze di un incrocio.'), nl,
 	write('[0] Esci.'), nl, nl,
 	write('--Fai la tua scelta (seguita dal punto): '), read(S), nl,
 	atom_concat('scelta_', S, Scelta),
@@ -45,13 +44,13 @@ scelta_3 :-
 	pausa,
 	menu_utente.
 
-scelta_4 :-
-%	working_directory(CWD, CWD),
-	write('--Inserisci l\'ID del caso da caricare: '), read(ID),
-	recupera_incrocio(ID, Incrocio),
-	utils:visualizza_grafo,
-	menu_utente.
-	
+%scelta_4 :-
+%%	working_directory(CWD, CWD),
+%	write('--Inserisci l\'ID del caso da caricare: '), read(ID),
+%	recupera_incrocio(ID, _),
+%	utils:visualizza_grafo,
+%	menu_utente.
+%	
 %scelta-0 :-
 %	halt.
 

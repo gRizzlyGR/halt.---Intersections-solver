@@ -1,5 +1,5 @@
 :- module(gestore_kb, [
-			inserisci_incrocio/1,
+%			inserisci_incrocio/1,
 			pulisci/0,
 %			carica/2,
 			carica_in_memoria/1,
@@ -94,6 +94,7 @@ registra_incrocio(Incrocio) :-
 
 
 elimina_incrocio(ID) :-
+	incrocio(ID, _),
 	percorso(File),
 	tell(File),
 	retract(incrocio(ID, _)),

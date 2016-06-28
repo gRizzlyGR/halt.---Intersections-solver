@@ -1,6 +1,7 @@
 :- module(utils, []).
 
 :- use_module(library(unix)).
+;- use_module(library(process)).
 
 % Una lista vuota è un insieme
 set([], []).
@@ -75,11 +76,13 @@ salva_grafo(Percorso, Funtore) :-
 	tell(Percorso),
 	disegna_grafo(Funtore),
 	told,
-	exec('dot'('-Tjpg', Percorso)).
+	working_directory(CWD, CWD),
+	process_create(path('dot'), ['-Tjpg', file('graph.gv')], [stdout(pipe(display))]).
+%	fork_exec('dot'('-Tjpg', Percorso)).
 
 visualizza_grafo :-
 %	source_file(disegna_grafo(_), Percorso),
 	working_directory(CWD, CWD),
 	atom_concat(CWD, 'graph.gv', Percorso),
-	salva_grafo(Percorso, precede),
-	exec('display'('precede.jpg')).
+	salva_grafo(Percorso, precede).
+%	fork_exec('display'('precede.jpg')).
