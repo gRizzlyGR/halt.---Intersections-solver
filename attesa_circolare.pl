@@ -13,7 +13,7 @@
 attesa_circolare(Veicoli) :-
 	setof(V, non_il_primo(V), Veicoli),
 	almeno_tre(Veicoli),
-	stallo(Veicoli, []).
+	stallo(Veicoli, [], Veicoli).
 
 
 % Vengono considerati solo i veicoli in stallo. Ce ne potrebbe essere un altro che non è coinvolto e passa prima.
@@ -22,12 +22,14 @@ non_il_primo(Veicolo) :-
 	\+ primo(Veicolo),
 	\+ ultimo(Veicolo).
 
-stallo([H|T], Acc) :-
+stallo([H|T], Acc, Veicoli) :-
 	precede(H, Preceduto),
+%	\+ ultimo(Preceduto),
+	member(Preceduto, Veicoli),
 	\+ member(Preceduto, Acc),
-	stallo(T, [Preceduto | Acc]).
+	stallo(T, [Preceduto | Acc], Veicoli).
 
-stallo([], _).
+stallo([], _, _).
 
 
 va_a_sinistra(V, Altri, [V | Altri]) :-

@@ -23,8 +23,8 @@
 
 
 % Il primo veicolo a passare è il veicolo che ha la destra libera --FORSE INUTILE
-primo(V) :-
-	destra_libera(V).
+%primo(V) :-
+%	destra_libera(V).
 
 
 % Altrimenti è il veicolo che non è preceduto da nessuno.

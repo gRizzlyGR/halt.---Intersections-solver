@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package gui;
+package gui.user;
 
 /**
  *
@@ -98,7 +98,8 @@ public class UtenteForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void preesistenteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preesistenteButtonActionPerformed
-        // TODO add your handling code here:
+        new RisolviForm().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_preesistenteButtonActionPerformed
 
     private void esciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciButtonActionPerformed

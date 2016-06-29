@@ -5,9 +5,10 @@
  */
 package gui.prolog;
 
-import com.declarativa.interprolog.PrologEngine;
+import com.declarativa.interprolog.PrologOutputListener;
 import com.declarativa.interprolog.SWISubprocessEngine;
-import com.declarativa.interprolog.TermModel;
+import com.declarativa.interprolog.SubprocessEngine;
+
 import java.io.File;
 
 /**
@@ -18,31 +19,41 @@ public class PrologManager {
     
     private final String BIN_PATH = "/usr/lib/swi-prolog/bin/amd64/swipl";
     private final String LIB_PATH = "/usr/lib/swi-prolog/lib/amd64";
-    private PrologEngine engine;
+    private SubprocessEngine engine;
     
     
     public PrologManager() {
 //        JPL.setNativeLibraryDir(LIB_PATH);
 //        JPL.init();
         engine = new SWISubprocessEngine(BIN_PATH, false);
-        System.out.println(engine.getPrologVersion());
+        
+        
 //      boolean flag = engine.command("-f /home/giuseppe/IA/Progetto/main.pl -t start");
+        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/main.pl"));
         
+        PrologOutputListener itr = new PrologInterceptor();
         
-//        boolean flag = engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/gestore_kb.pl"));
-        boolean flag = engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/kb.pl"));
-//        System.out.println(new TermModel("recupera_incrocio(fig5, Incrocio)"));
+        engine.addPrologOutputListener(itr);
         
-//        Object[] tm = engine.deterministicGoal("incrocio", "[fig5, Incrocio]");
+//        engine.deterministicGoal("recupera_incrocio(fig5, I), stampa_incrocio(I), risolvi");
+//        engine.deterministicGoal("gestore_kb:recupera_incrocio(fig5, I), gestore_kb:stampa_incrocio(I), circolano");
+        
+
+//        Object[] bindings = engine.deterministicGoal("incrocio(fig5, List), process_list(List, LL), ipObjectTemplate('ArrayOfString',AS,_,[LL],_)","[AS]"); 
+//        Object[] bindings = engine.deterministicGoal("convert(LL), ipObjectTemplate('ArrayOfString',AS,_,[LL],_)","[AS]"); 
+        
+//        Object[] bindings = engine.deterministicGoal("recupera_incrocio(fig5, I), process_list(I, L), ipObjectTemplate('ArrayOfString',AS,_,[L],_)", "[AS]");
+//        String[] list = (String[]) bindings[0];
 //        
-//        for (Object t : tm)
-//            System.out.println(t);
+//        for (String l : list)
+//            System.out.println(l);
         
-        boolean q = engine.deterministicGoal("incrocio(fig5, Incrocio)");
         
-        if (q)
-            System.out.println("VEROOOOOOO");
-        engine.shutdown();
+        
+//        try {}
+//        finally {
+//            engine.shutdown();
+//        }
         
     }
     
@@ -50,6 +61,10 @@ public class PrologManager {
         new PrologManager();
     }
     
+    
+    public boolean sendCommand(String command) {
+        return engine.deterministicGoal(command);
+    }
     
     public String getCommand(String functor, String... args) {
         String s = "(";
@@ -60,6 +75,10 @@ public class PrologManager {
         return functor + s.substring(0, s.length()-1) + ")";
     }
     
+    
+    public void close() {
+        engine.shutdown();
+    }
     
     
     
