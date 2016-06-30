@@ -5,7 +5,7 @@
  */
 package gui.admin;
 
-import gui.user.UtenteForm;
+import gui.user.UserForm;
 
 /**
  *
@@ -101,7 +101,7 @@ public class AdminForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void menuUtenteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUtenteButtonActionPerformed
-        new UtenteForm().setVisible(true);
+        new UserForm().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_menuUtenteButtonActionPerformed
 

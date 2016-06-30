@@ -1,7 +1,7 @@
 package gui;
 
 import gui.admin.AdminForm;
-import gui.user.UtenteForm;
+import gui.user.UserForm;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -32,33 +32,33 @@ public class MainForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        menuUtenteButton = new javax.swing.JButton();
-        menuAdminButton = new javax.swing.JButton();
-        esciButton = new javax.swing.JButton();
+        userMenuButton = new javax.swing.JButton();
+        adminMenuButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel1.setName(""); // NOI18N
 
-        menuUtenteButton.setText("Menu Utente");
-        menuUtenteButton.addActionListener(new java.awt.event.ActionListener() {
+        userMenuButton.setText("Menu Utente");
+        userMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuUtenteButtonActionPerformed(evt);
+                userMenuButtonActionPerformed(evt);
             }
         });
 
-        menuAdminButton.setText("Menu Admin");
-        menuAdminButton.addActionListener(new java.awt.event.ActionListener() {
+        adminMenuButton.setText("Menu Admin");
+        adminMenuButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menuAdminButtonActionPerformed(evt);
+                adminMenuButtonActionPerformed(evt);
             }
         });
 
-        esciButton.setText("Esci");
-        esciButton.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setText("Esci");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                esciButtonActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -71,22 +71,22 @@ public class MainForm extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(menuUtenteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(menuAdminButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(userMenuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(adminMenuButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(esciButton)))
+                        .addComponent(exitButton)))
                 .addContainerGap(39, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(menuUtenteButton)
+                .addComponent(userMenuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(menuAdminButton)
+                .addComponent(adminMenuButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(esciButton)
+                .addComponent(exitButton)
                 .addGap(29, 29, 29))
         );
 
@@ -106,19 +106,19 @@ public class MainForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void menuUtenteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuUtenteButtonActionPerformed
-        new UtenteForm().setVisible(true);
+    private void userMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userMenuButtonActionPerformed
+        new UserForm().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_menuUtenteButtonActionPerformed
+    }//GEN-LAST:event_userMenuButtonActionPerformed
 
-    private void esciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciButtonActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_esciButtonActionPerformed
+    }//GEN-LAST:event_exitButtonActionPerformed
 
-    private void menuAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuAdminButtonActionPerformed
+    private void adminMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adminMenuButtonActionPerformed
         new AdminForm().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_menuAdminButtonActionPerformed
+    }//GEN-LAST:event_adminMenuButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -159,9 +159,9 @@ public class MainForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton esciButton;
+    private javax.swing.JButton adminMenuButton;
+    private javax.swing.JButton exitButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton menuAdminButton;
-    private javax.swing.JButton menuUtenteButton;
+    private javax.swing.JButton userMenuButton;
     // End of variables declaration//GEN-END:variables
 }

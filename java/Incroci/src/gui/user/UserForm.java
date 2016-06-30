@@ -9,12 +9,12 @@ package gui.user;
  *
  * @author giuseppe
  */
-public class UtenteForm extends javax.swing.JFrame {
+public class UserForm extends javax.swing.JFrame {
 
     /**
      * Creates new form Utente
      */
-    public UtenteForm() {
+    public UserForm() {
         initComponents();
     }
 
@@ -28,28 +28,28 @@ public class UtenteForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        inserisciButton = new javax.swing.JButton();
-        preesistenteButton = new javax.swing.JButton();
-        visualizzaButton = new javax.swing.JButton();
-        esciButton = new javax.swing.JButton();
+        insertButton = new javax.swing.JButton();
+        preexistentButton = new javax.swing.JButton();
+        visualizeButton = new javax.swing.JButton();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        inserisciButton.setText("Inserisci e risolvi un incrocio");
+        insertButton.setText("Inserisci e risolvi un incrocio");
 
-        preesistenteButton.setText("Carica e risolvi un incrocio preesistente");
-        preesistenteButton.addActionListener(new java.awt.event.ActionListener() {
+        preexistentButton.setText("Carica e risolvi un incrocio preesistente");
+        preexistentButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                preesistenteButtonActionPerformed(evt);
+                preexistentButtonActionPerformed(evt);
             }
         });
 
-        visualizzaButton.setText("Visualizza un incrocio");
+        visualizeButton.setText("Visualizza un incrocio");
 
-        esciButton.setText("Esci");
-        esciButton.addActionListener(new java.awt.event.ActionListener() {
+        exitButton.setText("Esci");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                esciButtonActionPerformed(evt);
+                exitButtonActionPerformed(evt);
             }
         });
 
@@ -59,27 +59,27 @@ public class UtenteForm extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(59, 59, 59)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(preesistenteButton)
-                    .addComponent(inserisciButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(visualizzaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(insertButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(visualizeButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(preexistentButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(59, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(esciButton)
+                .addComponent(exitButton)
                 .addGap(182, 182, 182))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(inserisciButton)
+                .addComponent(insertButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(preesistenteButton)
+                .addComponent(preexistentButton)
                 .addGap(12, 12, 12)
-                .addComponent(visualizzaButton)
+                .addComponent(visualizeButton)
                 .addGap(27, 27, 27)
-                .addComponent(esciButton)
+                .addComponent(exitButton)
                 .addContainerGap(31, Short.MAX_VALUE))
         );
 
@@ -97,14 +97,14 @@ public class UtenteForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void preesistenteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preesistenteButtonActionPerformed
-        new RisolviForm().setVisible(true);
+    private void preexistentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_preexistentButtonActionPerformed
+        new SolutionForm().setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_preesistenteButtonActionPerformed
+    }//GEN-LAST:event_preexistentButtonActionPerformed
 
-    private void esciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_esciButtonActionPerformed
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
-    }//GEN-LAST:event_esciButtonActionPerformed
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,30 +123,32 @@ public class UtenteForm extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UtenteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UtenteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UtenteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UtenteForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(UserForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UtenteForm().setVisible(true);
+                new UserForm().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton esciButton;
-    private javax.swing.JButton inserisciButton;
+    private javax.swing.JButton exitButton;
+    private javax.swing.JButton insertButton;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton preesistenteButton;
-    private javax.swing.JButton visualizzaButton;
+    private javax.swing.JButton preexistentButton;
+    private javax.swing.JButton visualizeButton;
     // End of variables declaration//GEN-END:variables
 }

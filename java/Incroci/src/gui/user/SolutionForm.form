@@ -29,13 +29,16 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Component id="idLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                      <Component id="idText" min="-2" pref="39" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="risolviButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="237" max="32767" attributes="0"/>
+                      <Component id="idText" min="-2" pref="48" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="solutionButton" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="caricatoSroll" alignment="0" max="32767" attributes="0"/>
-                  <Component id="soluzioneScroll" alignment="0" max="32767" attributes="0"/>
+                  <Component id="loadingSroll" alignment="0" pref="567" max="32767" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Component id="backButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="exitButton" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -47,14 +50,17 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="idLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="idText" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="risolviButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="idText" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="solutionButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="caricatoSroll" min="-2" pref="162" max="-2" attributes="0"/>
+              <Component id="loadingSroll" min="-2" pref="236" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="soluzioneScroll" pref="162" max="32767" attributes="0"/>
-              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="exitButton" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="83" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -66,23 +72,27 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="idText">
+      <Events>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="idTextKeyPressed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="risolviButton">
+    <Component class="javax.swing.JButton" name="solutionButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Carica e risolvi"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="risolviButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="solutionButtonActionPerformed"/>
+        <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="solutionButtonKeyPressed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="caricatoSroll">
+    <Container class="javax.swing.JScrollPane" name="loadingSroll">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTextArea" name="caricatoText">
+        <Component class="javax.swing.JTextArea" name="solutionText">
           <Properties>
             <Property name="columns" type="int" value="20"/>
             <Property name="rows" type="int" value="5"/>
@@ -90,20 +100,21 @@
         </Component>
       </SubComponents>
     </Container>
-    <Container class="javax.swing.JScrollPane" name="soluzioneScroll">
-      <AuxValues>
-        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
-      </AuxValues>
-
-      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
-      <SubComponents>
-        <Component class="javax.swing.JTextArea" name="soluzioneText">
-          <Properties>
-            <Property name="columns" type="int" value="20"/>
-            <Property name="rows" type="int" value="5"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
+    <Component class="javax.swing.JButton" name="backButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Ritorna al menu"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="exitButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Esci"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

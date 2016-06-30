@@ -40,16 +40,16 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="preesistenteButton" min="-2" max="-2" attributes="0"/>
-                      <Component id="inserisciButton" min="-2" pref="314" max="-2" attributes="0"/>
-                      <Component id="visualizzaButton" alignment="0" min="-2" pref="314" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="insertButton" max="32767" attributes="0"/>
+                      <Component id="visualizeButton" alignment="0" max="32767" attributes="0"/>
+                      <Component id="preexistentButton" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace pref="59" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
-                  <Component id="esciButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="exitButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -58,43 +58,43 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                  <Component id="inserisciButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="insertButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="preesistenteButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="preexistentButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
-                  <Component id="visualizzaButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="visualizeButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-                  <Component id="esciButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="exitButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="31" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="inserisciButton">
+        <Component class="javax.swing.JButton" name="insertButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Inserisci e risolvi un incrocio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="preesistenteButton">
+        <Component class="javax.swing.JButton" name="preexistentButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Carica e risolvi un incrocio preesistente"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preesistenteButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="preexistentButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="visualizzaButton">
+        <Component class="javax.swing.JButton" name="visualizeButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Visualizza un incrocio"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="esciButton">
+        <Component class="javax.swing.JButton" name="exitButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Esci"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="esciButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
