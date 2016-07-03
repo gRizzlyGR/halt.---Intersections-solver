@@ -64,21 +64,21 @@ da_stampare(Incrocio) :-
 	assert(output(Incrocio)).
 
 % Stampo l'incrocio in modo ben formattato
-stampa_incrocio([proviene(Veicolo, Braccio) | T]) :-
-	format('Il veicolo ~w proviene da ~w.~n', [Veicolo, Braccio]),
+stampa_incrocio([proviene(veicolo(Veicolo), braccio(Braccio)) | T]) :-
+	format('Il veicolo ~w proviene dal braccio ~w.~n', [Veicolo, Braccio]),
 	stampa_incrocio(T).
 
-stampa_incrocio([transita(Veicolo, dritto, Braccio) | T]) :-
-	format('Il veicolo ~w transita in ~w, proseguendo dritto.~n', [Veicolo, Braccio]),
+stampa_incrocio([transita(veicolo(Veicolo), dritto, braccio(Braccio)) | T]) :-
+	format('Il veicolo ~w transita nel braccio ~w proseguendo dritto.~n', [Veicolo, Braccio]),
 	stampa_incrocio(T).
 
-stampa_incrocio([transita(Veicolo, Direzione, Braccio) | T]) :-
+stampa_incrocio([transita(veicolo(Veicolo), Direzione, braccio(Braccio)) | T]) :-
 	Direzione \= dritto,
-	format('Il veicolo ~w transita in ~w, svoltando a ~w.~n', [Veicolo, Braccio, Direzione]),
+	format('Il veicolo ~w transita nel braccio ~w svoltando a ~w.~n', [Veicolo, Braccio, Direzione]),
 	stampa_incrocio(T).
 
-stampa_incrocio([segnaletica(Braccio, Segnale) | T]) :-
-	format('Nel ~w c\'è il ~w.~n', [Braccio, Segnale]),
+stampa_incrocio([segnaletica(braccio(Braccio), segnale(Segnale)) | T]) :-
+	format('Nel braccio ~w c\'è il segnale ~w.~n', [Braccio, Segnale]),
 	stampa_incrocio(T).
 
 stampa_incrocio([]) :- nl.

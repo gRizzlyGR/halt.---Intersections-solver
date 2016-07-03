@@ -7,22 +7,104 @@ package prolog.command;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  *
  * @author giuseppe
  */
 public class ClauseValidator {
-    public List<String> validateClause(List<String> facts, String toReplace, String functor, String... params) {
+
+    private static final Pattern COMES_FROM = Pattern.compile(".*veicolo\\s+(.*)\\s+proviene.*braccio\\s+(.*)");
+    private static final Pattern GOES_TO = Pattern.compile(".*veicolo\\s+(.*)\\s+transita.*braccio\\s+(.*)\\s+(svoltando\\s+a\\s+|proseguendo\\s+)(.*)");
+    private static final Pattern SIGN = Pattern.compile(".*braccio\\s+(.*)\\s+c.*segnale\\s+(.*)"); //--> 'c' character is a watershed representing 'c'è'
+    private Matcher m;
+
+    public String validateClause(String textLoad) {
+        String[] facts = textLoad.split(";");
         List<String> clauses = new ArrayList<>();
-        
-        for (String f : facts) {
-            
+        String f;
+
+        try {
+            for (String fact : facts) {
+                f = removeNewLines(fact);
+                if (f.contains("proviene")) {
+                    clauses.add(comesFromClause(f));
+                } else if (f.contains("transita")) {
+                    clauses.add(goesToClause(f));
+                } else if (f.contains("segnale")) {
+                    clauses.add(signClause(f));
+                }
+            }
+        } catch (InvalidClauseException e) {
+            e.printStackTrace();
         }
-            
-        
-        
-        
-        return null;
+
+        return listToString(clauses);
+    }
+
+    private String comesFromClause(String sentence) throws InvalidClauseException {
+
+        m = COMES_FROM.matcher(sentence);
+
+        if (m.matches()) {
+            return String.format("proviene(veicolo(%s), braccio(%s))", whiteSpaceToUnderscore(m.group(1)), whiteSpaceToUnderscore(m.group(2)));
+        } else {
+            throw new InvalidClauseException("Sentence not formatted correctly: " + sentence);
+        }
+    }
+
+    private String goesToClause(String sentence) throws InvalidClauseException {
+        m = GOES_TO.matcher(sentence);
+
+        if (m.matches()) {
+            return String.format("transita(veicolo(%s), %s, braccio(%s))", whiteSpaceToUnderscore(m.group(1)), whiteSpaceToUnderscore(m.group(4)), whiteSpaceToUnderscore(m.group(2)));
+        } else {
+            throw new InvalidClauseException("Sentence not formatted correctly: " + sentence);
+        }
+    }
+
+    private String signClause(String sentence) throws InvalidClauseException {
+        m = SIGN.matcher(sentence);
+
+        if (m.matches()) {
+            return String.format("segnaletica(braccio(%s), segnale(%s))", whiteSpaceToUnderscore(m.group(1)), whiteSpaceToUnderscore(m.group(2)));
+        } else {
+            throw new InvalidClauseException("Sentence not formatted correctly: " + sentence);
+        }
+    }
+
+    public static void main(String[] args) {
+        ClauseValidator v = new ClauseValidator();
+
+        List<String> ss = new ArrayList<>();
+        String s = "Il veicolo blu proviene da braccio sud est";
+        ss.add(s);
+
+        Matcher m = COMES_FROM.matcher(s);
+        if (m.matches()) {
+            System.out.println(v.whiteSpaceToUnderscore(m.group(1)) + " " + v.whiteSpaceToUnderscore(m.group(2)));
+        }
+    }
+
+    private String whiteSpaceToUnderscore(String s) {
+        return s.replaceAll("\\s+", "_");
+    }
+
+    private String removeNewLines(String s) {
+        return s.replace("\n", "");
+    }
+
+    private String listToString(List<String> coll) {
+        StringBuilder sb = new StringBuilder();
+
+        for (String s : coll) {
+            sb.append(s).append(";");
+        }
+
+        String merged = sb.toString();
+
+        return merged.substring(0, merged.length() - 1);
     }
 }

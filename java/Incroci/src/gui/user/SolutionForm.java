@@ -13,6 +13,7 @@ import java.io.PrintStream;
 import prolog.command.CommandManager;
 import prolog.command.PrologCommands;
 import gui.utils.redirector.CustomOutputStream;
+import gui.utils.redirector.OutputRedirector;
 
 /**
  *
@@ -35,7 +36,8 @@ public class SolutionForm extends javax.swing.JFrame {
 //                manager.close();
             }
         });
-        redirect(solutionText);
+//        redirect(solutionText);
+        new OutputRedirector().redirect(solutionText);
         manager = new PrologManager();
         commander = new CommandManager();
     }
@@ -56,6 +58,7 @@ public class SolutionForm extends javax.swing.JFrame {
         solutionText = new javax.swing.JTextArea();
         backButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
+        jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -83,7 +86,7 @@ public class SolutionForm extends javax.swing.JFrame {
         solutionText.setRows(5);
         loadingSroll.setViewportView(solutionText);
 
-        backButton.setText("Ritorna al menu");
+        backButton.setText("Indietro");
         backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backButtonActionPerformed(evt);
@@ -101,7 +104,7 @@ public class SolutionForm extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -111,11 +114,14 @@ public class SolutionForm extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(solutionButton))
                     .addComponent(loadingSroll, javax.swing.GroupLayout.DEFAULT_SIZE, 567, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(exitButton)))
+                        .addGap(18, 18, 18)
+                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(13, 13, 13)))
                 .addContainerGap())
+            .addComponent(jSeparator1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -128,10 +134,12 @@ public class SolutionForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(loadingSroll, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 6, Short.MAX_VALUE)
+                .addGap(14, 14, 14)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(backButton)
                     .addComponent(exitButton))
-                .addContainerGap(83, Short.MAX_VALUE))
+                .addGap(22, 22, 22))
         );
 
         pack();
@@ -216,6 +224,7 @@ public class SolutionForm extends javax.swing.JFrame {
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idText;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JScrollPane loadingSroll;
     private javax.swing.JButton solutionButton;
     private javax.swing.JTextArea solutionText;

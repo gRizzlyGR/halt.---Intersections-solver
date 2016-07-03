@@ -1,14 +1,5 @@
 :- dynamic incrocio/2.
 
-%process_list([],[]). 
-%process_list([H|T], [string(At) | NewT]) :- 
-%	term_to_atom(H, At), process_list(T, NewT).
-
-%convert(Incrocio) :-
-%	incrocio(_, L),
-%	process_list(L, Incrocio).
-
-
 incrocio(fig2, [proviene(veicolo(verde), braccio(ovest)), proviene(veicolo(ambulanza), braccio(est)), proviene(veicolo(rosso), braccio(nord)), transita(veicolo(verde), sinistra, braccio(nord)), transita(veicolo(ambulanza), dritto, braccio(ovest)), transita(veicolo(rosso), sinistra, braccio(ovest))]).
 incrocio(fig3, [proviene(veicolo(giallo), braccio(ovest)), proviene(veicolo(blu), braccio(sud)), proviene(veicolo(rosso), braccio(est)), transita(veicolo(giallo), dritto, braccio(est)), transita(veicolo(blu), dritto, braccio(nord)), transita(veicolo(rosso), dritto, braccio(ovest))]).
 incrocio(fig4, [proviene(veicolo(giallo), braccio(sud)), proviene(veicolo(blu), braccio(nord_est)), proviene(veicolo(nero), braccio(sud_ovest)), proviene(veicolo(camion), braccio(nord_ovest)), proviene(veicolo(verde), braccio(nord)), proviene(veicolo(rosso), braccio(sud_est)), transita(veicolo(verde), dritto, braccio(sud)), transita(veicolo(rosso), destra, braccio(nord)), transita(veicolo(blu), sinistra, braccio(sud_est)), transita(veicolo(nero), dritto, braccio(nord)), transita(veicolo(camion), dritto, braccio(sud)), transita(veicolo(giallo), destra, braccio(sud_est))]).

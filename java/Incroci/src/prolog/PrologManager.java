@@ -27,8 +27,9 @@ public class PrologManager {
         engine = new SWISubprocessEngine(BIN_PATH, false);
 
 //      boolean flag = engine.command("-f /home/giuseppe/IA/Progetto/main.pl -t start");
-        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/main.pl"));
-
+//        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/main.pl"));
+        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/java_access_point.pl"));
+        
         PrologOutputListener itr = new PrologInterceptor();
 
         engine.addPrologOutputListener(itr);
@@ -81,9 +82,13 @@ public class PrologManager {
 
     class PrologInterceptor implements PrologOutputListener {
 
-        private final String QM_PATTERN = "(\\n*)(\\?-)(\\n*)";
-        private final String FALSE_PATTERN = "(\\n*)(false\\.)(\\n*)";
-        private final String QM_FALSE_PATTERN = "(\\n*)(\\?-)(false\\.)(\\n*)";
+//        private final String QM_PATTERN = "(\\n*)(\\?-)(\\n*)";
+//        private final String FALSE_PATTERN = "(\\n*)(false\\.)(\\n*)";
+//        private final String QM_FALSE_PATTERN = "(\\n*)(\\?-)(false\\.)(\\n*)";
+//        
+        private final String QM_PATTERN = "\\n*\\?-\\n*";
+        private final String FALSE_PATTERN = "\\n*false\\.\\n*";
+        private final String QM_FALSE_PATTERN = "\\n*\\?-false\\.\\n*";
 
         @Override
         public void print(String string) {

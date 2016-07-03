@@ -4,7 +4,6 @@
 :- use_module(gestore_kb).
 :- use_module(menu_utente).
 :- use_module(menu_admin).
-:- use_module(java_access_point).
 
 
 % Lancio il menu utente o il menu da amministratore in base agli argomenti a riga di comando.

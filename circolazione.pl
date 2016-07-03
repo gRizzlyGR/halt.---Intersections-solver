@@ -7,17 +7,17 @@
 :- use_module(attesa_circolare).
 
 % Due veicoli (o gruppi di veicoli)
-circolano :-
-	nessuno_stallo,
-	nessun_prossimo,
+%circolano :-
+%	nessuno_stallo,
+%	nessun_prossimo,
 
-	prima,
-	infine.
+%	prima,
+%	infine.
 
 % Almeno tre veicoli (o gruppi di veicoli)
 circolano :-
 	nessuno_stallo,
-	almeno_un_prossimo,
+%	almeno_un_prossimo,
 	
 	prima,
 	dopo,
@@ -85,7 +85,11 @@ dopo :-
 	ordine(Altri, Ordinata),
 	msg:prossimi_a_passare(Ordinata),
 
-	msg:ultimo_dal_centro(AlCentro).		
+	msg:ultimo_dal_centro(AlCentro).
+
+% Nel caso ci siano solo due veicoli (o gruppi di veicoli), il primo e l'ultimo
+dopo :-
+	nessun_prossimo.		
 
 % Ci potrebbe essere un veicolo prima dello stallo
 prima_dello_stallo :-

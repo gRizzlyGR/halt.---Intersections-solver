@@ -59,11 +59,23 @@ sostituisci(Nuovo, DaSostituire, [DaSostituire | T], [Nuovo | T]).
 sostituisci(Nuovo, DaSostituire, [H|T], [H|T2]) :-
 	sostituisci(Nuovo, DaSostituire, T, T2).
 
-% Converte il contenuto ottenuto da uno stream in un lista di atomi.
-payload(V, L) :-
+% Converte il contenuto ottenuto da uno stream in un lista di termini.
+payload(V, R) :-
 %	nonvar(V),
 	term_to_atom(V, A),
-	atomic_list_concat(L, ';', A).
+	atomic_list_concat(L, ';', A),
+	lista_di_termini(L, T),
+	rev(T, R).
+
+lista_di_termini(L, T) :-
+	acc_lista_di_termini(L, [], T).
+
+acc_lista_di_termini([Atomo | T], Acc, Termini) :-
+	atom(Atomo),
+	term_to_atom(Term, Atomo),
+	acc_lista_di_termini(T, [Term | Acc], Termini).
+
+acc_lista_di_termini([], A, A).
 
 % Permette di ottenere un grafo come file di testo nel formalismo di Graphviz, un tool per rappresentare grafi.
 disegna_grafo(Funtore) :-
