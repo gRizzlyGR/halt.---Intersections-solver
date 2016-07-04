@@ -36,12 +36,12 @@ public class CustomOutputStream extends OutputStream {
         
         String epured = text.replaceAll("(\\n*)(\\?-)(\\n)(false\\.)", "");
         
-//        String regularBreakLines = epured.replaceAll(("(\\n+)"), "\n");
+        String regularBreakLines = epured.replaceAll(("\\n+"), "\n");
         
         SwingUtilities.invokeLater(new Runnable () {
                 @Override
                 public void run() {
-                    textArea.append(epured);
+                    textArea.append(regularBreakLines);
                 }
             });
         

@@ -11,6 +11,10 @@ package prolog.command;
  */
 public class InvalidClauseException extends Exception{
     
+    public InvalidClauseException() {
+        super();
+    }
+    
     public InvalidClauseException(String message) {
         super(message);
     }

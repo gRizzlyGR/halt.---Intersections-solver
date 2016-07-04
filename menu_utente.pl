@@ -58,7 +58,7 @@ scelta_0.
 
 % Mette in pausa per consentire all'utente di visualizzare i risultati
 pausa :-
-	write('--Premi Invio per continuare...'), get_char(_), get_code(_), nl.
+	write('--Premi [INVIO] per continuare...'), get_char(_), get_code(_), nl.
 
 
 risolvi :-

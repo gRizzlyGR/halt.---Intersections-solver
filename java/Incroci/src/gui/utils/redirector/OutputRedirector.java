@@ -10,6 +10,7 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
+import javax.swing.text.DefaultCaret;
 
 /**
  *
@@ -51,14 +52,18 @@ public class OutputRedirector {
                     textArea.append(epured);
                 }
             });
+            DefaultCaret caret = (DefaultCaret) textArea.getCaret();
+            caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
 
-            textArea.setCaretPosition(textArea.getDocument().getStartPosition().getOffset());
+//            textArea.setCaretPosition(textArea.getDocument().getStartPosition().getOffset());
         }
 
         @Override
         public void write(int b) throws IOException {
             write(new byte[]{(byte) b}, 0, 1);
-            textArea.setCaretPosition(textArea.getDocument().getStartPosition().getOffset());
+            DefaultCaret caret = (DefaultCaret) textArea.getCaret();
+            caret.setUpdatePolicy(DefaultCaret.NEVER_UPDATE);
+//            textArea.setCaretPosition(textArea.getDocument().getStartPosition().getOffset());
         }
     }
 }

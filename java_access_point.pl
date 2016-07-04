@@ -29,14 +29,29 @@ solve_crossroad_by_id(ID) :-
 	writeln('--Soluzione'),
 	circolano.
 
+% Crossroad not found
+solve_crossroad_by_id(_) :-
+	writeln("--ATTENZIONE: Incrocio non trovato! Controlla l'ID").
+
 visualize_crossroad(ID) :-
 	pulisci,
 	recupera_incrocio(ID, Incrocio),
 	stampa_incrocio(Incrocio).
 
 % Admin operations
-register_new_crossroad(ID, Fatti) :-
-	registra_incrocio(incrocio(ID, Fatti)).
+register_new_crossroad(ID, Input) :-
+	utils:payload(Input, Fatti),
+	registra_incrocio(incrocio(ID, Fatti)),
+	writeln("--Incrocio registrato con successo!").
 
 delete_crossroad(ID) :-
-	elimina_incrocio(ID).
+	elimina_incrocio(ID),
+	writeln("--Incrocio eliminato con successo!").
+
+% ID already in use
+delete_crossroad(_) :-
+	writeln('--ID già presente, cambialo!').
+
+% Crossroad not found
+delete_crossroad(_) :-
+	writeln("ATTENZIONE: Incrocio non trovato! Controlla l'ID").

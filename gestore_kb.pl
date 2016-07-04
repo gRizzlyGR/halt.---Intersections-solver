@@ -85,10 +85,11 @@ stampa_incrocio([]) :- nl.
 
 
 % Clausole per l'IO
-registra_incrocio(Incrocio) :-
+registra_incrocio(incrocio(ID, Incrocio)) :-
+	id_univoco(ID),
 	percorso(File),
 	tell(File),
-	assert(Incrocio),
+	assert(incrocio(ID, Incrocio)),
 	listing(incrocio),
 	told.
 
@@ -101,6 +102,11 @@ elimina_incrocio(ID) :-
 	listing(incrocio),
 	told.
 
+% Non posso registrare un incrocio con un ID già in uso
+id_univoco(ID) :-
+	findall(ID, incrocio(ID, _), L),
+	length(L, N),
+	N is 0.
 
 percorso(File) :-
 	source_file(incrocio(_, _), File).

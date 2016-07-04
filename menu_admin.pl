@@ -18,19 +18,24 @@ scelta_1 :-
 	write('--Inserisci l\'ID del nuovo caso: '), read(ID), nl,
 	write('--Inserisci la lista dei fatti:'), nl, read(Lista),
 	registra_incrocio(incrocio(ID, Lista)), nl,
-	write('--Incrocio registrato con successo!'), nl,
+	write('--Incrocio registrato con successo!'), nl, nl,
+	menu_admin.
+
+scelta_1 :-
+	write('--ID già presente, cambialo!'), nl,
 	menu_admin.
 
 scelta_2 :-
-	write('--Inserisci l\'ID del caso che vuoi cancellare:'), read(ID),
+	write('--Inserisci l\'ID del caso che vuoi eliminare:'), read(ID),
 	elimina_incrocio(ID), nl,
-	write('--Incrocio eliminato con successo!'), nl,
+	write('--Incrocio eliminato con successo!'), nl, nl,
 	menu_admin.
 
 scelta_2 :-
-	write('--Il caso da te richiesto non esiste!'), nl,
+	write('--Il caso da te richiesto non esiste!'), nl, nl,
 	menu_admin.
 
 scelta_3 :-
 	menu_utente.
+
 scelta_0.

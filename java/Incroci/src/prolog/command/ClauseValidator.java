@@ -22,26 +22,33 @@ public class ClauseValidator {
     private Matcher m;
 
     public String validateClause(String textLoad) {
-        String[] facts = textLoad.split(";");
-        List<String> clauses = new ArrayList<>();
-        String f;
-
+        List<String> clauses = null;
         try {
-            for (String fact : facts) {
-                f = removeNewLines(fact);
-                if (f.contains("proviene")) {
-                    clauses.add(comesFromClause(f));
-                } else if (f.contains("transita")) {
-                    clauses.add(goesToClause(f));
-                } else if (f.contains("segnale")) {
-                    clauses.add(signClause(f));
+            if (textLoad.equals("")) {
+                throw new InvalidClauseException();
+            } else {
+                String[] facts = textLoad.split(";");
+                clauses = new ArrayList<>();
+                String f;
+
+                for (String fact : facts) {
+                    f = removeNewLines(fact);
+                    if (f.contains("proviene")) {
+                        clauses.add(comesFromClause(f));
+                    } else if (f.contains("transita")) {
+                        clauses.add(goesToClause(f));
+                    } else if (f.contains("segnale")) {
+                        clauses.add(signClause(f));
+                    }
                 }
+                
+                return listToString(clauses);
             }
         } catch (InvalidClauseException e) {
-            e.printStackTrace();
+            System.out.println("--Incrocio non formattato correttamente! Controlla");
         }
 
-        return listToString(clauses);
+        return null;
     }
 
     private String comesFromClause(String sentence) throws InvalidClauseException {
@@ -72,19 +79,6 @@ public class ClauseValidator {
             return String.format("segnaletica(braccio(%s), segnale(%s))", whiteSpaceToUnderscore(m.group(1)), whiteSpaceToUnderscore(m.group(2)));
         } else {
             throw new InvalidClauseException("Sentence not formatted correctly: " + sentence);
-        }
-    }
-
-    public static void main(String[] args) {
-        ClauseValidator v = new ClauseValidator();
-
-        List<String> ss = new ArrayList<>();
-        String s = "Il veicolo blu proviene da braccio sud est";
-        ss.add(s);
-
-        Matcher m = COMES_FROM.matcher(s);
-        if (m.matches()) {
-            System.out.println(v.whiteSpaceToUnderscore(m.group(1)) + " " + v.whiteSpaceToUnderscore(m.group(2)));
         }
     }
 
