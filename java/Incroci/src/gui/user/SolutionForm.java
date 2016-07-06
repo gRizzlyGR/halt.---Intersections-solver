@@ -26,9 +26,9 @@ public class SolutionForm extends javax.swing.JFrame {
      */
     public SolutionForm() {
         initComponents();
-        
+
         solutionButton.addActionListener(new ActionListener() {
-            
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 manager = new PrologManager();
@@ -80,6 +80,7 @@ public class SolutionForm extends javax.swing.JFrame {
             }
         });
 
+        solutionText.setEditable(false);
         solutionText.setColumns(20);
         solutionText.setRows(5);
         loadingSroll.setViewportView(solutionText);
@@ -170,7 +171,7 @@ public class SolutionForm extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        System.exit(0);        
+        System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
     /**
@@ -208,18 +209,22 @@ public class SolutionForm extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void redirect(javax.swing.JTextArea textArea) {
         PrintStream printStream = new PrintStream(new CustomOutputStream(textArea));
         System.setOut(printStream);
         System.setErr(printStream);
     }
-    
+
     private void retrieveSolution() {
         solutionText.setText(null);
-        manager.sendCommand(commander.prepareCommand(PrologCommands.SOLVE_CROSSROAD_BY_ID.getCommand(), new Object[]{idText.getText()}));
+        if (idText.getText().equals("")) {
+            System.out.println("--Inserisci un ID appropriato!");
+        } else {
+            manager.sendCommand(commander.prepareCommand(PrologCommands.SOLVE_CROSSROAD_BY_ID.getCommand(), new Object[]{idText.getText()}));
+        }
     }
-    
+
     private PrologManager manager;
     private CommandManager commander;
 

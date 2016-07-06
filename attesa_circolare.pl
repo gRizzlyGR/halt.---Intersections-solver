@@ -5,6 +5,7 @@
 
 :- use_module(precedenze).
 :- use_module(gestore_kb).
+:- use_module(utils).
 
 % Può capitare che i veicoli nell'incrocio debbano dare la precedenza ad un veicolo e averla da un altro, in modo circolare;
 % si viene così a creare una situazione di stallo che viene risolta quando un veicolo che transita a sinistra si porta al centro
@@ -32,17 +33,11 @@ stallo([H|T], Acc, Veicoli) :-
 stallo([], _, _).
 
 
-va_a_sinistra(V, Altri, [V | Altri]) :-
-	transita(V, sinistra, _).
-
+% Trovo il primo veicolo che va a sinistra e lo rimuovo dalla lista
 va_a_sinistra(V, Altri, Veicoli) :-
-	acc_va_a_sinistra(V, [], Altri, Veicoli).
-
-acc_va_a_sinistra(V, Altri, Altri, [V]) :-
-	transita(V, sinistra, _).	
-
-acc_va_a_sinistra(V, Acc, Altri, [Altro | T]) :-
-	acc_va_a_sinistra(V, [Altro | Acc], Altri, T).
+	transita(V, sinistra, _),
+	utils:canc(V, Veicoli, Altri).
+	
 
 % Per avere uno stallo ci devono essere almeno 3 veicoli.
 almeno_tre(Veicoli) :-

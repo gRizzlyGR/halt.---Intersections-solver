@@ -8,20 +8,20 @@ set([], []).
 
 % Accantona la testa, rimuovila dalla coda e continua a processare quest'ultima
 set([H|T], [H|T1]) :- 
-    del(H, T, T2),
+    canc(H, T, T2),
     set(T2, T1).
 
 % Ciò che si toglie da una lista vuota produce una lista vuota
-del(_, [], []).
+canc(_, [], []).
 
 % Cancella la testa
-del(H, [H|T], T1) :-
-	del(H, T, T1).
+canc(H, [H|T], T1) :-
+	canc(H, T, T1).
 
 % Cancella un elemento che non sia la testa
-del(X, [H|T], [H|T1]) :-
+canc(X, [H|T], [H|T1]) :-
     X \= H,
-    del(X, T, T1).
+    canc(X, T, T1).
 
 % Permutazione di elementi
 perm([], []).
@@ -61,7 +61,6 @@ sostituisci(Nuovo, DaSostituire, [H|T], [H|T2]) :-
 
 % Converte il contenuto ottenuto da uno stream in un lista di termini.
 payload(V, R) :-
-%	nonvar(V),
 	term_to_atom(V, A),
 	atomic_list_concat(L, ';', A),
 	lista_di_termini(L, T),
@@ -76,25 +75,3 @@ acc_lista_di_termini([Atomo | T], Acc, Termini) :-
 	acc_lista_di_termini(T, [Term | Acc], Termini).
 
 acc_lista_di_termini([], A, A).
-
-% Permette di ottenere un grafo come file di testo nel formalismo di Graphviz, un tool per rappresentare grafi.
-disegna_grafo(Funtore) :-
-	format('digraph ~s {~n', [Funtore]),
-	forall(call(Funtore, Da, A), format(' "~w" -> "~w";~n', [Da, A])),
-	format('}~n').
-
-% Comando da terminale: dot -Tjpg [percorso] | display
-salva_grafo(Percorso, Funtore) :-
-	tell(Percorso),
-	disegna_grafo(Funtore),
-	told,
-	working_directory(CWD, CWD),
-	process_create(path('dot'), ['-Tjpg', file('graph.gv')], [stdout(pipe(display))]).
-%	fork_exec('dot'('-Tjpg', Percorso)).
-
-visualizza_grafo :-
-%	source_file(disegna_grafo(_), Percorso),
-	working_directory(CWD, CWD),
-	atom_concat(CWD, 'graph.gv', Percorso),
-	salva_grafo(Percorso, precede).
-%	fork_exec('display'('precede.jpg')).

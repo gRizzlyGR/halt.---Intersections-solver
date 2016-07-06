@@ -10,28 +10,22 @@
 % Se l'argomento è nullo o sbagliato, lancio il menu utente.
 start :-
 	current_prolog_flag(argv, [Args]), 
-%	writeln(Args),
-%	pulisci,
 	atom_concat('menu_', Args, Menu),
 	call(Menu).
 
 start :-
 	menu_utente.
 
-%test :-
-%	findall(ID, gestore_kb:incrocio(ID, _), IDs),
-%	solve(IDs).
-%	
-%solve([ID | T]) :-
-%	writeln(ID),
-%	pulisci,
-%	test(ID, _),
-%	menu_utente:risolvi,
-%	solve(T).
+% Risolvo tutti gli incroci presenti nella KB
+test :-
+	findall(ID, incrocio(ID, _), IDs),
+	solve(IDs).
+	
+solve([ID | T]) :-
+	writeln(ID),
+	pulisci,
+	recupera_incrocio(ID, _),
+	menu_utente:risolvi,
+	solve(T).
 
-%solve([]).
-
-%start :-
-%	write('--Opzione non riconosciuta!'), nl, nl,
-
-%	menu.
+solve([]).

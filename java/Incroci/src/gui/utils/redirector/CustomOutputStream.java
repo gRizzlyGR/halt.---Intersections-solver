@@ -34,7 +34,7 @@ public class CustomOutputStream extends OutputStream {
     public void write(byte[] buffer, int offset, int length) throws IOException {
         String text = new String (buffer, offset, length);
         
-        String epured = text.replaceAll("(\\n*)(\\?-)(\\n)(false\\.)", "");
+        String epured = text.replaceAll("(\\n*)(\\?-*)(\\n)(false\\.)", "");
         
         String regularBreakLines = epured.replaceAll(("\\n+"), "\n");
         

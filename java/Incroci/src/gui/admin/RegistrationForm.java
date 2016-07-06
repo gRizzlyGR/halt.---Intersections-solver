@@ -151,9 +151,14 @@ public class RegistrationForm extends javax.swing.JFrame {
 
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
 
-        String textLoad = validator.validateClause(registerText.getText());
-        registerText.setText(null);
-        manager.sendCommand(commander.prepareCommand(PrologCommands.REGISTER_NEW_CROSSROAD.getCommand(), new Object[]{idText.getText(), textLoad}));
+        if (idText.getText().equals("") || registerText.getText().equals("")) {
+            registerText.setText(null);
+            System.out.println("--Ci sono problemi con l'ID o l'incrocio. Ricontrolla");
+        } else {
+            String textLoad = validator.validateClause(registerText.getText());
+            registerText.setText(null);
+            manager.sendCommand(commander.prepareCommand(PrologCommands.REGISTER_NEW_CROSSROAD.getCommand(), new Object[]{idText.getText(), textLoad}));
+        }
 
     }//GEN-LAST:event_registerButtonActionPerformed
 
