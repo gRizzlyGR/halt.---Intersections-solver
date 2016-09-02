@@ -28,7 +28,7 @@ public class PrologManager {
 
 //      boolean flag = engine.command("-f /home/giuseppe/IA/Progetto/main.pl -t start");
 //        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/main.pl"));
-        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/java_access_point.pl"));
+        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/code/java_access_point.pl"));
         
         PrologOutputListener itr = new PrologInterceptor();
 
