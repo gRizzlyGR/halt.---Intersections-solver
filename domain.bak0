@@ -1,0 +1,193 @@
+\chapter{Studio del dominio}
+
+\section{Intersezione}
+Si definisce intersezione stradale (nodo) l'area individuata da tre o più tronchi stradali (archi) che convergono in uno stesso punto, nonché dai dispositivi e dagli apprestamenti atti a consentire ed agevolare le manovre per il passaggio da un tronco all'altro.
+Le intersezioni, qualunque sia la loro localizzazione territoriale, costituiscono punti critici del sistema viario per effetto delle interferenze che in esse si instaurano tra le diverse correnti di traffico.
+
+\section{Segnali}
+Il segnale stradale serve ad indicare una prescrizione, un avvertimento o un'indicazione a tutti i veicoli circolanti e ad ogni altro utente della strada.
+
+Tramite la segnaletica il gestore di una strada (persona fisica o giuridica) comunica agli utenti la disciplina della circolazione: regole, pericoli, indicazioni ed informazioni utili. Per conseguire l'abilitazione alla guida di veicoli (patente di guida) è richiesto obbligatoriamente imparare quali sono i segnali, come riconoscerli e soprattutto cosa significano. Senza l'apposizione della segnaletica non possono essere correttamente applicate le regole della circolazione stradale. Il linguaggio della segnaletica stradale è uno dei più diffusi al mondo, ciò fa sì gli utenti di tutto il mondo sappiano il significato di una figura ottagonale con la scritta STOP, così come sappiano cosa voglia dire la luce rossa di un semaforo.
+
+Il complesso della segnaletica stradale viene suddiviso in cinque tipologie generali\cite{CdsTitIICapoII}, come descritto di seguito:
+
+\begin{itemize}
+
+\item \textbf{Segnaletica manuale}, ossia le segnalazioni date dagli organi di polizia stradale (polizia locale, Polizia di Stato, Carabinieri ecc.)
+
+\item \textbf{Segnali luminosi}, caratterizzati dalla possibilità di fornire maggiore impatto visivo e/o informazioni dinamiche, vengono suddivisi in:
+\begin{itemize}
+	\item segnali di pericolo e di prescrizione;
+	\item segnali di indicazione;
+	\item tabelloni luminosi rilevatori della velocità in tempo reale dei veicoli in transito;
+	\item lanterne semaforiche veicolari normali;
+	\item lanterne semaforiche veicolari di corsia;
+	\item lanterne semaforiche veicolari per corsie reversibili;
+	\item lanterne semaforiche per i veicoli di trasporto pubblico;
+	\item lanterne semaforiche pedonali;
+	\item lanterne semaforiche per velocipedi;
+	\item lanterna semaforica gialla lampeggiante;
+	\item lanterne semaforiche speciali;
+	\item segnali luminosi particolari.
+
+\end{itemize}
+\item \textbf{Segnali verticali}, a loro volta sono suddivisi in:
+\begin{itemize}
+	\item segnali di pericolo - preavvisano l'esistenza di pericoli;
+	\item segnali di prescrizione - notificano obblighi, divieti e limitazioni e vengono indicati come:.
+\begin{itemize}
+	\item segnali di precedenza;
+\item segnali di divieto;
+\item segnali di obbligo;
+\end{itemize}
+\item segnali di indicazione che forniscono informazioni utili o necessarie per la guida, suddivisi a loro volta in:
+\begin{itemize}
+	\item segnali di preavviso;
+	\item segnali di direzione;
+	\item segnali di conferma;
+	\item segnali di identificazione strade e progressiva distanziometrica;
+	\item segnali di itinerario;
+	\item segnali di località e centro abitato;
+	\item segnali di nome strada;
+	\item segnali turistici e di territorio;
+	\item altri segnali che danno informazioni necessarie per la guida dei veicoli;
+	\item altri segnali che indicano installazioni o servizi.
+
+\end{itemize}\end{itemize}
+
+\item \textbf{Segnali orizzontali}, sono quelli tracciati sulla strada, e si suddividono in:
+\begin{itemize}
+	\item linea trasversale d'arresto;
+	\item strisce longitudinali;
+	\item strisce trasversali;
+	\item attraversamenti pedonali o ciclabili;
+	\item frecce direzionali;
+	\item iscrizioni e simboli;
+	\item strisce di delimitazione degli stalli di sosta o per la sosta riservata;
+	\item isole di traffico o di presegnalamento di ostacoli entro la carreggiata;
+	\item strisce di delimitazione della fermata di veicoli in servizio di trasporto pubblico di linea;
+	\item altri segnali stabiliti dal regolamento.
+\end{itemize}
+
+\item \textbf{Segnali e attrezzature complementari}, destinati a evidenziare particolari situazioni, vengono utilizzati sul tracciato stradale, nelle immediate vicinanze di particolari curve o punti critici, per segnalare ostacoli sposti sulla carreggiata e per impedire la sosta o rallentare la velocità (es. dossi artificiali).
+\end{itemize}
+
+\section{Veicoli}
+Tutte le macchine guidate dall´uomo, di qualsiasi specie, che circolano su strada sono considerate veicoli e ad esse si applicano le norme del CDS. Fanno eccezione quelle per uso di bambini o di invalidi.
+I veicoli a motore e quelli privi di motore sono suddivisi in classi (velocipedi, veicoli a braccia, veicoli a trazione animale, slitte, ciclomotori, motoveicoli, autoveicoli, rimorchi, filoveicoli, ecc.) in base alle principali caratteristiche tecniche che caratterizzano il veicolo stesso (numero delle ruote, dimensioni, potenza del motore, numero di posti, carrozzeria del veicolo, ecc.).
+Una ulteriore specificazione dei veicoli è stabilita in base a possibili utilizzazioni del veicolo in relazione alle caratteristiche tecniche che possiede (destinazione del veicolo) o possibili utilizzazioni economiche del veicolo (uso del veicolo).
+
+Le norme relative alla classificazione dei veicoli contenute nel Codice della strada nazionale devono essere coordinate con le norme UE che sostanzialmente classificano tutti i veicoli a motore e loro rimorchi escluse le macchine agricole e le macchine operatrici in 4 categorie internazionali (M, N, O, L).
+La classificazione in categorie internazionali recepita nell´ordinamento nazionale è utilizzata a livello europeo fin dagli anni 70, epoca in cui sono state emanate le prime direttive in materia di caratteristiche costruttive e funzionali nonché di dispositivi di equipaggiamento dei veicoli a motore e loro rimorchi.
+Pertanto, mentre i veicoli privi di motore (veicoli a braccia, a trazione animale, velocipedi e slitte) sono soggetti esclusivamente alle norme nazionali (CDS e relativo regolamento), i veicoli a motore e i loro rimorchi sono soggetti alle norme UE ed a quelle nazionali per quanto non in contrasto con le prime.
+
+CLASSIFICAZIONE DEI VEICOLI SECONDO IL CODICE DELLA STRADA
+
+I veicoli, secondo la classificazione tradizionale del CDS, si distinguono in:
+\begin{itemize}
+	\item veicoli senza motore,
+\item ciclomotori,
+\item motoveicoli,
+\item autoveicoli,
+\item filoveicoli,
+\item rimorchi,
+\item macchine agricole,
+\item macchine operatrici,
+\item veicoli con caratteristiche atipiche.
+\end{itemize}
+
+I veicoli d´epoca e quelli di interesse storico collezionistico pur essendo assimilati ad una delle categorie previste dal CDS godono di specifiche deroghe e sono considerati veicoli con caratteristiche atipiche.
+Non sono considerati veicoli le macchine per uso di:
+\begin{itemize}
+\item bambini che non superano determinati limiti;
+\item invalidi, rientranti tra gli ausili medici secondo le vigenti disposizioni comunitarie, anche se asservite da motore.
+
+\end{itemize}
+Classificazione dei veicoli senza motore
+
+I veicoli senza motore sono:
+\begin{itemize}
+ \item veicoli a braccia: veicoli spinti o trainati dall´uomo a piedi, azionati dalla forza muscolare del conducente;
+
+\item veicoli a trazione animale: veicoli trainati da uno o più animali, distinti in veicoli destinati al trasporto di cose, di persone e carri agricoli;
+
+\item velocipedi: veicoli a due o più ruote azionati dalla forza muscolare umana (principalmente tramite pedali o dispositivi analoghi) o con pedalata assistita da un motore ausiliario elettrico avente potenza massima di 0,25 kW la cui alimentazione è interrotta ai 25 km/h o quando il conducente smette di pedalare;
+
+\item slitte: veicoli muniti di pattini per la circolazione su neve (o ghiaccio) trainati solitamente da animali (buoi, cavalli, cani, renne, ecc.) o anche spinti dall´uomo.
+\end{itemize}
+
+Classificazione dei ciclomotori
+
+I ciclomotori sono veicoli a motore con velocità non superiore a 45 km/h, motore con cilindrata (volume dei cilindri del motore) non superiore a 50 cc se a scoppio, potenza massima non superiore a 4 kW che possono avere:
+\begin{itemize}
+\item due ruote,
+\item tre ruote,
+\item quattro ruote (denominati quadricicli leggeri) aventi massa a vuoto non superiore a 350 kg.
+\end{itemize}
+
+Classificazione dei motoveicoli
+
+I motoveicoli sono veicoli a motore a due, tre o quattro ruote aventi massa massima non superiore a 2,5 t e dimensioni massime: lunghezza 4,00 m, larghezza 2,00 m, altezza 2,50 m.
+
+Si distinguono in:
+\begin{itemize}
+\item motocicli (a due ruote), motoveicoli a due ruote con velocità superiore a 45 km/h e cilindrata superiore a 50 cc destinati al trasporto di non più di due persone compreso il conducente;
+\item motoveicoli (a tre ruote),
+- motocicli con carrozzino: motoveicoli a tre ruote asimmetriche con velocità superiore a 45 km/h e cilindrata superiore a 50 cc, destinati al trasporto di non più di 4 persone compreso il conducente;
+- tricicli: motoveicoli a tre ruote simmetriche con velocità superiore a 45 km/h e cilindrata superiore a 50 cc, destinati al trasporto di non più di 4 persone escluso il conducente o al trasporto di cose;
+- motocarri, motocarrozzette, mototrattori, motoveicoli per trasporti specifici, motoveicoli per uso speciale (a tre ruote);
+
+\item quadricicli a motore (a quattro ruote, diversi dai quadricicli leggeri) destinati al trasporto di cose con al massimo una persona oltre al conducente con massa a vuoto non superiore a 400 kg (550 kg se destinati al trasporto di merci) e potenza massima fino a 15 kW. Possono trasportare al massimo una persona oltre al conducente.
+
+\end{itemize}
+Secondo le norme UE, obbligatorie in tutti i Paesi UE, i motoveicoli si classificano in:
+\begin{itemize}
+ \item motocicli con o senza carrozzino (a tre ruote, asimmetrici),
+\item tricicli (a tre ruote, simmetrici),
+\item quadricicli a motore (a quattro ruote).
+\end{itemize}
+
+
+Classificazione degli autoveicoli
+Gli autoveicoli sono veicoli a motore con almeno quattro ruote (esclusi i quadricicli) aventi:
+\begin{itemize}
+\item limiti di massa:
+- a 2 assi 18 t,
+- a 3 assi 25 t (26 t con asse motrice munito di sospensioni pneumatiche e ruote gemellate),
+- a 4 o più assi 25 t (32 t con asse motrice munito di sospensioni pneumatiche e ruote gemellate);
+\item dimensioni massime (se isolati):
+- lunghezza 12,00 m, ad eccezione degli autobus,
+- larghezza 2,55 m,
+- altezza 4,00 m.
+\end{itemize}
+
+Gli autoveicoli si distinguono in:
+\begin{itemize}
+\item autovetture, destinate al trasporto di non più di 9 persone compreso il conducente;
+\item autoveicoli per trasporto promiscuo (assorbiti nelle autovetture tranne quelli a motore elettrico);
+\item autobus, destinati al trasporto di più di 9 persone compreso il conducente; tra gli autobus sono ricompresi gli scuolabus destinati al trasporto di studenti della scuola dell´obbligo e degli eventuali accompagnatori;
+\item autocarri, autoveicoli destinati al trasporto di cose e delle persone addette all´uso o al trasporto delle cose stesse;
+\item trattori stradali, autoveicoli destinati esclusivamente al traino di rimorchi o semirimorchi;
+\item autoveicoli per trasporti specifici, autoveicoli, muniti permanentemente di speciali attrezzature, destinati al trasporto di determinate cose (es. latte, ecc.) o di persone in particolari condizioni e muniti permanentemente di speciali attrezzature;
+\item autoveicoli per usi speciali, autoveicoli muniti permanentemente di speciali attrezzature, destinati prevalentemente al trasporto proprio e del personale e dei materiali connessi col ciclo operativo delle attrezzature e di persone e cose connesse alla destinazione d´uso delle attrezzature stesse (es. autoinnaffiatrici, autoveicoli gru, autoveicoli per il soccorso stradale, autoambulanze, autoveicoli per radio, televisione, cinema, autoscavatrici, autoveicoli per uso negozio, ecc.);
+\item autocaravan, autoveicoli con carrozzeria speciale, attrezzati per essere adibiti al trasporto e all´alloggio di 7 persone al massimo, compreso il conducente (conosciuti comunemente come camper);
+\item mezzi d´opera, autoveicoli muniti di particolari attrezzature e utilizzati nell´attività edilizia, stradale o di escavazione (tali veicoli godono di specifiche deroghe in materia di limiti di massa);
+\item autotreni, complessi di veicoli costituiti da due unità distinte agganciate, una motrice e un rimorchio;
+\item autoarticolati, complessi di veicoli costituiti da un trattore stradale e da un semirimorchio;
+\item autosnodati, autoveicoli costituiti da due parti comunicanti e collegate permanentemente (prevalentemente per trasporto persone). 
+\end{itemize}
+
+CLASSIFICAZIONE INTERNAZIONALE DEI VEICOLI
+
+Parallelamente alla classificazione in uso nel nostro paese (classificazione nazionale), il CDS prevede che si faccia riferimento anche alla classificazione internazionale dei veicoli e precisamente a 4 categorie principali ognuna delle quali è ulteriormente suddivisa in relazione alle caratteristiche del veicolo.
+Le categorie internazionali dei veicoli sono le seguenti:
+\begin{itemize}
+\item L ciclomotori e motoveicoli, a due, tre o quattro ruote. La categoria L comprende le categorie L1e, L2e, L3e, L4e, L5e, L6e, L7e;
+\item M veicoli a motore destinati al trasporto di persone e dei loro bagagli ed aventi almeno quattro ruote. La categoria M comprende le categorie M1, M2, M3;
+\item N veicoli a motore destinati essenzialmente al trasporto di merci, aventi almeno quattro ruote. La categoria N comprende le categorie N1, N2, N3;
+\item O veicoli privi di propulsione propria (rimorchi e semirimorchi) destinati al trasporto di merci o di persone nonché all´alloggiamento delle persone. La categoria O comprende le categorie O1, O2, O3, O4.
+\end{itemize}
+
+Le caratteristiche delle categorie M,N,O previste dalle norme UE fin dal 1970 sono state rielaborate in un regolamento UE che definisce anche i criteri per individuare le sottocategorie di veicoli (fuoristrada, veicoli per uso speciale, fuoristrada per uso speciale) e il tipo, la variante e la versione del veicolo.
+La categoria internazionale di appartenenza del veicolo (M1, M2, M3, N1, N2, ecc.) può trovarsi indicata sulla carta di circolazione alla voce "classe del veicolo" per modello MC 804 MEC e MC 804 N, oppure al punto (J) per modello MC 820 F (modello europeo). 
+\section{Situazioni di precedenza}

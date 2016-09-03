@@ -47,10 +47,10 @@
 
 \begin{document}
 \begin{frontespizio}	
-			
+		
 	\Preambolo{\renewcommand{\fronttitlefont}{%
 		\fontsize{20}{24}\scshape}}
-				
+			
 	\Universita{Bari}
 	\Logo[1.5cm]{./images/logo}
 	\Dipartimento{Informatica}
@@ -67,10 +67,6 @@
 	    
 %Ridefinizione di "for all" in "for each"
 \renewcommand{\algorithmicforall}{\textbf{for each}}
-
-
-\renewcommand{\labelitemiii}{$\circ$}
-
     
 %Cambio l'intestazione "Algorithm" in "Algoritmo"
 \floatname{algorithm}{Algoritmo}

@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{2}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -11,5 +11,10 @@
   {II} - {O}rganizzazione della circolazione della segnaletica stradale, Apr.
   1992.
 \newblock Articoli 37-45.
+
+\bibitem[{Consiglio Europeo}(2007)]{UE2007}
+{Consiglio Europeo}.
+\newblock {Allegato II della direttiva n. 2007/46/CE (direttiva quadro per
+  l'omologazione dei veicoli) }, Sept. 2007.
 
 \end{thebibliography}

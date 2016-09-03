@@ -3,8 +3,10 @@
 \BOOKMARK [1][-]{section.2.1}{Intersezione}{chapter.2}% 3
 \BOOKMARK [1][-]{section.2.2}{Segnali}{chapter.2}% 4
 \BOOKMARK [1][-]{section.2.3}{Veicoli}{chapter.2}% 5
-\BOOKMARK [1][-]{section.2.4}{Situazioni di precedenza}{chapter.2}% 6
-\BOOKMARK [0][-]{chapter.3}{Progettazione}{}% 7
-\BOOKMARK [0][-]{chapter.4}{Implementazione}{}% 8
-\BOOKMARK [0][-]{chapter.5}{Test}{}% 9
-\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 10
+\BOOKMARK [2][-]{subsection.2.3.1}{Classificazione dei veicoli secondo il CdS}{section.2.3}% 6
+\BOOKMARK [2][-]{subsection.2.3.2}{Classificazione internazionale dei veicoli}{section.2.3}% 7
+\BOOKMARK [1][-]{section.2.4}{Situazioni di precedenza}{chapter.2}% 8
+\BOOKMARK [0][-]{chapter.3}{Progettazione}{}% 9
+\BOOKMARK [0][-]{chapter.4}{Implementazione}{}% 10
+\BOOKMARK [0][-]{chapter.5}{Test}{}% 11
+\BOOKMARK [0][-]{chapter.6}{Conclusioni}{}% 12
