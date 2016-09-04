@@ -1,20 +1,32 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{4}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[{Codice della Strada}(1992)]{CdsTitIICapoII}
+\bibitem[{Codice della Strada}(1992{\natexlab{a}})]{CdsTitIICapoII}
 {Codice della Strada}.
-\newblock {T}itolo {II} - {D}ella costruzione e tutela della strade. {C}apo
-  {II} - {O}rganizzazione della circolazione della segnaletica stradale, Apr.
-  1992.
+\newblock {Titolo II - Della costruzione e tutela della strade. Capo II -
+  Organizzazione della circolazione della segnaletica stradale}, Apr.
+  1992{\natexlab{a}}.
 \newblock Articoli 37-45.
+
+\bibitem[{Codice della Strada}(1992{\natexlab{b}})]{CdsTitV}
+{Codice della Strada}.
+\newblock {Titolo {V} -Norme di comportamento}, Apr. 1992{\natexlab{b}}.
+\newblock Articolo 145.
 
 \bibitem[{Consiglio Europeo}(2007)]{UE2007}
 {Consiglio Europeo}.
 \newblock {Allegato II della direttiva n. 2007/46/CE (direttiva quadro per
   l'omologazione dei veicoli) }, Sept. 2007.
+
+\bibitem[Esposito and Mauro(2003)]{esposito2003fondamenti}
+T.~Esposito and R.~Mauro.
+\newblock Fondamenti di infrastrutture viarie.
+\newblock Number Vol. 1 in Fondamenti di infrastrutture viarie, chapter~11.
+  Hevelius, 2003.
+\newblock ISBN 9788886977319.
 
 \end{thebibliography}

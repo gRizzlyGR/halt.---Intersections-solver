@@ -3,44 +3,46 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: abbrvnat.bst
 Database file #1: mybib.bib
-You've used 2 entries,
+Warning--empty booktitle in esposito2003fondamenti
+You've used 4 entries,
             2773 wiz_defined-function locations,
-            603 strings with 4872 characters,
-and the built_in function-call counts, 612 in all, are:
-= -- 48
-> -- 20
-< -- 2
-+ -- 8
-- -- 6
-* -- 32
-:= -- 96
-add.period$ -- 5
-call.type$ -- 2
-change.case$ -- 8
-chr.to.int$ -- 2
-cite$ -- 4
-duplicate$ -- 30
-empty$ -- 65
-format.name$ -- 8
-if$ -- 125
-int.to.chr$ -- 1
+            615 strings with 5040 characters,
+and the built_in function-call counts, 1350 in all, are:
+= -- 115
+> -- 51
+< -- 6
++ -- 20
+- -- 15
+* -- 84
+:= -- 206
+add.period$ -- 13
+call.type$ -- 4
+change.case$ -- 17
+chr.to.int$ -- 3
+cite$ -- 9
+duplicate$ -- 69
+empty$ -- 136
+format.name$ -- 21
+if$ -- 285
+int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 0
-newline$ -- 17
-num.names$ -- 8
-pop$ -- 26
+missing$ -- 1
+newline$ -- 28
+num.names$ -- 16
+pop$ -- 50
 preamble$ -- 1
-purify$ -- 6
+purify$ -- 13
 quote$ -- 0
-skip$ -- 26
+skip$ -- 50
 stack$ -- 0
-substring$ -- 4
-swap$ -- 4
-text.length$ -- 0
+substring$ -- 8
+swap$ -- 10
+text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 22
-warning$ -- 0
-while$ -- 6
+type$ -- 44
+warning$ -- 1
+while$ -- 12
 width$ -- 0
-write$ -- 29
+write$ -- 57
+(There was 1 warning)
