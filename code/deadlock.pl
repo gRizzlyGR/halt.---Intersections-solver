@@ -1,4 +1,4 @@
-:- module(attesa_circolare, [
+:- module(deadlock, [
 				attesa_circolare/1,
 				va_a_sinistra/3
 				]).
@@ -23,12 +23,18 @@ non_il_primo(Veicolo) :-
 	\+ primo(Veicolo),
 	\+ ultimo(Veicolo).
 
+
 stallo([H|T], Acc, Veicoli) :-
-	precede(H, Preceduto),
-%	\+ ultimo(Preceduto),
-	member(Preceduto, Veicoli),
-	\+ member(Preceduto, Acc),
-	stallo(T, [Preceduto | Acc], Veicoli).
+	precede(Precede, H),
+	member(Precede, Veicoli),
+	stallo(T, [Precede | Acc], Veicoli).
+
+%stallo([H|T], Acc, Veicoli) :-
+%	precede(H, Preceduto),
+%%	\+ ultimo(Preceduto),
+%	member(Preceduto, Veicoli),
+%	\+ member(Preceduto, Acc),
+%	stallo(T, [Preceduto | Acc], Veicoli).
 
 stallo([], _, _).
 
@@ -36,6 +42,7 @@ stallo([], _, _).
 % Trovo il primo veicolo che va a sinistra e lo rimuovo dalla lista
 va_a_sinistra(V, Altri, Veicoli) :-
 	transita(V, sinistra, _),
+	precede(V, _),
 	utils:canc(V, Veicoli, Altri).
 	
 

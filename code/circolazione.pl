@@ -4,7 +4,8 @@
 :- use_module(msg).
 :- use_module(utils).
 :- use_module(gestore_kb).
-:- use_module(attesa_circolare).
+:- use_module(deadlock).
+:- use_module(library(lists)).
 
 % Due veicoli (o gruppi di veicoli)
 %circolano :-
@@ -27,6 +28,8 @@ circolano :-
 % l'incrocio per consentire agli altri di passare, per poi passare per ultimo disimpegnando
 % l'incrocio (precedenza di fatto).
 circolano :-
+	in_stallo,
+
 	prima_dello_stallo,
 	in_pieno_stallo,
 	infine_dopo_stallo.
@@ -60,16 +63,19 @@ prima :-
 
 dopo :-
 	tutti_i_prossimi(Prossimi),
-	prossimi_insieme(PassanoInsieme),
+%	prossimi_insieme(PassanoInsieme),
 
-	append(PassanoInsieme, NonSimultanei, Prossimi),
-	recupera_veicolo_simultaneo(PassanoInsieme, VeicoloSim),
+%	append(PassanoInsieme, NonSimultanei, Prossimi),
+%	recupera_veicolo_simultaneo(PassanoInsieme, VeicoloSim),
 
-	aggiungi_veicolo_simultaneo(VeicoloSim, NonSimultanei, P2),
-	ordine(P2, Ordinata),
+%	aggiungi_veicolo_simultaneo(VeicoloSim, NonSimultanei, P2),
+%	ordine(P2, Ordinata),
 
-	utils:sostituisci(PassanoInsieme, VeicoloSim, Ordinata, P3),
-	msg:prossimi_a_passare(P3).
+%	utils:sostituisci(PassanoInsieme, VeicoloSim, Ordinata, P3),
+%	msg:prossimi_a_passare(P3).
+
+	ordina_simultanei(Prossimi, Lista),
+	msg:prossimi_a_passare(Lista).
 
 
 dopo :-
@@ -97,15 +103,27 @@ prima_dello_stallo :-
 
 prima_dello_stallo.
 
+% Stallo che coinvolge veicoli che passano contemporaneamente
 in_pieno_stallo :-
 	attesa_circolare(Veicoli),
 	va_a_sinistra(AlCentro, Altri, Veicoli),
+
+	ordina_simultanei(Altri, Lista),
+
 	msg:va_al_centro(AlCentro),
-
-	ordine(Altri, Ordinata),
-	msg:prossimi_a_passare(Ordinata),
-
+	msg:prossimi_a_passare(Lista),
 	msg:ultimo_dal_centro(AlCentro).
+
+% Stallo con veicoli non simultanei.
+in_pieno_stallo :-
+	attesa_circolare(Veicoli),
+	va_a_sinistra(AlCentro, Altri, Veicoli),
+	ordine(Altri, Ordinata),
+
+	msg:va_al_centro(AlCentro),
+	msg:prossimi_a_passare(Ordinata),
+	msg:ultimo_dal_centro(AlCentro).
+
 
 % Ci potrebbe essere un veicolo dopo lo stallo
 infine_dopo_stallo :-
@@ -125,6 +143,8 @@ almeno_un_prossimo :-
 nessuno_stallo :-
 	\+ attesa_circolare(_).
 
+in_stallo :-
+	attesa_circolare(_).
 
 % Se non ho veicoli simultanei, la lista è vuota, altrimenti recupero la testa.
 recupera_veicolo_simultaneo([], []).
@@ -136,6 +156,17 @@ aggiungi_veicolo_simultaneo([], L, L).
 aggiungi_veicolo_simultaneo(Veicolo, L, [Veicolo | L]).
 
 
+ordina_simultanei(Veicoli, Completa) :-
+	prossimi_insieme(PassanoInsieme),
+
+%	append(PassanoInsieme, Epurata, Veicoli),
+	subtract(Veicoli, PassanoInsieme, Epurata),
+	recupera_veicolo_simultaneo(PassanoInsieme, VeicoloSim),
+
+	aggiungi_veicolo_simultaneo(VeicoloSim, Epurata, NonSimultanei),
+	ordine(NonSimultanei, Ordinata),
+
+	utils:sostituisci(PassanoInsieme, VeicoloSim, Ordinata, Completa).
 
 infine :-
 	tutti_gli_ultimi(Veicoli),
