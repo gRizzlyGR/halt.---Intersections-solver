@@ -44,4 +44,4 @@ pausa :-
 
 risolvi :-
 	write('--Soluzione:'), nl,
-	circolano, nl.
+	circolano, !, nl.
