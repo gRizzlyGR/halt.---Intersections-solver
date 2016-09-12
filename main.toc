@@ -18,7 +18,15 @@
 \contentsline {section}{\numberline {3.3}Glossario}{13}{section.3.3}
 \contentsline {chapter}{\numberline {4}Progettazione}{15}{chapter.4}
 \contentsline {section}{\numberline {4.1}Concettualizzazione}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Universo}{15}{subsection.4.1.1}
-\contentsline {chapter}{\numberline {5}Implementazione}{17}{chapter.5}
-\contentsline {chapter}{\numberline {6}Test}{18}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusioni}{19}{chapter.7}
+\contentsline {subsection}{\numberline {4.1.1}Incroci}{15}{subsection.4.1.1}
+\contentsline {subsubsection}{Caso generale}{15}{figure.caption.2}
+\contentsline {subsubsection}{Incroci con priorit\IeC {\`a}}{17}{figure.caption.3}
+\contentsline {subsubsection}{Attesa circolare}{17}{figure.caption.4}
+\contentsline {section}{\numberline {4.2}Precedenze}{18}{section.4.2}
+\contentsline {subsubsection}{Precedenza a destra}{18}{section.4.2}
+\contentsline {subsubsection}{Precedenza frontale}{18}{section.4.2}
+\contentsline {subsubsection}{Precedenza con segnale}{18}{section.4.2}
+\contentsline {subsubsection}{Precedenza con priorit\IeC {\`a}}{19}{section.4.2}
+\contentsline {chapter}{\numberline {5}Implementazione}{20}{chapter.5}
+\contentsline {chapter}{\numberline {6}Test}{21}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusioni}{22}{chapter.7}

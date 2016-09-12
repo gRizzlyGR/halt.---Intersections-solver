@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.6)  10 SEP 2016 19:56
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.6)  12 SEP 2016 20:55
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -998,37 +998,53 @@ Package: fp-eval 1995/04/03
 \diagbox@insepr=\dimen280
 \diagbox@outsepl=\dimen281
 \diagbox@outsepr=\dimen282
-) (./main.aux)
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
+\Gm@cnth=\count287
+\Gm@cntv=\count288
+\c@Gm@tempcnt=\count289
+\Gm@bindingoffset=\dimen283
+\Gm@wd@mp=\dimen284
+\Gm@odd@mp=\dimen285
+\Gm@even@mp=\dimen286
+\Gm@layoutwidth=\dimen287
+\Gm@layoutheight=\dimen288
+\Gm@layouthoffset=\dimen289
+\Gm@layoutvoffset=\dimen290
+\Gm@dimlist=\toks51
+)
+(./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 51.
-LaTeX Font Info:    ... okay on input line 51.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
+LaTeX Font Info:    ... okay on input line 52.
 
 (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count287
-\scratchdimen=\dimen283
+\scratchcounter=\count290
+\scratchdimen=\dimen291
 \scratchbox=\box99
-\nofMPsegments=\count288
-\nofMParguments=\count289
-\everyMPshowfont=\toks51
-\MPscratchCnt=\count290
-\MPscratchDim=\dimen284
-\MPnumerator=\count291
-\makeMPintoPDFobject=\count292
-\everyMPtoPDFconversion=\toks52
+\nofMPsegments=\count291
+\nofMParguments=\count292
+\everyMPshowfont=\toks52
+\MPscratchCnt=\count293
+\MPscratchDim=\dimen292
+\MPnumerator=\count294
+\makeMPintoPDFobject=\count295
+\everyMPtoPDFconversion=\toks53
 ) (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
 
@@ -1047,8 +1063,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 \AtBeginShipoutBox=\box100
-LaTeX Info: Redefining \it@ocap on input line 51.
-LaTeX Info: Redefining \it@ccap on input line 51.
+LaTeX Info: Redefining \it@ocap on input line 52.
+LaTeX Info: Redefining \it@ccap on input line 52.
 
 
 File italian.ldf warning: 
@@ -1056,7 +1072,7 @@ italian.ldf    With OT1 encoding guillemets are poorly faked
 italian.ldf    Use T1 encoding
 italian.ldf    or specify a font with command \CaporaliFrom
 italian.ldf    See the documentation concerning the babel-italian typesetting 
-italian.ldf    on input line 51.
+italian.ldf    on input line 52.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
@@ -1072,16 +1088,16 @@ Package: ltcaption 2013/06/09 v1.4-94 longtable captions (AR)
 )
 Package caption Info: rotating package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring OFF on input line 51.
-LaTeX Info: Redefining \ref on input line 51.
-LaTeX Info: Redefining \pageref on input line 51.
-LaTeX Info: Redefining \nameref on input line 51.
+Package hyperref Info: Link coloring OFF on input line 52.
+LaTeX Info: Redefining \ref on input line 52.
+LaTeX Info: Redefining \pageref on input line 52.
+LaTeX Info: Redefining \nameref on input line 52.
 
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-\c@lstlisting=\count293
+\c@lstlisting=\count296
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/oberdiek/pdflscape.sty
 Package: pdflscape 2016/05/14 v0.11 Display of landscape pages in PDF (HO)
@@ -1091,10 +1107,38 @@ Package: lscape 2000/10/22 v3.01 Landscape Pages (DPC)
 )
 Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 )
-<main-frn.pdf, id=76, 597.50829pt x 845.0471pt>
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* pass: disregarded the geometry package!
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=390.0pt
+* \textheight=592.0pt
+* \oddsidemargin=31.0pt
+* \evensidemargin=31.0pt
+* \topmargin=23.0pt
+* \headheight=12.0pt
+* \headsep=19.8738pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=38.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+<main-frn.pdf, id=80, 597.50829pt x 845.0471pt>
 File: main-frn.pdf Graphic file (type pdf)
  <use main-frn.pdf>
-Package pdftex.def Info: main-frn.pdf used on input line 52.
+Package pdftex.def Info: main-frn.pdf used on input line 53.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
  [1
 
@@ -1109,7 +1153,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.92 \newpage
+l.93 \newpage
               [1
 
 ] (./introduction.tex
@@ -1139,7 +1183,7 @@ Capitolo 3.
 
 ]) [14] (./design.tex
 Capitolo 4.
-<images/example.png, id=200, 494.84875pt x 406.51875pt>
+<images/example.png, id=205, 494.84875pt x 406.51875pt>
 File: images/example.png Graphic file (type png)
 
 <use images/example.png>
@@ -1148,50 +1192,95 @@ Package pdftex.def Info: images/example.png used on input line 10.
  [15
 
 
- <./images/example.png (PNG copy)>]
-<images/rose.png, id=206, 572.1375pt x 488.82625pt>
+ <./images/example.png>]
+<images/rose.png, id=213, 572.1375pt x 488.82625pt>
 File: images/rose.png Graphic file (type png)
  <use images/rose.png>
-Package pdftex.def Info: images/rose.png used on input line 31.
+Package pdftex.def Info: images/rose.png used on input line 32.
 (pdftex.def)             Requested size: 195.0pt x 166.6015pt.
-)
-[16 <./images/rose.png (PNG copy)>] (./development.tex
+
+<images/dareprec.png, id=215, 326.21875pt x 291.0875pt>
+<use images/dareprec.png> <images/stop.png, id=216, 321.2pt x 321.2pt>
+<use images/stop.png> <use images/dareprec.png> <use images/stop.png>
+File: images/dareprec.png Graphic file (type png)
+
+<use images/dareprec.png>
+Package pdftex.def Info: images/dareprec.png used on input line 49.
+(pdftex.def)             Requested size: 42.67912pt x 38.08255pt.
+File: images/stop.png Graphic file (type png)
+ <use images/stop.png>
+Package pdftex.def Info: images/stop.png used on input line 49.
+(pdftex.def)             Requested size: 42.67912pt x 42.67886pt.
+ [16 <./images/rose.png> <./images/dareprec.png> <./images/stop.png>]
+<./images/ambulance.png, id=224, 492.84125pt x 405.515pt>
+File: ./images/ambulance.png Graphic file (type png)
+
+<use ./images/ambulance.png>
+Package pdftex.def Info: ./images/ambulance.png used on input line 80.
+(pdftex.def)             Requested size: 117.00119pt x 96.26749pt.
+
+<./images/fire.png, id=225, 400.49625pt x 336.25626pt>
+File: ./images/fire.png Graphic file (type png)
+ <use ./images/fire.png>
+Package pdftex.def Info: ./images/fire.png used on input line 85.
+(pdftex.def)             Requested size: 117.00119pt x 98.23013pt.
+
+<./images/tram.png, id=226, 489.83pt x 396.48125pt>
+File: ./images/tram.png Graphic file (type png)
+ <use ./images/tram.png>
+Package pdftex.def Info: ./images/tram.png used on input line 90.
+(pdftex.def)             Requested size: 117.00119pt x 94.7037pt.
+
+<images/lock.png, id=227, 481.8pt x 405.515pt>
+File: images/lock.png Graphic file (type png)
+ <use images/lock.png>
+Package pdftex.def Info: images/lock.png used on input line 103.
+(pdftex.def)             Requested size: 195.0pt x 164.12129pt.
+ [17]
+[18 <./images/ambulance.png> <./images/fire.png> <./images/tram.png> <./images/
+lock.png>]) [19] (./development.tex
 Capitolo 5.
-) [17
+) [20
 
 
 ] (./test.tex
 Capitolo 6.
-) [18
+) [21
 
 
 ] (./conclusion.tex
 Capitolo 7.
-) [19
+) [22
 
 
-] (./main.bbl) [20
+] (./main.bbl
+Underfull \hbox (badness 1163) in paragraph at lines 26--30
+[]\OT1/cmr/m/n/12 T. Espo-si-to and R. Mau-ro.  Fon-da-men-ti di in-fra-strut-t
+u-re via-rie.
+ []
+
+) [23
 
 
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 113.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 113.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 114.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 114.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 113.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 113.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 114.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 114.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 559FB1754D8DF82D76A2CDEAFF7CBD7D;1060.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 113.
+(rerunfilecheck)             Checksum: 8114810E75A4EF23CDE9A52E8E38DC74;1116.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 114.
  ) 
 Here is how much of TeX's memory you used:
- 23182 strings out of 493013
- 384858 string characters out of 6133329
- 511965 words of memory out of 5000000
- 26302 multiletter control sequences out of 15000+600000
- 10003 words of font info for 36 fonts, out of 8000000 for 9000
+ 23674 strings out of 493013
+ 392122 string characters out of 6133329
+ 525740 words of memory out of 5000000
+ 26778 multiletter control sequences out of 15000+600000
+ 10303 words of font info for 37 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 40i,11n,77p,10489b,537s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 40i,11n,77p,10489b,556s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
 ></usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb><
 /usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><
@@ -1200,10 +1289,10 @@ sr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
 /local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
 local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/l
 ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (21 pages, 720552 bytes).
+Output written on main.pdf (24 pages, 818481 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 225 compressed objects within 3 object streams
- 47 named destinations out of 1000 (max. 500000)
- 160 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 301 PDF objects out of 1000 (max. 8388607)
+ 248 compressed objects within 3 object streams
+ 53 named destinations out of 1000 (max. 500000)
+ 198 words of extra memory for PDF output out of 10000 (max. 10000000)
 

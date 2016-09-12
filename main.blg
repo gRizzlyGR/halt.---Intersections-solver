@@ -4,22 +4,23 @@ The top-level auxiliary file: main.aux
 The style file: abbrvnat.bst
 Database file #1: mybib.bib
 Warning--empty booktitle in esposito2003fondamenti
+Warning--there's a number but no series in esposito2003fondamenti
 You've used 4 entries,
             2773 wiz_defined-function locations,
-            615 strings with 5040 characters,
-and the built_in function-call counts, 1350 in all, are:
+            614 strings with 5035 characters,
+and the built_in function-call counts, 1351 in all, are:
 = -- 115
 > -- 51
 < -- 6
 + -- 20
 - -- 15
-* -- 84
+* -- 83
 := -- 206
 add.period$ -- 13
 call.type$ -- 4
 change.case$ -- 17
 chr.to.int$ -- 3
-cite$ -- 9
+cite$ -- 10
 duplicate$ -- 69
 empty$ -- 136
 format.name$ -- 21
@@ -41,8 +42,8 @@ text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 44
-warning$ -- 1
+warning$ -- 2
 while$ -- 12
 width$ -- 0
 write$ -- 57
-(There was 1 warning)
+(There were 2 warnings)
