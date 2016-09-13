@@ -52,7 +52,6 @@ La relazione \texttt{si\_trova/2} indica quale segnale si trova in un determinat
 Gli altri segnali che garantiscono un diritto di precedenza vengono tralasciati perché il focus è dato all'aspetto passivo del comportamento dei veicoli, non a quello attivo. Nel caso in cui l'incrocio non dovesse presentare segnali, \texttt{si\_trova/2} non verrebbe usato.
 
 
-
 Tutti questi fatti costituiscono un unico oggetto, l'incrocio stesso, che viene memorizzato su una \emph{base di conoscenza} per poter essere sfruttato in seguito. L'incrocio quindi è descritto da un ID, ad esempio il numero dell'incrocio, e la lista dei termini descritti sopra. In particolare, l'incrocio in figura \ref{fig:inc} diventa:
 \begin{verbatimtab}
 incrocio(fig633, [
@@ -104,17 +103,41 @@ I veicoli coinvolti in un incrocio potrebbero trovarsi in una situazione di stal
 	\caption{Incrocio con stallo}
 \end{figure}
 
-\section{Precedenze}
+\subsection{Precedenze}
 Possono essere fatte varie tassonomie sulle precedenze, secondo diversi punti di vista. Qui ne vengono presentati quattro.
 \subsubsection{Precedenza a destra}
 Secondo il comma 2 del CdS disponibile in \ref{sec:prec}, un veicolo ha l'obbligo di dare la precedenza a chi gli viene da destra, salvo diversa segnalazione.
 
 \subsubsection{Precedenza frontale}
+Un veicolo non deve solo badare a dare la precedenza a destra quando si è fermi all'incrocio, ma anche quando nella sua manovra esso si ritrovi ad incrociare un veicolo alla sua destra. La precedenza cosiddetta ``frontale"" è un'estensione di quella a destra. Esistono due casi:
+\begin{center}
+	\begin{tabularx}{\textwidth} {lX}
+		\adjustbox{raise=-3.5cm}{\includegraphics[width=.4\textwidth]{images/front}} & Il veicolo \textbf{B} deve dare precedenza frontale al veicolo \textbf{P}. Se due veicoli vanno nello stesso braccio, uno svoltando a destra e l'altro a sinistra, quello che va a sinistra deve dare la precedenza a quello che va a destra. \\
+		
+		\adjustbox{raise=-3.5cm}{\includegraphics[width=.4\textwidth]{images/fire}} & Il veicolo \textbf{N} deve dare precedenza frontale al veicolo \textbf{F}. Se un veicolo, svoltando a sinistra, incrocia un veicolo che, proseguendo dritto, si dirige nel braccio di provenienza del primo, esso deve dare la precedenza al veicolo che va dritto.
+	\end{tabularx}
+\end{center}
+
 
 \subsubsection{Precedenza con segnale}
-I segnali, come già detto sopra, sono il \fbox{Dare precedenza} e lo \fbox{STOP}, che costringono il veicolo ad avere un comportamento passivo nei confronti degli altri veicoli ed a dare obbligatoriamente la precedenza.
+I segnali, come già detto sopra, sono il \fbox{Dare precedenza} e lo \fbox{STOP}, che costringono il veicolo ad avere un comportamento passivo nei confronti degli altri veicoli e a dare obbligatoriamente la precedenza.
 
 \subsubsection{Precedenza con priorità}
-I veicoli che hanno la sirena accesa, di fatto in situazione di emergenza (ambulanze, autopompe ecc.), hanno la precedenza su tutti. I tram e i veicoli su rotaia la danno solamente ai veicoli in stato di soccorso e ce l'hanno nei confronti degli altri veicoli. Nel caso estremo due veicoli in emergenza si trovino ad un'intersezione, valgono le normali condizioni di precedenza, visto che il CdS non descrive questa situazione particolare definendo magari eccezioni o deroghe, pur vero che questo caso è difficile da risolvere anche nella realtà.
+I veicoli che hanno la sirena accesa, di fatto in situazione di emergenza (ambulanze, autopompe ecc.), hanno la precedenza su tutti. I tram e i veicoli su rotaia la danno solamente ai veicoli in stato di soccorso e ce l'hanno nei confronti degli altri veicoli. Nel caso estremo due veicoli in emergenza si trovino ad un'intersezione, valgono le normali condizioni di precedenza, visto che il CdS non descrive questa situazione particolare, definendo magari eccezioni o deroghe. Sta di fatto che questo caso è difficile da risolvere anche nella realtà.
 
+\subsection{Circolazione}
+È importante capire qual è l'ordine di circolazione dei veicoli. Per prima cosa bisogna analizzare lo stato dell'incrocio, se è a scorrimento normale o sono presenti degli stalli, o un caso misto. Nel primo caso vengono identificate tre fasi:
+\begin{enumerate}
+	\item Il gruppo di veicoli che passa prima, ossia quei veicoli che non vengono preceduti da nessuno e a loro volta precedono qualcuno.
+	\item Il gruppo di veicoli che passa dopo, formato dai veicoli che non sono nè primi nè ultimi e che devono essere smistati nel giusto ordine.
+	\item Il gruppo di veicoli che passa per ultimo, dove i veicoli non precedono nessuno e sono preceduti da almeno un veicoli.
+\end{enumerate}
 
+Ci possono essere fasi in cui più veicoli passano contemporaneamente, in particolare ci possono essere ``più primi" e ``più ultimi". Anche nella seconda fase ci possono essere veicoli simultanei, o una successione, o entrambi i casi. Nel caso della sequela di veicoli nella seconda fase. i veicoli vengono ordinati secondo le precedenze degli uni sugli altri.
+\\\\
+In presenza di uno stallo vengono lo stesso identificate tre fasi, se pur diverse:
+\begin{enumerate}
+	\item Prima di uno stallo per verificare se ci sono veicoli, non coinvolti nello stallo, che passano prima.
+	\item Durante lo stallo, dove davvero si tenta di sbloccare i veicoli.
+	\item Infine, dopo lo stallo, che è come la prima fase sostanzialmente, ma viene controllato se ci siano veicoli che passano dopo che lo stallo è stato risolto.
+\end{enumerate}
