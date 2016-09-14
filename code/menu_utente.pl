@@ -1,7 +1,7 @@
 :- module(menu_utente, [menu_utente/0]).
 
 :- use_module(circolazione).
-:- use_module(utils).
+%:- use_module(utils).
 :- use_module(precedenze).
 :- use_module(gestore_kb).
 

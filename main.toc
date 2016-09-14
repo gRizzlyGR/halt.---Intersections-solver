@@ -14,20 +14,23 @@
 \contentsline {section}{\numberline {2.4}Precedenza}{11}{section.2.4}
 \contentsline {chapter}{\numberline {3}Analisi}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Raccolta dei requisiti}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Analisi dei requisiti}{13}{section.3.2}
-\contentsline {section}{\numberline {3.3}Glossario}{13}{section.3.3}
+\contentsline {section}{\numberline {3.2}Vincoli}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Analisi dei requisiti}{13}{section.3.3}
+\contentsline {section}{\numberline {3.4}Glossario}{14}{section.3.4}
 \contentsline {chapter}{\numberline {4}Progettazione}{15}{chapter.4}
-\contentsline {section}{\numberline {4.1}Concettualizzazione}{15}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Incroci}{15}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.1}Strategia}{15}{section.4.1}
+\contentsline {section}{\numberline {4.2}Concettualizzazione}{15}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Incroci}{15}{subsection.4.2.1}
 \contentsline {subsubsection}{Caso generale}{15}{figure.caption.2}
 \contentsline {subsubsection}{Incroci con priorit\IeC {\`a}}{17}{figure.caption.3}
-\contentsline {subsubsection}{Attesa circolare}{17}{figure.caption.4}
-\contentsline {subsection}{\numberline {4.1.2}Precedenze}{18}{subsection.4.1.2}
-\contentsline {subsubsection}{Precedenza a destra}{18}{subsection.4.1.2}
-\contentsline {subsubsection}{Precedenza frontale}{18}{subsection.4.1.2}
-\contentsline {subsubsection}{Precedenza con segnale}{19}{subsection.4.1.2}
-\contentsline {subsubsection}{Precedenza con priorit\IeC {\`a}}{19}{subsection.4.1.2}
-\contentsline {subsection}{\numberline {4.1.3}Circolazione}{19}{subsection.4.1.3}
+\contentsline {subsubsection}{Attesa circolare}{18}{figure.caption.4}
+\contentsline {subsection}{\numberline {4.2.2}Precedenze}{19}{subsection.4.2.2}
+\contentsline {subsubsection}{Precedenza a destra}{19}{subsection.4.2.2}
+\contentsline {subsubsection}{Precedenza frontale}{19}{subsection.4.2.2}
+\contentsline {subsubsection}{Precedenza con segnale}{19}{subsection.4.2.2}
+\contentsline {subsubsection}{Precedenza con priorit\IeC {\`a}}{20}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Circolazione}{20}{subsection.4.2.3}
 \contentsline {chapter}{\numberline {5}Implementazione}{21}{chapter.5}
-\contentsline {chapter}{\numberline {6}Test}{22}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusioni}{23}{chapter.7}
+\contentsline {section}{\numberline {5.1}Struttura}{21}{section.5.1}
+\contentsline {chapter}{\numberline {6}Test}{23}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusioni}{24}{chapter.7}

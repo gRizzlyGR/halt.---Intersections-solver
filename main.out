@@ -8,13 +8,16 @@
 \BOOKMARK [1][-]{section.2.4}{Precedenza}{chapter.2}% 8
 \BOOKMARK [0][-]{chapter.3}{Analisi}{}% 9
 \BOOKMARK [1][-]{section.3.1}{Raccolta dei requisiti}{chapter.3}% 10
-\BOOKMARK [1][-]{section.3.2}{Analisi dei requisiti}{chapter.3}% 11
-\BOOKMARK [1][-]{section.3.3}{Glossario}{chapter.3}% 12
-\BOOKMARK [0][-]{chapter.4}{Progettazione}{}% 13
-\BOOKMARK [1][-]{section.4.1}{Concettualizzazione}{chapter.4}% 14
-\BOOKMARK [2][-]{subsection.4.1.1}{Incroci}{section.4.1}% 15
-\BOOKMARK [2][-]{subsection.4.1.2}{Precedenze}{section.4.1}% 16
-\BOOKMARK [2][-]{subsection.4.1.3}{Circolazione}{section.4.1}% 17
-\BOOKMARK [0][-]{chapter.5}{Implementazione}{}% 18
-\BOOKMARK [0][-]{chapter.6}{Test}{}% 19
-\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 20
+\BOOKMARK [1][-]{section.3.2}{Vincoli}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{Analisi dei requisiti}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.4}{Glossario}{chapter.3}% 13
+\BOOKMARK [0][-]{chapter.4}{Progettazione}{}% 14
+\BOOKMARK [1][-]{section.4.1}{Strategia}{chapter.4}% 15
+\BOOKMARK [1][-]{section.4.2}{Concettualizzazione}{chapter.4}% 16
+\BOOKMARK [2][-]{subsection.4.2.1}{Incroci}{section.4.2}% 17
+\BOOKMARK [2][-]{subsection.4.2.2}{Precedenze}{section.4.2}% 18
+\BOOKMARK [2][-]{subsection.4.2.3}{Circolazione}{section.4.2}% 19
+\BOOKMARK [0][-]{chapter.5}{Implementazione}{}% 20
+\BOOKMARK [1][-]{section.5.1}{Struttura}{chapter.5}% 21
+\BOOKMARK [0][-]{chapter.6}{Test}{}% 22
+\BOOKMARK [0][-]{chapter.7}{Conclusioni}{}% 23

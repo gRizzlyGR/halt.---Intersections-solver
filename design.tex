@@ -1,7 +1,12 @@
 \chapter{Progettazione}
 
+\section{Strategia}
+Dopo aver raccolto ed analizzato i requisiti, è necessario individuare gli oggetti del dominio, concettualizzandoli e codificandoli opportunamente in un formalismo logico.
+
+L'idea è quella di modellare una struttura in grado di rappresentare le figure degli incroci presenti sui manuali e sui quiz per l'ottenimento della patente di guida. Le fonti a nostra disposizione sono, oltre ai vari codici normativi, anche i manuali e prontuari che raccolgono molte immagini utili a vagliare il grado di conoscenza degli studenti. Si passa quindi a definire e rappresentare gli oggetti del dominio.
+
 \section{Concettualizzazione}
-Dopo aver raccolto ed analizzato i requisiti, è necessario individuare gli oggetti del dominio, codificandoli opportunamente in un formalismo logico.
+Qui vengono studiati e costruiti gli oggetti dell'universo che vogliamo modellare.
 
 \subsection{Incroci}
 
@@ -130,10 +135,10 @@ I veicoli che hanno la sirena accesa, di fatto in situazione di emergenza (ambul
 \begin{enumerate}
 	\item Il gruppo di veicoli che passa prima, ossia quei veicoli che non vengono preceduti da nessuno e a loro volta precedono qualcuno.
 	\item Il gruppo di veicoli che passa dopo, formato dai veicoli che non sono nè primi nè ultimi e che devono essere smistati nel giusto ordine.
-	\item Il gruppo di veicoli che passa per ultimo, dove i veicoli non precedono nessuno e sono preceduti da almeno un veicoli.
+	\item Il gruppo di veicoli che passa per ultimo, dove i veicoli non precedono nessuno e sono preceduti da almeno un veicolo.
 \end{enumerate}
 
-Ci possono essere fasi in cui più veicoli passano contemporaneamente, in particolare ci possono essere ``più primi" e ``più ultimi". Anche nella seconda fase ci possono essere veicoli simultanei, o una successione, o entrambi i casi. Nel caso della sequela di veicoli nella seconda fase. i veicoli vengono ordinati secondo le precedenze degli uni sugli altri.
+Ci possono essere fasi in cui più veicoli passano contemporaneamente, in particolare ci possono essere ``più primi" e ``più ultimi". Anche nella seconda fase ci possono essere veicoli simultanei, o una successione, o entrambi i casi. Nel caso della sequela di veicoli nella seconda fase, essi vengono ordinati secondo le precedenze degli uni sugli altri.
 \\\\
 In presenza di uno stallo vengono lo stesso identificate tre fasi, se pur diverse:
 \begin{enumerate}

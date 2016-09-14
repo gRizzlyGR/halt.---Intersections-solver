@@ -1,5 +1,5 @@
 :- use_module(circolazione).
-:- use_module(utils).
+%:- use_module(utils).
 :- use_module(precedenze).
 :- use_module(gestore_kb).
 :- use_module(menu_utente).

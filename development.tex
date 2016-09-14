@@ -1,1 +1,24 @@
 \chapter{Implementazione}
+
+\section{Struttura}
+Per sviluppare le funzionalità del sistema sono stati realizzati dei moduli in formato \texttt{.pl}, che sono elencati di seguito:
+\begin{itemize}
+\item \texttt{main}: il punto di accesso del sistema per la riga di comando.
+\item \texttt{menu\_utente}: presenta un menu utilizzabile da utenti normali.
+\item \texttt{menu\_admin}: presenta un menu utilizzabile da utenti con privilegi.
+\item \texttt{circolazione}: il cuore del sistema, si occupa della risoluzione degli incroci.
+\item \texttt{precedenze}: gestisce come i veicoli diano o abbiano la precedenza sugli altri.
+\item \texttt{deadlock}: gestisce gli stalli.
+\item \texttt{destra}: descrive come un veicolo sia a destra di un altro.
+\item \texttt{gestore\_kb}: permette l'accesso in lettura e scrittura della \emph{knowledge base}.
+\item \texttt{java\_access\_point}: interfaccia di comunicazione con il programma Java, fornito di una GUI.
+\item \texttt{adiacenza}: descrive come un braccio sia adiacente ad un altro.
+\item \texttt{opposti}: descrive come un veicolo sia opposto ad un altro.
+\item \texttt{posizioni}: descrive casi particolari di come sono situati i veicoli.
+\item \texttt{prioritari}: definisce vari gradi di priorità e quali tipi di veicoli ne godono.
+\item \texttt{segnali}: definisce i segnali stradali presenti nell'incrocio.
+\item \texttt{msg}: messaggi di output \emph{user-friendly}.
+\item \texttt{utils}: fornisce diversi metodi di utilità.
+\end{itemize}
+
+Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene gli incroci già pronti per essere risolti.

@@ -1,0 +1,65 @@
+digraph "java_access_point_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+label="Generated on 2016/09/14, 17:06\l"
+
+subgraph "cluster_java_access_point_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/java_access_point.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="java_access_point"
+"process_list/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[process_list/2]]></FONT>>]
+"solve_new_crossroad/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[solve_new_crossroad/1]]></FONT>>]
+"solve_crossroad_by_id/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[solve_crossroad_by_id/1]]></FONT>>]
+"visualize_crossroad/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[visualize_crossroad/1]]></FONT>>]
+"register_new_crossroad/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[register_new_crossroad/2]]></FONT>>]
+"delete_crossroad/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[delete_crossroad/1]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb:pulisci/0" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb:pulisci/0]]></FONT>>]
+"utils:payload/2" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[utils:payload/2]]></FONT>>]
+"gestore_kb:carica_in_memoria/1" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb:carica_in_memoria/1]]></FONT>>]
+"gestore_kb:stampa_incrocio/1" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb:stampa_incrocio/1]]></FONT>>]
+"circolazione:circolano/0" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[circolazione:circolano/0]]></FONT>>]
+"gestore_kb:recupera_incrocio/2" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb:recupera_incrocio/2]]></FONT>>]
+"gestore_kb:registra_incrocio/1" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb:registra_incrocio/1]]></FONT>>]
+"gestore_kb:elimina_incrocio/1" [shape="ellipse",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb:elimina_incrocio/1]]></FONT>>]
+}
+
+"solve_new_crossroad/1" -> "gestore_kb:pulisci/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_new_crossroad/1" -> "utils:payload/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_new_crossroad/1" -> "gestore_kb:carica_in_memoria/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_new_crossroad/1" -> "gestore_kb:stampa_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_new_crossroad/1" -> "circolazione:circolano/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_crossroad_by_id/1" -> "gestore_kb:pulisci/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_crossroad_by_id/1" -> "gestore_kb:recupera_incrocio/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_crossroad_by_id/1" -> "gestore_kb:stampa_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"solve_crossroad_by_id/1" -> "circolazione:circolano/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"visualize_crossroad/1" -> "gestore_kb:pulisci/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"visualize_crossroad/1" -> "gestore_kb:recupera_incrocio/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"visualize_crossroad/1" -> "gestore_kb:stampa_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"register_new_crossroad/2" -> "utils:payload/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"register_new_crossroad/2" -> "gestore_kb:registra_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"delete_crossroad/1" -> "gestore_kb:elimina_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}
