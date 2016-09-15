@@ -13,6 +13,7 @@ fontcolor="snow4"
 pencolor="snow4"
 node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
 edge [fontname="Courier",fontsize="9"]
+label="Generated on 2016/09/14, 18:37\l"
 
 subgraph "cluster_main_object" {
 URL=""

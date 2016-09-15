@@ -26,7 +26,7 @@ circolano :-
 
 % Un gruppo di veicoli ha la destra occupata e spetta a colui che va a sinistra impegnare
 % l'incrocio per consentire agli altri di passare, per poi passare per ultimo disimpegnando
-% l'incrocio (precedenza di fatto).
+% l'incrocio
 circolano :-
 	in_stallo,
 

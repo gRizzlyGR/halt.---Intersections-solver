@@ -17,7 +17,7 @@
 svolta_a_u(V1, V2) :-
 	transita(V1, _, Arrivo),
 	proviene(V2, Partenza),
-	destra(Arrivo, Partenza).
+	destra_lasca(Arrivo, Partenza).
 
 transitano_stesso_braccio(V1, V2) :-
 	transita(V1, _, StessoBraccio),
