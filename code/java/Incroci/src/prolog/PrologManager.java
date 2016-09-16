@@ -8,8 +8,13 @@ package prolog;
 import com.declarativa.interprolog.PrologOutputListener;
 import com.declarativa.interprolog.SWISubprocessEngine;
 import com.declarativa.interprolog.SubprocessEngine;
-
 import java.io.File;
+import java.io.InputStream;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -22,14 +27,17 @@ public class PrologManager {
     private SubprocessEngine engine;
 
     public PrologManager() {
-//        JPL.setNativeLibraryDir(LIB_PATH);
-//        JPL.init();
         engine = new SWISubprocessEngine(BIN_PATH, false);
 
-//      boolean flag = engine.command("-f /home/giuseppe/IA/Progetto/main.pl -t start");
-//        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/main.pl"));
-        engine.consultAbsolute(new File("/home/giuseppe/IA/Progetto/code/java_access_point.pl"));
-        
+        File file = null;
+        try {
+            URI uri = this.getClass().getResource("prolog/java_access_point.pl").toURI();
+            file = new File(uri);
+        } catch (URISyntaxException ex) {
+            System.out.println(ex);
+        }
+        engine.consultAbsolute(file);
+          
         PrologOutputListener itr = new PrologInterceptor();
 
         engine.addPrologOutputListener(itr);

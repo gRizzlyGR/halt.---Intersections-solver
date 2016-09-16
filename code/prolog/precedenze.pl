@@ -149,7 +149,6 @@ incrocia(V1, V2) :-
 incrocia(V1, V2) :-
 	entrambi_dritto(V1, V2).
 
-% Va scritto prima dell'altro che contiene "uno_a_sinistra" per via della variabile anonima
 incrocia(V1, V2) :-
 	entrambi_a_sinistra(V1, V2, VersoV1, VersoV2),
 	proviene(V1, DaV1),

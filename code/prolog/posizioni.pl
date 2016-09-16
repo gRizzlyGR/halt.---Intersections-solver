@@ -11,7 +11,7 @@
 :- use_module(gestore_kb).
 :- use_module(destra).
 
-% Il braccio di arrivo di un veicolo è a destra del braccio di provenizenza di un altro.
+% Il braccio di arrivo di un veicolo è a destra del braccio di provenienza di un altro.
 % Questo può comportare il caso in cui un veicolo proveniente da destra ma che da la precedenza ad un altro
 % si diriga in un braccio svoltando ad U.
 svolta_a_u(V1, V2) :-
@@ -24,7 +24,7 @@ transitano_stesso_braccio(V1, V2) :-
 	transita(V2, _, StessoBraccio).
 
 % Copre il caso in cui almeno uno dei due veicoli va nel braccio 
-% di provienenza dell'altro, quando proseguono dritto.
+% di provenienza dell'altro, quando proseguono dritto.
 entrambi_dritto(V1, V2) :-
 	transita(V1, dritto, _),
 	transita(V2, dritto, _),
