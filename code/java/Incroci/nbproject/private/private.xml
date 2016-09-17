@@ -12,10 +12,12 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/gui/user/InsertionForm.java</file>
+            <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/gui/user/SolutionForm.java</file>
+            <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/prolog/command/PrologCommands.java</file>
+            <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/gui/user/UserForm.java</file>
             <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/prolog/PrologManager.java</file>
-            <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/gui/MainForm.java</file>
             <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/prolog/command/ClauseValidator.java</file>
+            <file>file:/home/giuseppe/IA/Progetto/code/java/Incroci/src/prolog/command/CommandManager.java</file>
         </group>
     </open-files>
 </project-private>

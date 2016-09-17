@@ -206,20 +206,80 @@ Questo modulo contiene clausole che descrivono situazioni particolari in cui si 
 	\item \texttt{dove\_vado\_uguale\_dove\_vieni/2}; I veicoli vanno reciprocamente nei bracci di provenienza dell'altro.
 \end{itemize}
 
+\section{Accesso alla base di conoscenza}
+
 \section{Miglioramento dell'interazione}
-Il programma con interfaccia grafica è nato per facilitare l'interazione con utenti che non sono avvezzi con la riga di comando e preferiscono magari un approccio più vicino ai loro standard stato scritto in Java e la libreria usata per l'interconnessione con SWI-Prolog si chiama InterProlog.
+Il programma con interfaccia grafica è nato per facilitare l'interazione con utenti che non sono avvezzi alla riga di comando e preferiscono magari un approccio più vicino ai loro standard stato. Il programma è scritto in Java e la libreria usata per l'interconnessione con SWI-Prolog si chiama InterProlog.
 
 \subsection{Componenti}
 Le componenti del software in Java sono:
 
 \begin{itemize}
-	\item Il package \texttt{gui}, che contiene le classi necessarie per costruire l'interfaccia grafica, a sua volta suddiviso in \texttt{user} e \texttt{admin} che si dividono le classi relative alle varie funzionalità a loro disposizione, come spiegato in \ref{sec:users}. Un altro subpackage è \texttt{redirector}, che contiene classi che si occupano del ridirezionamento dell'ouput di SWI-Prolog in Java.
+	\item Il package \texttt{gui}, che contiene le classi necessarie per costruire l'interfaccia grafica, a sua volta suddiviso in \texttt{user} e \texttt{admin} che si dividono le classi relative alle varie funzionalità a loro disposizione, come spiegato in \ref{sec:users}. Un altro subpackage è \texttt{redirector}, che contiene classi che si occupano del ridirezionamento dell'ouput sulle opportune aree di testo del programma Java.
 	\item il package \texttt{prolog} che contiene le classi per gestire la comunicazione con Prolog e la validazione delle clausole scritte nel programma Java.
 \end{itemize}
 
-\begin{figure}
+\begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/java}
+	\includegraphics[width=.4\textwidth]{images/java}
 	\caption{Componenti}
 \end{figure}
-		
+
+\clearpage
+Le viste implementate rispecchiano in generale l'interfaccia a menu della riga di comando, con qualche cambiamento. La prima scelta che viene posta all'utente quale a quale menu accedere, se utente o amministratore:
+
+\begin{figure}[!htbp]
+	\centering
+	\includegraphics[width=.3\textwidth]{images/menu_gui}
+	\caption{Vista iniziale}
+\end{figure}
+
+In seguito verrà visualizzata una di queste due viste:
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{images/user_gui.png}
+		\caption{Menu Utente}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{images/admin_gui.png}
+		\caption{Menu Admin}
+	\end{subfigure}
+	\caption{Viste dei menu}
+\end{figure}
+
+Per quanto riguarda il menu utente, la finestra di risoluzione di un incrocio già memorizzato è questa:
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=.5\textwidth]{images/solve_gui}
+	\caption{Risoluzione di un incrocio tramite ID}
+\end{figure}
+
+Nel caso di inserimento di testo naturale, ad esempio un incrocio che viene inserito per essere risolto \textit{on-the-fly} o memorizzato nella base di conoscenza, esso viene processato tramite espressioni regolari per ottenere i fatti nel formalismo logico appropriato:
+
+----------------ESEMPI FORSE
+
+\clearpage
+
+\subsection{Bridge Java-Prolog}
+
+La comunicazione tra Java e Prolog avviene grazie ad opportuni moduli da ambo le parti:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=\textwidth]{images/jap}
+	\caption{Workflow della comunicazione}
+\end{figure}
+
+Di seguito viene presentata una vista generalizzata del flusso di comunicazione:
+\begin{enumerate}
+	\item Parte un input da una finestra del programma Java. L'input può essere testuale (i fatti che descrivono un incrocio o l'ID) o un comando (eliminazione di un incrocio).
+	\item Opzionale: nel caso ci sia del testo in linguaggio naturale, esso viene processato dal modulo di validazione dei \textit{regex}, altrimenti si va direttamente al passo successivo.
+	\item I fatti vengono combinati con i prototipi delle clausole che verranno inviate al motore Prolog.
+	\item Il file \texttt{java\_access\_point.pl} è il punto di comunicazione tra Java e Prolog, che riceve i comandi che corrispondono ai prototipi inviati dal Java. Per i dettagli si veda \ref{sssec: jap}.
+	\item Prolog riceve i comandi validati dal \texttt{java\_access\_point.pl} e li elabora, restituendo un output testuale.
+	\item L'output di Prolog viene intercettato e ridirezionato sull'area di testo della finestra del programma Java, chiudendo la comunicazione.
+\end{enumerate}
+
+\subsubsection{Il modulo \texttt{java\_access\_point}}
+\label{sssec: jap}

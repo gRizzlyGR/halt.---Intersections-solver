@@ -40,7 +40,10 @@
 \contentsline {subsection}{\numberline {5.3.2}Adiacenza}{34}{subsection.5.3.2}
 \contentsline {subsection}{\numberline {5.3.3}Opposti}{34}{subsection.5.3.3}
 \contentsline {subsection}{\numberline {5.3.4}Posizioni}{35}{subsection.5.3.4}
-\contentsline {section}{\numberline {5.4}Miglioramento dell'interazione}{35}{section.5.4}
-\contentsline {subsection}{\numberline {5.4.1}Componenti}{36}{subsection.5.4.1}
-\contentsline {chapter}{\numberline {6}Test}{38}{chapter.6}
-\contentsline {chapter}{\numberline {7}Conclusioni}{39}{chapter.7}
+\contentsline {section}{\numberline {5.4}Accesso alla base di conoscenza}{36}{section.5.4}
+\contentsline {section}{\numberline {5.5}Miglioramento dell'interazione}{36}{section.5.5}
+\contentsline {subsection}{\numberline {5.5.1}Componenti}{36}{subsection.5.5.1}
+\contentsline {subsection}{\numberline {5.5.2}Bridge Java-Prolog}{40}{subsection.5.5.2}
+\contentsline {subsubsection}{Il modulo \texttt {java\_access\_point}}{41}{Item.12}
+\contentsline {chapter}{\numberline {6}Test}{42}{chapter.6}
+\contentsline {chapter}{\numberline {7}Conclusioni}{43}{chapter.7}
