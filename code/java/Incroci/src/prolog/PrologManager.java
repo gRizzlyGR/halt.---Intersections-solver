@@ -9,12 +9,10 @@ import com.declarativa.interprolog.PrologOutputListener;
 import com.declarativa.interprolog.SWISubprocessEngine;
 import com.declarativa.interprolog.SubprocessEngine;
 import java.io.File;
-import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
+import java.net.URL;
+import java.security.CodeSource;
 
 /**
  *
@@ -30,14 +28,31 @@ public class PrologManager {
         engine = new SWISubprocessEngine(BIN_PATH, false);
 
         File file = null;
-        try {
-            URI uri = this.getClass().getResource("prolog/java_access_point.pl").toURI();
-            file = new File(uri);
-        } catch (URISyntaxException ex) {
-            System.out.println(ex);
+
+        String name = this.getClass().getResource("PrologManager.class").toString();
+
+        if (name.startsWith("jar")) //Avvio dal jar
+        {
+            try {
+
+                CodeSource codeSource = this.getClass().getProtectionDomain().getCodeSource();
+                File jarFile = new File(codeSource.getLocation().toURI().getPath());
+                String jarDir = jarFile.getParentFile().getPath();
+                file = new File(jarDir + "/prolog/java_access_point.pl");
+            } catch (URISyntaxException ex) {
+                System.out.println(ex);
+            }
+        } else {  //Avvio dall'IDE, solo per test
+            try {
+                URL url = this.getClass().getResource("lib/java_access_point.pl");
+                URI uri = url.toURI();
+                file = new File(uri);
+            } catch (URISyntaxException ex) {
+                System.out.println(ex);
+            }
         }
         engine.consultAbsolute(file);
-          
+
         PrologOutputListener itr = new PrologInterceptor();
 
         engine.addPrologOutputListener(itr);
@@ -55,19 +70,6 @@ public class PrologManager {
 //        finally {
 //            engine.shutdown();
 //        }
-    }
-
-    public static void main(String[] args) {
-        new PrologManager();
-//        String s1 = "?-";
-//        String s2 = "\nfalse.\n\n";
-//        
-//        if (s1.matches("(\\?-)"))
-//            System.out.println("s1");
-//        
-//        if (s2.matches("(\\n*)(false\\.)(\\n*)"))
-//            System.out.println("s2");
-
     }
 
     public boolean sendCommand(String command) {
