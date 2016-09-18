@@ -9,8 +9,8 @@
 :- use_module(gestore_kb).
 :- use_module(utils).
 
-process_list([],[]). 
-process_list([H|T], [string(At) | NewT]) :- 
+% process_list([],[]). 
+% process_list([H|T], [string(At) | NewT]) :- 
 	term_to_atom(H, At), process_list(T, NewT).
 
 
@@ -47,10 +47,6 @@ register_new_crossroad(ID, Input) :-
 delete_crossroad(ID) :-
 	elimina_incrocio(ID),
 	writeln("--Incrocio eliminato con successo!").
-
-% ID already in use
-delete_crossroad(_) :-
-	writeln('--ID già presente, cambialo!').
 
 % Crossroad not found
 delete_crossroad(_) :-

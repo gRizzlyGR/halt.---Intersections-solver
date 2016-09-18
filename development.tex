@@ -75,9 +75,11 @@ Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene g
 
 \restoregeometry
 
+\section{Ordine dei veicoli}
+
 \section{Utenti}
 \label{sec:users}
-Gli utenti che possono interagire con la piattaforma sono due, normale e amministratore. Per ognuno esiste un menu dedicato che presenta i task che possono compiere. 
+Gli utenti che possono interagire con la piattaforma sono due, normale e amministratore. Per ognuno esiste un menu dedicato che presenta i task che possono compiere.
 
 \subsection{Utente normale}
 L'utente normale può:
@@ -255,9 +257,7 @@ Per quanto riguarda il menu utente, la finestra di risoluzione di un incrocio gi
 	\caption{Risoluzione di un incrocio tramite ID}
 \end{figure}
 
-Nel caso di inserimento di testo naturale, ad esempio un incrocio che viene inserito per essere risolto \textit{on-the-fly} o memorizzato nella base di conoscenza, esso viene processato tramite espressioni regolari per ottenere i fatti nel formalismo logico appropriato:
-
-----------------ESEMPI FORSE
+Nel caso di inserimento di testo naturale, ad esempio un incrocio che viene inserito per essere risolto \textit{on-the-fly} o memorizzato nella base di conoscenza, esso viene processato tramite espressioni regolari per ottenere i fatti nel formalismo logico appropriato.
 
 \clearpage
 
@@ -276,10 +276,69 @@ Di seguito viene presentata una vista generalizzata del flusso di comunicazione:
 	\item Parte un input da una finestra del programma Java. L'input può essere testuale (i fatti che descrivono un incrocio o l'ID) o un comando (eliminazione di un incrocio).
 	\item Opzionale: nel caso ci sia del testo in linguaggio naturale, esso viene processato dal modulo di validazione dei \textit{regex}, altrimenti si va direttamente al passo successivo.
 	\item I fatti vengono combinati con i prototipi delle clausole che verranno inviate al motore Prolog.
-	\item Il file \texttt{java\_access\_point.pl} è il punto di comunicazione tra Java e Prolog, che riceve i comandi che corrispondono ai prototipi inviati dal Java. Per i dettagli si veda \ref{sssec: jap}.
+	\item Il file \texttt{java\_access\_point.pl} è il punto di comunicazione tra Java e Prolog, che riceve i comandi che corrispondono ai prototipi inviati dal Java.
 	\item Prolog riceve i comandi validati dal \texttt{java\_access\_point.pl} e li elabora, restituendo un output testuale.
 	\item L'output di Prolog viene intercettato e ridirezionato sull'area di testo della finestra del programma Java, chiudendo la comunicazione.
 \end{enumerate}
 
-\subsubsection{Il modulo \texttt{java\_access\_point}}
-\label{sssec: jap}
+\subsubsection{Passaggio dei dati}
+\label{sssec:jap}
+Il primo passo è trasformare il testo scritto dall'utente in linguaggio naturale in elementi che il Prolog possa fagocitare, quindi servono delle espressioni regolari che validino l'input che poi potrà essere convertito in compound (strutture) Prolog. Ci sono tre regex utili al nostro scopo ed ognuna descrive un tipo di fatto dell'incrocio.
+La prima riguarda la provenienza del veicolo. Basandoci sull'esempio della figura \ref{fig:inc}, per descrivere il primo veicolo abbiamo:
+\vspace{1mm} \\
+\vspace{1mm}
+\indent \framebox{\textit{Il veicolo nero proviene dal braccio ovest}} \\
+\vspace{1mm}
+che diventa \\
+\vspace{1mm}
+\indent \framebox{\texttt{proviene(veicolo(nero), braccio(ovest))}} \\
+\vspace{1mm}
+\noindent La regex utilizzata è: \\
+\vspace{1mm}
+\indent \framebox{\texttt{.*veicolo\textbackslash s+(.*)\textbackslash s+proviene.*braccio\textbackslash s+(.*)}} \\ \noindent che valida le stringhe che contengono ``veicolo", ``proviene" e ``braccio", ignorando gli spazi e gli altri caratteri.
+
+La seconda riguarda la destinazione del veicolo. Sempre basandoci sul solito esempio, per descrivere dove va il primo veicolo abbiamo:
+\vspace{1mm} \\
+\vspace{1mm}
+\indent \framebox{\textit{Il veicolo nero transita nel braccio nord, svoltando a sinistra}} \\
+che diventa \\
+\vspace{1mm}
+\indent \framebox{\texttt{transita(veicolo(nero), sinistra, braccio(nord))}} \\
+\vspace{1mm}
+\noindent La regex in questo caso è: \\ 
+\vspace{1mm}
+\indent\indent\indent
+\begin{varwidth}{7cm}
+	\begin{mdframed}
+		\texttt{.*veicolo\textbackslash s+(.*)\textbackslash s+transita.*braccio\textbackslash  s+(.*)} \\
+		\texttt{\textbackslash s+(svoltando\textbackslash s+a\textbackslash s+|proseguendo\textbackslash s+)(.*)}		
+	\end{mdframed}
+\end{varwidth} \\
+\vspace{1mm}
+che valida le stringhe che contengono ``veicolo", ``transita", ``braccio" e ``svoltando'' o ``proseguendo'', ignorando gli spazi e gli altri caratteri.
+
+L'ultima riguarda la presenza di un segnale in un braccio, che ricordiamo essere opzionale. Descrivendo un segnale dell'esempio abbiamo: 
+\vspace{1mm}\\
+\vspace{1mm}
+\indent \framebox{\textit{Nel braccio est si trova il segnale dare\_precedenza}} \\
+oppure \\
+\vspace{1mm}
+\indent \framebox{\textit{Nel braccio est c'è il segnale dare\_precedenza}} \\
+\vspace{1mm}
+che diventa \\
+\vspace{1mm}
+\indent \framebox{\texttt{si\_trova(segnale(dare\_precedenza), braccio(est))}} \\
+\vspace{1mm}
+\noindent La regex utilizzata è: \\
+\vspace{1mm}
+\indent \framebox{\texttt{.*braccio\textbackslash s+(.*)\textbackslash s+c.*segnale\textbackslash s+(.*)}} \\ \noindent che valida le stringhe che contengono ``braccio" e "segnale", ignorando gli spazi e gli altri caratteri.
+
+Dopo aver "spogliato" le frasi dalle parti inutili per estrarre il carico utile da inviare, c'è bisogno di richiamare i giusti operatori per interrogare Prolog. Il programma Java fornisce dei prototipi precompilati, di tipo enumerativo, che sono stringhe formattate pronte a ricevere una lista di argomenti di tipo stringa che andrà a sostituire i segnaposto presenti nel prototipo. Questi corrispondono alle operazioni che è possibile effettuare dagli utenti e si presentano così:
+\begin{itemize}
+	\item \texttt{solve\_new\_crossroad(\%s)}: il segnaposto è la lista dei fatti che descrivono l'incrocio. Essa viene convertita in stringa per essere più malleabile per il Prolog.
+	\item \texttt{solve\_crossroad\_by\_id(\%s)}: il segnaposto è l'ID dell'incrocio.
+	\item \texttt{register\_new\_crossroad(\%s, \%s)}: i segnaposti sono l'ID dell'incrocio e la lista dei fatti che descrivono l'incrocio.
+	\item \texttt{delete\_crossroad(\%s)}: il segnaposto è l'ID dell'incrocio.
+\end{itemize}
+
+Una volta combinati i prototipi con gli opportuni argomenti, essi vengono ricevuti dal modulo \texttt{java\_access\_point} che presenta gli stessi funtori dei prototipi, quindi entra in gioco Prolog che processa i dati e restituisce i risultati. Quest'ultimo semplicemente invia l'output alla riga di comando tramite \texttt{writeln/1}, che viene intercettato dal Java e ridirezionato nella finestra del programma Java.

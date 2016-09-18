@@ -17,8 +17,8 @@ public enum PrologCommands {
 //                        + "menu_utente:risolvi");
 
     SOLVE_NEW_CROSSROAD("solve_new_crossroad(%s)"),
-    SOLVE_CROSSROAD_BY_ID("solve_crossroad_by_id(%s)"),
-    VISUALIZE_CROSSROAD("visualize_crossroad(%s)"),
+    SOLVE_CROSSROAD_BY_ID("solve_crossroad_by_id(%s)"), 
+    VISUALIZE_CROSSROAD("visualize_crossroad(%s)"), // Non viene usato
     REGISTER_NEW_CROSSROAD("register_new_crossroad(%s, %s)"),
     DELETE_CROSSROAD("delete_crossroad(%s)");
     
