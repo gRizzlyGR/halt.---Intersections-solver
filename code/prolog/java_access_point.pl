@@ -44,6 +44,10 @@ register_new_crossroad(ID, Input) :-
 	registra_incrocio(incrocio(ID, Fatti)),
 	writeln("--Incrocio registrato con successo!").
 
+% ID not available
+register_new_crossroad(_, _) :-
+	writeln("--ATTENZIONE: ID già in uso! Prova a cambiarlo").
+
 delete_crossroad(ID) :-
 	elimina_incrocio(ID),
 	writeln("--Incrocio eliminato con successo!").
