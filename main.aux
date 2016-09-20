@@ -78,13 +78,17 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {4.3}{\ignorespaces Incroci con veicoli prioritari\relax }}{19}{figure.caption.4}}
 \newlabel{fig:prior}{{4.3}{19}{Incroci con veicoli prioritari\relax }{figure.caption.4}{}}
 \@writefile{toc}{\contentsline {subsubsection}{Attesa circolare}{19}{figure.caption.4}}
+\newlabel{sssec:lock}{{4.2.1}{19}{Attesa circolare}{figure.caption.4}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {4.4}{\ignorespaces Incrocio con stallo\relax }}{19}{figure.caption.5}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.2}Precedenze}{20}{subsection.4.2.2}}
+\newlabel{ssec:prec}{{4.2.2}{20}{Precedenze}{subsection.4.2.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{Precedenza a destra}{20}{subsection.4.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{Precedenza frontale}{20}{subsection.4.2.2}}
+\newlabel{sssec:front}{{4.2.2}{20}{Precedenza frontale}{subsection.4.2.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{Precedenza con segnale}{20}{subsection.4.2.2}}
 \@writefile{toc}{\contentsline {subsubsection}{Precedenza con priorit\IeC {\`a}}{21}{subsection.4.2.2}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2.3}Circolazione}{21}{subsection.4.2.3}}
+\newlabel{ssec:circ}{{4.2.3}{21}{Circolazione}{subsection.4.2.3}{}}
 \@writefile{toc}{\contentsline {chapter}{\numberline {5}Implementazione}{22}{chapter.5}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
@@ -102,40 +106,48 @@
 \@writefile{lof}{\contentsline {figure}{\numberline {5.7}{\ignorespaces \texttt  {gestore\_kb.pl}\relax }}{29}{figure.caption.12}}
 \newlabel{RF5}{30}
 \@writefile{lof}{\contentsline {figure}{\numberline {5.8}{\ignorespaces \texttt  {java\_access\_point.pl}\relax }}{30}{figure.caption.13}}
+\citation{Clocksin:2003}
 \@writefile{toc}{\contentsline {section}{\numberline {5.2}Ordine dei veicoli}{31}{section.5.2}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.3}Utenti}{31}{section.5.3}}
-\newlabel{sec:users}{{5.3}{31}{Utenti}{section.5.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Utente normale}{31}{subsection.5.3.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Menu utente\relax }}{31}{figure.caption.14}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Utente amministratore}{31}{subsection.5.3.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Menu amministratore\relax }}{32}{figure.caption.15}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.4}Topologia}{32}{section.5.4}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Destra}{32}{subsection.5.4.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Destra lasca\relax }}{33}{figure.caption.16}}
-\newlabel{fig:right}{{5.11}{33}{Destra lasca\relax }{figure.caption.16}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Adiacenza}{34}{subsection.5.4.2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Opposti}{34}{subsection.5.4.3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Posizioni}{35}{subsection.5.4.4}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.5}Accesso alla base di conoscenza}{36}{section.5.5}}
-\@writefile{toc}{\contentsline {section}{\numberline {5.6}Miglioramento dell'interazione}{36}{section.5.6}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Componenti}{36}{subsection.5.6.1}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Componenti\relax }}{37}{figure.caption.17}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Vista iniziale\relax }}{38}{figure.caption.18}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Viste dei menu\relax }}{38}{figure.caption.19}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Risoluzione di un incrocio tramite ID\relax }}{39}{figure.caption.20}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Bridge Java-Prolog}{40}{subsection.5.6.2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces Workflow della comunicazione\relax }}{40}{figure.caption.21}}
-\@writefile{toc}{\contentsline {subsubsection}{Passaggio dei dati}{41}{Item.12}}
-\newlabel{sssec:jap}{{5.6.2}{41}{Passaggio dei dati}{Item.12}{}}
-\@writefile{toc}{\contentsline {chapter}{\numberline {6}Test}{43}{chapter.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.1}Precedenza}{31}{subsection.5.2.1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.2}Sorting}{32}{subsection.5.2.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.3}Stallo}{32}{subsection.5.2.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2.4}Veicoli simultanei}{33}{subsection.5.2.4}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.3}Utenti}{34}{section.5.3}}
+\newlabel{sec:users}{{5.3}{34}{Utenti}{section.5.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.1}Utente normale}{34}{subsection.5.3.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.9}{\ignorespaces Menu utente\relax }}{35}{figure.caption.14}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3.2}Utente amministratore}{35}{subsection.5.3.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.10}{\ignorespaces Menu amministratore\relax }}{35}{figure.caption.15}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.4}Topologia}{36}{section.5.4}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.1}Destra}{36}{subsection.5.4.1}}
+\newlabel{ssec:right}{{5.4.1}{36}{Destra}{subsection.5.4.1}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.11}{\ignorespaces Destra lasca\relax }}{37}{figure.caption.16}}
+\newlabel{fig:right}{{5.11}{37}{Destra lasca\relax }{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.2}Adiacenza}{37}{subsection.5.4.2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.3}Opposti}{38}{subsection.5.4.3}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4.4}Contatto}{38}{subsection.5.4.4}}
+\newlabel{ssec:pos}{{5.4.4}{38}{Contatto}{subsection.5.4.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.5}Accesso alla base di conoscenza}{39}{section.5.5}}
+\@writefile{toc}{\contentsline {section}{\numberline {5.6}Miglioramento dell'interazione}{40}{section.5.6}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.1}Componenti}{40}{subsection.5.6.1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.12}{\ignorespaces Componenti\relax }}{41}{figure.caption.17}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.13}{\ignorespaces Vista iniziale\relax }}{42}{figure.caption.18}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.14}{\ignorespaces Viste dei menu\relax }}{42}{figure.caption.19}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.15}{\ignorespaces Risoluzione di un incrocio tramite ID\relax }}{43}{figure.caption.20}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6.2}Bridge Java-Prolog}{44}{subsection.5.6.2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5.16}{\ignorespaces Workflow della comunicazione\relax }}{44}{figure.caption.21}}
+\@writefile{toc}{\contentsline {subsubsection}{Passaggio dei dati}{45}{Item.15}}
+\newlabel{sssec:jap}{{5.6.2}{45}{Passaggio dei dati}{Item.15}{}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {6}Test}{48}{chapter.6}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusioni}{44}{chapter.7}}
+\@writefile{toc}{\contentsline {chapter}{\numberline {7}Conclusioni}{49}{chapter.7}}
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
 \bibstyle{abbrvnat}
 \bibdata{mybib}
-\bibcite{CdsTitIICapoII}{{1}{1992{}}{{Codice della Strada}}{{}}}
-\bibcite{CdsTitV}{{2}{1992{}}{{Codice della Strada}}{{}}}
-\bibcite{UE2007}{{3}{2007}{{Consiglio Europeo}}{{}}}
-\bibcite{esposito2003fondamenti}{{4}{2003}{{Esposito and Mauro}}{{}}}
+\bibcite{Clocksin:2003}{{1}{2003}{{Clocksin and Mellish}}{{}}}
+\bibcite{CdsTitIICapoII}{{2}{1992{}}{{Codice della Strada}}{{}}}
+\bibcite{CdsTitV}{{3}{1992{}}{{Codice della Strada}}{{}}}
+\bibcite{UE2007}{{4}{2007}{{Consiglio Europeo}}{{}}}
+\bibcite{esposito2003fondamenti}{{5}{2003}{{Esposito and Mauro}}{{}}}

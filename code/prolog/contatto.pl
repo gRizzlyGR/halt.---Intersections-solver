@@ -1,5 +1,5 @@
 :- module(contatto, [
-%			svolta_a_u/2,
+			svolta_a_u/2,
 %			transitano_stesso_braccio/2,
 %			entrambi_dritto/2,
 %			entrambi_a_sinistra/4,

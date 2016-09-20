@@ -45,7 +45,7 @@ si_trova(segnale(dare_precedenza), braccio(est)).
 si_trova(segnale(dare_precedenza), braccio(ovest)).
 \end{verbatim}
 
-La relazione \texttt{si\_trova/2} indica quale segnale si trova in un determinato braccio, analogamente a \texttt{proviene/2}. I segnali presi in considerazione sono due, il \fbox{Dare precedenza} e lo \fbox{STOP}:
+La relazione \texttt{si\_trova/2} indica quale segnale si trova in un determinato braccio, analogamente a \texttt{proviene/2}. I segnali presi in considerazione sono verticali e sono due, il \fbox{Dare precedenza} e lo \fbox{STOP}:
 
 \begin{center}
 	\begin{tabularx}{\textwidth} {lX}
@@ -101,6 +101,7 @@ I veicoli che si ritrovano in situazioni di emergenza sono le ambulanze, i veico
 \end{figure}
 
 \subsubsection{Attesa circolare}
+\label{sssec:lock}
 I veicoli coinvolti in un incrocio potrebbero trovarsi in una situazione di stallo, dove nessuno passa per primo sotto le normali condizioni di precedenza. Un veicolo, di solito quello che transita a sinistra, si porta al centro dell'incrocio, lascia passare gli altri secondo l'ordine di precedenza e passa per ultimo, risolvendo lo stallo:
 
 \begin{figure}[htb]
@@ -110,11 +111,13 @@ I veicoli coinvolti in un incrocio potrebbero trovarsi in una situazione di stal
 \end{figure}
 
 \subsection{Precedenze}
+\label{ssec:prec}
 Possono essere fatte varie tassonomie sulle precedenze, secondo diversi punti di vista. Qui ne vengono presentati quattro.
 \subsubsection{Precedenza a destra}
 Secondo il comma 2 del CdS disponibile in \ref{sec:prec}, un veicolo ha l'obbligo di dare la precedenza a chi gli viene da destra, salvo diversa segnalazione.
 
 \subsubsection{Precedenza frontale}
+\label{sssec:front}
 Un veicolo non deve solo badare a dare la precedenza a destra quando si è fermi all'incrocio, ma anche quando nella sua manovra esso si ritrovi ad incrociare un veicolo alla sua destra. La precedenza cosiddetta ``frontale"" è un'estensione di quella a destra. Esistono due casi:
 \begin{center}
 	\begin{tabularx}{\textwidth} {lX}
@@ -132,6 +135,7 @@ I segnali, come già detto sopra, sono il \fbox{Dare precedenza} e lo \fbox{STOP
 I veicoli che hanno la sirena accesa, di fatto in situazione di emergenza (ambulanze, autopompe ecc.), hanno la precedenza su tutti. I tram e i veicoli su rotaia la danno solamente ai veicoli in stato di soccorso e ce l'hanno nei confronti degli altri veicoli. Nel caso estremo due veicoli in emergenza si trovino ad un'intersezione, valgono le normali condizioni di precedenza, visto che il CdS non descrive questa situazione particolare, definendo magari eccezioni o deroghe. Sta di fatto che questo caso è difficile da risolvere anche nella realtà.
 
 \subsection{Circolazione}
+\label{ssec:circ}
 È importante capire qual è l'ordine di circolazione dei veicoli. Per prima cosa bisogna analizzare lo stato dell'incrocio, se è a scorrimento normale o sono presenti degli stalli, o un caso misto. Nel primo caso vengono identificate tre fasi:
 \begin{enumerate}
 	\item Il gruppo di veicoli che passa prima, ossia quei veicoli che non vengono preceduti da nessuno e a loro volta precedono qualcuno.

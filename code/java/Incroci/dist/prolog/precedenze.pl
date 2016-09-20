@@ -17,7 +17,7 @@
 :- use_module(segnali).
 :- use_module(prioritari).
 :- use_module(gestore_kb).
-:- use_module(posizioni).
+:- use_module(contatto).
 :- use_module(library(lists)).
 
 
@@ -143,30 +143,30 @@ precedenza_frontale(V1, V2) :-
 	transita(V1, dritto, BraccioV2),
 	transita(V2, sinistra, _).
 
-incrocia(V1, V2) :-
-	transitano_stesso_braccio(V1, V2).
+%incrocia(V1, V2) :-
+%	transitano_stesso_braccio(V1, V2).
 
-incrocia(V1, V2) :-
-	entrambi_dritto(V1, V2).
+%incrocia(V1, V2) :-
+%	entrambi_dritto(V1, V2).
 
-incrocia(V1, V2) :-
-	entrambi_a_sinistra(V1, V2, VersoV1, VersoV2),
-	proviene(V1, DaV1),
-	proviene(V2, DaV2),
-	adiacente(DaV1, DaV2),
-	adiacente(VersoV1, VersoV2).
+%incrocia(V1, V2) :-
+%	entrambi_a_sinistra(V1, V2, VersoV1, VersoV2),
+%	proviene(V1, DaV1),
+%	proviene(V2, DaV2),
+%	adiacente(DaV1, DaV2),
+%	adiacente(VersoV1, VersoV2).
 
-incrocia(V1, V2) :-
-	uno_a_sinistra(V1, V2, VersoV1, VersoV2),
-	proviene(V1, DaV1),
-	proviene(V2, DaV2),
-	adiacente(DaV1, DaV2),
-	opposto(VersoV1, VersoV2).
+%incrocia(V1, V2) :-
+%	uno_a_sinistra(V1, V2, VersoV1, VersoV2),
+%	proviene(V1, DaV1),
+%	proviene(V2, DaV2),
+%	adiacente(DaV1, DaV2),
+%	opposto(VersoV1, VersoV2).
 
-incrocia(V1, V2) :-
-	uno_a_sinistra(V1, V2, _, _),
-	nel_braccio_dell_altro(V1, V2),
-	\+ dove_vado_uguale_dove_vieni(V1, V2).
+%incrocia(V1, V2) :-
+%	uno_a_sinistra(V1, V2, _, _),
+%	nel_braccio_dell_altro(V1, V2),
+%	\+ dove_vado_uguale_dove_vieni(V1, V2).
 
 % Permette di stabilire un ordine di circolazione
 passa_prima(V1, V2) :-
