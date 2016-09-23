@@ -16,7 +16,7 @@ Per sviluppare le funzionalità del sistema sono stati realizzati dei moduli in 
 \item \texttt{java\_access\_point}: interfaccia di comunicazione con il programma Java, fornito di una GUI.
 \item \texttt{adiacenza}: descrive come un braccio sia adiacente ad un altro.
 \item \texttt{opposti}: descrive come un veicolo sia opposto ad un altro.
-\item \texttt{contatto}: descrive casi particolari di come sono situati i veicoli.
+\item \texttt{contatto}: descrive come due veicoli si incrociano e casi particolari di come essi si posizionino nei bracci.
 \item \texttt{prioritari}: definisce vari gradi di priorità e quali tipi di veicoli ne godono.
 \item \texttt{segnali}: definisce i segnali stradali presenti nell'incrocio.
 \item \texttt{msg}: messaggi di output \emph{user-friendly}.
@@ -303,13 +303,13 @@ opposto(braccio(X), braccio(Y)) :-
 Questo modulo contiene operatori che descrivono situazioni particolari in cui i veicoli possono incrociarsi, dimostrandosi utili per la risoluzione dell'incrocio. Nello specifico essi sono:
 
 \begin{itemize}
-	\item \texttt{incrocia/2}: controlla che un veicolo ne trovi un altro nel corso della sua manovra.
+	\item \texttt{incrocia/2}: controlla che un veicolo ne trovi un altro nel corso della sua manovra. Sfrutta tutti i predicati successivi, insieme ad altri importati da altri moduli.
 	
 	\item \texttt{svolta\_a\_u/2}: si riferisce al caso in cui il braccio di arrivo di un veicolo è a destra del braccio di provenienza di un altro. Questo può comportare il caso in cui un veicolo proveniente da destra ma che dà la precedenza ad un altro si diriga in un braccio svoltando ad U.
 	
 	\item \texttt{transitano\_stesso\_braccio/2}: entrambi i veicoli si dirigono nella stessa direzione.
 	
-	\item \texttt{entrambi\_dritto/2}: copre il caso in cui almeno uno dei due veicoli va nel braccio di provenienza dell'altro, quando proseguono dritto.
+	\item \texttt{entrambi\_dritto/2}: copre il caso in cui i veicoli proseguono dritto, evitando di andare l'uno nel braccio nell'altro, altrimenti non potrebbero incrociarsi.
 	
 	\item \texttt{entrambi\_a\_sinistra/4}: ambedue i veicoli vanno a sinistra; oltre ai due veicoli, gli altri argomenti sono i bracci di destinazione.
 	
@@ -331,17 +331,28 @@ precede_da_destra(V1, V2) :-
 
 Un veicolo ha la precedenza a destra rispetto ad un altro se il primo proviene da un braccio a destra di quello del secondo (cfr. \ref{ssec:right}), se lo incrocia e se non compie una svolta ad U. Per chiarire si osservi l'immagine:
 
---IMMAGINE
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=.5\textwidth]{images/contact/uturn}
+	\caption{Il veicolo celeste compie una svolta a U}
+\end{figure}
 
-%\begin{center}
-%	\begin{tabularx}{\textwidth} {lX}
-%		\adjustbox{raise=-3.5cm}{\includegraphics[width=.4\textwidth]{images/uturn}} & Il veicolo \textbf{B} deve dare precedenza frontale al veicolo \textbf{P}. Se due veicoli vanno nello stesso braccio, uno svoltando a destra e l'altro a sinistra, quello che va a sinistra deve dare la precedenza a quello che va a destra. \\
-%		
-%		\adjustbox{raise=-3.5cm}{\includegraphics[width=.4\textwidth]{images/fire}} & Il veicolo \textbf{N} deve dare precedenza frontale al veicolo \textbf{F}. Se un veicolo, svoltando a sinistra, incrocia un veicolo che, proseguendo dritto, si dirige nel braccio di provenienza del primo, esso deve dare la precedenza al veicolo che va dritto.
-%	\end{tabularx}
-%\end{center}
-
-
+Il veicolo giallo incrocia il veicolo celeste nel braccio sud-est, senza il vincolo della svolta ad U risulterebbe che, reciprocamente, uno ha la precedenza sull'altro.
+\\\\
+\indent Per quanto riguarda \texttt{incrocia/2}, esso è formato da cinque clausole che vengono descritte di seguito:
+\begin{center}
+	\begin{longtabu} to \textwidth {lX}
+		\adjustbox{raise=-2.5cm}{\includegraphics[width=.4\textwidth]{images/contact/same_dir}} & I veicoli rosso e giallo vanno entrambi nel braccio sud. Viene sfruttato \texttt{transitano\_stesso\_braccio/2}.\\
+		
+		\adjustbox{raise=-2.1cm}{\includegraphics[width=.4\textwidth]{images/contact/both_straight}} & I veicoli rosso e celeste vanno entrambi dritto e il primo è a destra del secondo. Viene sfruttato \texttt{entrambi\_dritto/2}.\\
+		
+		\adjustbox{raise=-3cm}{\includegraphics[width=.4\textwidth]{images/contact/both_left}} & I veicoli rosso e giallo vanno entrambi a sinistra, i bracci di provenienza sono adiacenti, così come i bracci di arrivo.   Lo stesso discorso vale per i veicoli rosso e blu. In questo caso viene utilizzato \texttt{entrambi\_a\_sinistra/4}\\
+		
+		\adjustbox{raise=-2.9cm}{\includegraphics[width=.4\textwidth]{images/contact/one_left}} & Il camion va a sinistra mentre il veicolo celeste va a destra, proseguendo in bracci opposti. Viene sfruttato \texttt{uno\_a\_sinistra/4}. \\
+		
+		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/contact/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. In questo caso si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.	
+	\end{longtabu}
+\end{center}
 
 \section{Accesso alla base di conoscenza}
 Per potere acceder alla base di conoscenza, il file \texttt{kb.pl}, è stato realizzato il modulo \texttt{gestore\_kb.pl} che fornisce degli operatori a supporto di task di lettura e scrittura sulla memoria secondaria. I più importanti sono:
