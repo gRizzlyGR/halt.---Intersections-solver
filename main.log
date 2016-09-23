@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.6)  23 SEP 2016 21:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.6)  23 SEP 2016 21:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1456,15 +1456,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 340--343
  []
 
 [39 <./images/contact/uturn.png>]
-<images/contact/same_dir.png, id=554, 177.5433pt x 104.0688pt>
+<images/contact/same_dir.png, id=555, 177.5433pt x 104.0688pt>
 <use images/contact/same_dir.png>
-<images/contact/both_straight.png, id=555, 237.5274pt x 156.1032pt>
+<images/contact/both_straight.png, id=556, 237.5274pt x 156.1032pt>
 <use images/contact/both_straight.png>
-<images/contact/both_left.png, id=556, 236.3229pt x 159.7167pt>
+<images/contact/both_left.png, id=557, 236.3229pt x 159.7167pt>
 <use images/contact/both_left.png>
-<images/contact/one_left.png, id=557, 191.0337pt x 139.9629pt>
+<images/contact/one_left.png, id=558, 191.0337pt x 139.9629pt>
 <use images/contact/one_left.png>
-<images/contact/mirror.png, id=558, 141.4083pt x 202.5969pt>
+<images/contact/mirror.png, id=559, 141.4083pt x 202.5969pt>
 <use images/contact/mirror.png> <use images/contact/same_dir.png>
 <use images/contact/both_straight.png> <use images/contact/both_left.png>
 <use images/contact/one_left.png> <use images/contact/mirror.png>
@@ -1529,35 +1529,35 @@ Underfull \hbox (badness 10000) in paragraph at lines 354--354
 
 [40 <./images/contact/same_dir.png> <./images/contact/both_straight.png> <./ima
 ges/contact/both_left.png> <./images/contact/one_left.png>] [41 <./images/conta
-ct/mirror.png>] <images/java.png, id=570, 261.97874pt x 450.68375pt>
+ct/mirror.png>] <images/java.png, id=575, 261.97874pt x 450.68375pt>
 File: images/java.png Graphic file (type png)
 
 <use images/java.png>
 Package pdftex.def Info: images/java.png used on input line 380.
 (pdftex.def)             Requested size: 155.99762pt x 268.36989pt.
  [42] [43 <./images/java.png>]
-<images/menu_gui.png, id=583, 188.705pt x 230.8625pt>
+<images/menu_gui.png, id=588, 188.705pt x 230.8625pt>
 File: images/menu_gui.png Graphic file (type png)
 
 <use images/menu_gui.png>
 Package pdftex.def Info: images/menu_gui.png used on input line 389.
 (pdftex.def)             Requested size: 117.00119pt x 143.1403pt.
 
-<images/user_gui.png, id=584, 348.30125pt x 199.74625pt>
+<images/user_gui.png, id=589, 348.30125pt x 199.74625pt>
 File: images/user_gui.png Graphic file (type png)
 
 <use images/user_gui.png>
 Package pdftex.def Info: images/user_gui.png used on input line 397.
 (pdftex.def)             Requested size: 155.99762pt x 89.46132pt.
 
-<images/admin_gui.png, id=585, 224.84pt x 245.91875pt>
+<images/admin_gui.png, id=590, 224.84pt x 245.91875pt>
 File: images/admin_gui.png Graphic file (type png)
 
 <use images/admin_gui.png>
 Package pdftex.def Info: images/admin_gui.png used on input line 401.
 (pdftex.def)             Requested size: 155.99762pt x 170.62971pt.
 
-<images/solve_gui.png, id=586, 397.485pt x 398.48875pt>
+<images/solve_gui.png, id=591, 397.485pt x 398.48875pt>
 File: images/solve_gui.png Graphic file (type png)
 
 <use images/solve_gui.png>
@@ -1567,7 +1567,7 @@ Package pdftex.def Info: images/solve_gui.png used on input line 410.
 
  <./images/menu_gui.png> <./images/user_gui.png> <./images/admin_gui.png>] [45 
 <./images/solve_gui.png>]
-<images/jap.pdf, id=602, 796.9775pt x 597.23125pt>
+<images/jap.pdf, id=607, 796.9775pt x 597.23125pt>
 File: images/jap.pdf Graphic file (type pdf)
  <use images/jap.pdf>
 Package pdftex.def Info: images/jap.pdf used on input line 424.
@@ -1674,9 +1674,9 @@ r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
 local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
 cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on main.pdf (53 pages, 6296130 bytes).
+Output written on main.pdf (53 pages, 2865465 bytes).
 PDF statistics:
- 723 PDF objects out of 1000 (max. 8388607)
+ 728 PDF objects out of 1000 (max. 8388607)
  575 compressed objects within 6 object streams
  137 named destinations out of 1000 (max. 500000)
  491 words of extra memory for PDF output out of 10000 (max. 10000000)
