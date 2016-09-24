@@ -16,7 +16,7 @@ Per sviluppare le funzionalità del sistema sono stati realizzati dei moduli in 
 \item \texttt{java\_access\_point}: interfaccia di comunicazione con il programma Java, fornito di una GUI.
 \item \texttt{adiacenza}: descrive come un braccio sia adiacente ad un altro.
 \item \texttt{opposti}: descrive come un veicolo sia opposto ad un altro.
-\item \texttt{contatto}: descrive come due veicoli si incrociano e casi particolari di come essi si posizionino nei bracci.
+\item \texttt{movimento}: descrive come due veicoli si incrociano e casi particolari di come essi si posizionino nei bracci.
 \item \texttt{prioritari}: definisce vari gradi di priorità e quali tipi di veicoli ne godono.
 \item \texttt{segnali}: definisce i segnali stradali presenti nell'incrocio.
 \item \texttt{msg}: messaggi di output \emph{user-friendly}.
@@ -219,7 +219,7 @@ Per registrare un nuovo incrocio è necessario inserire l'ID del nuovo esempio e
 \end{figure}
 
 \section{Topologia}
-Esistono quattro moduli che descrivono e gestiscono come i veicoli ed i bracci si dispongono sull'incrocio e come si relazionano gli uni con gli altri da un punto di vista logistico, e sono \texttt{destra}, \texttt{adiacenza}, \texttt{opposti} e \texttt{contatto}.
+Esistono quattro moduli che descrivono e gestiscono come i veicoli ed i bracci si dispongono sull'incrocio e come si relazionano gli uni con gli altri da un punto di vista logistico, e sono \texttt{destra}, \texttt{adiacenza}, \texttt{opposti} e \texttt{movimento}.
 
 \subsection{Destra}
 \label{ssec:right}
@@ -298,7 +298,7 @@ opposto(braccio(X), braccio(Y)) :-
 	di_fronte(braccio(Y), braccio(X)).
 \end{verbatimtab}
 
-\subsection{Contatto}
+\subsection{Movimento}
 \label{ssec:pos}
 Questo modulo contiene operatori che descrivono situazioni particolari in cui i veicoli possono incrociarsi, dimostrandosi utili per la risoluzione dell'incrocio. Nello specifico essi sono:
 
@@ -333,7 +333,7 @@ Un veicolo ha la precedenza a destra rispetto ad un altro se il primo proviene d
 
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/contact/uturn}
+	\includegraphics[width=.5\textwidth]{images/movement/uturn}
 	\caption{Il veicolo celeste compie una svolta a U}
 \end{figure}
 
@@ -342,15 +342,15 @@ Il veicolo giallo incrocia il veicolo celeste nel braccio sud-est, senza il vinc
 \indent Per quanto riguarda \texttt{incrocia/2}, esso è formato da cinque clausole che vengono descritte di seguito:
 \begin{center}
 	\begin{longtabu} to \textwidth {lX}
-		\adjustbox{raise=-2.5cm}{\includegraphics[width=.4\textwidth]{images/contact/same_dir}} & I veicoli rosso e giallo vanno entrambi nel braccio sud. Viene sfruttato \texttt{transitano\_stesso\_braccio/2}.\\
+		\adjustbox{raise=-2.5cm}{\includegraphics[width=.4\textwidth]{images/movement/same_dir}} & I veicoli rosso e giallo vanno entrambi nel braccio sud. Viene sfruttato \texttt{transitano\_stesso\_braccio/2}.\\
 		
-		\adjustbox{raise=-2.1cm}{\includegraphics[width=.4\textwidth]{images/contact/both_straight}} & I veicoli rosso e celeste vanno entrambi dritto e il primo è a destra del secondo. Viene sfruttato \texttt{entrambi\_dritto/2}.\\
+		\adjustbox{raise=-2.1cm}{\includegraphics[width=.4\textwidth]{images/movement/both_straight}} & I veicoli rosso e celeste vanno entrambi dritto e il primo è a destra del secondo. Viene sfruttato \texttt{entrambi\_dritto/2}.\\
 		
-		\adjustbox{raise=-3cm}{\includegraphics[width=.4\textwidth]{images/contact/both_left}} & I veicoli rosso e giallo vanno entrambi a sinistra, i bracci di provenienza sono adiacenti, così come i bracci di arrivo.   Lo stesso discorso vale per i veicoli rosso e blu. In questo caso viene utilizzato \texttt{entrambi\_a\_sinistra/4}\\
+		\adjustbox{raise=-3cm}{\includegraphics[width=.4\textwidth]{images/movement/both_left}} & I veicoli rosso e giallo vanno entrambi a sinistra, i bracci di provenienza sono adiacenti, così come i bracci di arrivo.   Lo stesso discorso vale per i veicoli rosso e blu. In questo caso viene utilizzato \texttt{entrambi\_a\_sinistra/4}\\
 		
-		\adjustbox{raise=-2.9cm}{\includegraphics[width=.4\textwidth]{images/contact/one_left}} & Il camion va a sinistra mentre il veicolo celeste va a destra, proseguendo in bracci opposti. Viene sfruttato \texttt{uno\_a\_sinistra/4}. \\
+		\adjustbox{raise=-2.9cm}{\includegraphics[width=.4\textwidth]{images/movement/one_left}} & Il camion va a sinistra mentre il veicolo celeste va a destra, proseguendo in bracci opposti. Viene sfruttato \texttt{uno\_a\_sinistra/4}. \\
 		
-		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/contact/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. In questo caso si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.	
+		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/movement/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. In questo caso si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.	
 	\end{longtabu}
 \end{center}
 

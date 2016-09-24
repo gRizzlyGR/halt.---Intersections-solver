@@ -19,13 +19,13 @@ start :-
 % Risolvo tutti gli incroci presenti nella KB
 test :-
 	findall(ID, incrocio(ID, _), IDs),
-	solve(IDs).
+	soluzione(IDs).
 	
-solve([ID | T]) :-
+soluzione([ID | T]) :-
 	writeln(ID),
 	pulisci,
 	recupera_incrocio(ID, _),
 	menu_utente:risolvi,
-	solve(T).
+	soluzione(T).
 
-solve([]).
+soluzione([]).
