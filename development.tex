@@ -97,6 +97,25 @@ Visti i casi espressi in \ref{ssec:prec}, descriviamo i passaggi che prevedono l
 
 Una volta inquadrato il caso tra quella elencati sopra, l'effettiva precedenza tra due veicoli viene affrontata da altri due predicati, \texttt{precede\_da\_destra/2} e \texttt{precedenza\_frontale/2}. Il primo verifica che un veicoli provenga da destra e che \textbf{incroci} l'altro, il secondo implementa esattamente i casi visti in \ref{sssec:front}. Il predicato \texttt{incrocia/2} indica quando un veicolo entra in contatto con un altro durante la sua manovra. Il suo uso viene descritto meglio in \ref{ssec:pos} dove si parla del modulo in cui è contenuto.
 
+\subsection{Circolazione}
+I modelli di circolazione sono due, come visto in \ref{ssec:circ}, che di fatto vengono descritti da due regole:
+
+\begin{verbatimtab}
+circolano :-
+	nessuno_stallo,
+	prima,
+	dopo,
+	infine.
+
+circolano :-
+	in_stallo,
+	prima_dello_stallo,
+	in_pieno_stallo,
+	infine_dopo_stallo.
+\end{verbatimtab}
+
+La prima clausola di \texttt{circolano/0} descrive il primo caso, quello in cui non ci sono stalli e ricostruisce l'ordine corretto di transito dei veicoli. La seconda clausola, invece, controlla che ci sia uno stallo e procede a ritrovare quali veicoli passano prima dello stallo, entrando poi nel merito dello stallo cercando di risolverlo ed infine verifica se ci sono altri veicoli che passano per ultimi.
+
 \subsection{Sorting}
 Questa sezione entra nel dettaglio di quanto già detto in \ref{ssec:circ}, per descrivere l'algoritmo di ordinamento. È stato implementato un \emph{na\"{\i}ve sort}\cite{Clocksin:2003}, presente nel modulo \texttt{circolazione.pl}, così formato:
 \begin{verbatimtab}
