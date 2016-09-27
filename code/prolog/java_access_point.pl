@@ -33,10 +33,10 @@ solve_crossroad_by_id(ID) :-
 solve_crossroad_by_id(_) :-
 	writeln("--ATTENZIONE: Incrocio non trovato! Controlla l'ID").
 
-visualize_crossroad(ID) :-
-	pulisci,
-	recupera_incrocio(ID, Incrocio),
-	stampa_incrocio(Incrocio).
+%visualize_crossroad(ID) :-
+%	pulisci,
+%	recupera_incrocio(ID, Incrocio),
+%	stampa_incrocio(Incrocio).
 
 % Admin operations
 register_new_crossroad(ID, Input) :-
