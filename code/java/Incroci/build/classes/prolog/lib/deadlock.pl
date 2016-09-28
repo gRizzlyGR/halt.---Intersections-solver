@@ -14,7 +14,7 @@
 attesa_circolare(Veicoli) :-
 	setof(V, non_il_primo(V), Veicoli),
 	almeno_tre(Veicoli),
-	stallo(Veicoli, [], Veicoli).
+	stallo(Veicoli, Veicoli).
 
 
 % Vengono considerati solo i veicoli in stallo. Ce ne potrebbe essere un altro che non è coinvolto e passa prima.
@@ -24,10 +24,18 @@ non_il_primo(Veicolo) :-
 	\+ ultimo(Veicolo).
 
 
-stallo([H|T], Acc, Veicoli) :-
+stallo([H|T], Veicoli) :-
 	precede(Precede, H),
 	member(Precede, Veicoli),
-	stallo(T, [Precede | Acc], Veicoli).
+	stallo(T, Veicoli).
+
+stallo([], _).
+
+
+%stallo([H|T], Acc, Veicoli) :-
+%	precede(Precede, H),
+%	member(Precede, Veicoli),
+%	stallo(T, [Precede | Acc], Veicoli).
 
 %stallo([H|T], Acc, Veicoli) :-
 %	precede(H, Preceduto),
@@ -36,7 +44,7 @@ stallo([H|T], Acc, Veicoli) :-
 %	\+ member(Preceduto, Acc),
 %	stallo(T, [Preceduto | Acc], Veicoli).
 
-stallo([], _, _).
+%stallo([], _, _).
 
 
 % Trovo il primo veicolo che va a sinistra e lo rimuovo dalla lista

@@ -59,6 +59,18 @@ sostituisci(Nuovo, DaSostituire, [DaSostituire | T], [Nuovo | T]).
 sostituisci(Nuovo, DaSostituire, [H|T], [H|T2]) :-
 	sostituisci(Nuovo, DaSostituire, T, T2).
 
+% Converto una lista di veicoli simultanei in un atomo da stampare in modo ben formattato
+ben_formattato(Lista, Atomo) :-
+	acc_ben_formattato(Lista, [], Epurata),
+	rev(Epurata, Inversa),
+	atomic_list_concat(Inversa, ', ', Atomo).
+
+acc_ben_formattato([veicolo(Veicolo) | T], Acc, Epurata) :-
+	acc_ben_formattato(T, [Veicolo | Acc], Epurata).
+
+acc_ben_formattato([], A, A).
+
+
 % Converte il contenuto ottenuto da uno stream in un lista di termini.
 payload(V, R) :-
 	term_to_atom(V, A),
@@ -75,3 +87,28 @@ acc_lista_di_termini([Atomo | T], Acc, Termini) :-
 	acc_lista_di_termini(T, [Term | Acc], Termini).
 
 acc_lista_di_termini([], A, A).
+
+veicoli_atom(Lista, Atomo) :-
+	non_vuota(Lista),
+	lista_di_atomi(Lista, Atomi),
+	atomic_list_concat(Atomi, ', ', Atomo).
+
+
+% Converto una lista di termini, di solito compound, in una listi di atomi
+lista_di_atomi(Lista, Atomi) :-
+	acc_lista_di_atomi(Lista, [], Atomi).
+
+acc_lista_di_atomi([veicolo(Term) | T], Acc, Atomi) :-	
+	term_to_atom(Term, Atomo),
+	acc_lista_di_atomi(T, [Atomo | Acc], Atomi).
+
+acc_lista_di_atomi([], A, A).
+
+non_vuota(Lista) :-
+	length(Lista, N),
+	N > 0.
+
+non_esiste(Veicolo) :-
+	findall(Veicolo, proviene(Veicolo, _), L),
+	length(L, N),
+	N = 0.

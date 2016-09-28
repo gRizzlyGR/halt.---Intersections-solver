@@ -1,5 +1,5 @@
 :- module(contatto, [
-%			svolta_a_u/2,
+			svolta_a_u/2,
 %			transitano_stesso_braccio/2,
 %			entrambi_dritto/2,
 %			entrambi_a_sinistra/4,
@@ -53,8 +53,8 @@ transitano_stesso_braccio(V1, V2) :-
 	transita(V1, _, StessoBraccio),
 	transita(V2, _, StessoBraccio).
 
-% Copre il caso in cui almeno uno dei due veicoli va nel braccio 
-% di provenienza dell'altro, quando proseguono dritto.
+% Copre il caso in cui i veicoli proseguono dritto, evitando di andare l'uno nel braccio nell'altro,
+% altrimenti non potrebbero incrociarsi.
 entrambi_dritto(V1, V2) :-
 	transita(V1, dritto, _),
 	transita(V2, dritto, _),

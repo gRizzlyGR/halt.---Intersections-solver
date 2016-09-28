@@ -8,6 +8,7 @@
 :- use_module(circolazione).
 :- use_module(gestore_kb).
 :- use_module(utils).
+:- use_module(analisi).
 
 %process_list([],[]). 
 %process_list([H|T], [string(At) | NewT]) :- 
@@ -55,3 +56,9 @@ delete_crossroad(ID) :-
 % Crossroad not found
 delete_crossroad(_) :-
 	writeln("ATTENZIONE: Incrocio non trovato! Controlla l'ID").
+
+all_info :-
+	analizza_tutti.
+
+specific_info(Veicolo) :-
+	analizza_veicolo(Veicolo).

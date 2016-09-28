@@ -11,31 +11,39 @@ menu_admin :-
 	write('[3] Vai al menu utente.'), nl,
 	write('[0] Esci.'), nl, nl,
 	write('--Fai la tua scelta (seguita dal punto): '), read(S), nl,
-	atom_concat('scelta_', S, Scelta),
-	call(Scelta).
+%	atom_concat('scelta_', S, Scelta),
+%	call(Scelta).
+	scelta(S).
 
-scelta_1 :-
+scelta(1) :-
 	write('--Inserisci l\'ID del nuovo caso: '), read(ID), nl,
 	write('--Inserisci la lista dei fatti:'), nl, read(Lista),
 	registra_incrocio(incrocio(ID, Lista)), nl,
 	write('--Incrocio registrato con successo!'), nl, nl,
 	menu_admin.
 
-scelta_1 :-
+scelta(1) :-
 	write('--ID già presente, cambialo!'), nl,
 	menu_admin.
 
-scelta_2 :-
-	write('--Inserisci l\'ID del caso che vuoi eliminare:'), read(ID),
+scelta(2) :-
+	write('--Inserisci l\'ID del caso che vuoi eliminare:'), read(ID), nl,
 	elimina_incrocio(ID), nl,
 	write('--Incrocio eliminato con successo!'), nl, nl,
 	menu_admin.
 
-scelta_2 :-
-	write('--Il caso da te richiesto non esiste!'), nl, nl,
+scelta(2) :-
+	write('--Il caso da te richiesto non esiste! Ricontrolla l\'ID.'), nl, nl,
 	menu_admin.
 
-scelta_3 :-
+scelta(3) :-
 	menu_utente.
 
-scelta_0.
+scelta(0).
+
+scelta(_) :-
+	scelta_non_riconosciuta,
+	menu_admin.
+
+scelta_non_riconosciuta :-
+	write('--Scelta non riconosciuta. Ricontrolla.'), nl, nl.

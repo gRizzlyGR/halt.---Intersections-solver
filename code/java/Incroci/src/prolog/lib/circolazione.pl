@@ -63,17 +63,6 @@ prima :-
 
 dopo :-
 	tutti_i_prossimi(Prossimi),
-%	prossimi_insieme(PassanoInsieme),
-
-%	append(PassanoInsieme, NonSimultanei, Prossimi),
-%	recupera_veicolo_simultaneo(PassanoInsieme, VeicoloSim),
-
-%	aggiungi_veicolo_simultaneo(VeicoloSim, NonSimultanei, P2),
-%	ordine(P2, Ordinata),
-
-%	utils:sostituisci(PassanoInsieme, VeicoloSim, Ordinata, P3),
-%	msg:prossimi_a_passare(P3).
-
 	ordina_simultanei(Prossimi, Lista),
 	msg:prossimi_a_passare(Lista).
 

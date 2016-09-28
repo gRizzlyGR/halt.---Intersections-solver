@@ -1,15 +1,45 @@
-:- module(posizioni, [
-			svolta_a_u/2,
-			transitano_stesso_braccio/2,
-			entrambi_dritto/2,
-			entrambi_a_sinistra/4,
-			uno_a_sinistra/4,
-			nel_braccio_dell_altro/2,
-			dove_vado_uguale_dove_vieni/2
+:- module(contatto, [
+%			svolta_a_u/2,
+%			transitano_stesso_braccio/2,
+%			entrambi_dritto/2,
+%			entrambi_a_sinistra/4,
+%			uno_a_sinistra/4,
+%			nel_braccio_dell_altro/2,
+%			dove_vado_uguale_dove_vieni/2,
+			incrocia/2
 			]).
 
 :- use_module(gestore_kb).
 :- use_module(destra).
+:- use_module(adiacenza).
+:- use_module(opposti).
+
+
+
+incrocia(V1, V2) :-
+	transitano_stesso_braccio(V1, V2).
+
+incrocia(V1, V2) :-
+	entrambi_dritto(V1, V2).
+
+incrocia(V1, V2) :-
+	entrambi_a_sinistra(V1, V2, VersoV1, VersoV2),
+	proviene(V1, DaV1),
+	proviene(V2, DaV2),
+	adiacente(DaV1, DaV2),
+	adiacente(VersoV1, VersoV2).
+
+incrocia(V1, V2) :-
+	uno_a_sinistra(V1, V2, VersoV1, VersoV2),
+	proviene(V1, DaV1),
+	proviene(V2, DaV2),
+	adiacente(DaV1, DaV2),
+	opposto(VersoV1, VersoV2).
+
+incrocia(V1, V2) :-
+	uno_a_sinistra(V1, V2, _, _),
+	nel_braccio_dell_altro(V1, V2),
+	\+ dove_vado_uguale_dove_vieni(V1, V2).
 
 % Il braccio di arrivo di un veicolo è a destra del braccio di provenienza di un altro.
 % Questo può comportare il caso in cui un veicolo proveniente da destra ma che da la precedenza ad un altro

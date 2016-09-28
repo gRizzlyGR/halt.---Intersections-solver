@@ -8,10 +8,11 @@
 :- use_module(circolazione).
 :- use_module(gestore_kb).
 :- use_module(utils).
+:- use_module(analisi).
 
-% process_list([],[]). 
-% process_list([H|T], [string(At) | NewT]) :- 
-	term_to_atom(H, At), process_list(T, NewT).
+%process_list([],[]). 
+%process_list([H|T], [string(At) | NewT]) :- 
+%	term_to_atom(H, At), process_list(T, NewT).
 
 
 % User operations
@@ -33,16 +34,20 @@ solve_crossroad_by_id(ID) :-
 solve_crossroad_by_id(_) :-
 	writeln("--ATTENZIONE: Incrocio non trovato! Controlla l'ID").
 
-visualize_crossroad(ID) :-
-	pulisci,
-	recupera_incrocio(ID, Incrocio),
-	stampa_incrocio(Incrocio).
+%visualize_crossroad(ID) :-
+%	pulisci,
+%	recupera_incrocio(ID, Incrocio),
+%	stampa_incrocio(Incrocio).
 
 % Admin operations
 register_new_crossroad(ID, Input) :-
 	utils:payload(Input, Fatti),
 	registra_incrocio(incrocio(ID, Fatti)),
 	writeln("--Incrocio registrato con successo!").
+
+% ID not available
+register_new_crossroad(_, _) :-
+	writeln("--ATTENZIONE: ID già in uso! Prova a cambiarlo").
 
 delete_crossroad(ID) :-
 	elimina_incrocio(ID),
@@ -51,3 +56,9 @@ delete_crossroad(ID) :-
 % Crossroad not found
 delete_crossroad(_) :-
 	writeln("ATTENZIONE: Incrocio non trovato! Controlla l'ID").
+
+all_info :-
+	analizza_tutti.
+
+specific_info(Veicolo) :-
+	analizza_veicolo(Veicolo).
