@@ -17,7 +17,7 @@
 :- use_module(segnali).
 :- use_module(prioritari).
 :- use_module(gestore_kb).
-:- use_module(contatto).
+:- use_module(movimento).
 :- use_module(library(lists)).
 
 

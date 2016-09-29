@@ -28,7 +28,7 @@ ultimo_a_passare(veicolo(V)) :-
 %	format('I veicoli ~w sono i primi a passare;~n', [Primi]).
 
 passano_insieme(ListaVeicoli) :-
-	ben_formattato(ListaVeicoli, Veicoli),
+	utils:ben_formattato(ListaVeicoli, Veicoli),
 	format('I veicoli ~w passano insieme;~n', [Veicoli]).
 
 %ultimi_a_passare(Ultimi) :-
@@ -41,7 +41,7 @@ primi_a_passare([veicolo(V)]) :-
 
 primi_a_passare(ListaPrimi) :-
 	piu_di_uno(ListaPrimi),
-	ben_formattato(ListaPrimi, Primi),
+	utils:ben_formattato(ListaPrimi, Primi),
 	format('I veicoli ~w sono i primi a passare;~n', [Primi]).
 
 ultimi_a_passare([veicolo(V)]) :-
@@ -49,28 +49,16 @@ ultimi_a_passare([veicolo(V)]) :-
 
 ultimi_a_passare(ListaUltimi) :-
 	piu_di_uno(ListaUltimi),
-	ben_formattato(ListaUltimi, Ultimi),
+	utils:ben_formattato(ListaUltimi, Ultimi),
 	format('I veicoli ~w sono gli ultimi a passare;~n', [Ultimi]).
 
 prossimi_insieme(ListaVeicoli) :-
-	ben_formattato(ListaVeicoli, Veicoli),
+	utils:ben_formattato(ListaVeicoli, Veicoli),
 	format('I veicoli ~w sono i prossimi a passare insieme;~n', [Veicoli]).
 
 piu_di_uno(Lista) :-
 	length(Lista, N),
 	N > 1.
-
-% Converto una lista di veicoli simultanei in un atomo da stampare in modo ben formattato
-ben_formattato(Lista, Atomo) :-
-	acc_ben_formattato(Lista, [], Epurata),
-	utils:rev(Epurata, Inversa),
-	atomic_list_concat(Inversa, ', ', Atomo).
-
-acc_ben_formattato([veicolo(Veicolo) | T], Acc, Epurata) :-
-	acc_ben_formattato(T, [Veicolo | Acc], Epurata).
-
-acc_ben_formattato([], A, A).
-	
 
 % Messaggi per il caso di attesa circolare
 va_al_centro(veicolo(V)) :-
@@ -78,3 +66,49 @@ va_al_centro(veicolo(V)) :-
 
 ultimo_dal_centro(veicolo(V)) :-
 	format('Il veicolo ~w prosegue per ultimo.~n', [V]).
+
+% Analisi di un veicolo
+precedenti(V, []) :-
+	format('Il veicolo ~w non è preceduto da nessuno.~n', [V]).
+
+precedenti(V, Lista) :-
+	utils:veicoli_atom(Lista, A),
+	stampa_precedenti(V, Lista, A).
+
+preceduti(V, []) :-
+	format('Il veicolo ~w non precede nessuno.~n', [V]).
+
+preceduti(V, Lista) :-
+	utils:veicoli_atom(Lista, A),
+	stampa_preceduti(V, Lista, A).
+	
+
+simultanei(_, []).
+
+simultanei(V, Lista) :-
+	utils:veicoli_atom(Lista, A),
+	stampa_simultanei(V, Lista, A).
+
+stampa_precedenti(V, Lista, A) :-
+	piu_di_uno(Lista),
+	format('Il veicolo ~w è preceduto dai veicoli ~w.~n', [V, A]).
+
+stampa_precedenti(V, [veicolo(_)], A) :-
+	format('Il veicolo ~w è preceduto dal veicolo ~w.~n', [V, A]).
+
+stampa_preceduti(V, Lista, A) :-
+	piu_di_uno(Lista),
+	format('Il veicolo ~w precede i veicoli ~w.~n', [V, A]).
+
+stampa_preceduti(V, [veicolo(_)] , A) :-
+	format('Il veicolo ~w precede il veicolo ~w.~n', [V, A]).
+
+stampa_simultanei(V, Lista, A) :-
+	piu_di_uno(Lista),
+	format('Insieme al veicolo ~w passano i veicoli ~w.~n', [V, A]).
+
+stampa_simultanei(V, [veicolo(_)] , A) :-
+	format('Insieme al veicolo ~w passa il veicolo ~w.~n', [V, A]).
+
+non_esiste :-
+	writeln('Il veicolo inserito non esiste. Ricontrolla.').

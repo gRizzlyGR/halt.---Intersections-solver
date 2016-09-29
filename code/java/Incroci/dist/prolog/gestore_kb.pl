@@ -48,6 +48,7 @@ pulisci :-
 recupera_incrocio(ID, Incrocio) :-
 	incrocio(ID, Incrocio),
 	carica_in_memoria(Incrocio).
+	
 
 % I casi nella kb sono formati da strutture (compound), quindi atom_to_term/2 non serve
 carica_in_memoria([Fatto | AltriFatti]) :-	

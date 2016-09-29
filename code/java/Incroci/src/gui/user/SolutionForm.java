@@ -164,13 +164,15 @@ public class SolutionForm extends javax.swing.JFrame {
                 .addGap(22, 22, 22)
                 .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addComponent(loadingSroll)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addComponent(solutionButton)
-                .addGap(64, 64, 64)
+                .addGap(83, 83, 83)
                 .addComponent(moreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(cleanButton))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(loadingSroll, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -184,9 +186,9 @@ public class SolutionForm extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(solutionButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                        .addComponent(moreButton)
-                        .addComponent(cleanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cleanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(moreButton)))
                 .addContainerGap())
         );
 
@@ -202,6 +204,11 @@ public class SolutionForm extends javax.swing.JFrame {
         });
 
         specificText2.setEnabled(false);
+        specificText2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificText2ActionPerformed(evt);
+            }
+        });
         specificText2.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 specificText2KeyPressed(evt);
@@ -232,23 +239,19 @@ public class SolutionForm extends javax.swing.JFrame {
         detailsPane2.setLayout(detailsPane2Layout);
         detailsPane2Layout.setHorizontalGroup(
             detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPane2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(infoButton2)
-                .addGap(141, 141, 141))
             .addGroup(detailsPane2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(detailsPane2Layout.createSequentialGroup()
-                        .addComponent(jScrollPane5)
-                        .addContainerGap())
+                    .addComponent(jScrollPane5)
                     .addGroup(detailsPane2Layout.createSequentialGroup()
                         .addComponent(allRadio2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(specificRadio2)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(specificText2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(infoButton2)))
+                .addContainerGap())
         );
         detailsPane2Layout.setVerticalGroup(
             detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,9 +260,8 @@ public class SolutionForm extends javax.swing.JFrame {
                 .addGroup(detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(allRadio2)
                     .addComponent(specificRadio2)
-                    .addComponent(specificText2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(infoButton2)
+                    .addComponent(specificText2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(infoButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -270,16 +272,17 @@ public class SolutionForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(detailsPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(detailsPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -319,6 +322,7 @@ public class SolutionForm extends javax.swing.JFrame {
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        manager.close();
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
 
@@ -332,11 +336,16 @@ public class SolutionForm extends javax.swing.JFrame {
 
     private void moreInfo() {
         redir.redirect(detailsText2);
+
         detailsText2.setText("");
         if (allRadio2.isSelected()) {
             manager.sendCommand(commander.prepareCommand(PrologCommands.ALL_INFO.getCommand(), (Object) null));
         } else if (specificRadio2.isSelected()) {
-            manager.sendCommand(commander.prepareCommand(PrologCommands.SPECIFIC_INFO.getCommand(), specificText2.getText()));
+            if (specificText2.getText().equals("")) {
+                System.out.println("--Inserisci un veicolo!");
+            } else {
+                manager.sendCommand(commander.prepareCommand(PrologCommands.SPECIFIC_INFO.getCommand(), specificText2.getText()));
+            }
         }
     }
 
@@ -369,8 +378,12 @@ public class SolutionForm extends javax.swing.JFrame {
     private void specificText2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_specificText2KeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             moreInfo();
-        } 
+        }
     }//GEN-LAST:event_specificText2KeyPressed
+
+    private void specificText2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificText2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_specificText2ActionPerformed
 
     /**
      * @param args the command line arguments

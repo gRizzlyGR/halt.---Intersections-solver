@@ -12,6 +12,7 @@ Per sviluppare le funzionalità del sistema sono stati realizzati dei moduli in 
 \item \texttt{precedenze}: gestisce come i veicoli diano o abbiano la precedenza sugli altri, coprendo tutti i casi elencati in \ref{ssec:prec}.
 \item \texttt{deadlock}: gestisce gli stalli.
 \item \texttt{destra}: descrive come un veicolo sia a destra di un altro.
+\item \texttt{analisi}: consente di avere più informazioni sui veicoli coinvolti nell'incrocio.
 \item \texttt{gestore\_kb}: permette l'accesso in lettura e scrittura della \emph{knowledge base}.
 \item \texttt{java\_access\_point}: interfaccia di comunicazione con il programma Java, fornito di una GUI.
 \item \texttt{adiacenza}: descrive come un braccio sia adiacente ad un altro.
@@ -369,9 +370,12 @@ Il veicolo giallo incrocia il veicolo celeste nel braccio sud-est, senza il vinc
 		
 		\adjustbox{raise=-2.9cm}{\includegraphics[width=.4\textwidth]{images/movement/one_left}} & Il camion va a sinistra mentre il veicolo celeste va a destra, proseguendo in bracci opposti. Viene sfruttato \texttt{uno\_a\_sinistra/4}. \\
 		
-		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/movement/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. In questo caso si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.	
+		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/movement/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. In questo caso si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.
 	\end{longtabu}
 \end{center}
+
+\section{Analisi dei veicoli}
+Il modulo \texttt{analisi.pl} serve a dettagliare lo stato dei veicoli dopo che un incrocio è stato risolto. Viene chiesto all'utente (tramite prompt a riga di comando o interagendo con l'interfaccia grafica) se vuole avere ulteriori dettagli su tutti i veicoli coinvolti nell'incrocio o solamente su di uno. Le informazioni riguardano quali veicoli precedono, quali vengono preceduti e quali eventualmente si spostano insieme al veicolo in esame.
 
 \section{Accesso alla base di conoscenza}
 Per potere acceder alla base di conoscenza, il file \texttt{kb.pl}, è stato realizzato il modulo \texttt{gestore\_kb.pl} che fornisce degli operatori a supporto di task di lettura e scrittura sulla memoria secondaria. I più importanti sono:
@@ -405,7 +409,7 @@ Le viste implementate rispecchiano in generale l'interfaccia a menu della riga d
 
 \begin{figure}[!htbp]
 	\centering
-	\includegraphics[width=.3\textwidth]{images/menu_gui}
+	\includegraphics[width=.3\textwidth]{images/gui/menu_gui}
 	\caption{Vista iniziale}
 \end{figure}
 
@@ -413,20 +417,21 @@ In seguito verrà visualizzata una di queste due viste:
 \begin{figure}[!htb]
 	\centering
 	\begin{subfigure}[b]{.4\textwidth}
-		\includegraphics[width=\textwidth]{images/user_gui.png}
+		\includegraphics[width=\textwidth]{images/gui/user_gui}
 		\caption{Menu Utente}
 	\end{subfigure}
 	\begin{subfigure}[b]{.4\textwidth}
-		\includegraphics[width=\textwidth]{images/admin_gui.png}
+		\includegraphics[width=\textwidth]{images/gui/admin_gui}
 		\caption{Menu Admin}
 	\end{subfigure}
 	\caption{Viste dei menu}
 \end{figure}
 
+\clearpage
 Per quanto riguarda il menu utente, la finestra di risoluzione di un incrocio già memorizzato è questa:
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/solve_gui}
+	\includegraphics[width=.5\textwidth]{images/gui/solve_gui}
 	\caption{Risoluzione di un incrocio tramite ID}
 \end{figure}
 
@@ -519,12 +524,15 @@ L'ultima riguarda la presenza di un segnale in un braccio, che ricordiamo essere
 \par \mbox{\fbox{\texttt{.*braccio\textbackslash s+(.*)\textbackslash s+c.*segnale\textbackslash s+(.*)}}} \\\\
 che valida le stringhe che contengono ``braccio" e "segnale", ignorando gli spazi e gli altri caratteri.
 
-Dopo aver "spogliato" le frasi dalle parti inutili per estrarre il carico utile da inviare, c'è bisogno di richiamare i giusti operatori per interrogare Prolog. Il programma Java fornisce dei prototipi precompilati, di tipo enumerativo, che sono stringhe formattate pronte a ricevere una lista di argomenti di tipo stringa che andrà a sostituire i segnaposto presenti nel prototipo. Questi corrispondono alle operazioni che è possibile effettuare dagli utenti e si presentano così:
+Dopo aver "spogliato" le frasi dalle parti inutili per estrarre il carico utile da inviare, c'è bisogno di richiamare i giusti operatori per interrogare Prolog. Il programma Java fornisce dei prototipi precompilati, di tipo enumerativo, che sono stringhe formattate pronte a ricevere una lista di argomenti di tipo stringa che andrà a sostituire i segnaposto presenti nel prototipo, quando ce ne sono. Questi corrispondono alle operazioni che è possibile effettuare dagli utenti e si presentano così:
 \begin{itemize}
-	\item \texttt{solve\_new\_crossroad(\%s)}: il segnaposto è la lista dei fatti che descrivono l'incrocio. Essa viene convertita in stringa per essere più malleabile per il Prolog.
-	\item \texttt{solve\_crossroad\_by\_id(\%s)}: il segnaposto è l'ID dell'incrocio.
-	\item \texttt{register\_new\_crossroad(\%s, \%s)}: i segnaposti sono l'ID dell'incrocio e la lista dei fatti che descrivono l'incrocio.
-	\item \texttt{delete\_crossroad(\%s)}: il segnaposto è l'ID dell'incrocio.
+	\item \texttt{solve\_new\_crossroad(\%s)}: invocato quando si tenta di risolvere un nuovo incrocio; il segnaposto è la lista dei fatti che descrivono l'incrocio. Essa viene convertita in stringa per essere più malleabile per il Prolog.
+	\item \texttt{solve\_crossroad\_by\_id(\%s)}: invocato quando si tenta di risolvere un incrocio tramite ID; il segnaposto è appunto l'ID dell'incrocio.
+	\item \texttt{register\_new\_crossroad(\%s, \%s)}: invocato quando si memorizza un nuovo incrocio; i segnaposti sono l'ID dell'incrocio e la lista dei fatti che descrivono l'incrocio.
+	\item \texttt{delete\_crossroad(\%s)}: invocato quando si cancella un incrocio; il segnaposto è l'ID dell'incrocio.
+	\item \texttt{all\_info}: invocato quando si vogliono avere più informazioni su tutti i veicoli.
+	\item \texttt{specific\_info(\%s)}: invocato quando si vogliono avere più informazioni su un veicolo specifico; il segnaposto è il veicolo.
+	\item \texttt{clean}: invocato quando si vuole togliere dalla memoria l'incrocio.
 \end{itemize}
 
-Una volta combinati i prototipi con gli opportuni argomenti, essi vengono ricevuti dal modulo \texttt{java\_access\_point} che presenta gli stessi funtori dei prototipi, quindi entra in gioco Prolog che processa i dati e restituisce i risultati. Quest'ultimo semplicemente invia l'output alla riga di comando tramite \texttt{writeln/1}, che viene intercettato dal Java e ridirezionato nella finestra del programma Java.
+Una volta combinati i prototipi con gli opportuni argomenti, essi vengono ricevuti dal modulo \texttt{java\_access\_point} che presenta gli stessi funtori dei prototipi, quindi entra in gioco Prolog che processa i dati e restituisce i risultati. Quest'ultimo semplicemente invia l'output alla riga di comando tramite \texttt{writeln/1} oppure \texttt{format/2}, che viene intercettato dal Java e ridirezionato nella finestra del programma Java.
