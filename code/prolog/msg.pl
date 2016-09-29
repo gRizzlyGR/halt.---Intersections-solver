@@ -111,4 +111,4 @@ stampa_simultanei(V, [veicolo(_)] , A) :-
 	format('Insieme al veicolo ~w passa il veicolo ~w.~n', [V, A]).
 
 non_esiste :-
-	writeln('Il veicolo inserito non esiste. Forse non hai caricato alcun incrocio.').
+	writeln('Il veicolo inserito non esiste. Ricontrolla.').

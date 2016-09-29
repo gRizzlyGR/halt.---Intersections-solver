@@ -35,9 +35,12 @@ public class SolutionForm extends javax.swing.JFrame {
             }
         });
 //        redirect(solutionText);
-        new OutputRedirector().redirect(solutionText);
+        height = this.getHeight();
+//        new OutputRedirector().redirect(solutionText);
         manager = new PrologManager();
         commander = new CommandManager();
+        hidePane();
+        redir = new OutputRedirector();
     }
 
     /**
@@ -49,19 +52,76 @@ public class SolutionForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        idLabel = new javax.swing.JLabel();
-        idText = new javax.swing.JTextField();
-        solutionButton = new javax.swing.JButton();
-        loadingSroll = new javax.swing.JScrollPane();
-        solutionText = new javax.swing.JTextArea();
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        jPanel2 = new javax.swing.JPanel();
+        idLabel = new javax.swing.JLabel();
+        loadingSroll = new javax.swing.JScrollPane();
+        solutionText = new javax.swing.JTextArea();
+        idText = new javax.swing.JTextField();
+        solutionButton = new javax.swing.JButton();
+        moreButton = new javax.swing.JButton();
+        cleanButton = new javax.swing.JButton();
+        detailsPane2 = new javax.swing.JPanel();
+        allRadio2 = new javax.swing.JRadioButton();
+        specificText2 = new javax.swing.JTextField();
+        infoButton2 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        detailsText2 = new javax.swing.JTextArea();
+        specificRadio2 = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        backButton.setText("Indietro");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
+            }
+        });
+
+        exitButton.setText("Esci");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(backButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(exitButton))
+                .addContainerGap())
+        );
+
         idLabel.setText("ID dell'incrocio");
 
+        solutionText.setEditable(false);
+        solutionText.setColumns(20);
+        solutionText.setRows(5);
+        loadingSroll.setViewportView(solutionText);
+
+        idText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                idTextActionPerformed(evt);
+            }
+        });
         idText.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 idTextKeyPressed(evt);
@@ -80,71 +140,159 @@ public class SolutionForm extends javax.swing.JFrame {
             }
         });
 
-        solutionText.setEditable(false);
-        solutionText.setColumns(20);
-        solutionText.setRows(5);
-        loadingSroll.setViewportView(solutionText);
-
-        backButton.setText("Indietro");
-        backButton.addActionListener(new java.awt.event.ActionListener() {
+        moreButton.setText("Più dettagli");
+        moreButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backButtonActionPerformed(evt);
+                moreButtonActionPerformed(evt);
             }
         });
 
-        exitButton.setText("Esci");
-        exitButton.addActionListener(new java.awt.event.ActionListener() {
+        cleanButton.setText("Pulisci");
+        cleanButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exitButtonActionPerformed(evt);
+                cleanButtonActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(idLabel)
+                .addGap(22, 22, 22)
+                .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(loadingSroll)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(solutionButton)
+                .addGap(64, 64, 64)
+                .addComponent(moreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addComponent(cleanButton))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(idLabel)
+                    .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(loadingSroll, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(solutionButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                        .addComponent(moreButton)
+                        .addComponent(cleanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+        );
+
+        detailsPane2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup1.add(allRadio2);
+        allRadio2.setSelected(true);
+        allRadio2.setText("Tutti");
+        allRadio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadio2ActionPerformed(evt);
+            }
+        });
+
+        specificText2.setEnabled(false);
+        specificText2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                specificText2KeyPressed(evt);
+            }
+        });
+
+        infoButton2.setText("Aggiorna");
+        infoButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoButton2ActionPerformed(evt);
+            }
+        });
+
+        detailsText2.setEditable(false);
+        detailsText2.setColumns(20);
+        detailsText2.setRows(5);
+        jScrollPane5.setViewportView(detailsText2);
+
+        buttonGroup1.add(specificRadio2);
+        specificRadio2.setText("Veicolo specifico");
+        specificRadio2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificRadio2ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout detailsPane2Layout = new javax.swing.GroupLayout(detailsPane2);
+        detailsPane2.setLayout(detailsPane2Layout);
+        detailsPane2Layout.setHorizontalGroup(
+            detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPane2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoButton2)
+                .addGap(141, 141, 141))
+            .addGroup(detailsPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(detailsPane2Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5)
+                        .addContainerGap())
+                    .addGroup(detailsPane2Layout.createSequentialGroup()
+                        .addComponent(allRadio2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(specificRadio2)
+                        .addGap(18, 18, 18)
+                        .addComponent(specificText2, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))))
+        );
+        detailsPane2Layout.setVerticalGroup(
+            detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(detailsPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allRadio2)
+                    .addComponent(specificRadio2)
+                    .addComponent(specificText2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(backButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(solutionButton)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(idLabel)
-                                .addGap(22, 22, 22)
-                                .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(loadingSroll, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(detailsPane2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(idLabel)
-                    .addComponent(idText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(loadingSroll, javax.swing.GroupLayout.PREFERRED_SIZE, 209, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(solutionButton)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 44, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(backButton)
-                            .addComponent(exitButton))
-                        .addContainerGap())))
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(detailsPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -173,6 +321,56 @@ public class SolutionForm extends javax.swing.JFrame {
     private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
         System.exit(0);
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void allRadio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_allRadio2ActionPerformed
+        specificText2.setEnabled(false);
+    }//GEN-LAST:event_allRadio2ActionPerformed
+
+    private void infoButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButton2ActionPerformed
+        moreInfo();
+    }//GEN-LAST:event_infoButton2ActionPerformed
+
+    private void moreInfo() {
+        redir.redirect(detailsText2);
+        detailsText2.setText("");
+        if (allRadio2.isSelected()) {
+            manager.sendCommand(commander.prepareCommand(PrologCommands.ALL_INFO.getCommand(), (Object) null));
+        } else if (specificRadio2.isSelected()) {
+            manager.sendCommand(commander.prepareCommand(PrologCommands.SPECIFIC_INFO.getCommand(), specificText2.getText()));
+        }
+    }
+
+    private void specificRadio2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificRadio2ActionPerformed
+
+        specificText2.setEnabled(true);
+
+    }//GEN-LAST:event_specificRadio2ActionPerformed
+
+    private void moreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreButtonActionPerformed
+        if (detailsPane2.isVisible()) {
+            hidePane();
+        } else {
+            showPane();
+        }
+    }//GEN-LAST:event_moreButtonActionPerformed
+
+    private void cleanButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanButtonActionPerformed
+        idText.setText("");
+        solutionText.setText("");
+        detailsText2.setText("");
+        manager.sendCommand(commander.prepareCommand(PrologCommands.CLEAN.getCommand(), (Object) null));
+    }//GEN-LAST:event_cleanButtonActionPerformed
+
+
+    private void idTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_idTextActionPerformed
+
+    private void specificText2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_specificText2KeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            moreInfo();
+        } 
+    }//GEN-LAST:event_specificText2KeyPressed
 
     /**
      * @param args the command line arguments
@@ -217,25 +415,54 @@ public class SolutionForm extends javax.swing.JFrame {
     }
 
     private void retrieveSolution() {
-        solutionText.setText(null);
+        solutionText.setText("");
         if (idText.getText().equals("")) {
             System.out.println("--Inserisci un ID appropriato!");
         } else {
+            redir.redirect(solutionText);
             manager.sendCommand(commander.prepareCommand(PrologCommands.SOLVE_CROSSROAD_BY_ID.getCommand(), new Object[]{idText.getText()}));
         }
     }
 
+    private void hidePane() {
+        moreButton.setText("Più dettagli");
+        detailsPane2.setVisible(false);
+
+        this.setSize(this.getWidth(), this.getHeight() - detailsPane2.getHeight());
+    }
+
+    private void showPane() {
+        moreButton.setText("Meno dettagli");
+        detailsPane2.setVisible(true);
+
+        this.setSize(this.getWidth(), height);
+    }
+
     private PrologManager manager;
     private CommandManager commander;
+    private OutputRedirector redir;
+    private int height;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton allRadio2;
     private javax.swing.JButton backButton;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton cleanButton;
+    private javax.swing.JPanel detailsPane2;
+    private javax.swing.JTextArea detailsText2;
     private javax.swing.JButton exitButton;
     private javax.swing.JLabel idLabel;
     private javax.swing.JTextField idText;
+    private javax.swing.JButton infoButton2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JScrollPane loadingSroll;
+    private javax.swing.JButton moreButton;
     private javax.swing.JButton solutionButton;
     private javax.swing.JTextArea solutionText;
+    private javax.swing.JRadioButton specificRadio2;
+    private javax.swing.JTextField specificText2;
     // End of variables declaration//GEN-END:variables
 }

@@ -62,3 +62,6 @@ all_info :-
 
 specific_info(Veicolo) :-
 	analizza_veicolo(Veicolo).
+
+clean :-
+	pulisci.

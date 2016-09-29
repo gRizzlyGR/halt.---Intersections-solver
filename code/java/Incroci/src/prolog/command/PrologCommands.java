@@ -22,7 +22,8 @@ public enum PrologCommands {
     REGISTER_NEW_CROSSROAD("register_new_crossroad(%s, %s)"),
     DELETE_CROSSROAD("delete_crossroad(%s)"),
     ALL_INFO("all_info"),
-    SPECIFIC_INFO("specific_info(%s)");
+    SPECIFIC_INFO("specific_info(%s)"),
+    CLEAN("clean");
     
     private final String command;
 

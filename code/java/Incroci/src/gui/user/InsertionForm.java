@@ -6,6 +6,7 @@
 package gui.user;
 
 import gui.utils.redirector.OutputRedirector;
+import java.awt.event.KeyEvent;
 import prolog.PrologManager;
 import prolog.command.ClauseValidator;
 import prolog.command.CommandManager;
@@ -42,6 +43,19 @@ public class InsertionForm extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jSeparator1 = new javax.swing.JSeparator();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        exitButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        solveButton = new javax.swing.JButton();
+        cleanButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        outputText = new javax.swing.JTextArea();
+        moreButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        inputText = new javax.swing.JTextArea();
         detailsPane = new javax.swing.JPanel();
         allRadio = new javax.swing.JRadioButton();
         specificText = new javax.swing.JTextField();
@@ -49,159 +63,22 @@ public class InsertionForm extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         detailsText = new javax.swing.JTextArea();
         specificRadio = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        solveButton = new javax.swing.JButton();
-        cleanButton = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        outputText = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        inputText = new javax.swing.JTextArea();
-        jLabel1 = new javax.swing.JLabel();
-        moreButton = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        exitButton = new javax.swing.JButton();
-        backButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        detailsPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-
-        buttonGroup1.add(allRadio);
-        allRadio.setSelected(true);
-        allRadio.setText("Tutti");
-        allRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                allRadioActionPerformed(evt);
-            }
-        });
-
-        specificText.setEnabled(false);
-
-        infoButton.setText("Aggiorna");
-        infoButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                infoButtonActionPerformed(evt);
-            }
-        });
-
-        detailsText.setColumns(20);
-        detailsText.setRows(5);
-        jScrollPane3.setViewportView(detailsText);
-
-        buttonGroup1.add(specificRadio);
-        specificRadio.setText("Veicolo specifico");
-        specificRadio.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                specificRadioActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout detailsPaneLayout = new javax.swing.GroupLayout(detailsPane);
-        detailsPane.setLayout(detailsPaneLayout);
-        detailsPaneLayout.setHorizontalGroup(
-            detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(detailsPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(allRadio)
-                    .addGroup(detailsPaneLayout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(infoButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(specificText)))
-                    .addComponent(specificRadio))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(75, 75, 75))
-        );
-        detailsPaneLayout.setVerticalGroup(
-            detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(detailsPaneLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane3)
-                    .addGroup(detailsPaneLayout.createSequentialGroup()
-                        .addGap(12, 12, 12)
-                        .addComponent(allRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(specificRadio)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                        .addComponent(specificText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(infoButton)))
-                .addContainerGap())
-        );
-
-        solveButton.setText("Risolvi");
-        solveButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                solveButtonActionPerformed(evt);
-            }
-        });
-
-        cleanButton.setText("Pulisci");
-        cleanButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cleanButtonActionPerformed(evt);
-            }
-        });
-
-        outputText.setEditable(false);
-        outputText.setColumns(20);
-        outputText.setRows(5);
-        jScrollPane1.setViewportView(outputText);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(solveButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(cleanButton))
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cleanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(solveButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        inputText.setColumns(20);
-        inputText.setRows(5);
-        jScrollPane2.setViewportView(inputText);
-
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Inserisci i fatti dell'incrocio separati punto e virgola:");
-
-        moreButton.setText("Più dettagli");
-        moreButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                moreButtonActionPerformed(evt);
-            }
-        });
+        jLabel1.setText("Inserisci i fatti dell'incrocio. Ricordati il punto alla fine");
 
         exitButton.setText("Esci");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -238,41 +115,175 @@ public class InsertionForm extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        solveButton.setText("Risolvi");
+        solveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                solveButtonActionPerformed(evt);
+            }
+        });
+
+        cleanButton.setText("Pulisci");
+        cleanButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cleanButtonActionPerformed(evt);
+            }
+        });
+
+        outputText.setEditable(false);
+        outputText.setColumns(20);
+        outputText.setRows(5);
+        jScrollPane1.setViewportView(outputText);
+
+        moreButton.setText("Più dettagli");
+        moreButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                moreButtonActionPerformed(evt);
+            }
+        });
+
+        inputText.setColumns(20);
+        inputText.setRows(5);
+        jScrollPane2.setViewportView(inputText);
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(solveButton)
+                        .addGap(55, 55, 55)
+                        .addComponent(moreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                        .addComponent(cleanButton))
+                    .addComponent(jScrollPane1)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(solveButton)
+                    .addComponent(moreButton)
+                    .addComponent(cleanButton, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
+        );
+
+        detailsPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+
+        buttonGroup1.add(allRadio);
+        allRadio.setSelected(true);
+        allRadio.setText("Tutti");
+        allRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                allRadioActionPerformed(evt);
+            }
+        });
+
+        specificText.setEnabled(false);
+        specificText.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificTextActionPerformed(evt);
+            }
+        });
+        specificText.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                specificTextKeyPressed(evt);
+            }
+        });
+
+        infoButton.setText("Aggiorna");
+        infoButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                infoButtonActionPerformed(evt);
+            }
+        });
+
+        detailsText.setEditable(false);
+        detailsText.setColumns(20);
+        detailsText.setRows(5);
+        jScrollPane3.setViewportView(detailsText);
+
+        buttonGroup1.add(specificRadio);
+        specificRadio.setText("Veicolo specifico");
+        specificRadio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                specificRadioActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout detailsPaneLayout = new javax.swing.GroupLayout(detailsPane);
+        detailsPane.setLayout(detailsPaneLayout);
+        detailsPaneLayout.setHorizontalGroup(
+            detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPaneLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(infoButton)
+                .addGap(141, 141, 141))
+            .addGroup(detailsPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(detailsPaneLayout.createSequentialGroup()
+                        .addComponent(jScrollPane3)
+                        .addContainerGap())
+                    .addGroup(detailsPaneLayout.createSequentialGroup()
+                        .addComponent(allRadio)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 47, Short.MAX_VALUE)
+                        .addComponent(specificRadio)
+                        .addGap(18, 18, 18)
+                        .addComponent(specificText, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10))))
+        );
+        detailsPaneLayout.setVerticalGroup(
+            detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, detailsPaneLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(detailsPaneLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(allRadio)
+                    .addComponent(specificRadio)
+                    .addComponent(specificText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(infoButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jSeparator1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(detailsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(detailsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(moreButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139))
-                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(moreButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(detailsPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -298,6 +309,7 @@ public class InsertionForm extends javax.swing.JFrame {
         inputText.setText("");
         outputText.setText("");
         detailsText.setText("");
+        manager.sendCommand(commander.prepareCommand(PrologCommands.CLEAN.getCommand(), (Object) null));
     }//GEN-LAST:event_cleanButtonActionPerformed
 
     private void moreButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_moreButtonActionPerformed
@@ -329,14 +341,28 @@ public class InsertionForm extends javax.swing.JFrame {
     }//GEN-LAST:event_allRadioActionPerformed
 
     private void infoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_infoButtonActionPerformed
+        moreInfo();
+    }//GEN-LAST:event_infoButtonActionPerformed
+
+    private void specificTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_specificTextActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_specificTextActionPerformed
+
+    private void specificTextKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_specificTextKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            moreInfo();
+        }
+    }//GEN-LAST:event_specificTextKeyPressed
+
+    private void moreInfo() {
         redir.redirect(detailsText);
         detailsText.setText("");
         if (allRadio.isSelected()) {
-            manager.sendCommand(commander.prepareCommand(PrologCommands.ALL_INFO.getCommand(), new Object()));
+            manager.sendCommand(commander.prepareCommand(PrologCommands.ALL_INFO.getCommand(), (Object) null));
         } else if (specificRadio.isSelected()) {
             manager.sendCommand(commander.prepareCommand(PrologCommands.SPECIFIC_INFO.getCommand(), specificText.getText()));
         }
-    }//GEN-LAST:event_infoButtonActionPerformed
+    }
 
     private void hidePane() {
         moreButton.setText("Più dettagli");

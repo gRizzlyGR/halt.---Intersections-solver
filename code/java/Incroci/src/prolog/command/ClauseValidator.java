@@ -27,7 +27,7 @@ public class ClauseValidator {
             if (textLoad.equals("")) {
                 throw new InvalidClauseException();
             } else {
-                String[] facts = textLoad.split(";");
+                String[] facts = textLoad.split("\\.");
                 clauses = new ArrayList<>();
                 String f;
 
