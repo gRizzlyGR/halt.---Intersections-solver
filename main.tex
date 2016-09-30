@@ -42,6 +42,7 @@
 \usepackage[pass]{geometry}
 \usepackage{framed}
 \usepackage{multirow}
+\usepackage{pdfpages}
 
 \titleformat{\chapter}[hang]
 {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter:}{0.3em}{}
@@ -104,7 +105,17 @@
 \clearpage
 \input{conclusion}
 \clearpage
-\clearpage
+
+\appendix
+%\chapter{Lista degli incroci}
+
+%\includepdf[width=1.2\textwidth, pages=-, addto]{appendice}
+%\newgeometry{bottom=1mm}
+\includepdf[pages=1,scale=.8,offset={0cm -2.8cm}, pagecommand={\chapter{Lista degli incroci}\label{pdf:appendice}\thispagestyle{empty}}]{app}	
+%\restoregeometry
+\includepdf[pages=2-,scale=.8,pagecommand={\thispagestyle{empty}}]{app}
+
+
 \bibliographystyle{abbrvnat}
 \bibliography{mybib}
 

@@ -219,7 +219,7 @@ L'utente normale può:
 Per risolvere un incrocio occorre inserire i fatti che lo descrivono, come spiegato in \ref{sssec:gen}, ignorando l'ID. Un prompt chiederà di scrivere la lista dei fatti separati da virgola. Nel secondo caso invece occorre inserire l'ID dell'incrocio.
 
 \begin{figure}[!hbtp]
-	\includegraphics[width=\textwidth]{images/user}
+	\includegraphics[width=\textwidth]{images/shell/user}
 	\caption{Menu utente}
 \end{figure}
 
@@ -234,7 +234,7 @@ L'utente amministratore invece ha a disposizione funzionalità più critiche:
 Per registrare un nuovo incrocio è necessario inserire l'ID del nuovo esempio e la lista dei fatti che lo descrivono, separati da virgola. Per cancellarlo è necessario solamente l'ID.
 
 \begin{figure}[!hbtp]
-	\includegraphics[width=\textwidth]{images/admin}
+	\includegraphics[width=\textwidth]{images/shell/admin}
 	\caption{Menu amministratore}
 \end{figure}
 
@@ -375,7 +375,31 @@ Il veicolo giallo incrocia il veicolo celeste nel braccio sud-est, senza il vinc
 \end{center}
 
 \section{Analisi dei veicoli}
-Il modulo \texttt{analisi.pl} serve a dettagliare lo stato dei veicoli dopo che un incrocio è stato risolto. Viene chiesto all'utente (tramite prompt a riga di comando o interagendo con l'interfaccia grafica) se vuole avere ulteriori dettagli su tutti i veicoli coinvolti nell'incrocio o solamente su di uno. Le informazioni riguardano quali veicoli precedono, quali vengono preceduti e quali eventualmente si spostano insieme al veicolo in esame.
+\label{sec:an}
+Il modulo \texttt{analisi.pl} serve a dettagliare lo stato dei veicoli dopo che un incrocio è stato risolto. Viene chiesto all'utente (tramite prompt a riga di comando o interagendo con l'interfaccia grafica) se vuole avere ulteriori dettagli su tutti i veicoli coinvolti nell'incrocio o solamente su di uno. Le informazioni riguardano quali veicoli precedono, quali vengono preceduti e quali eventualmente si spostano insieme al veicolo in esame:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=.9\textwidth]{images/shell/info2}
+	\caption{Tutti i veicoli}
+\end{figure}
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=.9\textwidth]{images/shell/info3}
+	\caption{Veicolo specifico}
+\end{figure}
+
+\clearpage
+
+Mentre se non si volessero ulteriori informazioni, si tornerebbe al menu utente:
+
+\begin{figure}[!htb]
+	\centering
+	\includegraphics[width=.9\textwidth]{images/shell/info1}
+	\caption{Risoluzione}
+\end{figure}
+
 
 \section{Accesso alla base di conoscenza}
 Per potere acceder alla base di conoscenza, il file \texttt{kb.pl}, è stato realizzato il modulo \texttt{gestore\_kb.pl} che fornisce degli operatori a supporto di task di lettura e scrittura sulla memoria secondaria. I più importanti sono:
@@ -431,13 +455,34 @@ In seguito verrà visualizzata una di queste due viste:
 Per quanto riguarda il menu utente, la finestra di risoluzione di un incrocio già memorizzato è questa:
 \begin{figure}[!htb]
 	\centering
-	\includegraphics[width=.5\textwidth]{images/gui/solve_gui}
+	\includegraphics[width=.6\textwidth]{images/gui/solve_gui1}
 	\caption{Risoluzione di un incrocio tramite ID}
 \end{figure}
 
-Nel caso di inserimento di testo naturale, ad esempio un incrocio che viene inserito per essere risolto \textit{on-the-fly} o memorizzato nella base di conoscenza, esso viene processato tramite espressioni regolari per ottenere i fatti nel formalismo logico appropriato.
 
-\clearpage
+
+Se si volesse ottenere ulteriori informazioni sui veicoli dell'incrocio, come discusso in \ref{sec:an}, basterebbe premere il pulsante \adjustbox{valign=b}{\includegraphics[scale=.7]{images/gui/more_button}} per mostrare un nuova sezione della finestra:
+
+\newgeometry{left=1cm, right=1cm}
+\begin{figure}[!htb]
+	\centering
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{images/gui/solve_gui2}
+		\caption{Tutti i veicoli}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{images/gui/solve_gui3}
+		\caption{Veicolo specifico}
+	\end{subfigure}
+	\caption{Interfacce di dettaglio}
+\end{figure}
+\restoregeometry
+
+
+Per la risoluzione di incroci che vengono inseriti direttamente dall'utente, le viste sono analoghe. Inoltre,
+nel caso di inserimento di testo naturale, quindi nei due casi di incrocio che viene inserito per essere risolto \textit{on-the-fly} o memorizzato nella base di conoscenza, esso viene processato tramite espressioni regolari per ottenere i fatti nel formalismo logico appropriato.
+
+
 
 \subsection{Bridge Java-Prolog}
 

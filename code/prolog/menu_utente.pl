@@ -36,7 +36,6 @@ scelta(2) :-
 	stampa_incrocio(Incrocio),
 	risolvi,
 	dettaglio,
-	pausa,
 	menu_utente.
 
 scelta(2) :-
@@ -65,10 +64,10 @@ dettaglio :-
 
 risposta(s) :-
 	write('--Un veicolo in particolare o tutti? (v/t): '), read(S), nl,
-	informazioni(S).
+	informazioni(S),
+	pausa.
 
-risposta(n) :-
-	menu_utente.
+risposta(n).
 
 risposta(_) :-
 	scelta_non_riconosciuta,
@@ -82,7 +81,7 @@ informazioni(t) :-
 
 informazioni(v) :-
 	write('--Quale veicolo vuoi analizzare?: '), read(Veicolo), nl,
-	analizza_veicolo(Veicolo).
+	analizza_veicolo(Veicolo), nl.
 
 informazioni(_) :-
 	scelta_non_riconosciuta,
