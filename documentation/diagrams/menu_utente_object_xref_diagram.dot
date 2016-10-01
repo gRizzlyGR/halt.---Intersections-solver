@@ -1,0 +1,71 @@
+digraph "menu_utente_object" {
+rankdir="LR"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_menu_utente_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/menu_utente.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="menu_utente"
+"menu_utente/0" [shape="ellipse",URL="menu_utente_0.html#menu_utente/0",tooltip="menu_utente_0.html#menu_utente/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[menu_utente/0]]></FONT>>]
+"menu_utente/0" [shape="ellipse",URL="menu_utente_0.html#menu_utente/0",tooltip="menu_utente_0.html#menu_utente/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[menu_utente/0]]></FONT>>]
+"scelta/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[scelta/1]]></FONT>>]
+"pausa/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[pausa/0]]></FONT>>]
+"risolvi/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[risolvi/0]]></FONT>>]
+"dettaglio/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[dettaglio/0]]></FONT>>]
+"risposta/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[risposta/1]]></FONT>>]
+"informazioni/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[informazioni/1]]></FONT>>]
+"scelta_non_riconosciuta/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[scelta_non_riconosciuta/0]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb::pulisci/0" [shape="ellipse",URL="gestore_kb_0.html#pulisci/0",tooltip="gestore_kb_0.html#pulisci/0",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::pulisci/0]]></FONT>>]
+"gestore_kb::carica_in_memoria/1" [shape="ellipse",URL="gestore_kb_0.html#carica_in_memoria/1",tooltip="gestore_kb_0.html#carica_in_memoria/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::carica_in_memoria/1]]></FONT>>]
+"gestore_kb::stampa_incrocio/1" [shape="ellipse",URL="gestore_kb_0.html#stampa_incrocio/1",tooltip="gestore_kb_0.html#stampa_incrocio/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::stampa_incrocio/1]]></FONT>>]
+"gestore_kb::recupera_incrocio/2" [shape="ellipse",URL="gestore_kb_0.html#recupera_incrocio/2",tooltip="gestore_kb_0.html#recupera_incrocio/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::recupera_incrocio/2]]></FONT>>]
+"circolazione::circolano/0" [shape="ellipse",URL="circolazione_0.html#circolano/0",tooltip="circolazione_0.html#circolano/0",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[circolazione::circolano/0]]></FONT>>]
+"analisi::analizza_tutti/0" [shape="ellipse",URL="analisi_0.html#analizza_tutti/0",tooltip="analisi_0.html#analizza_tutti/0",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[analisi::analizza_tutti/0]]></FONT>>]
+"analisi::analizza_veicolo/1" [shape="ellipse",URL="analisi_0.html#analizza_veicolo/1",tooltip="analisi_0.html#analizza_veicolo/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[analisi::analizza_veicolo/1]]></FONT>>]
+}
+
+"menu_utente/0" -> "scelta/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "risolvi/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "dettaglio/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "pausa/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "menu_utente/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "scelta_non_riconosciuta/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dettaglio/0" -> "risposta/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"risposta/1" -> "informazioni/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"risposta/1" -> "pausa/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"risposta/1" -> "scelta_non_riconosciuta/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"risposta/1" -> "dettaglio/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"informazioni/1" -> "scelta_non_riconosciuta/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"informazioni/1" -> "risposta/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"menu_utente/0" -> "gestore_kb::pulisci/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "gestore_kb::carica_in_memoria/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "gestore_kb::stampa_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "gestore_kb::recupera_incrocio/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"risolvi/0" -> "circolazione::circolano/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"informazioni/1" -> "analisi::analizza_tutti/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"informazioni/1" -> "analisi::analizza_veicolo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

@@ -1,0 +1,112 @@
+digraph "circolazione_object" {
+rankdir="LR"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_circolazione_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/circolazione.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="circolazione"
+"circolano/0" [shape="ellipse",URL="circolazione_0.html#circolano/0",tooltip="circolazione_0.html#circolano/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[circolano/0]]></FONT>>]
+"ordine/2" [shape="ellipse",URL="circolazione_0.html#ordine/2",tooltip="circolazione_0.html#ordine/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[ordine/2]]></FONT>>]
+"circolano/0" [shape="ellipse",URL="circolazione_0.html#circolano/0",tooltip="circolazione_0.html#circolano/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[circolano/0]]></FONT>>]
+"ordine/2" [shape="ellipse",URL="circolazione_0.html#ordine/2",tooltip="circolazione_0.html#ordine/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[ordine/2]]></FONT>>]
+"prima/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[prima/0]]></FONT>>]
+"dopo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[dopo/0]]></FONT>>]
+"prima_dello_stallo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[prima_dello_stallo/0]]></FONT>>]
+"in_pieno_stallo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[in_pieno_stallo/0]]></FONT>>]
+"infine_dopo_stallo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[infine_dopo_stallo/0]]></FONT>>]
+"nessun_prossimo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[nessun_prossimo/0]]></FONT>>]
+"almeno_un_prossimo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[almeno_un_prossimo/0]]></FONT>>]
+"nessuno_stallo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[nessuno_stallo/0]]></FONT>>]
+"in_stallo/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[in_stallo/0]]></FONT>>]
+"recupera_veicolo_simultaneo/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[recupera_veicolo_simultaneo/2]]></FONT>>]
+"aggiungi_veicolo_simultaneo/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[aggiungi_veicolo_simultaneo/3]]></FONT>>]
+"ordina_simultanei/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[ordina_simultanei/2]]></FONT>>]
+"infine/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[infine/0]]></FONT>>]
+"ordinato/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[ordinato/1]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"precedenze::tutti_i_primi/1" [shape="ellipse",URL="precedenze_0.html#tutti_i_primi/1",tooltip="precedenze_0.html#tutti_i_primi/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::tutti_i_primi/1]]></FONT>>]
+"msg::primi_a_passare/1" [shape="ellipse",URL="msg_0.html#primi_a_passare/1",tooltip="msg_0.html#primi_a_passare/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::primi_a_passare/1]]></FONT>>]
+"precedenze::tutti_i_prossimi/1" [shape="ellipse",URL="precedenze_0.html#tutti_i_prossimi/1",tooltip="precedenze_0.html#tutti_i_prossimi/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::tutti_i_prossimi/1]]></FONT>>]
+"msg::prossimi_a_passare/1" [shape="ellipse",URL="msg_0.html#prossimi_a_passare/1",tooltip="msg_0.html#prossimi_a_passare/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::prossimi_a_passare/1]]></FONT>>]
+"deadlock::attesa_circolare/1" [shape="ellipse",URL="deadlock_0.html#attesa_circolare/1",tooltip="deadlock_0.html#attesa_circolare/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[deadlock::attesa_circolare/1]]></FONT>>]
+"deadlock::va_a_sinistra/3" [shape="ellipse",URL="deadlock_0.html#va_a_sinistra/3",tooltip="deadlock_0.html#va_a_sinistra/3",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[deadlock::va_a_sinistra/3]]></FONT>>]
+"msg::va_al_centro/1" [shape="ellipse",URL="msg_0.html#va_al_centro/1",tooltip="msg_0.html#va_al_centro/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::va_al_centro/1]]></FONT>>]
+"msg::ultimo_dal_centro/1" [shape="ellipse",URL="msg_0.html#ultimo_dal_centro/1",tooltip="msg_0.html#ultimo_dal_centro/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::ultimo_dal_centro/1]]></FONT>>]
+"precedenze::prossimo/1" [shape="ellipse",URL="precedenze_0.html#prossimo/1",tooltip="precedenze_0.html#prossimo/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::prossimo/1]]></FONT>>]
+"precedenze::prossimi_insieme/1" [shape="ellipse",URL="precedenze_0.html#prossimi_insieme/1",tooltip="precedenze_0.html#prossimi_insieme/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::prossimi_insieme/1]]></FONT>>]
+"lists::subtract/3" [shape="ellipse",URL="lists_0.html#subtract/3",tooltip="lists_0.html#subtract/3",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[lists::subtract/3]]></FONT>>]
+"utils::sostituisci/4" [shape="ellipse",URL="utils_0.html#sostituisci/4",tooltip="utils_0.html#sostituisci/4",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[utils::sostituisci/4]]></FONT>>]
+"precedenze::tutti_gli_ultimi/1" [shape="ellipse",URL="precedenze_0.html#tutti_gli_ultimi/1",tooltip="precedenze_0.html#tutti_gli_ultimi/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::tutti_gli_ultimi/1]]></FONT>>]
+"msg::ultimi_a_passare/1" [shape="ellipse",URL="msg_0.html#ultimi_a_passare/1",tooltip="msg_0.html#ultimi_a_passare/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::ultimi_a_passare/1]]></FONT>>]
+"utils::perm/2" [shape="ellipse",URL="utils_0.html#perm/2",tooltip="utils_0.html#perm/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[utils::perm/2]]></FONT>>]
+"precedenze::precede/2" [shape="ellipse",URL="precedenze_0.html#precede/2",tooltip="precedenze_0.html#precede/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::precede/2]]></FONT>>]
+}
+
+"circolano/0" -> "nessuno_stallo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "prima/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "dopo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "infine/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "in_stallo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "prima_dello_stallo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "in_pieno_stallo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"circolano/0" -> "infine_dopo_stallo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "ordina_simultanei/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "ordine/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "nessun_prossimo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prima_dello_stallo/0" -> "prima/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "ordina_simultanei/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "ordine/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"infine_dopo_stallo/0" -> "infine/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"almeno_un_prossimo/0" -> "nessun_prossimo/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordina_simultanei/2" -> "recupera_veicolo_simultaneo/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordina_simultanei/2" -> "aggiungi_veicolo_simultaneo/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordina_simultanei/2" -> "ordine/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordine/2" -> "ordinato/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prima/0" -> "precedenze::tutti_i_primi/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prima/0" -> "msg::primi_a_passare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "precedenze::tutti_i_prossimi/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "msg::prossimi_a_passare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "deadlock::attesa_circolare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "deadlock::va_a_sinistra/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "msg::va_al_centro/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dopo/0" -> "msg::ultimo_dal_centro/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "deadlock::attesa_circolare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "deadlock::va_a_sinistra/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "msg::va_al_centro/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "msg::prossimi_a_passare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_pieno_stallo/0" -> "msg::ultimo_dal_centro/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"nessun_prossimo/0" -> "precedenze::prossimo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"nessuno_stallo/0" -> "deadlock::attesa_circolare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"in_stallo/0" -> "deadlock::attesa_circolare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordina_simultanei/2" -> "precedenze::prossimi_insieme/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordina_simultanei/2" -> "lists::subtract/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordina_simultanei/2" -> "utils::sostituisci/4" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"infine/0" -> "precedenze::tutti_gli_ultimi/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"infine/0" -> "msg::ultimi_a_passare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordine/2" -> "utils::perm/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ordinato/1" -> "precedenze::precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

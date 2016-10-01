@@ -1,0 +1,69 @@
+digraph "posizioni_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_posizioni_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/posizioni.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="posizioni"
+"incrocia/2" [shape="ellipse",URL="posizioni_0.html#incrocia/2",tooltip="posizioni_0.html#incrocia/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[incrocia/2]]></FONT>>]
+"svolta_a_u/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[svolta_a_u/2]]></FONT>>]
+"transitano_stesso_braccio/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[transitano_stesso_braccio/2]]></FONT>>]
+"entrambi_dritto/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[entrambi_dritto/2]]></FONT>>]
+"entrambi_a_sinistra/4" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[entrambi_a_sinistra/4]]></FONT>>]
+"uno_a_sinistra/4" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[uno_a_sinistra/4]]></FONT>>]
+"nel_braccio_dell_altro/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[nel_braccio_dell_altro/2]]></FONT>>]
+"dove_vado_uguale_dove_vieni/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[dove_vado_uguale_dove_vieni/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb::proviene/2" [shape="ellipse",URL="gestore_kb_0.html#proviene/2",tooltip="gestore_kb_0.html#proviene/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::proviene/2]]></FONT>>]
+"adiacenza::adiacente/2" [shape="ellipse",URL="adiacenza_0.html#adiacente/2",tooltip="adiacenza_0.html#adiacente/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[adiacenza::adiacente/2]]></FONT>>]
+"opposti::opposto/2" [shape="ellipse",URL="opposti_0.html#opposto/2",tooltip="opposti_0.html#opposto/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[opposti::opposto/2]]></FONT>>]
+"gestore_kb::transita/3" [shape="ellipse",URL="gestore_kb_0.html#transita/3",tooltip="gestore_kb_0.html#transita/3",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::transita/3]]></FONT>>]
+"destra::destra_lasca/2" [shape="ellipse",URL="destra_0.html#destra_lasca/2",tooltip="destra_0.html#destra_lasca/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[destra::destra_lasca/2]]></FONT>>]
+}
+
+"incrocia/2" -> "transitano_stesso_braccio/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "entrambi_dritto/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "entrambi_a_sinistra/4" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "uno_a_sinistra/4" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "nel_braccio_dell_altro/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "dove_vado_uguale_dove_vieni/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"entrambi_dritto/2" -> "nel_braccio_dell_altro/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "adiacenza::adiacente/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"incrocia/2" -> "opposti::opposto/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"svolta_a_u/2" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"svolta_a_u/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"svolta_a_u/2" -> "destra::destra_lasca/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"transitano_stesso_braccio/2" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"entrambi_dritto/2" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"entrambi_a_sinistra/4" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"uno_a_sinistra/4" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"nel_braccio_dell_altro/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"nel_braccio_dell_altro/2" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dove_vado_uguale_dove_vieni/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"dove_vado_uguale_dove_vieni/2" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

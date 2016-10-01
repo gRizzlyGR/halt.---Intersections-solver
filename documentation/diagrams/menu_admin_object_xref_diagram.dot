@@ -1,0 +1,50 @@
+digraph "menu_admin_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_menu_admin_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/menu_admin.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="menu_admin"
+"menu_admin/0" [shape="ellipse",URL="menu_admin_0.html#menu_admin/0",tooltip="menu_admin_0.html#menu_admin/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[menu_admin/0]]></FONT>>]
+"menu_admin/0" [shape="ellipse",URL="menu_admin_0.html#menu_admin/0",tooltip="menu_admin_0.html#menu_admin/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[menu_admin/0]]></FONT>>]
+"scelta/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[scelta/1]]></FONT>>]
+"scelta_non_riconosciuta/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[scelta_non_riconosciuta/0]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb::pulisci/0" [shape="ellipse",URL="gestore_kb_0.html#pulisci/0",tooltip="gestore_kb_0.html#pulisci/0",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::pulisci/0]]></FONT>>]
+"gestore_kb::registra_incrocio/1" [shape="ellipse",URL="gestore_kb_0.html#registra_incrocio/1",tooltip="gestore_kb_0.html#registra_incrocio/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::registra_incrocio/1]]></FONT>>]
+"gestore_kb::elimina_incrocio/1" [shape="ellipse",URL="gestore_kb_0.html#elimina_incrocio/1",tooltip="gestore_kb_0.html#elimina_incrocio/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::elimina_incrocio/1]]></FONT>>]
+"menu_utente::menu_utente/0" [shape="ellipse",URL="menu_utente_0.html#menu_utente/0",tooltip="menu_utente_0.html#menu_utente/0",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[menu_utente::menu_utente/0]]></FONT>>]
+}
+
+"menu_admin/0" -> "scelta/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "menu_admin/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "scelta_non_riconosciuta/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"menu_admin/0" -> "gestore_kb::pulisci/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "gestore_kb::registra_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "gestore_kb::elimina_incrocio/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"scelta/1" -> "menu_utente::menu_utente/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

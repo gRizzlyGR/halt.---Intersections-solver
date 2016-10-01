@@ -1,0 +1,60 @@
+digraph "deadlock_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_deadlock_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/deadlock.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="deadlock"
+"attesa_circolare/1" [shape="ellipse",URL="deadlock_0.html#attesa_circolare/1",tooltip="deadlock_0.html#attesa_circolare/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[attesa_circolare/1]]></FONT>>]
+"va_a_sinistra/3" [shape="ellipse",URL="deadlock_0.html#va_a_sinistra/3",tooltip="deadlock_0.html#va_a_sinistra/3",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[va_a_sinistra/3]]></FONT>>]
+"attesa_circolare/1" [shape="ellipse",URL="deadlock_0.html#attesa_circolare/1",tooltip="deadlock_0.html#attesa_circolare/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[attesa_circolare/1]]></FONT>>]
+"va_a_sinistra/3" [shape="ellipse",URL="deadlock_0.html#va_a_sinistra/3",tooltip="deadlock_0.html#va_a_sinistra/3",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[va_a_sinistra/3]]></FONT>>]
+"non_il_primo/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[non_il_primo/1]]></FONT>>]
+"stallo/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[stallo/2]]></FONT>>]
+"almeno_tre/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[almeno_tre/1]]></FONT>>]
+"member/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[member/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb::proviene/2" [shape="ellipse",URL="gestore_kb_0.html#proviene/2",tooltip="gestore_kb_0.html#proviene/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::proviene/2]]></FONT>>]
+"precedenze::primo/1" [shape="ellipse",URL="precedenze_0.html#primo/1",tooltip="precedenze_0.html#primo/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[precedenze::primo/1]]></FONT>>]
+"precedenze::ultimo/1" [shape="ellipse",URL="precedenze_0.html#ultimo/1",tooltip="precedenze_0.html#ultimo/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[precedenze::ultimo/1]]></FONT>>]
+"precedenze::precede/2" [shape="ellipse",URL="precedenze_0.html#precede/2",tooltip="precedenze_0.html#precede/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[precedenze::precede/2]]></FONT>>]
+"gestore_kb::transita/3" [shape="ellipse",URL="gestore_kb_0.html#transita/3",tooltip="gestore_kb_0.html#transita/3",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::transita/3]]></FONT>>]
+"utils::canc/3" [shape="ellipse",URL="utils_0.html#canc/3",tooltip="utils_0.html#canc/3",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[utils::canc/3]]></FONT>>]
+}
+
+"attesa_circolare/1" -> "non_il_primo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"attesa_circolare/1" -> "almeno_tre/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"attesa_circolare/1" -> "stallo/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"stallo/2" -> "member/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"non_il_primo/1" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"non_il_primo/1" -> "precedenze::primo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"non_il_primo/1" -> "precedenze::ultimo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"stallo/2" -> "precedenze::precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"va_a_sinistra/3" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"va_a_sinistra/3" -> "precedenze::precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"va_a_sinistra/3" -> "utils::canc/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

@@ -1,0 +1,113 @@
+digraph "precedenze_object" {
+rankdir="LR"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_precedenze_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/precedenze.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="precedenze"
+"primo/1" [shape="ellipse",URL="precedenze_0.html#primo/1",tooltip="precedenze_0.html#primo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[primo/1]]></FONT>>]
+"ultimo/1" [shape="ellipse",URL="precedenze_0.html#ultimo/1",tooltip="precedenze_0.html#ultimo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[ultimo/1]]></FONT>>]
+"prossimo/1" [shape="ellipse",URL="precedenze_0.html#prossimo/1",tooltip="precedenze_0.html#prossimo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[prossimo/1]]></FONT>>]
+"precede/2" [shape="ellipse",URL="precedenze_0.html#precede/2",tooltip="precedenze_0.html#precede/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[precede/2]]></FONT>>]
+"passa_prima/2" [shape="ellipse",URL="precedenze_0.html#passa_prima/2",tooltip="precedenze_0.html#passa_prima/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[passa_prima/2]]></FONT>>]
+"tutti_i_primi/1" [shape="ellipse",URL="precedenze_0.html#tutti_i_primi/1",tooltip="precedenze_0.html#tutti_i_primi/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[tutti_i_primi/1]]></FONT>>]
+"tutti_i_prossimi/1" [shape="ellipse",URL="precedenze_0.html#tutti_i_prossimi/1",tooltip="precedenze_0.html#tutti_i_prossimi/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[tutti_i_prossimi/1]]></FONT>>]
+"prossimi_insieme/1" [shape="ellipse",URL="precedenze_0.html#prossimi_insieme/1",tooltip="precedenze_0.html#prossimi_insieme/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[prossimi_insieme/1]]></FONT>>]
+"simultaneo/2" [shape="ellipse",URL="precedenze_0.html#simultaneo/2",tooltip="precedenze_0.html#simultaneo/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[simultaneo/2]]></FONT>>]
+"tutti_gli_ultimi/1" [shape="ellipse",URL="precedenze_0.html#tutti_gli_ultimi/1",tooltip="precedenze_0.html#tutti_gli_ultimi/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[tutti_gli_ultimi/1]]></FONT>>]
+"primo/1" [shape="ellipse",URL="precedenze_0.html#primo/1",tooltip="precedenze_0.html#primo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[primo/1]]></FONT>>]
+"ultimo/1" [shape="ellipse",URL="precedenze_0.html#ultimo/1",tooltip="precedenze_0.html#ultimo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[ultimo/1]]></FONT>>]
+"prossimo/1" [shape="ellipse",URL="precedenze_0.html#prossimo/1",tooltip="precedenze_0.html#prossimo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[prossimo/1]]></FONT>>]
+"precede/2" [shape="ellipse",URL="precedenze_0.html#precede/2",tooltip="precedenze_0.html#precede/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[precede/2]]></FONT>>]
+"passa_prima/2" [shape="ellipse",URL="precedenze_0.html#passa_prima/2",tooltip="precedenze_0.html#passa_prima/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[passa_prima/2]]></FONT>>]
+"tutti_i_primi/1" [shape="ellipse",URL="precedenze_0.html#tutti_i_primi/1",tooltip="precedenze_0.html#tutti_i_primi/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[tutti_i_primi/1]]></FONT>>]
+"tutti_i_prossimi/1" [shape="ellipse",URL="precedenze_0.html#tutti_i_prossimi/1",tooltip="precedenze_0.html#tutti_i_prossimi/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[tutti_i_prossimi/1]]></FONT>>]
+"prossimi_insieme/1" [shape="ellipse",URL="precedenze_0.html#prossimi_insieme/1",tooltip="precedenze_0.html#prossimi_insieme/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[prossimi_insieme/1]]></FONT>>]
+"simultaneo/2" [shape="ellipse",URL="precedenze_0.html#simultaneo/2",tooltip="precedenze_0.html#simultaneo/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[simultaneo/2]]></FONT>>]
+"tutti_gli_ultimi/1" [shape="ellipse",URL="precedenze_0.html#tutti_gli_ultimi/1",tooltip="precedenze_0.html#tutti_gli_ultimi/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[tutti_gli_ultimi/1]]></FONT>>]
+"destra_libera/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[destra_libera/1]]></FONT>>]
+"con_segnale_precedenza/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[con_segnale_precedenza/1]]></FONT>>]
+"precedenza_prioritaria/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[precedenza_prioritaria/2]]></FONT>>]
+"precedenza_ordinaria/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[precedenza_ordinaria/2]]></FONT>>]
+"precede_da_destra/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[precede_da_destra/2]]></FONT>>]
+"precedenza_frontale/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[precedenza_frontale/2]]></FONT>>]
+"almeno_uno_precede/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[almeno_uno_precede/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb::proviene/2" [shape="ellipse",URL="gestore_kb_0.html#proviene/2",tooltip="gestore_kb_0.html#proviene/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::proviene/2]]></FONT>>]
+"gestore_kb::transita/3" [shape="ellipse",URL="gestore_kb_0.html#transita/3",tooltip="gestore_kb_0.html#transita/3",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::transita/3]]></FONT>>]
+"gestore_kb::segnaletica/2" [shape="ellipse",URL="gestore_kb_0.html#segnaletica/2",tooltip="gestore_kb_0.html#segnaletica/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[gestore_kb::segnaletica/2]]></FONT>>]
+"segnali::segnale_precedenza/1" [shape="ellipse",URL="segnali_0.html#segnale_precedenza/1",tooltip="segnali_0.html#segnale_precedenza/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[segnali::segnale_precedenza/1]]></FONT>>]
+"prioritari::prioritario/1" [shape="ellipse",URL="prioritari_0.html#prioritario/1",tooltip="prioritari_0.html#prioritario/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[prioritari::prioritario/1]]></FONT>>]
+"prioritari::alta_priorita/1" [shape="ellipse",URL="prioritari_0.html#alta_priorita/1",tooltip="prioritari_0.html#alta_priorita/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[prioritari::alta_priorita/1]]></FONT>>]
+"prioritari::media_priorita/1" [shape="ellipse",URL="prioritari_0.html#media_priorita/1",tooltip="prioritari_0.html#media_priorita/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[prioritari::media_priorita/1]]></FONT>>]
+"destra::da_destra/2" [shape="ellipse",URL="destra_0.html#da_destra/2",tooltip="destra_0.html#da_destra/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[destra::da_destra/2]]></FONT>>]
+"movimento::incrocia/2" [shape="ellipse",URL="movimento_0.html#incrocia/2",tooltip="movimento_0.html#incrocia/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[movimento::incrocia/2]]></FONT>>]
+"movimento::svolta_a_u/2" [shape="ellipse",URL="movimento_0.html#svolta_a_u/2",tooltip="movimento_0.html#svolta_a_u/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[movimento::svolta_a_u/2]]></FONT>>]
+}
+
+"primo/1" -> "con_segnale_precedenza/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"primo/1" -> "precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prossimo/1" -> "primo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prossimo/1" -> "ultimo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ultimo/1" -> "precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ultimo/1" -> "simultaneo/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"destra_libera/1" -> "precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "precedenza_prioritaria/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "precedenza_ordinaria/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "con_segnale_precedenza/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "precede_da_destra/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "precedenza_frontale/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_prioritaria/2" -> "precede_da_destra/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_prioritaria/2" -> "precedenza_frontale/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_ordinaria/2" -> "con_segnale_precedenza/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_ordinaria/2" -> "precede_da_destra/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_ordinaria/2" -> "precedenza_frontale/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"passa_prima/2" -> "precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"tutti_i_primi/1" -> "primo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"tutti_i_prossimi/1" -> "prossimo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prossimi_insieme/1" -> "simultaneo/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"simultaneo/2" -> "precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"simultaneo/2" -> "almeno_uno_precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"almeno_uno_precede/2" -> "precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"tutti_gli_ultimi/1" -> "ultimo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"primo/1" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prossimo/1" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ultimo/1" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"destra_libera/1" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"con_segnale_precedenza/1" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"con_segnale_precedenza/1" -> "gestore_kb::segnaletica/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"con_segnale_precedenza/1" -> "segnali::segnale_precedenza/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede/2" -> "prioritari::prioritario/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_prioritaria/2" -> "prioritari::alta_priorita/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_prioritaria/2" -> "prioritari::media_priorita/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede_da_destra/2" -> "destra::da_destra/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede_da_destra/2" -> "movimento::incrocia/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precede_da_destra/2" -> "movimento::svolta_a_u/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_frontale/2" -> "gestore_kb::transita/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenza_frontale/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}
