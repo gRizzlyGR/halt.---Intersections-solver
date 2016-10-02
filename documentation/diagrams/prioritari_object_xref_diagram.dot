@@ -1,0 +1,43 @@
+digraph "prioritari_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_prioritari_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/prioritari.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="prioritari"
+"prioritario/1" [shape="ellipse",URL="prioritari_0.html#prioritario/1",tooltip="prioritari_0.html#prioritario/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[prioritario/1]]></FONT>>]
+"alta_priorita/1" [shape="ellipse",URL="prioritari_0.html#alta_priorita/1",tooltip="prioritari_0.html#alta_priorita/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[alta_priorita/1]]></FONT>>]
+"media_priorita/1" [shape="ellipse",URL="prioritari_0.html#media_priorita/1",tooltip="prioritari_0.html#media_priorita/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[media_priorita/1]]></FONT>>]
+"prioritario/1" [shape="ellipse",URL="prioritari_0.html#prioritario/1",tooltip="prioritari_0.html#prioritario/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[prioritario/1]]></FONT>>]
+"alta_priorita/1" [shape="ellipse",URL="prioritari_0.html#alta_priorita/1",tooltip="prioritari_0.html#alta_priorita/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[alta_priorita/1]]></FONT>>]
+"media_priorita/1" [shape="ellipse",URL="prioritari_0.html#media_priorita/1",tooltip="prioritari_0.html#media_priorita/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[media_priorita/1]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+}
+
+"prioritario/1" -> "media_priorita/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prioritario/1" -> "alta_priorita/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

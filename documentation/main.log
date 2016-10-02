@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.6)  1 OCT 2016 20:44
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.7.6)  2 OCT 2016 19:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1146,7 +1146,7 @@ Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-<main-frn.pdf, id=176, 597.50829pt x 845.0471pt>
+<main-frn.pdf, id=180, 597.50829pt x 845.0471pt>
 File: main-frn.pdf Graphic file (type pdf)
  <use main-frn.pdf>
 Package pdftex.def Info: main-frn.pdf used on input line 53.
@@ -1159,7 +1159,7 @@ ex.map}>] (./main.tocpdfTeX warning (ext4): destination with the same identifie
 r (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.42 ....3.1}Utente normale}{37}{subsection.5.3.1}
+l.42 ...{\numberline {5.3}Utenti}{40}{section.5.3}
                                                    [1
 
 ])
@@ -1168,17 +1168,23 @@ l.42 ....3.1}Utente normale}{37}{subsection.5.3.1}
 
  [2] (./introduction.tex
 Capitolo 1.
-<images/halt.png, id=265, 1138.2525pt x 1138.2525pt>
+<images/halt.png, id=270, 1138.2525pt x 1138.2525pt>
 File: images/halt.png Graphic file (type png)
  <use images/halt.png>
 Package pdftex.def Info: images/halt.png used on input line 7.
 (pdftex.def)             Requested size: 170.7305pt x 170.7305pt.
 
+<images/name.png, id=272, 165.61874pt x 63.23625pt>
+File: images/name.png Graphic file (type png)
+ <use images/name.png>
+Package pdftex.def Info: images/name.png used on input line 10.
+(pdftex.def)             Requested size: 24.84174pt x 9.48502pt.
+
 (/usr/local/texlive/2016/texmf-dist/tex/latex/ucs/data/uni-0.def
 File: uni-0.def 2013/05/13 UCS: Unicode data U+0000..U+00FF
 )) [3
 
- <./images/halt.png>] (./domain.tex
+ <./images/halt.png> <./images/name.png>] (./domain.tex
 Capitolo 2.
 LaTeX Font Info:    Try loading font information for OMS+cmr on input line 12.
 (/usr/local/texlive/2016/texmf-dist/tex/latex/base/omscmr.fd
@@ -1197,7 +1203,7 @@ Capitolo 3.
 
 ]) [15] (./design.tex
 Capitolo 4.
-<images/example.png, id=334, 494.84875pt x 406.51875pt>
+<images/example.png, id=341, 494.84875pt x 406.51875pt>
 File: images/example.png Graphic file (type png)
 
 <use images/example.png>
@@ -1207,15 +1213,15 @@ Package pdftex.def Info: images/example.png used on input line 14.
 
 
  <./images/example.png>]
-<images/rose.png, id=341, 572.1375pt x 488.82625pt>
+<images/rose.png, id=348, 572.1375pt x 488.82625pt>
 File: images/rose.png Graphic file (type png)
  <use images/rose.png>
 Package pdftex.def Info: images/rose.png used on input line 36.
 (pdftex.def)             Requested size: 195.0pt x 166.6015pt.
 
 [17 <./images/rose.png>]
-<images/dareprec.jpg, id=349, 326.21875pt x 291.0875pt>
-<use images/dareprec.jpg> <images/stop.jpg, id=350, 321.2pt x 321.2pt>
+<images/dareprec.jpg, id=356, 326.21875pt x 291.0875pt>
+<use images/dareprec.jpg> <images/stop.jpg, id=357, 321.2pt x 321.2pt>
 <use images/stop.jpg> <use images/dareprec.jpg> <use images/stop.jpg>
 File: images/dareprec.jpg Graphic file (type jpg)
 
@@ -1227,35 +1233,35 @@ File: images/stop.jpg Graphic file (type jpg)
 Package pdftex.def Info: images/stop.jpg used on input line 54.
 (pdftex.def)             Requested size: 42.67912pt x 42.67886pt.
 
-<./images/ambulance.png, id=352, 492.84125pt x 405.515pt>
+<./images/ambulance.png, id=359, 492.84125pt x 405.515pt>
 File: ./images/ambulance.png Graphic file (type png)
 
 <use ./images/ambulance.png>
 Package pdftex.def Info: ./images/ambulance.png used on input line 84.
 (pdftex.def)             Requested size: 117.00119pt x 96.26749pt.
 
-<./images/fire.png, id=353, 400.49625pt x 336.25626pt>
+<./images/fire.png, id=360, 400.49625pt x 336.25626pt>
 File: ./images/fire.png Graphic file (type png)
  <use ./images/fire.png>
 Package pdftex.def Info: ./images/fire.png used on input line 89.
 (pdftex.def)             Requested size: 117.00119pt x 98.23013pt.
 
-<./images/tram.png, id=354, 489.83pt x 396.48125pt>
+<./images/tram.png, id=361, 489.83pt x 396.48125pt>
 File: ./images/tram.png Graphic file (type png)
  <use ./images/tram.png>
 Package pdftex.def Info: ./images/tram.png used on input line 94.
 (pdftex.def)             Requested size: 117.00119pt x 94.7037pt.
 
 [18 <./images/dareprec.jpg> <./images/stop.jpg>]
-<images/lock.png, id=360, 481.8pt x 405.515pt>
+<images/lock.png, id=367, 481.8pt x 405.515pt>
 File: images/lock.png Graphic file (type png)
  <use images/lock.png>
 Package pdftex.def Info: images/lock.png used on input line 108.
 (pdftex.def)             Requested size: 195.0pt x 164.12129pt.
  [19 <./images/ambulance.png> <./images/fire.png> <./images/tram.png> <./images
-/lock.png>] <images/front.png, id=373, 318.18875pt x 270.00874pt> <use images/f
+/lock.png>] <images/front.png, id=380, 318.18875pt x 270.00874pt> <use images/f
 ront.png>
-<images/fire.png, id=374, 400.49625pt x 336.25626pt> <use images/fire.png>
+<images/fire.png, id=381, 400.49625pt x 336.25626pt> <use images/fire.png>
 <use images/front.png> <use images/fire.png>
 File: images/front.png Graphic file (type png)
  <use images/front.png>
@@ -1276,7 +1282,13 @@ Capitolo 5.
 [22
 
 
-] [23]
+] <diagrams/main.pdf, id=403, 1332.98pt x 526.96875pt>
+File: diagrams/main.pdf Graphic file (type pdf)
+
+<use diagrams/main.pdf>
+Package pdftex.def Info: diagrams/main.pdf used on input line 34.
+(pdftex.def)             Requested size: 666.48837pt x 263.48372pt.
+ [23 <./diagrams/main.pdf>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1309,42 +1321,35 @@ Capitolo 5.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
- <diagrams/main.pdf, id=400, 1332.98pt x 526.96875pt>
-File: diagrams/main.pdf Graphic file (type pdf)
 
-<use diagrams/main.pdf>
-Package pdftex.def Info: diagrams/main.pdf used on input line 31.
-(pdftex.def)             Requested size: 648.7212pt x 256.46402pt.
-
-<diagrams/menu_utente.pdf, id=401, 4264.93375pt x 1023.825pt>
+<diagrams/menu_utente.pdf, id=417, 4264.93375pt x 1023.825pt>
 File: diagrams/menu_utente.pdf Graphic file (type pdf)
 
 <use diagrams/menu_utente.pdf>
-Package pdftex.def Info: diagrams/menu_utente.pdf used on input line 37.
+Package pdftex.def Info: diagrams/menu_utente.pdf used on input line 42.
 (pdftex.def)             Requested size: 852.97166pt x 204.76137pt.
 
-<diagrams/menu_admin.pdf, id=402, 1455.4375pt x 526.96875pt>
+<diagrams/menu_admin.pdf, id=418, 1455.4375pt x 526.96875pt>
 File: diagrams/menu_admin.pdf Graphic file (type pdf)
 
 <use diagrams/menu_admin.pdf>
-Package pdftex.def Info: diagrams/menu_admin.pdf used on input line 42.
+Package pdftex.def Info: diagrams/menu_admin.pdf used on input line 47.
 (pdftex.def)             Requested size: 648.7212pt x 234.89034pt.
- [24 <./diagrams/main.pdf>] [25 <./diagrams/menu_utente.pdf>] [26 <./diagrams/m
-enu_admin.pdf>]
+ [24 <./diagrams/menu_utente.pdf>] [25 <./diagrams/menu_admin.pdf>]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
-* h-part:(L,W,R)=(89.62709pt, 418.25368pt, 89.6271pt)
+* h-part:(L,W,R)=(2.84526pt, 591.81735pt, 2.84526pt)
 * v-part:(T,H,B)=(2.84526pt, 839.35632pt, 2.84526pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
-* \textwidth=418.25368pt
+* \textwidth=591.81735pt
 * \textheight=839.35632pt
-* \oddsidemargin=17.3571pt
-* \evensidemargin=17.3571pt
+* \oddsidemargin=-69.42473pt
+* \evensidemargin=-69.42473pt
 * \topmargin=-101.29852pt
 * \headheight=12.0pt
 * \headsep=19.8738pt
@@ -1364,245 +1369,319 @@ enu_admin.pdf>]
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-<diagrams/circolazione.pdf, id=443, 4228.79875pt x 2173.11874pt>
+<diagrams/circolazione.pdf, id=446, 4228.79875pt x 2173.11874pt>
 File: diagrams/circolazione.pdf Graphic file (type pdf)
 
 <use diagrams/circolazione.pdf>
-Package pdftex.def Info: diagrams/circolazione.pdf used on input line 51.
+Package pdftex.def Info: diagrams/circolazione.pdf used on input line 55.
 (pdftex.def)             Requested size: 839.35669pt x 431.3333pt.
 
-<diagrams/precedenze.pdf, id=444, 8181.56625pt x 1232.605pt>
+<diagrams/precedenze.pdf, id=447, 8181.56625pt x 1232.605pt>
 File: diagrams/precedenze.pdf Graphic file (type pdf)
 
 <use diagrams/precedenze.pdf>
-Package pdftex.def Info: diagrams/precedenze.pdf used on input line 57.
+Package pdftex.def Info: diagrams/precedenze.pdf used on input line 61.
 (pdftex.def)             Requested size: 839.30261pt x 126.44627pt.
 
-<diagrams/deadlock.pdf, id=445, 1467.4825pt x 526.96875pt>
+<diagrams/deadlock.pdf, id=448, 1467.4825pt x 526.96875pt>
 File: diagrams/deadlock.pdf Graphic file (type pdf)
 
 <use diagrams/deadlock.pdf>
-Package pdftex.def Info: diagrams/deadlock.pdf used on input line 63.
+Package pdftex.def Info: diagrams/deadlock.pdf used on input line 67.
 (pdftex.def)             Requested size: 839.36229pt x 301.41257pt.
 
-<diagrams/gestore_kb.pdf, id=446, 1361.085pt x 516.93124pt>
+<diagrams/destra.pdf, id=449, 552.0625pt x 516.93124pt>
+File: diagrams/destra.pdf Graphic file (type pdf)
+
+<use diagrams/destra.pdf>
+Package pdftex.def Info: diagrams/destra.pdf used on input line 73.
+(pdftex.def)             Requested size: 710.17902pt x 665.05357pt.
+
+<diagrams/analisi.pdf, id=450, 5345.9725pt x 931.48pt>
+File: diagrams/analisi.pdf Graphic file (type pdf)
+
+<use diagrams/analisi.pdf>
+Package pdftex.def Info: diagrams/analisi.pdf used on input line 79.
+(pdftex.def)             Requested size: 839.30324pt x 146.23984pt.
+
+<diagrams/gestore_kb.pdf, id=451, 1361.085pt x 516.93124pt>
 File: diagrams/gestore_kb.pdf Graphic file (type pdf)
 
 <use diagrams/gestore_kb.pdf>
-Package pdftex.def Info: diagrams/gestore_kb.pdf used on input line 69.
+Package pdftex.def Info: diagrams/gestore_kb.pdf used on input line 85.
 (pdftex.def)             Requested size: 839.35724pt x 318.78242pt.
 
-<diagrams/java_access_point.pdf, id=447, 2434.09375pt x 1232.605pt>
+<diagrams/java_access_point.pdf, id=452, 2434.09375pt x 1232.605pt>
 File: diagrams/java_access_point.pdf Graphic file (type pdf)
 
 <use diagrams/java_access_point.pdf>
-Package pdftex.def Info: diagrams/java_access_point.pdf used on input line 74.
+Package pdftex.def Info: diagrams/java_access_point.pdf used on input line 90.
 (pdftex.def)             Requested size: 839.35472pt x 425.0423pt.
 
-<diagrams/movimento.pdf, id=448, 5491.51625pt x 848.16875pt>
+<diagrams/adiacenza.pdf, id=453, 299.1175pt x 380.42125pt>
+File: diagrams/adiacenza.pdf Graphic file (type pdf)
+
+<use diagrams/adiacenza.pdf>
+Package pdftex.def Info: diagrams/adiacenza.pdf used on input line 97.
+(pdftex.def)             Requested size: 236.72333pt x 301.06932pt.
+
+<diagrams/opposti.pdf, id=454, 299.1175pt x 380.42125pt>
+File: diagrams/opposti.pdf Graphic file (type pdf)
+
+<use diagrams/opposti.pdf>
+Package pdftex.def Info: diagrams/opposti.pdf used on input line 101.
+(pdftex.def)             Requested size: 236.72333pt x 301.06932pt.
+
+<diagrams/prioritari.pdf, id=455, 499.8675pt x 380.42125pt>
+File: diagrams/prioritari.pdf Graphic file (type pdf)
+
+<use diagrams/prioritari.pdf>
+Package pdftex.def Info: diagrams/prioritari.pdf used on input line 105.
+(pdftex.def)             Requested size: 236.72333pt x 180.15631pt.
+
+<diagrams/segnali.pdf, id=456, 597.23125pt x 243.91125pt>
+File: diagrams/segnali.pdf Graphic file (type pdf)
+
+<use diagrams/segnali.pdf>
+Package pdftex.def Info: diagrams/segnali.pdf used on input line 109.
+(pdftex.def)             Requested size: 236.72333pt x 96.67697pt.
+
+<diagrams/movimento.pdf, id=457, 5491.51625pt x 848.16875pt>
 File: diagrams/movimento.pdf Graphic file (type pdf)
 
 <use diagrams/movimento.pdf>
-Package pdftex.def Info: diagrams/movimento.pdf used on input line 79.
+Package pdftex.def Info: diagrams/movimento.pdf used on input line 115.
 (pdftex.def)             Requested size: 839.27754pt x 129.62703pt.
- [27 <./diagrams/circolazione.pdf>] [28 <./diagrams/precedenze.pdf>] [29 <./dia
-grams/deadlock.pdf>] [30 <./diagrams/gestore_kb.pdf>] [31 <./diagrams/java_acce
-ss_point.pdf>] [32 <./diagrams/movimento.pdf>]
-Overfull \hbox (3.84053pt too wide) in paragraph at lines 106--107
+
+<diagrams/msg.pdf, id=458, 1304.875pt x 789.95125pt>
+File: diagrams/msg.pdf Graphic file (type pdf)
+ <use diagrams/msg.pdf>
+Package pdftex.def Info: diagrams/msg.pdf used on input line 121.
+(pdftex.def)             Requested size: 839.37807pt x 508.14656pt.
+
+<diagrams/utils.pdf, id=459, 1446.40375pt x 516.93124pt>
+File: diagrams/utils.pdf Graphic file (type pdf)
+
+<use diagrams/utils.pdf>
+Package pdftex.def Info: diagrams/utils.pdf used on input line 127.
+(pdftex.def)             Requested size: 839.35619pt x 299.97807pt.
+ [26 <./diagrams/circolazione.pdf>] [27 <./diagrams/precedenze.pdf>] [28 <./dia
+grams/deadlock.pdf>] [29 <./diagrams/destra.pdf>]
+[30 <./diagrams/analisi.pdf>] [31 <./diagrams/gestore_kb.pdf>] [32 <./diagrams/
+java_access_point.pdf>] [33 <./diagrams/adiacenza.pdf> <./diagrams/opposti.pdf
+
+pdfTeX warning: /usr/local/texlive/2016/bin/x86_64-linux/pdflatex (file ./diagr
+ams/opposti.pdf): PDF inclusion: multiple pdfs with page group included in a si
+ngle page
+> <./diagrams/prioritari.pdf
+
+pdfTeX warning: /usr/local/texlive/2016/bin/x86_64-linux/pdflatex (file ./diagr
+ams/prioritari.pdf): PDF inclusion: multiple pdfs with page group included in a
+ single page
+> <./diagrams/segnali.pdf
+
+pdfTeX warning: /usr/local/texlive/2016/bin/x86_64-linux/pdflatex (file ./diagr
+ams/segnali.pdf): PDF inclusion: multiple pdfs with page group included in a si
+ngle page
+>] [34 <./diagrams/movimento.pdf>] [35 <./diagrams/msg.pdf>] [36 <./diagrams/ut
+ils.pdf>]
+Overfull \hbox (3.84053pt too wide) in paragraph at lines 153--154
 \OT1/cmr/m/n/12 za tra due vei-co-li vie-ne af-fron-ta-ta da al-tri due pre-di-
 ca-ti, \OT1/cmtt/m/n/12 precede[]da[]destra/2
  []
 
-[33
+[37
 
 
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 144--147
+Underfull \hbox (badness 10000) in paragraph at lines 191--194
 
  []
 
-[34] [35] [36] <images/shell/user.png, id=560, 713.66624pt x 286.06876pt>
+[38] [39] [40] <images/shell/user.png, id=659, 713.66624pt x 286.06876pt>
 File: images/shell/user.png Graphic file (type png)
 
 <use images/shell/user.png>
-Package pdftex.def Info: images/shell/user.png used on input line 229.
+Package pdftex.def Info: images/shell/user.png used on input line 276.
 (pdftex.def)             Requested size: 390.0pt x 156.32997pt.
 
-<images/shell/admin.png, id=561, 713.66624pt x 304.13625pt>
+<images/shell/admin.png, id=660, 713.66624pt x 304.13625pt>
 File: images/shell/admin.png Graphic file (type png)
 
 <use images/shell/admin.png>
-Package pdftex.def Info: images/shell/admin.png used on input line 244.
+Package pdftex.def Info: images/shell/admin.png used on input line 291.
 (pdftex.def)             Requested size: 390.0pt x 166.20343pt.
- [37 <./images/shell/user.png>]
-<images/right.png, id=568, 572.1375pt x 488.82625pt>
+ [41 <./images/shell/user.png>]
+<images/right.png, id=667, 572.1375pt x 488.82625pt>
 File: images/right.png Graphic file (type png)
  <use images/right.png>
-Package pdftex.def Info: images/right.png used on input line 264.
+Package pdftex.def Info: images/right.png used on input line 311.
 (pdftex.def)             Requested size: 312.00119pt x 266.57285pt.
 
-[38 <./images/shell/admin.png>]
-Overfull \hbox (5.2002pt too wide) in paragraph at lines 281--281
+[42 <./images/shell/admin.png>] [43 <./images/right.png>]
+Overfull \hbox (5.2002pt too wide) in paragraph at lines 329--329
 []        \OT1/cmtt/m/n/12 subito_a_destra(BraccioIntermedio1, BraccioIntermedi
 o2),[] 
  []
 
-[39 <./images/right.png>] [40] [41]
-<images/movement/uturn.png, id=591, 234.1548pt x 157.5486pt>
+[44
+
+] [45] <images/movement/uturn.png, id=690, 234.1548pt x 157.5486pt>
 File: images/movement/uturn.png Graphic file (type png)
 
 <use images/movement/uturn.png>
-Package pdftex.def Info: images/movement/uturn.png used on input line 363.
+Package pdftex.def Info: images/movement/uturn.png used on input line 411.
 (pdftex.def)             Requested size: 195.0pt x 131.21002pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
+Underfull \hbox (badness 10000) in paragraph at lines 415--418
 
  []
 
-<images/movement/same_dir.png, id=592, 177.5433pt x 104.0688pt>
+[46 <./images/movement/uturn.png>]
+<images/movement/same_dir.png, id=697, 177.5433pt x 104.0688pt>
 <use images/movement/same_dir.png>
-<images/movement/both_straight.png, id=593, 237.5274pt x 156.1032pt>
+<images/movement/both_straight.png, id=698, 237.5274pt x 156.1032pt>
 <use images/movement/both_straight.png>
-<images/movement/both_left.png, id=594, 236.3229pt x 159.7167pt>
+<images/movement/both_left.png, id=699, 236.3229pt x 159.7167pt>
 <use images/movement/both_left.png>
-<images/movement/one_left.png, id=595, 191.0337pt x 139.9629pt>
+<images/movement/one_left.png, id=700, 191.0337pt x 139.9629pt>
 <use images/movement/one_left.png>
-<images/movement/mirror.png, id=596, 141.4083pt x 202.5969pt>
+<images/movement/mirror.png, id=701, 141.4083pt x 202.5969pt>
 <use images/movement/mirror.png> <use images/movement/same_dir.png>
 <use images/movement/both_straight.png> <use images/movement/both_left.png>
 <use images/movement/one_left.png> <use images/movement/mirror.png>
 File: images/movement/same_dir.png Graphic file (type png)
 
 <use images/movement/same_dir.png>
-Package pdftex.def Info: images/movement/same_dir.png used on input line 381.
+Package pdftex.def Info: images/movement/same_dir.png used on input line 429.
 (pdftex.def)             Requested size: 155.99762pt x 91.44426pt.
 
-Underfull \hbox (badness 1389) in paragraph at lines 381--381
+Underfull \hbox (badness 1389) in paragraph at lines 429--429
 \OT1/cmr/m/n/12 bi nel brac-cio sud. Vie-ne sfrut-ta-to
  []
 
 File: images/movement/both_straight.png Graphic file (type png)
 <use images/movement/both_straight.png>
-Package pdftex.def Info: images/movement/both_straight.png used on input line 3
-81.
+Package pdftex.def Info: images/movement/both_straight.png used on input line 4
+29.
 (pdftex.def)             Requested size: 155.99762pt x 102.52582pt.
 File: images/movement/both_left.png Graphic file (type png)
  <use images/movement/both_left.png>
-Package pdftex.def Info: images/movement/both_left.png used on input line 381.
+Package pdftex.def Info: images/movement/both_left.png used on input line 429.
 (pdftex.def)             Requested size: 155.99762pt x 105.43283pt.
 File: images/movement/one_left.png Graphic file (type png)
 
 <use images/movement/one_left.png>
-Package pdftex.def Info: images/movement/one_left.png used on input line 381.
+Package pdftex.def Info: images/movement/one_left.png used on input line 429.
 (pdftex.def)             Requested size: 155.99762pt x 114.29407pt.
 
-Underfull \hbox (badness 2469) in paragraph at lines 381--381
+Underfull \hbox (badness 2469) in paragraph at lines 429--429
 \OT1/cmr/m/n/12 co-lo ce-le-ste va a de-stra, pro-se-guen-
  []
 
 File: images/movement/mirror.png Graphic file (type png)
 <use images/movement/mirror.png>
-Package pdftex.def Info: images/movement/mirror.png used on input line 381.
+Package pdftex.def Info: images/movement/mirror.png used on input line 429.
 (pdftex.def)             Requested size: 155.99762pt x 223.50026pt.
 
-Underfull \hbox (badness 2772) in paragraph at lines 381--381
+Underfull \hbox (badness 2772) in paragraph at lines 429--429
 \OT1/cmr/m/n/12 vei-co-lo ce-le-ste an-da-re a si-ni-stra nel
  []
 
 
-Underfull \hbox (badness 1502) in paragraph at lines 381--381
+Underfull \hbox (badness 1502) in paragraph at lines 429--429
 \OT1/cmr/m/n/12 brac-cio di pro-ve-nien-za del ros-so, as-
  []
 
 
-Underfull \hbox (badness 2213) in paragraph at lines 381--381
+Underfull \hbox (badness 2213) in paragraph at lines 429--429
 \OT1/cmr/m/n/12 stes-so, al-tri-men-ti si ve-ri-fi-che-reb-be la
  []
 
 
-Underfull \hbox (badness 2119) in paragraph at lines 381--381
+Underfull \hbox (badness 2119) in paragraph at lines 429--429
 \OT1/cmr/m/n/12 sto ca-so si usa-no \OT1/cmtt/m/n/12 uno[]a[]sinistra/4\OT1/cmr
 /m/n/12 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 381--381
+Underfull \hbox (badness 10000) in paragraph at lines 429--429
 \OT1/cmtt/m/n/12 nel[]braccio[]dell[]altro/2 \OT1/cmr/m/n/12 e
  []
 
-[42 <./images/movement/uturn.png> <./images/movement/same_dir.png>] [43 <./imag
-es/movement/both_straight.png> <./images/movement/both_left.png> <./images/move
-ment/one_left.png> <./images/movement/mirror.png>]
-<images/shell/info2.png, id=614, 713.66624pt x 849.1725pt>
+[47 <./images/movement/same_dir.png> <./images/movement/both_straight.png> <./i
+mages/movement/both_left.png> <./images/movement/one_left.png>]
+<images/shell/info2.png, id=711, 713.66624pt x 849.1725pt>
 File: images/shell/info2.png Graphic file (type png)
 
 <use images/shell/info2.png>
-Package pdftex.def Info: images/shell/info2.png used on input line 390.
+Package pdftex.def Info: images/shell/info2.png used on input line 438.
 (pdftex.def)             Requested size: 350.99762pt x 417.64009pt.
 
-<images/shell/info3.png, id=615, 704.6325pt x 755.82375pt>
+<images/shell/info3.png, id=712, 704.6325pt x 755.82375pt>
 File: images/shell/info3.png Graphic file (type png)
 
 <use images/shell/info3.png>
-Package pdftex.def Info: images/shell/info3.png used on input line 396.
+Package pdftex.def Info: images/shell/info3.png used on input line 444.
 (pdftex.def)             Requested size: 350.99762pt x 376.49239pt.
- [44 <./images/shell/info2.png>] [45 <./images/shell/info3.png>] <images/shell/
-info1.png, id=628, 713.66624pt x 614.295pt>
+ [48 <./images/movement/mirror.png>] [49 <./images/shell/info2.png>] [50 <./ima
+ges/shell/info3.png>]
+<images/shell/info1.png, id=731, 713.66624pt x 614.295pt>
 File: images/shell/info1.png Graphic file (type png)
 
 <use images/shell/info1.png>
-Package pdftex.def Info: images/shell/info1.png used on input line 406.
+Package pdftex.def Info: images/shell/info1.png used on input line 454.
 (pdftex.def)             Requested size: 350.99762pt x 302.1226pt.
- [46
+ [51
 
  <./images/shell/info1.png>]
-<images/java.png, id=636, 261.97874pt x 450.68375pt>
+<images/java.png, id=740, 261.97874pt x 450.68375pt>
 File: images/java.png Graphic file (type png)
  <use images/java.png>
-Package pdftex.def Info: images/java.png used on input line 434.
+Package pdftex.def Info: images/java.png used on input line 482.
 (pdftex.def)             Requested size: 155.99762pt x 268.36989pt.
 
-[47] [48 <./images/java.png>]
-<images/gui/menu_gui.png, id=648, 188.705pt x 230.8625pt>
+[52] [53 <./images/java.png>]
+<images/gui/menu_gui.png, id=751, 188.705pt x 230.8625pt>
 File: images/gui/menu_gui.png Graphic file (type png)
 
 <use images/gui/menu_gui.png>
-Package pdftex.def Info: images/gui/menu_gui.png used on input line 443.
+Package pdftex.def Info: images/gui/menu_gui.png used on input line 491.
 (pdftex.def)             Requested size: 117.00119pt x 143.1403pt.
 
-<images/gui/user_gui.png, id=649, 249.93375pt x 194.7275pt>
+<images/gui/user_gui.png, id=752, 249.93375pt x 194.7275pt>
 File: images/gui/user_gui.png Graphic file (type png)
 
 <use images/gui/user_gui.png>
-Package pdftex.def Info: images/gui/user_gui.png used on input line 451.
+Package pdftex.def Info: images/gui/user_gui.png used on input line 499.
 (pdftex.def)             Requested size: 155.99762pt x 121.54391pt.
 
-<images/gui/admin_gui.png, id=650, 167.62625pt x 227.85126pt>
+<images/gui/admin_gui.png, id=753, 167.62625pt x 227.85126pt>
 File: images/gui/admin_gui.png Graphic file (type png)
 
 <use images/gui/admin_gui.png>
-Package pdftex.def Info: images/gui/admin_gui.png used on input line 455.
+Package pdftex.def Info: images/gui/admin_gui.png used on input line 503.
 (pdftex.def)             Requested size: 155.99762pt x 212.04549pt.
- [49
+ [54
 
  <./images/gui/menu_gui.png> <./images/gui/user_gui.png> <./images/gui/admin_gu
 i.png>]
-<images/gui/solve_gui1.png, id=660, 476.78125pt x 399.4925pt>
+<images/gui/solve_gui1.png, id=764, 476.78125pt x 399.4925pt>
 File: images/gui/solve_gui1.png Graphic file (type png)
 
 <use images/gui/solve_gui1.png>
-Package pdftex.def Info: images/gui/solve_gui1.png used on input line 465.
+Package pdftex.def Info: images/gui/solve_gui1.png used on input line 513.
 (pdftex.def)             Requested size: 234.00238pt x 196.07pt.
 
-<images/gui/more_button.png, id=662, 120.45pt x 24.09pt>
+<images/gui/more_button.png, id=766, 120.45pt x 24.09pt>
 File: images/gui/more_button.png Graphic file (type png)
 
 <use images/gui/more_button.png>
-Package pdftex.def Info: images/gui/more_button.png used on input line 471.
+Package pdftex.def Info: images/gui/more_button.png used on input line 519.
 (pdftex.def)             Requested size: 84.3144pt x 16.86287pt.
- [50
+ [55
 
  <./images/gui/solve_gui1.png> <./images/gui/more_button.png>]
 *geometry* verbose mode - [ newgeometry ] result:
@@ -1638,85 +1717,91 @@ Package pdftex.def Info: images/gui/more_button.png used on input line 471.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-<images/gui/solve_gui2.png, id=670, 476.78125pt x 568.1225pt>
+<images/gui/solve_gui2.png, id=774, 476.78125pt x 568.1225pt>
 File: images/gui/solve_gui2.png Graphic file (type png)
 
 <use images/gui/solve_gui2.png>
-Package pdftex.def Info: images/gui/solve_gui2.png used on input line 477.
+Package pdftex.def Info: images/gui/solve_gui2.png used on input line 525.
 (pdftex.def)             Requested size: 216.23764pt x 257.66393pt.
 
-<images/gui/solve_gui3.png, id=671, 476.78125pt x 568.1225pt>
+<images/gui/solve_gui3.png, id=775, 476.78125pt x 568.1225pt>
 File: images/gui/solve_gui3.png Graphic file (type png)
 
 <use images/gui/solve_gui3.png>
-Package pdftex.def Info: images/gui/solve_gui3.png used on input line 481.
+Package pdftex.def Info: images/gui/solve_gui3.png used on input line 529.
 (pdftex.def)             Requested size: 216.23764pt x 257.66393pt.
- [51
+ [56
 
  <./images/gui/solve_gui2.png> <./images/gui/solve_gui3.png>] <images/jap.pdf, 
-id=679, 796.9775pt x 597.23125pt>
+id=783, 796.9775pt x 597.23125pt>
 File: images/jap.pdf Graphic file (type pdf)
 
 <use images/jap.pdf>
-Package pdftex.def Info: images/jap.pdf used on input line 500.
+Package pdftex.def Info: images/jap.pdf used on input line 548.
 (pdftex.def)             Requested size: 390.0pt x 292.25401pt.
- [52
+ [57
 
  <./images/jap.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 516--520
+Overfull \hbox (14.48494pt too wide) in paragraph at lines 558--559
+[]\OT1/cmr/m/n/12 Prolog vie-ne in-ter-ro-ga-to con i co-man-di va-li-da-ti dal
+ \OT1/cmtt/m/n/12 java[]access[]point.pl
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 564--568
 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 531
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 579
 .
-LaTeX Font Info:    No file OMScmtt.fd. on input line 531.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 579.
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbackslash' on input line 531.
+(Font)              for symbol `textbackslash' on input line 579.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 531--533
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 531--533
+Underfull \hbox (badness 10000) in paragraph at lines 579--581
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 535--536
-
- []
-
-[53]
-Underfull \hbox (badness 10000) in paragraph at lines 549--555
+Underfull \hbox (badness 10000) in paragraph at lines 579--581
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 557--558
+Underfull \hbox (badness 10000) in paragraph at lines 583--584
+
+ []
+
+[58]
+Underfull \hbox (badness 10000) in paragraph at lines 597--603
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 559--560
+Underfull \hbox (badness 10000) in paragraph at lines 605--606
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 576--578
+Underfull \hbox (badness 10000) in paragraph at lines 607--608
 
  []
 
-[54]) [55] (./test.tex
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--626
+
+ []
+
+[59]) [60] (./test.tex
 Capitolo 6.
 File: soluzioni  (verbatim)
-[56
+[61
 
 
-] [57] [58] [59] [60] [61] [62]
+] [62] [63] [64] [65] [66] [67]
 *geometry* verbose mode - [ newgeometry ] result:
 * driver: pdftex
 * paper: a4paper
@@ -1750,7 +1835,7 @@ File: soluzioni  (verbatim)
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-<images/sol.png, id=764, 422.5386pt x 669.9429pt>
+<images/sol.png, id=867, 422.5386pt x 669.9429pt>
 File: images/sol.png Graphic file (type png)
  <use images/sol.png>
 Package pdftex.def Info: images/sol.png used on input line 44.
@@ -1759,14 +1844,14 @@ Package pdftex.def Info: images/sol.png used on input line 44.
 
 LaTeX Warning: Float too large for page by 26.9091pt on input line 46.
 
-[63 <./images/sol.png (PNG copy)>]
-<./images/fig15.png, id=770, 158.0304pt x 231.264pt>
+[68 <./images/sol.png (PNG copy)>]
+<./images/fig15.png, id=873, 158.0304pt x 231.264pt>
 File: ./images/fig15.png Graphic file (type png)
  <use ./images/fig15.png>
 Package pdftex.def Info: ./images/fig15.png used on input line 54.
 (pdftex.def)             Requested size: 155.99762pt x 228.30981pt.
 
-<./images/fig26.png, id=771, 155.8623pt x 91.542pt>
+<./images/fig26.png, id=874, 155.8623pt x 91.542pt>
 File: ./images/fig26.png Graphic file (type png)
  <use ./images/fig26.png>
 Package pdftex.def Info: ./images/fig26.png used on input line 59.
@@ -1806,16 +1891,16 @@ Underfull \hbox (badness 4156) in paragraph at lines 79--79
 \OT1/cmr/m/n/12 con-cet-to di co-da
  []
 
-) [64
+) [69
 
 
  <./images/fig15.png (PNG copy)> <./images/fig26.png (PNG copy)>]
 (./conclusion.tex
 Capitolo 7.
-) [65
+) [70
 
 
-] <app.pdf, id=781, 422.53859pt x 594.54121pt>
+] <app.pdf, id=884, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf>
 Package pdftex.def Info: app.pdf used on input line 114.
@@ -1825,7 +1910,7 @@ File: app.pdf Graphic file (type pdf)
 <use app.pdf>
 Package pdftex.def Info: app.pdf used on input line 114.
 (pdftex.def)             Requested size: 422.53755pt x 594.53976pt.
- <app.pdf, id=784, page=1, 422.53859pt x 594.54121pt>
+ <app.pdf, id=887, page=1, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
 
 <use app.pdf, page 1>
@@ -1850,7 +1935,7 @@ File: app.pdf Graphic file (type pdf)
 <use app.pdf, page 1>
 Package pdftex.def Info: app.pdf, page1 used on input line 114.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [66
+ [71
 
 
  <./app.pdf>]
@@ -1863,7 +1948,7 @@ File: app.pdf Graphic file (type pdf)
 Package pdftex.def Info: app.pdf used on input line 116.
 (pdftex.def)             Requested size: 422.53755pt x 594.53976pt.
 
-<app.pdf, id=795, page=2, 422.53859pt x 594.54121pt>
+<app.pdf, id=898, page=2, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 2>
 Package pdftex.def Info: app.pdf, page2 used on input line 116.
@@ -1886,8 +1971,8 @@ File: app.pdf Graphic file (type pdf)
 <use app.pdf, page 2>
 Package pdftex.def Info: app.pdf, page2 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [67 <./app.pdf>]
-<app.pdf, id=801, page=3, 422.53859pt x 594.54121pt>
+ [72 <./app.pdf>]
+<app.pdf, id=905, page=3, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 3>
 Package pdftex.def Info: app.pdf, page3 used on input line 116.
@@ -1901,8 +1986,8 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 3>
 Package pdftex.def Info: app.pdf, page3 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [68 <./app.pdf>]
-<app.pdf, id=807, page=4, 422.53859pt x 594.54121pt>
+ [73 <./app.pdf>]
+<app.pdf, id=911, page=4, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 4>
 Package pdftex.def Info: app.pdf, page4 used on input line 116.
@@ -1916,8 +2001,8 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 4>
 Package pdftex.def Info: app.pdf, page4 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [69 <./app.pdf>]
-<app.pdf, id=813, page=5, 422.53859pt x 594.54121pt>
+ [74 <./app.pdf>]
+<app.pdf, id=917, page=5, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 5>
 Package pdftex.def Info: app.pdf, page5 used on input line 116.
@@ -1931,8 +2016,8 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 5>
 Package pdftex.def Info: app.pdf, page5 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [70 <./app.pdf>]
-<app.pdf, id=819, page=6, 422.53859pt x 594.54121pt>
+ [75 <./app.pdf>]
+<app.pdf, id=923, page=6, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 6>
 Package pdftex.def Info: app.pdf, page6 used on input line 116.
@@ -1946,8 +2031,8 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 6>
 Package pdftex.def Info: app.pdf, page6 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [71 <./app.pdf>]
-<app.pdf, id=825, page=7, 422.53859pt x 594.54121pt>
+ [76 <./app.pdf>]
+<app.pdf, id=929, page=7, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 7>
 Package pdftex.def Info: app.pdf, page7 used on input line 116.
@@ -1961,8 +2046,8 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 7>
 Package pdftex.def Info: app.pdf, page7 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [72 <./app.pdf>]
-<app.pdf, id=832, page=8, 422.53859pt x 594.54121pt>
+ [77 <./app.pdf>]
+<app.pdf, id=935, page=8, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 8>
 Package pdftex.def Info: app.pdf, page8 used on input line 116.
@@ -1976,8 +2061,8 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 8>
 Package pdftex.def Info: app.pdf, page8 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [73 <./app.pdf>]
-<app.pdf, id=838, page=9, 422.53859pt x 594.54121pt>
+ [78 <./app.pdf>]
+<app.pdf, id=942, page=9, 422.53859pt x 594.54121pt>
 File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 9>
 Package pdftex.def Info: app.pdf, page9 used on input line 116.
@@ -1991,13 +2076,13 @@ File: app.pdf Graphic file (type pdf)
  <use app.pdf, page 9>
 Package pdftex.def Info: app.pdf, page9 used on input line 116.
 (pdftex.def)             Requested size: 338.03133pt x 475.63362pt.
- [74 <./app.pdf>] (./main.bbl
+ [79 <./app.pdf>] (./main.bbl
 Underfull \hbox (badness 1163) in paragraph at lines 37--41
 []\OT1/cmr/m/n/12 T. Espo-si-to and R. Mau-ro.  Fon-da-men-ti di in-fra-strut-t
 u-re via-rie.
  []
 
-) [75
+) [80
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 124.
@@ -2006,7 +2091,7 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 124.
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 124.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 124.
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 0BC086B9B5950AEDD7E86FBDE6849176;2659.
+(rerunfilecheck)             Checksum: 926ADED66DF3E0E0FF23405331220280;2722.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -2014,11 +2099,11 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 124.
  ) 
 Here is how much of TeX's memory you used:
- 24178 strings out of 493013
- 400478 string characters out of 6133329
- 528771 words of memory out of 5000000
- 27113 multiletter control sequences out of 15000+600000
- 10471 words of font info for 38 fonts, out of 8000000 for 9000
+ 24244 strings out of 493013
+ 401670 string characters out of 6133329
+ 527771 words of memory out of 5000000
+ 27159 multiletter control sequences out of 15000+600000
+ 10639 words of font info for 39 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  41i,19n,77p,10489b,661s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
@@ -2029,12 +2114,13 @@ usr/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
 r/local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
 local/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/lo
-cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/loc
-al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on main.pdf (76 pages, 9375023 bytes).
+cal/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/loca
+l/texlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
+Output written on main.pdf (81 pages, 9456382 bytes).
 PDF statistics:
- 916 PDF objects out of 1000 (max. 8388607)
- 695 compressed objects within 7 object streams
- 172 named destinations out of 1000 (max. 500000)
- 640 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1026 PDF objects out of 1200 (max. 8388607)
+ 772 compressed objects within 8 object streams
+ 183 named destinations out of 1000 (max. 500000)
+ 693 words of extra memory for PDF output out of 10000 (max. 10000000)
 

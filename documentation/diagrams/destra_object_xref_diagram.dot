@@ -1,0 +1,44 @@
+digraph "destra_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_destra_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/destra.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="destra"
+"da_destra/2" [shape="ellipse",URL="destra_0.html#da_destra/2",tooltip="destra_0.html#da_destra/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[da_destra/2]]></FONT>>]
+"destra_lasca/2" [shape="ellipse",URL="destra_0.html#destra_lasca/2",tooltip="destra_0.html#destra_lasca/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[destra_lasca/2]]></FONT>>]
+"da_destra/2" [shape="ellipse",URL="destra_0.html#da_destra/2",tooltip="destra_0.html#da_destra/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[da_destra/2]]></FONT>>]
+"destra_lasca/2" [shape="ellipse",URL="destra_0.html#destra_lasca/2",tooltip="destra_0.html#destra_lasca/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[destra_lasca/2]]></FONT>>]
+"subito_a_destra/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[subito_a_destra/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"gestore_kb::proviene/2" [shape="ellipse",URL="gestore_kb_0.html#proviene/2",tooltip="gestore_kb_0.html#proviene/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[gestore_kb::proviene/2]]></FONT>>]
+}
+
+"destra_lasca/2" -> "subito_a_destra/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"da_destra/2" -> "destra_lasca/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"da_destra/2" -> "gestore_kb::proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

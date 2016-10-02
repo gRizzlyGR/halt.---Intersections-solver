@@ -1,8 +1,5 @@
 :- module(utils, []).
 
-:- use_module(library(unix)).
-;- use_module(library(process)).
-
 % Una lista vuota è un insieme
 set([], []).
 

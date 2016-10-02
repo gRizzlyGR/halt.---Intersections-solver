@@ -26,11 +26,16 @@ Per sviluppare le funzionalità del sistema sono stati realizzati dei moduli in 
 
 Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene gli incroci già pronti per essere risolti.
 
-\newgeometry{left=1cm, right=1cm, top=1mm, bottom=1mm}
-\begin{figure}
-	\makebox[\textwidth]{\includegraphics[width=1.2\textwidth]{diagrams/main}}
+\subsection{Diagrammi}
+I diagrammi mostrano come sono composti i moduli \texttt{pl}:
+
+
+\begin{figure}[!htb]
+	\makebox[\linewidth]{\includegraphics[scale=.5]{diagrams/main}}
 	\caption{\texttt{main.pl}}
 \end{figure}
+
+\newgeometry{left=1cm, right=1cm, top=1mm, bottom=1mm}
 
 \begin{sidewaysfigure}
 	\thisfloatpagestyle{empty}
@@ -44,8 +49,7 @@ Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene g
 \end{figure}
 \restoregeometry
 
-
-\newgeometry{top=1mm, bottom=1mm}
+\newgeometry{top=1mm, bottom=1mm, left=1mm, right=1mm}
 \begin{sidewaysfigure}
 	\thisfloatpagestyle{empty}
 	\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{diagrams/circolazione}
@@ -64,6 +68,18 @@ Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene g
 	\caption{\texttt{deadlock.pl}}
 \end{sidewaysfigure}
 
+
+\begin{figure}
+	\makebox[\textwidth]{\includegraphics[width=1.2\textwidth]{diagrams/destra}}
+	\caption{\texttt{destra.pl}}
+\end{figure}
+
+\begin{sidewaysfigure}
+	\thisfloatpagestyle{empty}
+	\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{diagrams/analisi}
+	\caption{\texttt{analisi.pl}}
+\end{sidewaysfigure}
+
 \begin{sidewaysfigure}
 	\thisfloatpagestyle{empty}
 	\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{diagrams/gestore_kb}
@@ -75,11 +91,42 @@ Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene g
 	\caption{\texttt{java\_access\_point.pl}}
 \end{sidewaysfigure}
 
+\begin{figure}
+	\centering
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{diagrams/adiacenza}
+		\caption{\texttt{adiacenza.pl}}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{diagrams/opposti}
+		\caption{\texttt{opposti.pl}}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{diagrams/prioritari}
+		\caption{\texttt{prioritari.pl}}
+	\end{subfigure}
+	\begin{subfigure}[b]{.4\textwidth}
+		\includegraphics[width=\textwidth]{diagrams/segnali}
+		\caption{\texttt{segnali.pl}}
+	\end{subfigure}
+\end{figure}
+
 \begin{sidewaysfigure}
 	\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{diagrams/movimento}
 	\caption{\texttt{movimento.pl}}
 \end{sidewaysfigure}
 
+\begin{sidewaysfigure}
+	\thisfloatpagestyle{empty}
+	\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{diagrams/msg}
+	\caption{\texttt{msg.pl}}
+\end{sidewaysfigure}
+
+\begin{sidewaysfigure}
+	\thisfloatpagestyle{empty}
+	\includegraphics[width=\textwidth, height=\textheight, keepaspectratio]{diagrams/utils}
+	\caption{\texttt{utils.pl}}
+\end{sidewaysfigure}
 
 \restoregeometry
 
@@ -89,7 +136,7 @@ Inoltre la base di conoscenza è salvata nel file \texttt{kb.pl}, che contiene g
 \subsection{Precedenza}
 Visti i casi espressi in \ref{ssec:prec}, descriviamo i passaggi che prevedono l'utilizzo di \texttt{precede/2} nel file \texttt{precedenze.pl}. Come è ovvio, il predicato \texttt{precede/2} prende due argomenti, i due veicoli, e verifica se esiste un diritto di precedenza per l'uno o per l'altro. Esistono varie situazioni in cui questi veicoli possono trovarsi:
 \begin{enumerate}
-	\item I due veicoli sono prioritari, quindi bisogna controllare chi la "spunta":
+	\item I due veicoli sono prioritari, quindi bisogna controllare chi la ``spunta":
 		\begin{itemize}
 			\item Uno ha la priorità più alta, quindi gode della precedenza sull'altro (per esempio, ambulanza su tram).
 			\item I due hanno la stessa priorità, quindi si applicano le normali regole di precedenza.
@@ -122,7 +169,7 @@ circolano :-
 	infine_dopo_stallo.
 \end{verbatimtab}
 
-La prima clausola di \texttt{circolano/0} descrive il primo caso, quello in cui non ci sono stalli e ricostruisce l'ordine corretto di transito dei veicoli. La seconda clausola, invece, controlla che ci sia uno stallo e procede a ritrovare quali veicoli passano prima dello stallo, entrando poi nel merito dello stallo cercando di risolverlo ed infine verifica se ci sono altri veicoli che passano per ultimi.
+La prima clausola di \texttt{circolano/0} descrive il primo caso, quello in cui non ci sono stalli e ricostruisce l'ordine corretto di transito dei veicoli. La seconda clausola, invece, accerta l'esistenza di uno stallo e procede a ritrovare quali veicoli passano prima di esso, entrando poi nel merito cercando di risolverlo ed infine verifica se ci sono altri veicoli che passano per ultimi.
 
 \subsection{Sorting}
 Questa sezione entra nel dettaglio di quanto già detto in \ref{ssec:circ}, per descrivere l'algoritmo di ordinamento. È stato implementato un \emph{na\"{\i}ve sort}\cite{Clocksin:2003}, presente nel modulo \texttt{circolazione.pl}, così formato:
@@ -178,7 +225,7 @@ stallo([], _).
 Il predicato \texttt{stallo/2} verifica che il veicolo in testa alla lista sia preceduto da un veicolo che faccia parte della lista, e si continua così per tutti gli altri veicoli.
 
 \subsection{Veicoli simultanei}
-Può capitare che un gruppo di veicoli si muova insieme, quindi, considerando la separazione in tre fasi fatta in \ref{ssec:circ}, ci possono essere più veicoli che passano per primi e più veicoli che passano per ultimi, ma il caso più interessante è quando, nella fase centrale, una parte passa insieme mentre l'altra segue il normale scorrimento. Occorre capire come incastrare quel gruppo simultaneo nel transito generale. Innanzitutto bisogna identificare quando un veicolo è simultaneo ad un altro, sfruttando il predicato \texttt{simultaneo/2}:
+Può capitare che un gruppo di veicoli si muova insieme: considerando la separazione in tre fasi fatta in \ref{ssec:circ}, ci possono essere più veicoli che passano per primi e più veicoli che passano per ultimi, ma il caso più interessante è quando, nella fase centrale, una parte passa insieme mentre l'altra segue il normale scorrimento. Occorre capire come incastrare quel gruppo simultaneo nel transito generale. Innanzitutto bisogna identificare quando un veicolo è simultaneo ad un altro, sfruttando il predicato \texttt{simultaneo/2}:
 \begin{verbatimtab}
 simultaneo(V1, V2) :-
 	precede(StessoVeicolo, V1),
@@ -219,7 +266,7 @@ Gli utenti che possono interagire con la piattaforma sono due, normale e amminis
 \subsection{Utente normale}
 L'utente normale può:
 \begin{itemize}
-	\item Inserire un incrocio, descrivendone le componenti in modo testuale al fine di risolverlo.
+	\item Inserire un incrocio, descrivendone le componenti in modo testuale al fine di risolverlo. L'utente dovrà inserire una lista di compound che descrivono l'incrocio.
 	\item Caricare in base all'ID un incrocio già presente nella base di conoscenza per risolverlo.
 \end{itemize}
 
@@ -257,7 +304,7 @@ subito_a_destra(braccio(nord_est), braccio(est)).
 subito_a_destra(braccio(est), braccio(sud_est)).	
 \end{verbatimtab}
 
-La relazione \texttt{destra\_lasca/2} rappresenta una concezione più ampia di destra, dove un braccio è a destra di un altro se esistono al più tre livelli di profondità di \texttt{subito\_a\_destra/2} tra bracci intermedi. Per chiarire si guardi la figura:
+La relazione \texttt{destra\_lasca/2} rappresenta una concezione più ampia di destra, dove un braccio è a destra di un altro se esistono al più tre livelli di profondità di \texttt{subito\_a\_destra/2} tra bracci intermedi. Per chiarire si osservi la figura:
 
 \begin{figure}[htb]
 	\centering
@@ -266,7 +313,8 @@ La relazione \texttt{destra\_lasca/2} rappresenta una concezione più ampia di d
 	\label{fig:right}
 \end{figure}
 
-Nella figura si nota come il nord sia subito a destra di nord-est e come quest'ultimo sia subito a destra di est, sempre dal punto di vista del guidatore che si ferma al braccio corrispondente al punto cardinale. La zona bianca rappresenta esattamente la destra lasca, che descrive, transitivamente, che il nord è a destra di est (in modo lasco), come anche nord-est. Nella fattispecie il codice risulta:
+\clearpage 
+In essa si nota come il nord sia subito a destra di nord-est e come quest'ultimo sia subito a destra di est, sempre dal punto di vista del guidatore che si ferma al braccio corrispondente al punto cardinale. La zona bianca rappresenta esattamente la destra lasca, che descrive, transitivamente, che il nord è a destra di est (in modo lasco), come anche nord-est. Nella fattispecie il codice risulta:
 
 \begin{verbatimtab}
 destra_lasca(Braccio1, Braccio2) :-
@@ -419,13 +467,13 @@ Per potere acceder alla base di conoscenza, il file \texttt{kb.pl}, è stato rea
 \end{itemize}
 
 \section{Miglioramento dell'interazione}
-Il programma con interfaccia grafica è nato per facilitare l'interazione con utenti che non sono avvezzi alla riga di comando e preferiscono magari un approccio più vicino ai loro standard stato. Il programma è scritto in Java e la libreria usata per l'interconnessione con SWI-Prolog si chiama InterProlog.
+Il programma con interfaccia grafica è nato per facilitare l'interazione con utenti che non sono avvezzi alla riga di comando e preferiscono magari un approccio più vicino ai loro standard. Il programma è scritto in Java 1.8 e la libreria usata per l'interconnessione con SWI-Prolog si chiama InterProlog.
 
 \subsection{Componenti}
 Le componenti del software in Java sono:
 
 \begin{itemize}
-	\item Il package \texttt{gui}, che contiene le classi necessarie per costruire l'interfaccia grafica, a sua volta suddiviso in \texttt{user} e \texttt{admin} che si dividono le classi relative alle varie funzionalità a loro disposizione, come spiegato in \ref{sec:users}. Un altro subpackage è \texttt{redirector}, che contiene classi che si occupano del ridirezionamento dell'ouput sulle opportune aree di testo del programma Java.
+	\item Il package \texttt{gui}, che contiene le classi necessarie per costruire l'interfaccia grafica, a sua volta suddiviso in \texttt{user} e \texttt{admin} che si dividono le classi relative alle varie funzionalità a loro disposizione, come spiegato in \ref{sec:users}. Un altro subpackage è \texttt{redirector}, che contiene classi che si occupano del ridirezionamento dell'ouput nelle opportune aree di testo del programma Java.
 	\item il package \texttt{prolog} che contiene le classi per gestire la comunicazione con Prolog e la validazione dei predicati scritti nel programma Java.
 \end{itemize}
 
@@ -505,9 +553,9 @@ Di seguito viene presentata una vista generalizzata del flusso di comunicazione:
 \begin{enumerate}
 	\item Parte un input da una finestra del programma Java. L'input può essere testuale (i fatti che descrivono un incrocio o l'ID) o un comando (eliminazione di un incrocio).
 	\item Opzionale: nel caso ci sia del testo in linguaggio naturale, esso viene processato dal modulo di validazione dei \textit{regex}, altrimenti si va direttamente al passo successivo.
-	\item I fatti vengono combinati con i prototipi dei predicati che verranno inviate al motore Prolog.
+	\item I fatti vengono combinati con i prototipi dei predicati (cioè i funtori dei predicati con degli argomenti segnaposto) che verranno inviati al motore Prolog.
 	\item Il file \texttt{java\_access\_point.pl} è il punto di comunicazione tra Java e Prolog, che riceve i comandi che corrispondono ai prototipi inviati dal Java.
-	\item Prolog riceve i comandi validati dal \texttt{java\_access\_point.pl} e li elabora, restituendo un output testuale.
+	\item Prolog viene interrogato con i comandi validati dal \texttt{java\_access\_point.pl} e risponde, restituendo un output testuale.
 	\item L'output di Prolog viene intercettato e ridirezionato sull'area di testo della finestra del programma Java, chiudendo la comunicazione.
 \end{enumerate}
 
@@ -576,7 +624,7 @@ L'ultima riguarda la presenza di un segnale in un braccio, che ricordiamo essere
 \par \mbox{\fbox{\texttt{.*braccio\textbackslash s+(.*)\textbackslash s+c.*segnale\textbackslash s+(.*)}}} \\\\
 che valida le stringhe che contengono ``braccio" e "segnale", ignorando gli spazi e gli altri caratteri.
 
-Dopo aver "spogliato" le frasi dalle parti inutili per estrarre il carico utile da inviare, c'è bisogno di richiamare i giusti operatori per interrogare Prolog. Il programma Java fornisce dei prototipi precompilati, di tipo enumerativo, che sono stringhe formattate pronte a ricevere una lista di argomenti di tipo stringa che andrà a sostituire i segnaposto presenti nel prototipo, quando ce ne sono. Questi corrispondono alle operazioni che è possibile effettuare dagli utenti e si presentano così:
+Dopo aver ``spogliato" le frasi dalle parti inutili per estrarre il carico utile da inviare, c'è bisogno di richiamare i giusti operatori per interrogare Prolog. Il programma Java fornisce dei prototipi precompilati, di tipo enumerativo, che sono stringhe formattate pronte a ricevere una lista di argomenti di tipo stringa che andrà a sostituire i segnaposto presenti nel prototipo, quando ce ne sono. Questi corrispondono alle operazioni che è possibile effettuare dagli utenti e si presentano così:
 \begin{itemize}
 	\item \texttt{solve\_new\_crossroad(\%s)}: invocato quando si tenta di risolvere un nuovo incrocio; il segnaposto è la lista dei fatti che descrivono l'incrocio. Essa viene convertita in stringa per essere più malleabile per il Prolog.
 	\item \texttt{solve\_crossroad\_by\_id(\%s)}: invocato quando si tenta di risolvere un incrocio tramite ID; il segnaposto è appunto l'ID dell'incrocio.

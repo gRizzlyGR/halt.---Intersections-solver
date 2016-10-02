@@ -1,0 +1,68 @@
+digraph "analisi_object" {
+rankdir="LR"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_analisi_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/analisi.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="analisi"
+"analizza_veicolo/1" [shape="ellipse",URL="analisi_0.html#analizza_veicolo/1",tooltip="analisi_0.html#analizza_veicolo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[analizza_veicolo/1]]></FONT>>]
+"analizza_tutti/0" [shape="ellipse",URL="analisi_0.html#analizza_tutti/0",tooltip="analisi_0.html#analizza_tutti/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[analizza_tutti/0]]></FONT>>]
+"analizza_veicolo/1" [shape="ellipse",URL="analisi_0.html#analizza_veicolo/1",tooltip="analisi_0.html#analizza_veicolo/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[analizza_veicolo/1]]></FONT>>]
+"analizza_tutti/0" [shape="ellipse",URL="analisi_0.html#analizza_tutti/0",tooltip="analisi_0.html#analizza_tutti/0",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="45"><![CDATA[analizza_tutti/0]]></FONT>>]
+"analizza/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[analizza/1]]></FONT>>]
+"recupera_preceduti/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[recupera_preceduti/2]]></FONT>>]
+"recupera_precedenti/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[recupera_precedenti/2]]></FONT>>]
+"recupera_simultanei/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[recupera_simultanei/2]]></FONT>>]
+"itera/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[itera/1]]></FONT>>]
+"proviene/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="45"><![CDATA[proviene/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"msg::preceduti/2" [shape="ellipse",URL="msg_0.html#preceduti/2",tooltip="msg_0.html#preceduti/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::preceduti/2]]></FONT>>]
+"msg::precedenti/2" [shape="ellipse",URL="msg_0.html#precedenti/2",tooltip="msg_0.html#precedenti/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::precedenti/2]]></FONT>>]
+"msg::simultanei/2" [shape="ellipse",URL="msg_0.html#simultanei/2",tooltip="msg_0.html#simultanei/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::simultanei/2]]></FONT>>]
+"utils::non_esiste/1" [shape="ellipse",URL="utils_0.html#non_esiste/1",tooltip="utils_0.html#non_esiste/1",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[utils::non_esiste/1]]></FONT>>]
+"msg::non_esiste/0" [shape="ellipse",URL="msg_0.html#non_esiste/0",tooltip="msg_0.html#non_esiste/0",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[msg::non_esiste/0]]></FONT>>]
+"precedenze::precede/2" [shape="ellipse",URL="precedenze_0.html#precede/2",tooltip="precedenze_0.html#precede/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::precede/2]]></FONT>>]
+"precedenze::simultaneo/2" [shape="ellipse",URL="precedenze_0.html#simultaneo/2",tooltip="precedenze_0.html#simultaneo/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="45"><![CDATA[precedenze::simultaneo/2]]></FONT>>]
+}
+
+"analizza/1" -> "analizza_veicolo/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "recupera_preceduti/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "recupera_precedenti/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "recupera_simultanei/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_tutti/0" -> "proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_tutti/0" -> "itera/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"itera/1" -> "analizza/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "msg::preceduti/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "msg::precedenti/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "msg::simultanei/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "utils::non_esiste/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"analizza_veicolo/1" -> "msg::non_esiste/0" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"recupera_preceduti/2" -> "precedenze::precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"recupera_precedenti/2" -> "precedenze::precede/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"recupera_simultanei/2" -> "precedenze::simultaneo/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

@@ -1,0 +1,38 @@
+digraph "segnali_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_segnali_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/segnali.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="segnali"
+"segnale_precedenza/1" [shape="ellipse",URL="segnali_0.html#segnale_precedenza/1",tooltip="segnali_0.html#segnale_precedenza/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[segnale_precedenza/1]]></FONT>>]
+"segnale_precedenza/1" [shape="ellipse",URL="segnali_0.html#segnale_precedenza/1",tooltip="segnali_0.html#segnale_precedenza/1",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[segnale_precedenza/1]]></FONT>>]
+"diritto_di_precedenza/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[diritto_di_precedenza/1]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+}
+
+}
+
+}

@@ -1,0 +1,39 @@
+digraph "adiacenza_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_adiacenza_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/adiacenza.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="adiacenza"
+"adiacente/2" [shape="ellipse",URL="adiacenza_0.html#adiacente/2",tooltip="adiacenza_0.html#adiacente/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[adiacente/2]]></FONT>>]
+"adiacente/2" [shape="ellipse",URL="adiacenza_0.html#adiacente/2",tooltip="adiacenza_0.html#adiacente/2",style="filled",fillcolor="springgreen",label=<<FONT POINT-SIZE="11"><![CDATA[adiacente/2]]></FONT>>]
+"collegato/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[collegato/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+}
+
+"adiacente/2" -> "collegato/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

@@ -1,0 +1,72 @@
+digraph "msg_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_msg_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/msg.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="msg"
+"primo_a_passare/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[primo_a_passare/1]]></FONT>>]
+"prossimi_a_passare/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[prossimi_a_passare/1]]></FONT>>]
+"prossimo_a_passare/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[prossimo_a_passare/1]]></FONT>>]
+"ultimo_a_passare/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[ultimo_a_passare/1]]></FONT>>]
+"passano_insieme/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[passano_insieme/1]]></FONT>>]
+"primi_a_passare/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[primi_a_passare/1]]></FONT>>]
+"ultimi_a_passare/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[ultimi_a_passare/1]]></FONT>>]
+"prossimi_insieme/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[prossimi_insieme/1]]></FONT>>]
+"piu_di_uno/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[piu_di_uno/1]]></FONT>>]
+"va_al_centro/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[va_al_centro/1]]></FONT>>]
+"ultimo_dal_centro/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[ultimo_dal_centro/1]]></FONT>>]
+"precedenti/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[precedenti/2]]></FONT>>]
+"preceduti/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[preceduti/2]]></FONT>>]
+"simultanei/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[simultanei/2]]></FONT>>]
+"stampa_precedenti/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[stampa_precedenti/3]]></FONT>>]
+"stampa_preceduti/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[stampa_preceduti/3]]></FONT>>]
+"stampa_simultanei/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[stampa_simultanei/3]]></FONT>>]
+"non_esiste/0" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[non_esiste/0]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+"utils::ben_formattato/2" [shape="ellipse",URL="utils_0.html#ben_formattato/2",tooltip="utils_0.html#ben_formattato/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[utils::ben_formattato/2]]></FONT>>]
+"utils::veicoli_atom/2" [shape="ellipse",URL="utils_0.html#veicoli_atom/2",tooltip="utils_0.html#veicoli_atom/2",style="filled,dashed",fillcolor="lightgrey",label=<<FONT POINT-SIZE="11"><![CDATA[utils::veicoli_atom/2]]></FONT>>]
+}
+
+"prossimi_a_passare/1" -> "prossimo_a_passare/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prossimo_a_passare/1" -> "passano_insieme/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"primi_a_passare/1" -> "piu_di_uno/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ultimi_a_passare/1" -> "piu_di_uno/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenti/2" -> "stampa_precedenti/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"preceduti/2" -> "stampa_preceduti/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"simultanei/2" -> "stampa_simultanei/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"stampa_precedenti/3" -> "piu_di_uno/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"stampa_preceduti/3" -> "piu_di_uno/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"stampa_simultanei/3" -> "piu_di_uno/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"passano_insieme/1" -> "utils::ben_formattato/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"primi_a_passare/1" -> "utils::ben_formattato/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ultimi_a_passare/1" -> "utils::ben_formattato/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"prossimi_insieme/1" -> "utils::ben_formattato/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"precedenti/2" -> "utils::veicoli_atom/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"preceduti/2" -> "utils::veicoli_atom/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"simultanei/2" -> "utils::veicoli_atom/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}

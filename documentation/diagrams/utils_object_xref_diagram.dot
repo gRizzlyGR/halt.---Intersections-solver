@@ -1,0 +1,70 @@
+digraph "utils_object" {
+rankdir="TB"
+ranksep="1.25"
+compound="true"
+splines="true"
+pack="true"
+clusterrank="local"
+labeljust="l"
+margin="1.0"
+fontname="Courier"
+fontsize="10"
+fontcolor="snow4"
+pencolor="snow4"
+node [shape="ellipse",style="filled",fillcolor="white",fontname="Courier",fontsize="9"]
+edge [fontname="Courier",fontsize="9"]
+
+subgraph "cluster_utils_object" {
+URL=""
+tooltip="/home/giuseppe/IA/Progetto/code/prolog/utils.lgt"
+bgcolor="snow"
+style="rounded"
+margin="10"
+label="utils"
+"set/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[set/2]]></FONT>>]
+"canc/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[canc/3]]></FONT>>]
+"perm/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[perm/2]]></FONT>>]
+"primo_elem/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[primo_elem/2]]></FONT>>]
+"ultimo_elem/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[ultimo_elem/2]]></FONT>>]
+"spuntata/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[spuntata/2]]></FONT>>]
+"rev/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[rev/2]]></FONT>>]
+"acc_rev/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[acc_rev/3]]></FONT>>]
+"sostituisci/4" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[sostituisci/4]]></FONT>>]
+"ben_formattato/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[ben_formattato/2]]></FONT>>]
+"acc_ben_formattato/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[acc_ben_formattato/3]]></FONT>>]
+"payload/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[payload/2]]></FONT>>]
+"lista_di_termini/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[lista_di_termini/2]]></FONT>>]
+"acc_lista_di_termini/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[acc_lista_di_termini/3]]></FONT>>]
+"veicoli_atom/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[veicoli_atom/2]]></FONT>>]
+"lista_di_atomi/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[lista_di_atomi/2]]></FONT>>]
+"acc_lista_di_atomi/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[acc_lista_di_atomi/3]]></FONT>>]
+"non_vuota/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[non_vuota/1]]></FONT>>]
+"non_esiste/1" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[non_esiste/1]]></FONT>>]
+"append/3" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[append/3]]></FONT>>]
+"proviene/2" [shape="ellipse",style="filled",fillcolor="beige",label=<<FONT POINT-SIZE="11"><![CDATA[proviene/2]]></FONT>>]
+subgraph "cluster_other" {
+URL=""
+tooltip="(external predicates)"
+bgcolor="white"
+style="rounded"
+margin="10"
+label="(external predicates)"
+}
+
+"set/2" -> "canc/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"perm/2" -> "append/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ultimo_elem/2" -> "rev/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"spuntata/2" -> "rev/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"rev/2" -> "acc_rev/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ben_formattato/2" -> "acc_ben_formattato/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"ben_formattato/2" -> "rev/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"payload/2" -> "lista_di_termini/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"payload/2" -> "rev/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"lista_di_termini/2" -> "acc_lista_di_termini/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"veicoli_atom/2" -> "non_vuota/1" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"veicoli_atom/2" -> "lista_di_atomi/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"lista_di_atomi/2" -> "acc_lista_di_atomi/3" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+"non_esiste/1" -> "proviene/2" [arrowhead="rdiamond",tooltip="calls",label=<<![CDATA[calls]]><BR/>>]
+}
+
+}
