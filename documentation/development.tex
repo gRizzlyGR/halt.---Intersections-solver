@@ -176,8 +176,7 @@ Questa sezione entra nel dettaglio di quanto già detto in \ref{ssec:circ}, per 
 \begin{verbatimtab}
 ordine(Lista, Ordinata) :-
 	utils:perm(Lista, Ordinata),
-	ordinato(Ordinata),
-	!.
+	ordinato(Ordinata).
 
 ordinato([]).
 

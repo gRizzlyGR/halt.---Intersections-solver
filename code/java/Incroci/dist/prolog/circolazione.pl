@@ -165,8 +165,7 @@ infine :-
 % Ordinamento. Il cut previene il duplicato della lista ordinata quando quella di input è già ordinata di suo.
 ordine(Lista, Ordinata) :-
 	utils:perm(Lista, Ordinata),
-	ordinato(Ordinata),
-	!.
+	ordinato(Ordinata).
 
 ordinato([]).
 ordinato([_]).

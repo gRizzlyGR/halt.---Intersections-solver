@@ -56,7 +56,7 @@ pausa :-
 
 risolvi :-
 	write('--Soluzione:'), nl,
-	circolano, !, nl.
+	circolano, nl.
 
 dettaglio :-
 	write('--Vuoi avere più informazioni sui veicoli? (s/n): '), read(S), nl,
