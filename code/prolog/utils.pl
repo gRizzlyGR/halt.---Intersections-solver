@@ -20,13 +20,14 @@ canc(X, [H|T], [H|T1]) :-
     X \= H,
     canc(X, T, T1).
 
-% Permutazione di elementi
+% Permutazione di elementi. Una permutazione di una lista vuota è una lista vuota, oppure è una lista che ha come testa
+% un elemento della lista e come coda una permutazione degli elementi rimanenti
 perm([], []).
 
-perm(L, [H|T]) :-
+perm(L, [H|PermutRimanenti]) :-
 	append(V, [H|U], L),
 	append(V, U, W),
-	perm(W, T).
+	perm(W, PermutRimanenti).
 
 
 % Primo elemento

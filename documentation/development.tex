@@ -193,10 +193,10 @@ La permutazione avviene utilizzando \texttt{perm/2} presente nel modulo \texttt{
 \begin{verbatimtab}
 perm([], []).
 	
-perm(L, [H|T]) :-
+perm(L, [H|PermutRimanenti) :-
 	append(V, [H|U], L),
 	append(V, U, W),
-	perm(W, T).
+	perm(W, PermutRimanenti).
 \end{verbatimtab}
 
 L'idea alla base di \texttt{perm/2} è che una permutazione della lista ha come elemento la testa della lista che è seguita da una permutazione degli elementi rimanenti della stessa.
@@ -377,7 +377,7 @@ opposto(braccio(X), braccio(Y)) :-
 Questo modulo contiene operatori che descrivono situazioni particolari in cui i veicoli possono incrociarsi, dimostrandosi utili per la risoluzione dell'incrocio. Nello specifico essi sono:
 
 \begin{itemize}
-	\item \texttt{incrocia/2}: controlla che un veicolo ne trovi un altro nel corso della sua manovra. Sfrutta tutti i predicati successivi, insieme ad altri importati da altri moduli.
+	\item \texttt{incrocia/2}: controlla che un veicolo ne trovi un altro nel corso della sua manovra. Sfrutta tutti i predicati elencati successivamente, insieme ad altri importati da altri moduli.
 	
 	\item \texttt{svolta\_a\_u/2}: si riferisce al caso in cui il braccio di arrivo di un veicolo è a destra del braccio di provenienza di un altro. Questo può comportare il caso in cui un veicolo proveniente da destra ma che dà la precedenza ad un altro si diriga in un braccio svoltando ad U.
 	
@@ -413,7 +413,7 @@ Un veicolo ha la precedenza a destra rispetto ad un altro se il primo proviene d
 
 Il veicolo giallo incrocia il veicolo celeste nel braccio sud-est, senza il vincolo della svolta ad U risulterebbe che, reciprocamente, uno ha la precedenza sull'altro.
 \\\\
-\indent Per quanto riguarda \texttt{incrocia/2}, esso è formato da cinque clausole che vengono descritte di seguito:
+\indent Gli altri predicati usati da \texttt{incrocia/2} vengono analizzati meglio di seguito:
 \begin{center}
 	\begin{longtabu} to \textwidth {lX}
 		\adjustbox{raise=-2.5cm}{\includegraphics[width=.4\textwidth]{images/movement/same_dir}} & I veicoli rosso e giallo vanno entrambi nel braccio sud. Viene sfruttato \texttt{transitano\_stesso\_braccio/2}.\\
@@ -424,7 +424,7 @@ Il veicolo giallo incrocia il veicolo celeste nel braccio sud-est, senza il vinc
 		
 		\adjustbox{raise=-2.9cm}{\includegraphics[width=.4\textwidth]{images/movement/one_left}} & Il camion va a sinistra mentre il veicolo celeste va a destra, proseguendo in bracci opposti. Viene sfruttato \texttt{uno\_a\_sinistra/4}. \\
 		
-		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/movement/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. In questo caso si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.
+		\adjustbox{raise=-6.45cm}{\includegraphics[width=.4\textwidth]{images/movement/mirror}} & La prima figura mostra il veicolo celeste e rosso che si incrociano, con il veicolo celeste andare a sinistra nel braccio di provenienza del rosso, assicurandoci che il rosso non faccia lo stesso, altrimenti si verificherebbe la situazione della seconda figura, dove i due veicoli non si incrociano. Nel caso della prima figura si usano \texttt{uno\_a\_sinistra/4}, \texttt{nel\_braccio\_dell\_altro/2} e \texttt{dove\_vado\_uguale\_dove\_vieni/2}.
 	\end{longtabu}
 \end{center}
 
@@ -466,7 +466,7 @@ Per potere acceder alla base di conoscenza, il file \texttt{kb.pl}, è stato rea
 \end{itemize}
 
 \section{Miglioramento dell'interazione}
-Il programma con interfaccia grafica è nato per facilitare l'interazione con utenti che non sono avvezzi alla riga di comando e preferiscono magari un approccio più vicino ai loro standard. Il programma è scritto in Java 1.8 e la libreria usata per l'interconnessione con SWI-Prolog si chiama InterProlog.
+Il programma con interfaccia grafica è nato per facilitare l'interazione con utenti che non sono avvezzi alla riga di comando e preferiscono magari un approccio più vicino a loro. Il programma è scritto in Java 1.8 e la libreria usata per l'interconnessione con SWI-Prolog si chiama InterProlog.
 
 \subsection{Componenti}
 Le componenti del software in Java sono:
