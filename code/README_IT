@@ -1,0 +1,28 @@
+Il seguente README contiene le istruzioni in italiano per utilizzare il programma.
+
+Il software è stato realizzato con SWI-Prolog 7.2.0 e Java 1.8 per le GUI.
+Il sistema operativo sul quale è stato testato è Ubuntu 15.10.
+
+Su Linux:
+	- Per avviare il programma su terminale come utente normale, eseguire "start_prolog.sh".
+	- Per avviare il programma su terminale come utente con prilivegi, eseguire "start_admin.sh".
+	- Per avviare il programma Java con interfaccia grafica, eseguire "start_java.sh" o doppio click su "Incroci.jar". Assicurarsi che:
+		-- Il file jar sia eseguibile, altrimenti da terminale lanciare: chmod +x Incroci.jar
+		-- Sia presente la cartella "prolog" con i sorgenti.
+		-- Nella cartella "lib" sia presente il file "interprolog.jar".
+
+Su Windows:
+	WIP.
+
+La cartella "prolog" contiene i sorgenti .pl del programma di SWI-Prolog, mentre "java_src.zip" contiene i sorgenti del programma Java.
+Il file "Incroci.jar" è il pacchetto da avviare per eseguire il programma Java: per farlo funzionare è necessario che nella stessa cartella siano presenti la cartella "prolog" con i file .pl e la cartella "lib" con il file "interprolog.jar".
+
+La cartella "backup" contiene copie di sicurezza di alcuni file.
+
+Il file "prontuario.pdf" è una scansione di alcune pagine del documento di esame della patente
+utilizzato come riferimento durante lo sviluppo. Contiene gli incroci (codificati nel file "kb.pl")
+e le loro soluzioni. Per accedere a questi incroci, dal programma è necessario passare un'ID che
+per comodità si presenta come "fig[numero incrocio]", quindi per accedere, ad esempio, all'incrocio 13,
+l'ID sarà "fig13".
+
+Per altre informazioni leggere il documento "Progetto.pdf".
