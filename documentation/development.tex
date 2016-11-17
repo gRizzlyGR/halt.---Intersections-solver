@@ -208,7 +208,7 @@ Riprendiamo ciò che è stato detto in \ref{sssec:lock}, quando alcuni veicoli s
 attesa_circolare(Veicoli) :-
 	setof(V, non_il_primo(V), Veicoli),
 	almeno_tre(Veicoli),
-	stallo(Veicoli, [], Veicoli).
+	stallo(Veicoli, Veicoli).
 \end{verbatimtab}
 
 Esso recupera una lista di veicoli non primi (ottenuti grazie all'operatore \texttt{setof/3}) che contenga almeno tre elementi. Una volta scoperti questi veicoli, si verifica se esiste o meno uno stallo:
